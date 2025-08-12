@@ -49,13 +49,27 @@
             display: flex;
             flex-direction: column;
             gap: 2px;
+            align-items: center;
         }
 
         .dot {
-            width: 6px;
-            height: 6px;
             background: #ffffff;
             border-radius: 50%;
+        }
+
+        .dot:nth-child(1) {
+            width: 4px;
+            height: 4px;
+        }
+
+        .dot:nth-child(2) {
+            width: 6px;
+            height: 6px;
+        }
+
+        .dot:nth-child(3) {
+            width: 8px;
+            height: 8px;
         }
 
         .nav-links {
@@ -406,14 +420,16 @@
         /* Full Width Image Section */
         .full-width-image-section {
             background: #ffffff;
-            padding: 0;
+            padding: 2rem;
             width: 100%;
         }
 
         .full-width-image-placeholder {
             width: 100%;
             height: 300px;
-            background-color: #ffffff;
+            background-color: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -499,11 +515,19 @@
             gap: 2px;
         }
 
-        .footer-brand .dot {
+        .footer-brand .dot:nth-child(1) {
+            width: 4px;
+            height: 4px;
+        }
+
+        .footer-brand .dot:nth-child(2) {
             width: 6px;
             height: 6px;
-            background: #ffffff;
-            border-radius: 50%;
+        }
+
+        .footer-brand .dot:nth-child(3) {
+            width: 8px;
+            height: 8px;
         }
 
         .footer-brand p {
@@ -930,6 +954,11 @@
                         <a href="#" class="explore-btn">Explore DPS for Food Manufacturing</a>
                     </div>
                 </div>
+            </div>
+            
+            <!-- Image Placeholder Below Food Production -->
+            <div style="width: 100%; height: 200px; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 20px; margin: 3rem 2rem; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                <img src="https://i.postimg.cc/3R5dK8cC/Ourpartners.png" alt="Our Partners" style="width: 100%; height: 100%; object-fit: contain;">
             </div>
         </div>
     </section>
