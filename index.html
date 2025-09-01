@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phizzle - Digitizing Quality Assurance</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <title>About Us - Phizzle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,7 +13,7 @@
         }
 
         body {
-            font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #333;
         }
@@ -144,17 +144,6 @@
             border-left-color: #4a90b8;
         }
 
-        .dropdown-header {
-            color: #64748b;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 0.5rem 1.5rem;
-            border-bottom: 1px solid #e2e8f0;
-            margin-bottom: 0.5rem;
-        }
-
         .request-demo {
             background: #d97706 !important;
             color: white !important;
@@ -168,64 +157,32 @@
         }
 
         .request-demo:hover {
-            background: #b45309;
+            background: #b45309 !important;
             color: white !important;
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://i.ibb.co/gF60Dyry/image-51.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            position: relative;
+        /* Main Content */
+        .main-content {
+            background: #ffffff;
             padding: 4rem 0;
         }
 
-        .hero-container {
+        .content-container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
+        }
+
+        /* About Section */
+        .about-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
-            align-items: center;
+            align-items: start;
+            margin-bottom: 6rem;
         }
 
-        .hero-content h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #ffffff;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-content p {
-            font-size: 1.1rem;
-            color: #e2e8f0;
-            line-height: 1.6;
-            max-width: 600px;
-        }
-
-        /* Platform Section */
-        .platform-section {
-            background: #ffffff;
-            padding: 5rem 0;
-        }
-
-        .platform-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .platform-bubble h2 {
+        .about-header h1 {
             font-size: 2.2rem;
             font-weight: 600;
             color: #4a90b8;
@@ -233,245 +190,197 @@
             line-height: 1.2;
         }
 
-        .platform-bubble p {
-            font-size: 1rem;
-            color: #64748b;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-        }
-
-        .how-it-works-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: #22c55e;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s ease;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-        }
-
-        .how-it-works-btn:hover {
-            background: #16a34a;
-        }
-
-        .how-it-works-btn::before {
-            content: '▶';
-            font-size: 0.8rem;
-        }
-
-        .platform-bubble {
-            max-width: 800px;
-            width: 100%;
-        }
-
-        .platform-steps {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .step {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .step-icon {
-            width: 40px;
-            height: 40px;
-            background: #4a90b8;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-            margin-top: 0.25rem;
-        }
-
-        .step-content h3 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: #4a90b8;
-            margin-bottom: 0.5rem;
-        }
-
-        .step-content h3 .step-number {
-            color: #1f2937;
-            margin-right: 0.5rem;
-            font-weight: 400;
-        }
-
-        .step-content h3 .step-action {
-            font-weight: 700;
-        }
-
-        .step-content p {
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        /* Benefits Section */
-        .benefits-section {
-            background: #f8fafc;
-            padding: 5rem 0;
-        }
-
-        .benefits-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .benefits-header {
-            margin-bottom: 4rem;
-        }
-
-        .benefits-header h2 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: #4a90b8;
-            margin-bottom: 1rem;
-        }
-
-        .benefits-header p {
-            font-size: 1.1rem;
-            color: #64748b;
-            max-width: 800px;
-        }
-
-        .benefits-grid {
-            display: grid;
-            gap: 3rem;
-        }
-
-        .benefit-item {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .benefit-image {
-            width: 100%;
-            height: 200px;
-            background: #e2e8f0;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #64748b;
-            font-size: 0.9rem;
-            text-align: center;
-            padding: 1rem;
-        }
-
-        .benefit-content h3 {
+        .about-tagline h2 {
             font-size: 1.8rem;
             font-weight: 600;
-            color: #4a90b8;
+            color: #1f2937;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+        }
+
+        .mission-content {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid #4a90b8;
+        }
+
+        .mission-content h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1f2937;
             margin-bottom: 1rem;
         }
 
-        .benefit-content p {
+        .mission-content p {
             color: #64748b;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-size: 0.95rem;
         }
 
-        .explore-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: #22c55e;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
+        /* Leadership Section */
+        .leadership-section {
+            margin-bottom: 6rem;
+        }
+
+        .leadership-section h2 {
+            font-size: 2.2rem;
             font-weight: 600;
-            transition: background 0.3s ease;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-        }
-
-        .explore-btn:hover {
-            background: #16a34a;
-        }
-
-        .explore-btn::before {
-            content: '▶';
-            font-size: 0.8rem;
-        }
-
-        /* Full Width Image Section */
-        .full-width-image-section {
-            background: #ffffff;
-            padding: 2rem;
-            width: 100%;
-        }
-
-        .full-width-image-placeholder {
-            width: 100%;
-            height: 300px;
-            background-color: #f8fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Partners Section */
-        .partners-section {
-            background: #ffffff;
-            padding: 4rem 0;
-        }
-
-        .partners-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .partners-header {
+            color: #1f2937;
             margin-bottom: 3rem;
         }
 
-        .partners-header h2 {
-            font-size: 2rem;
-            font-weight: 600;
-            color: #4a90b8;
-            margin-bottom: 1rem;
-        }
-
-        .partners-grid {
+        .leadership-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            justify-items: center;
+        }
+
+        /* Additional leadership row for remaining members */
+        .leadership-grid-row2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 4rem auto 3rem;
+            justify-items: center;
+        }
+
+        .leader-card {
+            text-align: center;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+            transition: box-shadow 0.3s ease;
+            width: 240px;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
             align-items: center;
         }
 
-        .partner-logo {
-            height: 80px;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
+        .leader-card:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .leader-photo {
+            width: 180px;
+            height: 180px;
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #64748b;
+            margin: 0 auto 1rem;
+            background: #f3f4f6;
+            border: 2px solid #e2e8f0;
+            overflow: hidden;
+        }
+
+        .leader-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .leader-card:hover .leader-photo img {
+            filter: grayscale(0%);
+        }
+
+        .leader-name {
+            font-size: 1rem;
             font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.25rem;
+        }
+
+        .leader-title {
+            font-size: 0.9rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        /* Board Section */
+        .board-section h2 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 3rem;
+        }
+
+        .board-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 5rem;
+            justify-items: center;
+        }
+
+        .board-member {
             text-align: center;
-            padding: 1rem;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+            transition: box-shadow 0.3s ease;
+            width: 240px;
+            height: 320px; /* Increased height to accommodate title */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .board-member:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .board-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 8px;
+            margin: 0 auto 1rem;
+            background: #f3f4f6;
+            border: 2px solid #e2e8f0;
+            overflow: hidden;
+        }
+
+        .board-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .board-member:hover .board-photo img {
+            filter: grayscale(0%);
+        }
+
+        .board-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.25rem;
+        }
+
+        .board-title {
+            font-size: 0.85rem;
+            color: #64748b;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        /* Additional board row for remaining members */
+        .board-grid-row2 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            justify-items: center;
         }
 
         /* Footer Section */
@@ -720,24 +629,27 @@
                 margin-top: 2rem;
             }
 
-            .hero-container,
-            .platform-container {
+            .about-section {
                 grid-template-columns: 1fr;
                 gap: 3rem;
             }
 
-            .platform-bubble {
-                grid-template-columns: 1fr !important;
-                gap: 2rem !important;
+            .leadership-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .benefit-item {
+            .leadership-grid-row2 {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                max-width: 300px;
             }
 
-            .benefit-image {
-                height: 150px;
+            .board-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .board-grid-row2 {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 400px;
             }
 
             /* Mobile navigation adjustments */
@@ -786,22 +698,35 @@
                 justify-content: center;
             }
 
-            .hero-content h1 {
-                font-size: 2.2rem;
+            .about-header h1 {
+                font-size: 1.8rem;
             }
 
-            .platform-intro h2,
-            .benefits-header h2 {
-                font-size: 2rem;
+            .about-tagline h2 {
+                font-size: 1.5rem;
             }
 
-            .partners-grid {
+            .leadership-section h2,
+            .board-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .leadership-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .leadership-grid-row2 {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+            }
+
+            .board-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .footer-container {
+            .board-grid-row2 {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                max-width: 300px;
             }
         }
     </style>
@@ -873,111 +798,222 @@
             </ul>
         </div>
     </nav>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Where GMP Meets IoT Precision</h1>
-                <p>Ensuring data integrity, workflow efficiency and compliance by digitizing GMP workflows with Connected Plant.</p>
-            </div>
-            <div class="hero-visual">
-                <!-- Hero image space - would contain the manufacturing facility image -->
-            </div>
-        </div>
-    </section>
 
-    <!-- Platform Section -->
-    <section class="platform-section">
-        <div class="platform-container">
-            <div class="platform-bubble" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
-                <div class="platform-left">
-                    <h2>GMP Workflows, Digitized in 3 Steps:</h2>
-                    <p>Eliminating pen and paper processes, data loss from external interruptions and clunky middleware push data to LIMS all from one UI.</p>
-                    <a href="connect.html" class="how-it-works-btn">See how it works</a>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="content-container">
+            <!-- About Section -->
+            <section class="about-section">
+                <div class="about-header">
+                    <h1>About Phizzle</h1>
+                    <h2>Transforming Manufacturing Through Intelligent Automation.</h2>
                 </div>
                 
-                <div class="platform-steps">
-                    <div class="step">
-                        <div class="step-icon">🔗</div>
-                        <div class="step-content">
-                            <h3><span class="step-number">1.</span><span class="step-action">Connect</span> to Analytical Scienfitics Instruments</h3>
+                <div class="mission-content">
+                    <h3>Our mission is to accelerate innovation by digitizing paper-based processes in regulated manufacturing environments.</h3>
+                    <p>We believe that in an era of advanced digital systems, no manufacturer should still rely on pen-and-paper data collection, manual transcription, or disconnected instruments that create data silos. Our platform, Connected Plant, bridges the gap between legacy analytical instruments and modern digital infrastructure. By connecting, automating, and integrating with existing GMP workflows, we enable manufacturers to maintain the highest standards of data integrity while accelerating decision-making and reducing operational costs.</p>
+                </div>
+            </section>
+
+            <!-- Leadership Section -->
+            <section class="leadership-section">
+                <h2>Leadership</h2>
+                
+                <div class="leadership-grid">
+                    <div class="leader-card">
+                        <div class="leader-photo">
+                            <img src="https://i.ibb.co/fVZDdkTN/image-36.png" alt="Ben Davis">
                         </div>
+                        <div class="leader-name">
+                            Ben Davis
+                            <a href="https://www.linkedin.com/in/bendavis3/" target="_blank" rel="noopener noreferrer">
+                                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="leader-title">CEO</div>
                     </div>
                     
-                    <div class="step">
-                        <div class="step-icon">⚙️</div>
-                        <div class="step-content">
-                            <h3><span class="step-number">2.</span><span class="step-action">Automate</span> Data Formatting</h3>
+                    <div class="leader-card">
+                        <div class="leader-photo">
+                            <img src="https://i.ibb.co/Z6DDwCP1/image-37.png" alt="Mike Patrick">
                         </div>
+                        <div class="leader-name">
+                            Mike Patrick
+                            <a href="https://www.linkedin.com/in/mikeapatrick/" target="_blank" rel="noopener noreferrer">
+                                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="leader-title">CIO</div>
                     </div>
                     
-                    <div class="step">
-                        <div class="step-icon">🔄</div>
-                        <div class="step-content">
-                            <h3><span class="step-number">3.</span><span class="step-action">Integrate</span> with Digital Systems and Existing SOPs</h3>
+                    <div class="leader-card">
+                        <div class="leader-photo">
+                            <img src="https://i.ibb.co/m57nXSr3/image-42.png" alt="Ed Lau">
                         </div>
+                        <div class="leader-name">
+                            Ed Lau
+                            <a href="https://www.linkedin.com/in/ed-l-2073b31/details/experience/" target="_blank" rel="noopener noreferrer">
+                                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="leader-title">President</div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Benefits Section -->
-    <section class="benefits-section">
-        <div class="benefits-container">
-            <div class="benefits-header">
-                <h2>Explore the Benefits of Connected Plant by Application</h2>
-            </div>
-            
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <div class="benefit-image" style="background-image: url('https://i.postimg.cc/d0ThPk4V/biopharmaimage.jpg'); background-size: cover; background-position: center; color: transparent;">
-                        BioPharma Manufacturing Image
+                <div class="leadership-grid-row2">
+                    <div class="leader-card">
+                        <div class="leader-photo">
+                            <img src="https://i.ibb.co/w58LQnP/image-39.png" alt="Stephen Peary">
+                        </div>
+                        <div class="leader-name">
+                            Stephen Peary
+                            <a href="https://www.linkedin.com/in/speary/" target="_blank" rel="noopener noreferrer">
+                                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="leader-title">CFO</div>
                     </div>
-                    <div class="benefit-content">
-                        <h3>Biopharma Manufacturing</h3>
-                        <p>Get rid of paper printouts and multistep SOPs to get data in LIMS, MES, or QMS and ensure 21 CFR Part 11 compliance with a built in electronic review process.</p>
-                        <a href="biopharma-manufacturing.html" class="explore-btn">Explore Connected Plant for Biopharma Manufacturing</a>
+                    
+                    <div class="leader-card">
+                        <div class="leader-photo">
+                            <img src="https://i.ibb.co/dwMQ7541/image-40.png" alt="Ryan Brady">
+                        </div>
+                        <div class="leader-name">
+                            Ryan Brady
+                            <a href="https://www.linkedin.com/in/cryanbrady/" target="_blank" rel="noopener noreferrer">
+                                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="leader-title">CTO</div>
                     </div>
                 </div>
+            </section>
+
+            <!-- Board Section -->
+            <section class="board-section">
+                <h2>Board of Directors</h2>
                 
-                <div class="benefit-item">
-                    <div class="benefit-image" style="background-image: url('https://i.postimg.cc/282b4f1r/aerospaceimage.jpg'); background-size: cover; background-position: center; color: transparent;">
-                        Aerospace Innovation Image
+                <div class="board-grid">
+                    <div class="board-member">
+                        <div class="board-photo">
+                            <img src="https://i.ibb.co/fVZDdkTN/image-36.png" alt="Ben Davis">
+                        </div>
+                        <div class="board-name">
+                            Ben Davis
+                            <a href="https://www.linkedin.com/in/bendavis3/" target="_blank" rel="noopener noreferrer">
+                                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="board-title">CEO, Phizzle</div>
                     </div>
-                    <div class="benefit-content">
-                        <h3>Aerospace Innovation</h3>
-                        <p>Streamline manual workflows by connecting directly to digital systems and ensure AS9100 compliance.</p>
-                        <a href="aerospace-manufacturing.html" class="explore-btn">Explore Connected Plant for Aerospace Manufacturing</a>
+                    
+                    <div class="board-member">
+                        <div class="board-photo">
+                            <img src="https://i.ibb.co/HTS9m8kh/image-43.png" alt="Jim Whims">
+                        </div>
+                        <div class="board-name">
+                            Jim Whims
+                            <a href="https://www.linkedin.com/in/jimwhims/" target="_blank" rel="noopener noreferrer">
+                                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="board-title">Alsop-Louie</div>
+                    </div>
+                    
+                    <div class="board-member">
+                        <div class="board-photo">
+                            <img src="https://i.ibb.co/dJsgrs3k/image-44.png" alt="Mark Krentzman">
+                        </div>
+                        <div class="board-name">
+                            Mark Krentzman
+                            <a href="https://www.linkedin.com/in/mkrentzman/" target="_blank" rel="noopener noreferrer">
+                                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="board-title">Jones & Vining</div>
+                    </div>
+                    
+                    <div class="board-member">
+                        <div class="board-photo">
+                            <img src="https://i.ibb.co/7tkQxnBw/image-46.png" alt="Lena Wu">
+                        </div>
+                        <div class="board-name">
+                            Lena Wu
+                            <a href="https://www.linkedin.com/in/lena-wu-0965242/" target="_blank" rel="noopener noreferrer">
+                                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="board-title">Director/Strategic Advisor</div>
                     </div>
                 </div>
-                
-                <div class="benefit-item">
-                    <div class="benefit-image" style="background-image: url('https://i.postimg.cc/jS1DFQ61/foodproductioncleanroom.webp'); background-size: cover; background-position: center; color: transparent;">
-                        Food Production Image
+
+                <div class="board-grid-row2">
+                    <div class="board-member">
+                        <div class="board-photo">
+                            <img src="https://i.ibb.co/hRVkq85r/image-47.png" alt="Ron Ricci">
+                        </div>
+                        <div class="board-name">
+                            Ron Ricci
+                            <a href="https://www.linkedin.com/in/ron-ricci-651b225/" target="_blank" rel="noopener noreferrer">
+                                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="board-title">Transparency Imperative</div>
                     </div>
-                    <div class="benefit-content">
-                        <h3>Food Production</h3>
-                        <p>Automate manual quality checks and paper-based batch records to ensure data flows directly into food safety systems and maintain HACCP compliance.</p>
-                        <a href="food-production.html" class="explore-btn">Explore Connected Plant for Food Manufacturing</a>
+                    
+                    <div class="board-member">
+                        <div class="board-photo">
+                            <img src="https://i.ibb.co/Zp5RmFKm/image-48.png" alt="Billy Valtos">
+                        </div>
+                        <div class="board-name">
+                            Billy Valtos
+                            <a href="https://www.linkedin.com/in/wmvaltosjr/" target="_blank" rel="noopener noreferrer">
+                                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="board-title">Venture Capitalist</div>
+                    </div>
+                    
+                    <div class="board-member">
+                        <div class="board-photo">
+                            <img src="https://i.ibb.co/KxY79D2C/image-49.png" alt="Patrick Suel">
+                        </div>
+                        <div class="board-name">
+                            Patrick Suel
+                            <a href="https://www.linkedin.com/in/patrick-suel-160a3/" target="_blank" rel="noopener noreferrer">
+                                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="board-title">Capital K</div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Case Study Section -->
-            <div style="width: 100%; background: #f8fafc; margin: 0; padding: 6rem 0 1rem 0; text-align: center;">
-                <div style="max-width: 1200px; margin: 0 auto;">
-                    <p style="font-size: 1.3rem; color: #4a90b8; line-height: 1.6; margin-bottom: 2rem;">
-                        How a Top-3 Global Biopharma Manufacturer Eliminated Over 80% of Their Air Particle Counter Related Failure Reports and Now Save $4,781 Per Instrument Annually In Labor Costs Across 3 Production Sites and Hundreds of Instruments.
-                    </p>
-                    <a href="#" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #4a90b8; color: white; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 600; transition: background 0.3s ease; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px;">
-                        <span style="font-size: 0.8rem;">▶</span>
-                        Learn More
-                    </a>
-                </div>
-            </div>
+            </section>
         </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
