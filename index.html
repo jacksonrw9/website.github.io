@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phizzle - Digitizing Quality Assurance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background: #64748b;
+            padding: 1rem 0;
+            position: relative;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-dots {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            align-items: center;
+        }
+
+        .dot {
+            background: #ffffff;
+            border-radius: 50%;
+        }
+
+        .dot:nth-child(1) {
+            width: 4px;
+            height: 4px;
+        }
+
+        .dot:nth-child(2) {
+            width: 6px;
+            height: 6px;
+        }
+
+        .dot:nth-child(3) {
+            width: 8px;
+            height: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links > li {
+            position: relative;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links > li > a:hover {
+            color: #94a3b8;
+        }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            min-width: 250px;
+            padding: 1rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .nav-links > li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown li {
+            list-style: none;
+        }
+
+        .dropdown a {
+            color: #374151;
+            padding: 0.75rem 1.5rem;
+            text-transform: none;
+            font-weight: 400;
+            font-size: 0.9rem;
+            letter-spacing: 0;
+            transition: background-color 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown a:hover {
+            background-color: #f8fafc;
+            color: #4a90b8;
+            border-left-color: #4a90b8;
+        }
+
+        .dropdown-header {
+            color: #64748b;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.5rem 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 0.5rem;
+        }
+
+        .request-demo {
+            background: #d97706 !important;
+            color: white !important;
+            padding: 0.5rem 1rem !important;
+            border-radius: 6px !important;
+            transition: background 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600 !important;
+            font-size: 0.8rem !important;
+        }
+
+        .request-demo:hover {
+            background: #b45309;
+            color: white !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://i.ibb.co/gF60Dyry/image-51.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 4rem 0;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #e2e8f0;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        /* Platform Section */
+        .platform-section {
+            background: #ffffff;
+            padding: 5rem 0;
+        }
+
+        .platform-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .platform-bubble h2 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #4a90b8;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .platform-bubble p {
+            font-size: 1rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .how-it-works-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #22c55e;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .how-it-works-btn:hover {
+            background: #16a34a;
+        }
+
+        .how-it-works-btn::before {
+            content: '▶';
+            font-size: 0.8rem;
+        }
+
+        .platform-bubble {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .platform-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .step-icon {
+            width: 40px;
+            height: 40px;
+            background: #4a90b8;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+
+        .step-content h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #4a90b8;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content h3 .step-number {
+            color: #1f2937;
+            margin-right: 0.5rem;
+            font-weight: 400;
+        }
+
+        .step-content h3 .step-action {
+            font-weight: 700;
+        }
+
+        .step-content p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            background: #f8fafc;
+            padding: 5rem 0;
+        }
+
+        .benefits-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .benefits-header {
+            margin-bottom: 4rem;
+        }
+
+        .benefits-header h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #4a90b8;
+            margin-bottom: 1rem;
+        }
+
+        .benefits-header p {
+            font-size: 1.1rem;
+            color: #64748b;
+            max-width: 800px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .benefit-item {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .benefit-image {
+            width: 100%;
+            height: 200px;
+            background: #e2e8f0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .benefit-content h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #4a90b8;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-content p {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .explore-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #22c55e;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .explore-btn:hover {
+            background: #16a34a;
+        }
+
+        .explore-btn::before {
+            content: '▶';
+            font-size: 0.8rem;
+        }
+
+        /* Full Width Image Section */
+        .full-width-image-section {
+            background: #ffffff;
+            padding: 2rem;
+            width: 100%;
+        }
+
+        .full-width-image-placeholder {
+            width: 100%;
+            height: 300px;
+            background-color: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Partners Section */
+        .partners-section {
+            background: #ffffff;
+            padding: 4rem 0;
+        }
+
+        .partners-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .partners-header {
+            margin-bottom: 3rem;
+        }
+
+        .partners-header h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #4a90b8;
+            margin-bottom: 1rem;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .partner-logo {
+            height: 80px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-weight: 600;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* Footer Section */
+        .footer {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-brand .logo-dots {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .footer-brand .dot:nth-child(1) {
+            width: 4px;
+            height: 4px;
+        }
+
+        .footer-brand .dot:nth-child(2) {
+            width: 6px;
+            height: 6px;
+        }
+
+        .footer-brand .dot:nth-child(3) {
+            width: 8px;
+            height: 8px;
+        }
+
+        .footer-brand p {
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            max-width: 300px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ffffff;
+        }
+
+        .email-signup {
+            margin-top: 0;
+        }
+
+        .email-signup h5 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .email-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+            flex-direction: column;
+        }
+
+        .email-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #475569;
+            border-radius: 6px;
+            background: #334155;
+            color: #ffffff;
+            font-size: 0.9rem;
+            transition: border-color 0.3s ease;
+            margin-bottom: 0.5rem;
+        }
+
+        .email-input::placeholder {
+            color: #94a3b8;
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-color: #4a90b8;
+        }
+
+        .email-submit {
+            width: 100%;
+            padding: 0.75rem 1.25rem;
+            background: #4a90b8;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .email-submit:hover {
+            background: #3a7ba8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: transparent;
+            border: 2px solid #64748b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.4rem;
+        }
+
+        .social-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .social-link.linkedin {
+            border-color: #0077b5;
+            color: #0077b5;
+        }
+
+        .social-link.linkedin:hover {
+            background: #0077b5;
+            color: #ffffff;
+        }
+
+        .social-link.facebook {
+            border-color: #1877f2;
+            color: #1877f2;
+        }
+
+        .social-link.facebook:hover {
+            background: #1877f2;
+            color: #ffffff;
+        }
+
+        .social-link.youtube {
+            border-color: #ff0000;
+            color: #ff0000;
+        }
+
+        .social-link.youtube:hover {
+            background: #ff0000;
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-bottom-links a {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom-links a:hover {
+            color: #94a3b8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
+
+            .email-signup {
+                grid-column: 1 / -1;
+                margin-top: 2rem;
+            }
+
+            .hero-container,
+            .platform-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .platform-bubble {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+
+            .benefit-item {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .benefit-image {
+                height: 150px;
+            }
+
+            /* Mobile navigation adjustments */
+            .dropdown {
+                position: static;
+                transform: none;
+                box-shadow: none;
+                background: #475569;
+                margin: 0.5rem 0;
+                border-radius: 4px;
+            }
+
+            .dropdown a {
+                color: #e2e8f0;
+                padding: 0.5rem 1rem;
+            }
+
+            .dropdown a:hover {
+                background-color: #334155;
+                color: #94a3b8;
+                border-left-color: #94a3b8;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .platform-intro h2,
+            .benefits-header h2 {
+                font-size: 2rem;
+            }
+
+            .partners-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                Phizzle
+            </a>
+            <ul class="nav-links">
+                <li>
+                    <a href="platform-overview.html">Platform ▼</a>
+                    <ul class="dropdown">
+                        <li><a href="platform-overview.html">Platform Overview</a></li>
+                        <li><a href="connect.html">Connect</a></li>
+                        <li><a href="automate.html">Automate</a></li>
+                        <li><a href="integrate.html">Integrate</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="connected-plant.html">Solutions ▼</a>
+                    <ul class="dropdown">
+                        <li><a href="connected-plant.html">Connected Plant</a></li>
+                        <li><a href="device-agents.html">Edge Puck</a></li>
+                        <li><a href="phizzle-lens.html">Phizzle Lens</a></li>
+                        <li><a href="edge-manager.html">Edge Manager</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Applications ▼</a>
+                    <ul class="dropdown">
+                        <li><a href="biopharma-manufacturing.html">Biopharma Manufacturing</a></li>
+                        <li><a href="aerospace-manufacturing.html">Aerospace Manufacturing</a></li>
+                        <li><a href="food-production.html">Food Production</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="connected-plant-sandbox.html">Resources ▼</a>
+                    <ul class="dropdown">
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="videos.html">Videos</a></li>
+                        <li><a href="webinars.html">Webinars</a></li>
+                        <li><a href="connected-plant-sandbox.html">Connected Plant Sandbox</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="partners.html">Partners ▼</a>
+                    <ul class="dropdown">
+                        <li><a href="partners.html">Partners</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Company ▼</a>
+                    <ul class="dropdown">
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </li>
+                <li><a href="request-demo.html" class="request-demo">Request a Demo</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Where GMP Meets IoT Precision</h1>
+                <p>Ensuring data integrity, workflow efficiency and compliance by digitizing GMP workflows with Connected Plant.</p>
+            </div>
+            <div class="hero-visual">
+                <!-- Hero image space - would contain the manufacturing facility image -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Section -->
+    <section class="platform-section">
+        <div class="platform-container">
+            <div class="platform-bubble" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
+                <div class="platform-left">
+                    <h2>GMP Workflows, Digitized in 3 Steps:</h2>
+                    <p>Eliminating pen and paper processes, data loss from external interruptions and clunky middleware push data to LIMS all from one UI.</p>
+                    <a href="connect.html" class="how-it-works-btn">See how it works</a>
+                </div>
+                
+                <div class="platform-steps">
+                    <div class="step">
+                        <div class="step-icon">🔗</div>
+                        <div class="step-content">
+                            <h3><span class="step-number">1.</span><span class="step-action">Connect</span> to Analytical Scienfitics Instruments</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-icon">⚙️</div>
+                        <div class="step-content">
+                            <h3><span class="step-number">2.</span><span class="step-action">Automate</span> Data Formatting</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-icon">🔄</div>
+                        <div class="step-content">
+                            <h3><span class="step-number">3.</span><span class="step-action">Integrate</span> with Digital Systems and Existing SOPs</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="benefits-container">
+            <div class="benefits-header">
+                <h2>Explore the Benefits of Connected Plant by Application</h2>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-image" style="background-image: url('https://i.postimg.cc/d0ThPk4V/biopharmaimage.jpg'); background-size: cover; background-position: center; color: transparent;">
+                        BioPharma Manufacturing Image
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Biopharma Manufacturing</h3>
+                        <p>Get rid of paper printouts and multistep SOPs to get data in LIMS, MES, or QMS and ensure 21 CFR Part 11 compliance with a built in electronic review process.</p>
+                        <a href="biopharma-manufacturing.html" class="explore-btn">Explore Connected Plant for Biopharma Manufacturing</a>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-image" style="background-image: url('https://i.postimg.cc/282b4f1r/aerospaceimage.jpg'); background-size: cover; background-position: center; color: transparent;">
+                        Aerospace Innovation Image
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Aerospace Innovation</h3>
+                        <p>Streamline manual workflows by connecting directly to digital systems and ensure AS9100 compliance.</p>
+                        <a href="aerospace-manufacturing.html" class="explore-btn">Explore Connected Plant for Aerospace Manufacturing</a>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-image" style="background-image: url('https://i.postimg.cc/jS1DFQ61/foodproductioncleanroom.webp'); background-size: cover; background-position: center; color: transparent;">
+                        Food Production Image
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Food Production</h3>
+                        <p>Automate manual quality checks and paper-based batch records to ensure data flows directly into food safety systems and maintain HACCP compliance.</p>
+                        <a href="food-production.html" class="explore-btn">Explore Connected Plant for Food Manufacturing</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Case Study Section -->
+            <div style="width: 100%; background: #f8fafc; margin: 0; padding: 6rem 0 1rem 0; text-align: center;">
+                <div style="max-width: 1200px; margin: 0 auto;">
+                    <p style="font-size: 1.3rem; color: #4a90b8; line-height: 1.6; margin-bottom: 2rem;">
+                        How a Top-3 Global Biopharma Manufacturer Eliminated Over 80% of Their Air Particle Counter Related Failure Reports and Now Save $4,781 Per Instrument Annually In Labor Costs Across 3 Production Sites and Hundreds of Instruments.
+                    </p>
+                    <a href="#" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #4a90b8; color: white; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 600; transition: background 0.3s ease; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px;">
+                        <span style="font-size: 0.8rem;">▶</span>
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>
+                        <div class="logo-dots">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                        Phizzle
+                    </h3>
+                    <p>Where GMP Meets IoT Precision</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/phizzle/posts/?feedView=all" class="social-link linkedin">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.facebook.com/phizzleinc/" class="social-link facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.youtube.com/@Phizzle" class="social-link youtube">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="connected-plant.html">Connected Plant</a></li>
+                        <li><a href="device-agents.html">Edge Puck</a></li>
+                        <li><a href="phizzle-lens.html">Phizzle Lens</a></li>
+                        <li><a href="edge-manager.html">Edge Manager</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="videos.html">Videos</a></li>
+                        <li><a href="webinars.html">Webinars</a></li>
+                        <li><a href="connected-plant-sandbox.html">Connected Plant Sandbox</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <div class="email-signup">
+                        <h5>Stay Updated</h5>
+                        <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 0.75rem;">Get the latest updates on quality assurance innovation</p>
+                        <form class="email-form">
+                            <input type="email" class="email-input" placeholder="Enter your email" required>
+                            <button type="submit" class="email-submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Phizzle. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
