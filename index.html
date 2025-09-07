@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phizzle - Digitizing Quality Assurance</title>
+    <title>About Us - Phizzle</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -16,10 +16,9 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #333;
-            overflow-x: hidden;
         }
 
-        /* Mobile-First Navigation */
+        /* Navigation */
         nav {
             background: #64748b;
             padding: 1rem 0;
@@ -33,11 +32,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 1rem;
+            padding: 0 2rem;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 700;
             color: #ffffff;
             text-decoration: none;
@@ -58,27 +57,26 @@
             border-radius: 50%;
         }
 
-        .dot:nth-child(1) { width: 3px; height: 3px; }
-        .dot:nth-child(2) { width: 4px; height: 4px; }
-        .dot:nth-child(3) { width: 5px; height: 5px; }
+        .dot:nth-child(1) {
+            width: 4px;
+            height: 4px;
+        }
 
-        /* Mobile Menu Toggle */
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
+        .dot:nth-child(2) {
+            width: 6px;
+            height: 6px;
+        }
+
+        .dot:nth-child(3) {
+            width: 8px;
+            height: 8px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 1.5rem;
+            gap: 2.5rem;
             align-items: center;
-            flex-wrap: wrap;
         }
 
         .nav-links > li {
@@ -89,13 +87,12 @@
             color: #ffffff;
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.8rem;
+            font-size: 0.95rem;
             transition: color 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             display: block;
-            padding: 0.5rem;
-            white-space: nowrap;
+            padding: 0.5rem 0;
         }
 
         .nav-links > li > a:hover {
@@ -111,14 +108,13 @@
             background: #ffffff;
             border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            min-width: 200px;
-            padding: 0.5rem 0;
+            min-width: 250px;
+            padding: 1rem 0;
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
             margin-top: 0.5rem;
             border: 1px solid #e2e8f0;
-            z-index: 1000;
         }
 
         .nav-links > li:hover .dropdown {
@@ -133,10 +129,10 @@
 
         .dropdown a {
             color: #374151;
-            padding: 0.5rem 1rem;
+            padding: 0.75rem 1.5rem;
             text-transform: none;
             font-weight: 400;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             letter-spacing: 0;
             transition: background-color 0.2s ease;
             border-left: 3px solid transparent;
@@ -151,14 +147,13 @@
         .request-demo {
             background: #d97706 !important;
             color: white !important;
-            padding: 0.5rem 0.75rem !important;
+            padding: 0.5rem 1rem !important;
             border-radius: 6px !important;
             transition: background 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             font-weight: 600 !important;
-            font-size: 0.7rem !important;
-            margin-left: 0.5rem;
+            font-size: 0.8rem !important;
         }
 
         .request-demo:hover {
@@ -166,365 +161,311 @@
             color: white !important;
         }
 
-        /* Hero Section - Mobile Optimized */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://i.ibb.co/gF60Dyry/image-51.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            padding: 2rem 0;
-        }
-
-        .hero-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 1rem;
-            text-align: center;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 700;
-            color: #ffffff;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-
-        .hero-content p {
-            font-size: clamp(1rem, 2.5vw, 1.1rem);
-            color: #e2e8f0;
-            line-height: 1.6;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Platform Section - Mobile Responsive */
-        .platform-section {
+        /* Main Content */
+        .main-content {
             background: #ffffff;
-            padding: 3rem 0;
+            padding: 4rem 0;
         }
 
-        .platform-container {
+        .content-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 1rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            padding: 0 2rem;
         }
 
-        .platform-bubble {
-            max-width: 1400px;
-            width: 100%;
+        /* About Section */
+        .about-section {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             align-items: start;
-            background: #f8fafc;
-            padding: 2rem;
-            border-radius: 20px;
-            border: 2px solid #e2e8f0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 6rem;
         }
 
-        .platform-bubble h2 {
-            font-size: clamp(1.5rem, 4vw, 2.2rem);
+        .about-header h1 {
+            font-size: 2.2rem;
             font-weight: 600;
             color: #4a90b8;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             line-height: 1.2;
         }
 
-        .platform-bubble p {
-            font-size: clamp(0.9rem, 2vw, 1rem);
-            color: #64748b;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .how-it-works-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: #22c55e;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
+        .about-tagline h2 {
+            font-size: 1.8rem;
             font-weight: 600;
-            transition: background 0.3s ease;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 0.5px;
+            color: #1f2937;
             margin-bottom: 2rem;
-        }
-
-        .how-it-works-btn:hover {
-            background: #16a34a;
-        }
-
-        .how-it-works-btn::before {
-            content: '▶';
-            font-size: 0.7rem;
-        }
-
-        .platform-steps {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .step {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .step-icon {
-            width: 35px;
-            height: 35px;
-            background: #4a90b8;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1rem;
-            flex-shrink: 0;
-            margin-top: 0.25rem;
-        }
-
-        .step-content h3 {
-            font-size: clamp(1.1rem, 3vw, 1.3rem);
-            font-weight: 400;
-            color: #4a90b8;
-            margin-bottom: 0.5rem;
             line-height: 1.3;
         }
 
-        .step-content h3 .step-number {
-            color: #1f2937;
-            margin-right: 0.5rem;
-            font-weight: 400;
-        }
-
-        .step-content h3 .step-action {
-            font-weight: 700;
-        }
-
-        .step-content p {
-            color: #64748b;
-            line-height: 1.6;
-            font-size: clamp(0.85rem, 2vw, 0.95rem);
-        }
-
-        /* Benefits Section - Mobile Optimized */
-        .benefits-section {
+        .mission-content {
             background: #f8fafc;
-            padding: 3rem 0;
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid #4a90b8;
         }
 
-        .benefits-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .benefits-header {
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .benefits-header h2 {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
+        .mission-content h3 {
+            font-size: 1rem;
             font-weight: 600;
-            color: #4a90b8;
+            color: #1f2937;
             margin-bottom: 1rem;
-            line-height: 1.2;
         }
 
-        .benefits-header p {
-            font-size: clamp(0.95rem, 2vw, 1.1rem);
+        .mission-content p {
             color: #64748b;
-            max-width: 800px;
-            margin: 0 auto;
+            line-height: 1.7;
+            font-size: 0.95rem;
         }
 
-        .benefits-grid {
-            display: grid;
-            gap: 2rem;
+        /* Leadership Section */
+        .leadership-section {
+            margin-bottom: 6rem;
         }
 
-        .benefit-item {
+        .leadership-section h2 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 3rem;
+        }
+
+        .leadership-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            justify-items: center;
+        }
+
+        /* Additional leadership row for remaining members */
+        .leadership-grid-row2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
-            align-items: start;
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+            margin: 4rem auto 3rem;
+            justify-items: center;
         }
 
-        .benefit-image {
-            width: 100%;
-            height: 200px;
-            background: #e2e8f0;
+        .leader-card {
+            text-align: center;
+            background: #ffffff;
             border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+            transition: box-shadow 0.3s ease;
+            width: 240px;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .leader-card:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .leader-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 8px;
+            margin: 0 auto 1rem;
+            background: #f3f4f6;
+            border: 2px solid #e2e8f0;
+            overflow: hidden;
+        }
+
+        .leader-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .leader-card:hover .leader-photo img {
+            filter: grayscale(0%);
+        }
+
+        .leader-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.25rem;
+        }
+
+        .leader-title {
+            font-size: 0.9rem;
+            color: #64748b;
+            font-weight: 500;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #64748b;
-            font-size: 0.8rem;
-            text-align: center;
-            padding: 1rem;
-            order: -1;
-        }
-
-        .benefit-content h3 {
-            font-size: clamp(1.3rem, 3.5vw, 1.8rem);
-            font-weight: 600;
-            color: #4a90b8;
-            margin-bottom: 0.75rem;
-            line-height: 1.2;
-        }
-
-        .benefit-content p {
-            color: #64748b;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-            font-size: clamp(0.9rem, 2vw, 1rem);
-        }
-
-        .explore-btn {
-            display: inline-flex;
-            align-items: center;
             gap: 0.5rem;
-            background: #22c55e;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
+        }
+
+        .linkedin-icon {
+            width: 16px;
+            height: 16px;
+            color: #0077b5;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .linkedin-icon:hover {
+            color: #005885;
+        }
+
+        /* Board Section */
+        .board-section h2 {
+            font-size: 2.2rem;
             font-weight: 600;
-            transition: background 0.3s ease;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 0.5px;
+            color: #1f2937;
+            margin-bottom: 3rem;
+        }
+
+        .board-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 5rem;
+            justify-items: center;
+        }
+
+        .board-member {
             text-align: center;
-            width: fit-content;
-        }
-
-        .explore-btn:hover {
-            background: #16a34a;
-        }
-
-        .explore-btn::before {
-            content: '▶';
-            font-size: 0.7rem;
-        }
-
-        /* Case Study Section - Mobile Optimized */
-        .case-study-section {
-            width: 100%;
-            background: #f8fafc;
-            margin: 0;
-            padding: 3rem 1rem;
-            text-align: center;
-        }
-
-        .case-study-content {
-            max-width: 1200px;
-            margin: 0 auto;
             background: #ffffff;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
             border: 1px solid #e2e8f0;
-        }
-
-        .case-study-content p {
-            font-size: clamp(1rem, 2.5vw, 1.3rem);
-            color: #4a90b8;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .case-study-btn {
-            display: inline-flex;
+            transition: box-shadow 0.3s ease;
+            width: 240px;
+            height: 320px; /* Increased height to accommodate title */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
             align-items: center;
-            gap: 0.5rem;
-            background: #4a90b8;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
+        }
+
+        .board-member:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .board-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 8px;
+            margin: 0 auto 1rem;
+            background: #f3f4f6;
+            border: 2px solid #e2e8f0;
+            overflow: hidden;
+        }
+
+        .board-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .board-member:hover .board-photo img {
+            filter: grayscale(0%);
+        }
+
+        .board-name {
+            font-size: 0.95rem;
             font-weight: 600;
-            transition: background 0.3s ease;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 0.5px;
+            color: #1f2937;
+            margin-bottom: 0.25rem;
         }
 
-        .case-study-btn:hover {
-            background: #3a7ba8;
+        .board-title {
+            font-size: 0.85rem;
+            color: #64748b;
+            font-weight: 500;
+            line-height: 1.3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
-        .case-study-btn::before {
-            content: '▶';
-            font-size: 0.7rem;
+        /* Additional board row for remaining members */
+        .board-grid-row2 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            justify-items: center;
         }
 
-        /* Footer - Mobile Optimized */
+        /* Footer Section */
         .footer {
             background: #1e293b;
             color: #e2e8f0;
-            padding: 3rem 0 1rem;
+            padding: 4rem 0 2rem;
         }
 
         .footer-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 1rem;
+            padding: 0 2rem;
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-bottom: 2rem;
+            grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
 
         .footer-brand h3 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        .footer-brand .logo-dots .dot:nth-child(1) { width: 3px; height: 3px; }
-        .footer-brand .logo-dots .dot:nth-child(2) { width: 4px; height: 4px; }
-        .footer-brand .logo-dots .dot:nth-child(3) { width: 5px; height: 5px; }
+        .footer-brand .logo-dots {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .footer-brand .dot:nth-child(1) {
+            width: 4px;
+            height: 4px;
+        }
+
+        .footer-brand .dot:nth-child(2) {
+            width: 6px;
+            height: 6px;
+        }
+
+        .footer-brand .dot:nth-child(3) {
+            width: 8px;
+            height: 8px;
+        }
 
         .footer-brand p {
             color: #94a3b8;
             line-height: 1.6;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            max-width: 300px;
         }
 
         .footer-section h4 {
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: #ffffff;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
@@ -534,50 +475,48 @@
         }
 
         .footer-section ul li {
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
         }
 
         .footer-section ul li a {
             color: #94a3b8;
             text-decoration: none;
             transition: color 0.3s ease;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
         }
 
         .footer-section ul li a:hover {
             color: #ffffff;
         }
 
-        .email-signup h5 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .email-signup {
+            margin-top: 0;
         }
 
-        .email-signup p {
-            font-size: 0.85rem;
-            color: #94a3b8;
+        .email-signup h5 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
             margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .email-form {
             display: flex;
             gap: 0.5rem;
-            margin-top: 0.5rem;
+            margin-top: 0.75rem;
             flex-direction: column;
         }
 
         .email-input {
             width: 100%;
-            padding: 0.7rem;
+            padding: 0.75rem;
             border: 1px solid #475569;
             border-radius: 6px;
             background: #334155;
             color: #ffffff;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             transition: border-color 0.3s ease;
             margin-bottom: 0.5rem;
         }
@@ -593,7 +532,7 @@
 
         .email-submit {
             width: 100%;
-            padding: 0.7rem 1rem;
+            padding: 0.75rem 1.25rem;
             background: #4a90b8;
             color: #ffffff;
             border: none;
@@ -601,7 +540,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: background 0.3s ease;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
         }
 
         .email-submit:hover {
@@ -610,14 +549,13 @@
 
         .social-links {
             display: flex;
-            gap: 0.75rem;
+            gap: 1rem;
             margin-top: 1rem;
-            justify-content: center;
         }
 
         .social-link {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             background: transparent;
             border: 2px solid #64748b;
             border-radius: 50%;
@@ -627,7 +565,7 @@
             color: #94a3b8;
             text-decoration: none;
             transition: all 0.3s ease;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
         }
 
         .social-link:hover {
@@ -666,31 +604,28 @@
 
         .footer-bottom {
             border-top: 1px solid #334155;
-            padding-top: 1.5rem;
+            padding-top: 2rem;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            flex-direction: column;
+            flex-wrap: wrap;
             gap: 1rem;
-            text-align: center;
         }
 
         .footer-bottom p {
             color: #64748b;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
         }
 
         .footer-bottom-links {
             display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
+            gap: 2rem;
         }
 
         .footer-bottom-links a {
             color: #64748b;
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             transition: color 0.3s ease;
         }
 
@@ -698,229 +633,120 @@
             color: #94a3b8;
         }
 
-        /* Tablet and Desktop Styles */
-        @media (min-width: 768px) {
-            .nav-container {
-                padding: 0 2rem;
-            }
-
-            .logo {
-                font-size: 2rem;
-            }
-
-            .dot:nth-child(1) { width: 4px; height: 4px; }
-            .dot:nth-child(2) { width: 6px; height: 6px; }
-            .dot:nth-child(3) { width: 8px; height: 8px; }
-
-            .nav-links {
-                gap: 2rem;
-            }
-
-            .nav-links a {
-                font-size: 0.9rem;
-            }
-
-            .request-demo {
-                font-size: 0.8rem !important;
-                padding: 0.5rem 1rem !important;
-            }
-
-            .hero {
-                min-height: 70vh;
-                padding: 4rem 0;
-            }
-
-            .hero-container {
-                padding: 0 2rem;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 4rem;
-                align-items: center;
-                text-align: left;
-            }
-
-            .platform-section {
-                padding: 5rem 0;
-            }
-
-            .platform-container {
-                padding: 0 2rem;
-            }
-
-            .platform-bubble {
-                grid-template-columns: 1.3fr 1fr;
-                gap: 5rem;
-                padding: 3rem;
-            }
-
-            .benefits-section {
-                padding: 5rem 0;
-            }
-
-            .benefits-container {
-                padding: 0 2rem;
-            }
-
-            .benefits-header {
-                text-align: left;
-            }
-
-            .benefit-item {
-                grid-template-columns: 300px 1fr;
-                gap: 3rem;
-                align-items: center;
-                padding: 0;
-                background: transparent;
-                box-shadow: none;
-            }
-
-            .benefit-image {
-                order: 0;
-            }
-
-            .case-study-section {
-                padding: 6rem 2rem 1rem 2rem;
-            }
-
-            .case-study-content {
-                padding: 3rem;
-            }
-
-            .footer {
-                padding: 4rem 0 2rem;
-            }
-
-            .footer-container {
-                padding: 0 2rem;
-            }
-
+        /* Responsive Design */
+        @media (max-width: 1024px) {
             .footer-content {
-                grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
-                gap: 3rem;
-                margin-bottom: 3rem;
-            }
-
-            .footer-brand h3 {
-                font-size: 1.8rem;
-            }
-
-            .footer-brand .logo-dots .dot:nth-child(1) { width: 4px; height: 4px; }
-            .footer-brand .logo-dots .dot:nth-child(2) { width: 6px; height: 6px; }
-            .footer-brand .logo-dots .dot:nth-child(3) { width: 8px; height: 8px; }
-
-            .social-links {
-                justify-content: flex-start;
-            }
-
-            .social-link {
-                width: 50px;
-                height: 50px;
-                font-size: 1.4rem;
-            }
-
-            .footer-bottom {
-                flex-direction: row;
-                justify-content: space-between;
-                text-align: left;
-            }
-
-            .footer-bottom-links {
+                grid-template-columns: 1fr 1fr;
                 gap: 2rem;
             }
-        }
 
-        /* Large Desktop */
-        @media (min-width: 1200px) {
-            .nav-links {
-                gap: 2.5rem;
+            .footer-brand {
+                grid-column: 1 / -1;
             }
 
-            .nav-links a {
-                font-size: 0.95rem;
-            }
-        }
-
-        /* Mobile Menu Styles */
-        @media (max-width: 767px) {
-            .mobile-menu-toggle {
-                display: block;
+            .email-signup {
+                grid-column: 1 / -1;
+                margin-top: 2rem;
             }
 
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: #64748b;
-                flex-direction: column;
-                padding: 1rem;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-                z-index: 1000;
+            .about-section {
+                grid-template-columns: 1fr;
+                gap: 3rem;
             }
 
-            .nav-links.active {
-                display: flex;
+            .leadership-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .nav-links > li {
-                width: 100%;
+            .leadership-grid-row2 {
+                grid-template-columns: 1fr;
+                max-width: 300px;
             }
 
-            .nav-links a {
-                display: block;
-                text-align: center;
-                padding: 0.75rem;
-                border-bottom: 1px solid #475569;
+            .board-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
 
+            .board-grid-row2 {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 400px;
+            }
+
+            /* Mobile navigation adjustments */
             .dropdown {
                 position: static;
                 transform: none;
                 box-shadow: none;
                 background: #475569;
-                margin: 0;
-                border-radius: 0;
-                opacity: 1;
-                visibility: visible;
-                display: none;
-            }
-
-            .nav-links > li:hover .dropdown,
-            .nav-links > li.active .dropdown {
-                display: block;
+                margin: 0.5rem 0;
+                border-radius: 4px;
             }
 
             .dropdown a {
                 color: #e2e8f0;
                 padding: 0.5rem 1rem;
-                font-size: 0.85rem;
             }
 
             .dropdown a:hover {
                 background-color: #334155;
                 color: #94a3b8;
-            }
-
-            .request-demo {
-                margin-left: 0 !important;
-                margin-top: 0.5rem;
+                border-left-color: #94a3b8;
             }
         }
 
-        /* Touch-friendly improvements for mobile */
-        @media (max-width: 767px) {
-            .how-it-works-btn,
-            .explore-btn,
-            .case-study-btn {
-                min-height: 44px;
-                font-size: 0.9rem;
-                padding: 0.875rem 1.5rem;
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
-            .email-input,
-            .email-submit {
-                min-height: 44px;
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .about-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .about-tagline h2 {
+                font-size: 1.5rem;
+            }
+
+            .leadership-section h2,
+            .board-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .leadership-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .leadership-grid-row2 {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+            }
+
+            .board-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .board-grid-row2 {
+                grid-template-columns: 1fr;
+                max-width: 300px;
             }
         }
     </style>
@@ -937,8 +763,7 @@
                 </div>
                 Phizzle
             </a>
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
-            <ul class="nav-links" id="nav-links">
+            <ul class="nav-links">
                 <li>
                     <a href="platform-overview.html">Platform ▼</a>
                     <ul class="dropdown">
@@ -995,106 +820,197 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Welcome to The Intersection of Science and IT</h1>
-                <p>Digitizing GMP workflows to ensure data integrity, efficiency, and compliance with Connected Plant.</p>
-            </div>
-            <div class="hero-visual">
-                <!-- Hero image space - would contain the manufacturing facility image -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Platform Section -->
-    <section class="platform-section">
-        <div class="platform-container">
-            <div class="platform-bubble">
-                <div class="platform-left">
-                    <h2>GMP Workflows, Digitized in 3 Steps:</h2>
-                    <p>Eliminating pen and paper processes, multi-step data entry SOPs and clunky middleware solutions to synchronize data with LIMS — all from one UI.</p>
-                    <a href="platform-overview.html" class="how-it-works-btn">See how it works</a>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="content-container">
+            <!-- About Section -->
+            <section class="about-section">
+                <div class="about-header">
+                    <h1>About Phizzle</h1>
+                    <h2>Transforming Manufacturing Through Intelligent Automation.</h2>
                 </div>
                 
-                <div class="platform-steps">
-                    <div class="step">
-                        <div class="step-icon">🔗</div>
-                        <div class="step-content">
-                            <h3><span class="step-number">1.</span><span class="step-action">Connect</span> to Analytical Scientific Instruments</h3>
+                <div class="mission-content">
+                    <h3>Our mission is to accelerate innovation by digitizing paper-based processes in regulated manufacturing environments.</h3>
+                    <p>We believe that in an era of advanced digital systems, no manufacturer should still rely on pen-and-paper data collection, manual transcription, or disconnected instruments that create data silos. Our platform, Connected Plant, bridges the gap between legacy analytical instruments and modern digital infrastructure. By connecting, automating, and integrating with existing GMP workflows, we enable manufacturers to maintain the highest standards of data integrity while accelerating decision-making and reducing operational costs.</p>
+                </div>
+            </section>
+
+            <!-- Leadership Section -->
+            <section class="leadership-section">
+                <h2>Leadership</h2>
+                
+                <div class="leadership-grid">
+                    <div class="leader-card">
+                        <div class="leader-photo">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081554/ben-davis_rkxshk.png" alt="Ben Davis">
+                        </div>
+                        <div class="leader-name">Ben Davis</div>
+                        <div class="leader-title">
+                            CEO
+                            <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
                         </div>
                     </div>
                     
-                    <div class="step">
-                        <div class="step-icon">⚙️</div>
-                        <div class="step-content">
-                            <h3><span class="step-number">2.</span><span class="step-action">Automate</span> Data Formatting</h3>
+                    <div class="leader-card">
+                        <div class="leader-photo">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081543/mike-patrick_ljyj2i.png" alt="Mike Patrick">
+                        </div>
+                        <div class="leader-name">Mike Patrick</div>
+                        <div class="leader-title">
+                            CIO
+                            <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
                         </div>
                     </div>
                     
-                    <div class="step">
-                        <div class="step-icon">🔄</div>
-                        <div class="step-content">
-                            <h3><span class="step-number">3.</span><span class="step-action">Integrate</span> with Digital Systems and Existing SOPs</h3>
+                    <div class="leader-card">
+                        <div class="leader-photo">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081563/ed-lau_feteqm.png" alt="Ed Lau">
+                        </div>
+                        <div class="leader-name">Ed Lau</div>
+                        <div class="leader-title">
+                            President
+                            <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Benefits Section -->
-    <section class="benefits-section">
-        <div class="benefits-container">
-            <div class="benefits-header">
-                <h2>Explore the Benefits of Connected Plant by Application</h2>
-            </div>
-            
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <div class="benefit-image" style="background-image: url('https://i.postimg.cc/d0ThPk4V/biopharmaimage.jpg'); background-size: cover; background-position: center; color: transparent;">
-                        BioPharma Manufacturing Image
+                <div class="leadership-grid-row2">
+                    <div class="leader-card">
+                        <div class="leader-photo">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081542/stephen-peary_dqdyiq.png" alt="Stephen Peary">
+                        </div>
+                        <div class="leader-name">Stephen Peary</div>
+                        <div class="leader-title">
+                            CFO
+                            <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </div>
                     </div>
-                    <div class="benefit-content">
-                        <h3>Biopharma Manufacturing</h3>
-                        <p>Modernize multi-step data collection and entry SOPs by synchronizing data directly with LIMS, MES, or QMS with no paper trail. Ensure 21 CFR Part 11 compliance with a built-in electronic signature and review process.</p>
-                        <a href="biopharma-manufacturing.html" class="explore-btn">Explore Connected Plant for Biopharma Manufacturing</a>
+                    
+                    <div class="leader-card">
+                        <div class="leader-photo">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081559/ryan-brady_g5chih.png" alt="Ryan Brady">
+                        </div>
+                        <div class="leader-name">Ryan Brady</div>
+                        <div class="leader-title">
+                            CTO
+                            <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </div>
                     </div>
                 </div>
+            </section>
+
+            <!-- Board Section -->
+            <section class="board-section">
+                <h2>Board of Directors</h2>
                 
-                <div class="benefit-item">
-                    <div class="benefit-image" style="background-image: url('https://i.postimg.cc/282b4f1r/aerospaceimage.jpg'); background-size: cover; background-position: center; color: transparent;">
-                        Aerospace Innovation Image
+                <div class="board-grid">
+                    <div class="board-member">
+                        <div class="board-photo">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081554/ben-davis_rkxshk.png" alt="Ben Davis">
+                        </div>
+                        <div class="board-name">Ben Davis</div>
+                        <div class="board-title">
+                            CEO, Phizzle
+                            <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </div>
                     </div>
-                    <div class="benefit-content">
-                        <h3>Aerospace Innovation</h3>
-                        <p>Streamline manual quality documentation workflows by synchronizing precision measurement data directly with ERP, MES, or QMS — eliminating paper records. Ensure AS9100 and NADCAP compliance with automated traceability and audit trails.</p>
-                        <a href="aerospace-manufacturing.html" class="explore-btn">Explore Connected Plant for Aerospace Manufacturing</a>
+                    
+                    <div class="board-member">
+                        <div class="board-photo">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081549/jim-whims_sxismx.png" alt="Jim Whims">
+                        </div>
+                        <div class="board-name">Jim Whims</div>
+                        <div class="board-title">
+                            Alsop-Louie
+                            <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="board-member">
+                        <div class="board-photo">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081561/mark-krentzman_i7lktd.png" alt="Mark Krentzman">
+                        </div>
+                        <div class="board-name">Mark Krentzman</div>
+                        <div class="board-title">
+                            Jones & Vining
+                            <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="board-member">
+                        <div class="board-photo">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081558/lena-wu_g2wvmq.png" alt="Lena Wu">
+                        </div>
+                        <div class="board-name">Lena Wu</div>
+                        <div class="board-title">
+                            Director/Strategic Advisor
+                            <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="benefit-item">
-                    <div class="benefit-image" style="background-image: url('https://i.postimg.cc/jS1DFQ61/foodproductioncleanroom.webp'); background-size: cover; background-position: center; color: transparent;">
-                        Food Production Image
+
+                <div class="board-grid-row2">
+                    <div class="board-member">
+                        <div class="board-photo">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081543/ron-ricci_qjr23g.png" alt="Ron Ricci">
+                        </div>
+                        <div class="board-name">Ron Ricci</div>
+                        <div class="board-title">
+                            Transparency Imperative
+                            <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </div>
                     </div>
-                    <div class="benefit-content">
-                        <h3>Food Production</h3>
-                        <p>Streamline critical control point monitoring and documentation by synchronizing real-time quality data directly with food safety management systems with no paper trail. Ensure HACCP and 21 CFR Part 11 compliance with continuous monitoring and electronic record keeping.</p>
-                        <a href="food-production.html" class="explore-btn">Explore Connected Plant for Food Manufacturing</a>
+                    
+                    <div class="board-member">
+                        <div class="board-photo">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081542/billy-valtos_wlo9hx.png" alt="Billy Valtos">
+                        </div>
+                        <div class="board-name">Billy Valtos</div>
+                        <div class="board-title">
+                            Venture Capitalist
+                            <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="board-member">
+                        <div class="board-photo">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081562/patrick-suel_tyxp2u.png" alt="Patrick Suel">
+                        </div>
+                        <div class="board-name">Patrick Suel</div>
+                        <div class="board-title">
+                            Capital K
+                            <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Case Study Section -->
-            <div class="case-study-section">
-                <div class="case-study-content">
-                    <p>How a Top-3 Global Biopharma Manufacturer Eliminated Over 80% of Their Air Particle Counter Related Failure Reports and Save $1.5M Annually In Labor Costs Across 3 Production Sites and 310 APCs.</p>
-                    <a href="apc-case-study.html" class="case-study-btn">Learn More</a>
-                </div>
-            </div>
+            </section>
         </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -1163,7 +1079,7 @@
                 <div class="footer-section">
                     <div class="email-signup">
                         <h5>Stay Updated</h5>
-                        <p>Get the latest updates on quality assurance innovation</p>
+                        <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 0.75rem;">Get the latest updates on quality assurance innovation</p>
                         <form class="email-form">
                             <input type="email" class="email-input" placeholder="Enter your email" required>
                             <button type="submit" class="email-submit">Subscribe</button>
@@ -1182,34 +1098,5 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        function toggleMobileMenu() {
-            const navLinks = document.getElementById('nav-links');
-            navLinks.classList.toggle('active');
-        }
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                const navLinks = document.getElementById('nav-links');
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Handle dropdown clicks on mobile
-        document.querySelectorAll('.nav-links > li > a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                if (window.innerWidth <= 767) {
-                    const dropdown = link.nextElementSibling;
-                    if (dropdown && dropdown.classList.contains('dropdown')) {
-                        e.preventDefault();
-                        const parent = link.parentElement;
-                        parent.classList.toggle('active');
-                    }
-                }
-            });
-        });
-    </script>
 </body>
 </html>
