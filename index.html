@@ -120,8 +120,8 @@
         .dropdown {
             position: absolute;
             top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0;
+            right: 0;
             background: #ffffff;
             border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
@@ -132,12 +132,12 @@
             transition: all 0.3s ease;
             margin-top: 0.5rem;
             border: 1px solid #e2e8f0;
+            z-index: 1000;
         }
 
         .nav-links > li:hover .dropdown {
             opacity: 1;
             visibility: visible;
-            transform: translateX(-50%) translateY(0);
         }
 
         .dropdown li {
