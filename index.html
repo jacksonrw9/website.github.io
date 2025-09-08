@@ -833,8 +833,8 @@
             color: #94a3b8;
         }
 
-        /* Tablet Responsive Design (769px - 1500px) */
-        @media (max-width: 1500px) {
+        /* Mobile/Tablet Responsive Design */
+        @media (max-width: 1350px) {
             /* Show hamburger menu, hide desktop nav */
             .nav-links {
                 display: none;
@@ -1430,7 +1430,16 @@
     <script>
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
+            const overlay = document.getElementById('mobileMenuOverlay');
             mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const overlay = document.getElementById('mobileMenuOverlay');
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
         }
 
         function toggleMobileDropdown(event, dropdownId) {
@@ -1459,14 +1468,10 @@
             arrow.classList.toggle('rotated');
         }
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const mobileToggle = document.querySelector('.mobile-menu-toggle');
-            const navContainer = document.querySelector('.nav-container');
-            
-            if (!navContainer.contains(event.target) && mobileMenu.classList.contains('active')) {
-                mobileMenu.classList.remove('active');
+        // Close mobile menu when pressing escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeMobileMenu();
             }
         });
     </script>
