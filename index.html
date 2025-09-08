@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Phizzle</title>
+    <title>Phizzle - Digitizing Quality Assurance</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -18,7 +18,7 @@
             color: #333;
         }
 
-        /* Navigation */
+        /* Navigation - Mobile First Approach */
         nav {
             background: #64748b;
             padding: 1rem 0;
@@ -32,11 +32,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            padding: 0 1rem;
         }
 
         .logo {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: #ffffff;
             text-decoration: none;
@@ -72,10 +72,27 @@
             height: 8px;
         }
 
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #ffffff;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 1.5rem;
             align-items: center;
         }
 
@@ -87,7 +104,7 @@
             color: #ffffff;
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: color 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -157,287 +174,338 @@
         }
 
         .request-demo:hover {
-            background: #b45309 !important;
+            background: #b45309;
             color: white !important;
         }
 
-        /* Main Content */
-        .main-content {
-            background: #ffffff;
-            padding: 4rem 0;
+        /* Hero Section - Mobile First */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dqiggfeuq/image/upload/v1757288728/iStock-1219894389_1_gsxyor.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 2rem 0;
         }
 
-        .content-container {
+        .hero-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* About Section */
-        .about-section {
+            padding: 0 1rem;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-            margin-bottom: 6rem;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+            text-align: center;
         }
 
-        .about-header h1 {
-            font-size: 2.2rem;
+        .hero-content h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        /* Platform Section - Mobile First */
+        .platform-section {
+            background: #ffffff;
+            padding: 3rem 0;
+        }
+
+        .platform-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .platform-bubble {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .platform-title {
+            text-align: center;
+            font-size: 1.8rem;
             font-weight: 600;
             color: #4a90b8;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             line-height: 1.2;
         }
 
-        .about-tagline h2 {
+        .platform-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .platform-left {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .platform-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            text-align: left;
+        }
+
+        .step-number {
+            background: #4a90b8;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .step-text {
+            font-size: 1.2rem;
+            color: #1f2937;
+            line-height: 1.4;
+        }
+
+        .step-text .step-action {
+            font-weight: 700;
+            color: #4a90b8;
+        }
+
+        .platform-right {
+            text-align: left;
+        }
+
+        .platform-description {
+            font-size: 0.95rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #22c55e;
+            color: white;
+            padding: 0.75rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            min-height: 44px; /* Touch-friendly size */
+        }
+
+        .solution-btn:hover {
+            background: #16a34a;
+        }
+
+        .solution-btn::before {
+            content: '▶';
+            font-size: 0.7rem;
+        }
+
+        /* Benefits Section - Mobile First */
+        .benefits-section {
+            background: #f8fafc;
+            padding: 3rem 0;
+        }
+
+        .benefits-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .benefits-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .benefits-header h2 {
             font-size: 1.8rem;
             font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 2rem;
+            color: #4a90b8;
+            margin-bottom: 1rem;
             line-height: 1.3;
         }
 
-        .mission-content {
-            background: #f8fafc;
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 4px solid #4a90b8;
+        .benefits-header p {
+            font-size: 1rem;
+            color: #64748b;
         }
 
-        .mission-content h3 {
-            font-size: 1rem;
+        .benefits-grid {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .benefit-item {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .benefit-image {
+            width: 100%;
+            height: 200px;
+            background: #e2e8f0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .benefit-content {
+            text-align: center;
+        }
+
+        .benefit-content h3 {
+            font-size: 1.5rem;
             font-weight: 600;
-            color: #1f2937;
+            color: #4a90b8;
             margin-bottom: 1rem;
         }
 
-        .mission-content p {
+        .benefit-content p {
             color: #64748b;
-            line-height: 1.7;
-            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
         }
 
-        /* Leadership Section */
-        .leadership-section {
-            margin-bottom: 6rem;
-        }
-
-        .leadership-section h2 {
-            font-size: 2.2rem;
-            font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 3rem;
-        }
-
-        .leadership-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-            justify-items: center;
-        }
-
-        /* Additional leadership row for remaining members */
-        .leadership-grid-row2 {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            max-width: 800px;
-            margin: 4rem auto 3rem;
-            justify-items: center;
-        }
-
-        .leader-card {
-            text-align: center;
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 1.5rem;
-            border: 1px solid #e2e8f0;
-            transition: box-shadow 0.3s ease;
-            width: 240px;
-            height: 320px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-        }
-
-        .leader-card:hover {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .leader-photo {
-            width: 180px;
-            height: 180px;
-            border-radius: 8px;
-            margin: 0 auto 1rem;
-            background: #f3f4f6;
-            border: 2px solid #e2e8f0;
-            overflow: hidden;
-        }
-
-        .leader-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(100%);
-            transition: filter 0.3s ease;
-        }
-
-        .leader-card:hover .leader-photo img {
-            filter: grayscale(0%);
-        }
-
-        .leader-name {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 0.25rem;
-        }
-
-        .leader-title {
-            font-size: 0.9rem;
-            color: #64748b;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .linkedin-icon {
-            width: 16px;
-            height: 16px;
-            color: #0077b5;
-            transition: color 0.3s ease;
-            cursor: pointer;
-        }
-
-        .linkedin-icon:hover {
-            color: #005885;
-        }
-
-        /* Make LinkedIn icon links clickable */
-        .leader-title a,
-        .board-title a {
-            text-decoration: none;
+        .explore-btn {
             display: inline-flex;
             align-items: center;
-        }
-
-        .leader-title a:hover .linkedin-icon,
-        .board-title a:hover .linkedin-icon {
-            color: #005885;
-        }
-
-        /* Board Section */
-        .board-section h2 {
-            font-size: 2.2rem;
-            font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 3rem;
-        }
-
-        .board-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 5rem;
-            justify-items: center;
-        }
-
-        .board-member {
-            text-align: center;
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 1.5rem;
-            border: 1px solid #e2e8f0;
-            transition: box-shadow 0.3s ease;
-            width: 240px;
-            height: 320px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-        }
-
-        .board-member:hover {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .board-photo {
-            width: 180px;
-            height: 180px;
-            border-radius: 8px;
-            margin: 0 auto 1rem;
-            background: #f3f4f6;
-            border: 2px solid #e2e8f0;
-            overflow: hidden;
-        }
-
-        .board-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(100%);
-            transition: filter 0.3s ease;
-        }
-
-        .board-member:hover .board-photo img {
-            filter: grayscale(0%);
-        }
-
-        .board-name {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 0.25rem;
-        }
-
-        .board-title {
-            font-size: 0.85rem;
-            color: #64748b;
-            font-weight: 500;
-            line-height: 1.3;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             gap: 0.5rem;
+            background: #22c55e;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            min-height: 44px; /* Touch-friendly size */
         }
 
-        /* Additional board row for remaining members */
-        .board-grid-row2 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            max-width: 900px;
+        .explore-btn:hover {
+            background: #16a34a;
+        }
+
+        .explore-btn::before {
+            content: '▶';
+            font-size: 0.8rem;
+        }
+
+        /* Case Study Section - Mobile First */
+        .case-study-section {
+            width: 100%;
+            background: #f8fafc;
+            margin: 0;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .case-study-content {
+            max-width: 1000px;
             margin: 0 auto;
-            justify-items: center;
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
         }
 
-        /* Footer Section */
+        .case-study-content p {
+            font-size: 1.1rem;
+            color: #4a90b8;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .case-study-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #4a90b8;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            min-height: 44px; /* Touch-friendly size */
+        }
+
+        .case-study-btn:hover {
+            background: #3a7ba8;
+        }
+
+        .case-study-btn::before {
+            content: '▶';
+            font-size: 0.8rem;
+        }
+
+        /* Footer - Mobile First */
         .footer {
             background: #1e293b;
             color: #e2e8f0;
-            padding: 4rem 0 2rem;
+            padding: 3rem 0 2rem;
         }
 
         .footer-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1rem;
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
-            gap: 3rem;
+            grid-template-columns: 1fr;
+            gap: 2rem;
             margin-bottom: 3rem;
         }
 
         .footer-brand h3 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: #ffffff;
             margin-bottom: 1rem;
@@ -446,36 +514,14 @@
             gap: 0.5rem;
         }
 
-        .footer-brand .logo-dots {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .footer-brand .dot:nth-child(1) {
-            width: 4px;
-            height: 4px;
-        }
-
-        .footer-brand .dot:nth-child(2) {
-            width: 6px;
-            height: 6px;
-        }
-
-        .footer-brand .dot:nth-child(3) {
-            width: 8px;
-            height: 8px;
-        }
-
         .footer-brand p {
             color: #94a3b8;
             line-height: 1.6;
             margin-bottom: 1.5rem;
-            max-width: 300px;
         }
 
         .footer-section h4 {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             color: #ffffff;
             margin-bottom: 1rem;
@@ -496,18 +542,17 @@
             text-decoration: none;
             transition: color 0.3s ease;
             font-size: 0.9rem;
+            min-height: 44px; /* Touch-friendly */
+            display: block;
+            padding: 0.25rem 0;
         }
 
         .footer-section ul li a:hover {
             color: #ffffff;
         }
 
-        .email-signup {
-            margin-top: 0;
-        }
-
         .email-signup h5 {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             color: #ffffff;
             margin-bottom: 0.75rem;
@@ -532,6 +577,7 @@
             font-size: 0.9rem;
             transition: border-color 0.3s ease;
             margin-bottom: 0.5rem;
+            min-height: 44px; /* Touch-friendly */
         }
 
         .email-input::placeholder {
@@ -554,6 +600,7 @@
             cursor: pointer;
             transition: background 0.3s ease;
             font-size: 0.9rem;
+            min-height: 44px; /* Touch-friendly */
         }
 
         .email-submit:hover {
@@ -564,6 +611,7 @@
             display: flex;
             gap: 1rem;
             margin-top: 1rem;
+            justify-content: center;
         }
 
         .social-link {
@@ -579,6 +627,7 @@
             text-decoration: none;
             transition: all 0.3s ease;
             font-size: 1.4rem;
+            min-height: 44px; /* Touch-friendly */
         }
 
         .social-link:hover {
@@ -619,10 +668,11 @@
             border-top: 1px solid #334155;
             padding-top: 2rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
+            flex-direction: column;
             gap: 1rem;
+            text-align: center;
         }
 
         .footer-bottom p {
@@ -633,6 +683,8 @@
         .footer-bottom-links {
             display: flex;
             gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .footer-bottom-links a {
@@ -640,17 +692,103 @@
             text-decoration: none;
             font-size: 0.9rem;
             transition: color 0.3s ease;
+            min-height: 44px; /* Touch-friendly */
+            display: block;
+            padding: 0.25rem 0;
         }
 
         .footer-bottom-links a:hover {
             color: #94a3b8;
         }
 
-        /* Responsive Design */
-        @media (max-width: 1024px) {
+        /* Tablet Responsive Design (768px and up) */
+        @media (min-width: 768px) {
+            .nav-container {
+                padding: 0 2rem;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+
+            .hero {
+                min-height: 70vh;
+                padding: 4rem 0;
+            }
+
+            .hero-container {
+                padding: 0 2rem;
+                text-align: left;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .platform-section {
+                padding: 4rem 0;
+            }
+
+            .platform-container {
+                padding: 0 2rem;
+            }
+
+            .platform-bubble {
+                padding: 3rem;
+            }
+
+            .platform-title {
+                font-size: 2rem;
+            }
+
+            .platform-content {
+                grid-template-columns: 60% 40%;
+                gap: 3rem;
+            }
+
+            .step-text {
+                font-size: 1.4rem;
+            }
+
+            .benefit-item {
+                grid-template-columns: 300px 1fr;
+                gap: 3rem;
+            }
+
+            .benefit-content {
+                text-align: left;
+            }
+
+            .benefit-content h3 {
+                font-size: 1.8rem;
+            }
+
+            .benefits-header {
+                text-align: left;
+            }
+
+            .benefits-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .case-study-section {
+                padding: 4rem 2rem;
+            }
+
+            .case-study-content {
+                padding: 3rem;
+            }
+
+            .case-study-content p {
+                font-size: 1.3rem;
+            }
+
             .footer-content {
                 grid-template-columns: 1fr 1fr;
-                gap: 2rem;
             }
 
             .footer-brand {
@@ -662,42 +800,159 @@
                 margin-top: 2rem;
             }
 
-            .about-section {
-                grid-template-columns: 1fr;
+            .social-links {
+                justify-content: flex-start;
+            }
+
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+
+        /* Desktop Responsive Design (1024px and up) */
+        @media (min-width: 1024px) {
+            .nav-links {
+                gap: 2.5rem;
+            }
+
+            .nav-links a {
+                font-size: 0.95rem;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .platform-section {
+                padding: 5rem 0;
+            }
+
+            .platform-title {
+                font-size: 2.2rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .step-text {
+                font-size: 1.6rem;
+            }
+
+            .platform-right {
+                padding-right: 2rem;
+            }
+
+            .benefits-section {
+                padding: 5rem 0;
+            }
+
+            .benefits-header {
+                margin-bottom: 4rem;
+            }
+
+            .benefits-header h2 {
+                font-size: 2.5rem;
+            }
+
+            .benefits-header p {
+                font-size: 1.1rem;
+            }
+
+            .case-study-section {
+                padding: 6rem 2rem 1rem 2rem;
+            }
+
+            .footer {
+                padding: 4rem 0 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
                 gap: 3rem;
             }
 
-            .leadership-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .footer-brand {
+                grid-column: auto;
             }
 
-            .leadership-grid-row2 {
-                grid-template-columns: 1fr;
+            .footer-brand h3 {
+                font-size: 1.8rem;
+            }
+
+            .footer-brand p {
                 max-width: 300px;
             }
 
-            .board-grid {
-                grid-template-columns: repeat(3, 1fr);
+            .email-signup {
+                grid-column: auto;
+                margin-top: 0;
+            }
+        }
+
+        /* Mobile Navigation Toggle (Mobile Only) */
+        @media (max-width: 767px) {
+            .menu-toggle {
+                display: flex;
             }
 
-            .board-grid-row2 {
-                grid-template-columns: repeat(2, 1fr);
-                max-width: 400px;
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #64748b;
+                flex-direction: column;
+                gap: 0;
+                padding: 1rem;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                z-index: 99;
             }
 
-            /* Mobile navigation adjustments */
+            .nav-links.active {
+                max-height: 500px;
+            }
+
+            .nav-links > li {
+                width: 100%;
+                border-bottom: 1px solid #475569;
+            }
+
+            .nav-links > li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-links a {
+                padding: 1rem;
+                font-size: 1rem;
+                border-radius: 0;
+            }
+
             .dropdown {
                 position: static;
                 transform: none;
                 box-shadow: none;
                 background: #475569;
-                margin: 0.5rem 0;
-                border-radius: 4px;
+                margin: 0;
+                border-radius: 0;
+                opacity: 1;
+                visibility: visible;
+                display: none;
+            }
+
+            .dropdown.active {
+                display: block;
             }
 
             .dropdown a {
                 color: #e2e8f0;
-                padding: 0.5rem 1rem;
+                padding: 0.75rem 1.5rem;
             }
 
             .dropdown a:hover {
@@ -705,61 +960,40 @@
                 color: #94a3b8;
                 border-left-color: #94a3b8;
             }
+
+            .request-demo {
+                margin-top: 1rem;
+                text-align: center;
+            }
+
+            /* Menu Toggle Animation */
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
         }
 
-        @media (max-width: 768px) {
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
+        /* Focus styles for accessibility */
+        a:focus, button:focus, input:focus {
+            outline: 2px solid #4a90b8;
+            outline-offset: 2px;
+        }
 
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-
-            .nav-container {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 1rem;
-            }
-
-            .nav-links {
-                gap: 1.5rem;
-                flex-wrap: wrap;
+        /* Improved touch targets */
+        @media (hover: none) and (pointer: coarse) {
+            .nav-links a, .solution-btn, .explore-btn, .case-study-btn, 
+            .email-submit, .social-link, .footer-section ul li a {
+                min-height: 48px;
+                display: flex;
+                align-items: center;
                 justify-content: center;
-            }
-
-            .about-header h1 {
-                font-size: 1.8rem;
-            }
-
-            .about-tagline h2 {
-                font-size: 1.5rem;
-            }
-
-            .leadership-section h2,
-            .board-section h2 {
-                font-size: 1.8rem;
-            }
-
-            .leadership-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .leadership-grid-row2 {
-                grid-template-columns: 1fr;
-                max-width: 300px;
-            }
-
-            .board-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .board-grid-row2 {
-                grid-template-columns: 1fr;
-                max-width: 300px;
             }
         }
     </style>
@@ -776,9 +1010,17 @@
                 </div>
                 Phizzle
             </a>
-            <ul class="nav-links">
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul class="nav-links" id="navLinks">
                 <li>
-                    <a href="platform-overview.html">Platform ▼</a>
+                    <a href="platform-overview.html" onclick="toggleDropdown(this)">Platform ▼</a>
                     <ul class="dropdown">
                         <li><a href="platform-overview.html">Platform Overview</a></li>
                         <li><a href="connect.html">Connect</a></li>
@@ -787,7 +1029,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="connected-plant.html">Solutions ▼</a>
+                    <a href="connected-plant.html" onclick="toggleDropdown(this)">Solutions ▼</a>
                     <ul class="dropdown">
                         <li><a href="connected-plant.html">Connected Plant</a></li>
                         <li><a href="device-agents.html">Edge Puck</a></li>
@@ -796,7 +1038,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Applications ▼</a>
+                    <a href="#" onclick="toggleDropdown(this)">Applications ▼</a>
                     <ul class="dropdown">
                         <li><a href="biopharma-manufacturing.html">Biopharma Manufacturing</a></li>
                         <li><a href="aerospace-manufacturing.html">Aerospace Manufacturing</a></li>
@@ -804,7 +1046,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="connected-plant-sandbox.html">Resources ▼</a>
+                    <a href="connected-plant-sandbox.html" onclick="toggleDropdown(this)">Resources ▼</a>
                     <ul class="dropdown">
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="videos.html">Videos</a></li>
@@ -814,13 +1056,13 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="partners.html">Partners ▼</a>
+                    <a href="partners.html" onclick="toggleDropdown(this)">Partners ▼</a>
                     <ul class="dropdown">
                         <li><a href="partners.html">Partners</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Company ▼</a>
+                    <a href="#" onclick="toggleDropdown(this)">Company ▼</a>
                     <ul class="dropdown">
                         <li><a href="about-us.html">About Us</a></li>
                         <li><a href="careers.html">Careers</a></li>
@@ -833,221 +1075,113 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="content-container">
-            <!-- About Section -->
-            <section class="about-section">
-                <div class="about-header">
-                    <h1>About Phizzle</h1>
-                    <h2>Transforming Manufacturing Through Intelligent Automation.</h2>
-                </div>
-                
-                <div class="mission-content">
-                    <h3>Our mission is to accelerate innovation by digitizing paper-based processes in regulated manufacturing environments.</h3>
-                    <p>We believe that in an era of advanced digital systems, no manufacturer should still rely on pen-and-paper data collection, manual transcription, or disconnected instruments that create data silos. Our platform, Connected Plant, bridges the gap between legacy analytical instruments and modern digital infrastructure. By connecting, automating, and integrating with existing GMP workflows, we enable manufacturers to maintain the highest standards of data integrity while accelerating decision-making and reducing operational costs.</p>
-                </div>
-            </section>
-
-            <!-- Leadership Section -->
-            <section class="leadership-section">
-                <h2>Leadership</h2>
-                
-                <div class="leadership-grid">
-                    <div class="leader-card">
-                        <div class="leader-photo">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081554/ben-davis_rkxshk.png" alt="Ben Davis">
-                        </div>
-                        <div class="leader-name">Ben Davis</div>
-                        <div class="leader-title">
-                            CEO
-                            <a href="https://www.linkedin.com/in/bendavis3/" target="_blank" rel="noopener noreferrer">
-                                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="leader-card">
-                        <div class="leader-photo">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081543/mike-patrick_ljyj2i.png" alt="Mike Patrick">
-                        </div>
-                        <div class="leader-name">Mike Patrick</div>
-                        <div class="leader-title">
-                            CIO
-                            <a href=" https://www.linkedin.com/in/mikeapatrick/" target="_blank" rel="noopener noreferrer">
-                                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="leader-card">
-                        <div class="leader-photo">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081563/ed-lau_feteqm.png" alt="Ed Lau">
-                        </div>
-                        <div class="leader-name">Ed Lau</div>
-                        <div class="leader-title">
-                            President
-                            <a href="https://www.linkedin.com/in/ed-l-2073b31/" target="_blank" rel="noopener noreferrer">
-                                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="leadership-grid-row2">
-                    <div class="leader-card">
-                        <div class="leader-photo">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081542/stephen-peary_dqdyiq.png" alt="Stephen Peary">
-                        </div>
-                        <div class="leader-name">Stephen Peary</div>
-                        <div class="leader-title">
-                            CFO
-                            <a href="https://www.linkedin.com/in/speary/" target="_blank" rel="noopener noreferrer">
-                                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="leader-card">
-                        <div class="leader-photo">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081559/ryan-brady_g5chih.png" alt="Ryan Brady">
-                        </div>
-                        <div class="leader-name">Ryan Brady</div>
-                        <div class="leader-title">
-                            CTO
-                            <a href="https://www.linkedin.com/in/cryanbrady/" target="_blank" rel="noopener noreferrer">
-                                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Board Section -->
-            <section class="board-section">
-                <h2>Board of Directors</h2>
-                
-                <div class="board-grid">
-                    <div class="board-member">
-                        <div class="board-photo">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081554/ben-davis_rkxshk.png" alt="Ben Davis">
-                        </div>
-                        <div class="board-name">Ben Davis</div>
-                        <div class="board-title">
-                            CEO, Phizzle
-                            <a href="https://www.linkedin.com/in/bendavis3/" target="_blank" rel="noopener noreferrer">
-                                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="board-member">
-                        <div class="board-photo">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081549/jim-whims_sxismx.png" alt="Jim Whims">
-                        </div>
-                        <div class="board-name">Jim Whims</div>
-                        <div class="board-title">
-                            Alsop-Louie
-                            <a href="https://www.linkedin.com/in/jimwhims/" target="_blank" rel="noopener noreferrer">
-                                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="board-member">
-                        <div class="board-photo">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081561/mark-krentzman_i7lktd.png" alt="Mark Krentzman">
-                        </div>
-                        <div class="board-name">Mark Krentzman</div>
-                        <div class="board-title">
-                            Jones & Vining
-                            <a href=" https://www.linkedin.com/in/mkrentzman/" target="_blank" rel="noopener noreferrer">
-                                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="board-member">
-                        <div class="board-photo">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081558/lena-wu_g2wvmq.png" alt="Lena Wu">
-                        </div>
-                        <div class="board-name">Lena Wu</div>
-                        <div class="board-title">
-                            Director/Strategic Advisor
-                            <a href="https://www.linkedin.com/in/lena-wu-0965242/" target="_blank" rel="noopener noreferrer">
-                                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="board-grid-row2">
-                    <div class="board-member">
-                        <div class="board-photo">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081543/ron-ricci_qjr23g.png" alt="Ron Ricci">
-                        </div>
-                        <div class="board-name">Ron Ricci</div>
-                        <div class="board-title">
-                            Transparency Imperative
-                            <a href="https://www.linkedin.com/in/ron-ricci-651b225/" target="_blank" rel="noopener noreferrer">
-                                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="board-member">
-                        <div class="board-photo">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081542/billy-valtos_wlo9hx.png" alt="Billy Valtos">
-                        </div>
-                        <div class="board-name">Billy Valtos</div>
-                        <div class="board-title">
-                            Venture Capitalist
-                            <a href="https://www.linkedin.com/in/wmvaltosjr/" target="_blank" rel="noopener noreferrer">
-                                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="board-member">
-                        <div class="board-photo">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081562/patrick-suel_tyxp2u.png" alt="Patrick Suel">
-                        </div>
-                        <div class="board-name">Patrick Suel</div>
-                        <div class="board-title">
-                            Capital K
-                            <a href="https://www.linkedin.com/in/patrick-suel-160a3/" target="_blank" rel="noopener noreferrer">
-                                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Welcome to The Intersection of Science and IT</h1>
+                <p>Digitizing scientific workflows in regulated manufacturing environments to ensure data integrity, efficiency, and compliance with Connected Plant.</p>
+            </div>
+            <div class="hero-visual">
+                <!-- Hero image space - would contain the manufacturing facility image -->
+            </div>
         </div>
-    </main>
+    </section>
+
+    <!-- Platform Section -->
+    <section class="platform-section">
+        <div class="platform-container">
+            <div class="platform-bubble">
+                <h2 class="platform-title">Digitize Scientific Workflows in 3 Steps:</h2>
+                
+                <div class="platform-content">
+                    <div class="platform-left">
+                        <div class="platform-step">
+                            <div class="step-number">1</div>
+                            <div class="step-text">
+                                <span class="step-action">Connect</span> to Analytical Scientific Instruments
+                            </div>
+                        </div>
+                        
+                        <div class="platform-step">
+                            <div class="step-number">2</div>
+                            <div class="step-text">
+                                <span class="step-action">Automate</span> Data Formatting
+                            </div>
+                        </div>
+                        
+                        <div class="platform-step">
+                            <div class="step-number">3</div>
+                            <div class="step-text">
+                                <span class="step-action">Integrate</span> with Digital Systems and Existing SOPs
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="platform-right">
+                        <p class="platform-description">
+                            Eliminate pen and paper processes, multi-step data entry SOPs and clunky middleware solutions to synchronize critical manufacturing data with LIMS, MES, or QMS. 
+                        </p>
+                        <a href="platform-overview.html" class="solution-btn">See Our Solution</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="benefits-container">
+            <div class="benefits-header">
+                <h2>Explore the Benefits of Connected Plant by Application</h2>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-image" style="background-image: url('https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081563/biopharma-application-benefit3_qvnr3f.jpg'); background-size: cover; background-position: center; color: transparent;">
+                        BioPharma Manufacturing Image
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Biopharma Manufacturing</h3>
+                        <p>Modernize multi-step data collection/entry SOPs by synchronizing data directly with LIMS, MES, or QMS without a paper trail. Ensure 21 CFR Part 11 compliance with a built-in review and electronic signature process.</p>
+                        <a href="biopharma-manufacturing.html" class="explore-btn">Explore Connected Plant for Biopharma Manufacturing</a>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-image" style="background-image: url('https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081546/aerospace-home_vkkssy.jpg'); background-size: cover; background-position: center; color: transparent;">
+                        Aerospace Innovation Image
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Aerospace Innovation</h3>
+                        <p>Streamline manual quality documentation workflows by synchronizing precision measurement data directly with ERP, MES, or QMS — eliminating paper records. Ensure AS9100 and NADCAP compliance with automated traceability and detailed audit trails.</p>
+                        <a href="aerospace-manufacturing.html" class="explore-btn">Explore Connected Plant for Aerospace Manufacturing</a>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-image" style="background-image: url('https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081543/food-production-home_wvzpet.png'); background-size: cover; background-position: center; color: transparent;">
+                        Food Production Image
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Food Production</h3>
+                        <p>Streamline critical control point monitoring and documentation by synchronizing real-time quality data directly with food safety management systems without a paper trail. Ensure HACCP and 21 CFR Part 11 compliance with continuous monitoring, electronic record keeping and detailed audit trails.</p>
+                        <a href="food-production.html" class="explore-btn">Explore Connected Plant for Food Manufacturing</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Case Study Section -->
+            <div class="case-study-section">
+                <div class="case-study-content">
+                    <p>
+                        How a Top-3 Global Biopharma Manufacturer Eliminated Over 80% of Their Air Particle Counter Related Failure Reports and Save $1.5M Annually In Labor Costs Across 3 Production Sites and 310 APCs.
+                    </p>
+                    <a href="apc-case-study.html" class="case-study-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -1062,7 +1196,7 @@
                         </div>
                         Phizzle
                     </h3>
-                    <p>Where GMP Meets IoT Precision</p>
+                    <p>Welcome to The Intersection of Science and IT</p>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/company/phizzle/posts/?feedView=all" class="social-link linkedin">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -1116,7 +1250,7 @@
                 <div class="footer-section">
                     <div class="email-signup">
                         <h5>Stay Updated</h5>
-                        <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 0.75rem;">Get the latest updates on quality assurance innovation</p>
+                        <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 0.75rem;">Join our newsletter to get the latest updates</p>
                         <form class="email-form">
                             <input type="email" class="email-input" placeholder="Enter your email" required>
                             <button type="submit" class="email-submit">Subscribe</button>
@@ -1128,12 +1262,53 @@
             <div class="footer-bottom">
                 <p>&copy; 2025 Phizzle. All rights reserved.</p>
                 <div class="footer-bottom-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms-of-use.html">Terms of Use</a>
                 </div>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Mobile menu toggle functionality
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        }
+
+        // Mobile dropdown toggle functionality
+        function toggleDropdown(element) {
+            if (window.innerWidth <= 767) {
+                event.preventDefault();
+                const dropdown = element.nextElementSibling;
+                dropdown.classList.toggle('active');
+            }
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+            
+            if (!nav.contains(event.target)) {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu on window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 767) {
+                const navLinks = document.getElementById('navLinks');
+                const menuToggle = document.querySelector('.menu-toggle');
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
