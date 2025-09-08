@@ -1288,6 +1288,29 @@
             }
         }
 
+        // Position fixed dropdowns correctly
+        function positionDropdown(menuItem, dropdown) {
+            const rect = menuItem.getBoundingClientRect();
+            dropdown.style.top = (rect.bottom + 8) + 'px';
+            dropdown.style.left = (rect.left + rect.width/2 - 125) + 'px';
+        }
+
+        // Add hover events to position dropdowns
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuItems = document.querySelectorAll('.nav-links > li');
+            
+            menuItems.forEach(item => {
+                const dropdown = item.querySelector('.dropdown');
+                if (dropdown) {
+                    item.addEventListener('mouseenter', function() {
+                        if (window.innerWidth > 767) {
+                            positionDropdown(this, dropdown);
+                        }
+                    });
+                }
+            });
+        });
+
         // Close mobile menu when clicking outside
         document.addEventListener('click', function(event) {
             const navLinks = document.getElementById('navLinks');
