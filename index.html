@@ -922,14 +922,15 @@
                 gap: 0;
                 padding: 1rem;
                 max-height: 0;
-                overflow: hidden;
+                overflow-y: auto; /* Allow vertical scrolling */
+                overflow-x: hidden; /* Prevent horizontal scroll */
                 transition: max-height 0.3s ease;
                 z-index: 999; /* High z-index but below toggle */
                 box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Added shadow for depth */
             }
 
             .nav-links.active {
-                max-height: 500px;
+                max-height: calc(100vh - 100px); /* Dynamic height based on viewport minus nav height */
             }
 
             .nav-links > li {
