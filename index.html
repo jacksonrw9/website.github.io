@@ -946,15 +946,19 @@
             }
 
             .hero-container {
-                display: block;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
                 text-align: left;
                 padding: 0 4rem;
                 max-width: none;
+                margin: 0;
             }
 
             .hero-content {
                 max-width: 650px;
                 margin: 0;
+                flex-shrink: 0;
             }
 
             .hero-content h1 {
