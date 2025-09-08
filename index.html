@@ -43,6 +43,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            flex-shrink: 0;
         }
 
         .logo-dots {
@@ -80,6 +81,7 @@
             padding: 0.5rem;
             background: none;
             border: none;
+            z-index: 101;
         }
 
         .menu-toggle span {
@@ -112,6 +114,7 @@
             letter-spacing: 0.5px;
             display: block;
             padding: 0.5rem 0;
+            white-space: nowrap;
         }
 
         .nav-links > li > a:hover {
@@ -180,8 +183,8 @@
             color: white !important;
         }
 
-        /* Mobile Navigation - Visible on Mobile */
-        @media (max-width: 767px) {
+        /* Enhanced Mobile Navigation - Triggers at a higher breakpoint */
+        @media (max-width: 950px) {
             .menu-toggle {
                 display: flex;
             }
@@ -200,6 +203,8 @@
                 visibility: hidden;
                 transition: all 0.3s ease;
                 box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+                max-height: calc(100vh - 80px);
+                overflow-y: auto;
             }
 
             .nav-links.show {
@@ -904,8 +909,8 @@
             }
         }
 
-        /* Desktop styles */
-        @media (min-width: 1024px) {
+        /* Desktop styles - More space before mobile menu kicks in */
+        @media (min-width: 951px) {
             .nav-links {
                 gap: 2.5rem;
             }
@@ -1280,7 +1285,7 @@
             const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
             dropdownTriggers.forEach(trigger => {
                 trigger.addEventListener('click', function(e) {
-                    if (window.innerWidth <= 767) {
+                    if (window.innerWidth <= 950) {
                         e.preventDefault();
                         const dropdown = this.nextElementSibling;
                         dropdown.classList.toggle('show');
@@ -1298,7 +1303,7 @@
 
             // Close menu on window resize
             window.addEventListener('resize', function() {
-                if (window.innerWidth > 767) {
+                if (window.innerWidth > 950) {
                     navLinks.classList.remove('show');
                     menuToggle.classList.remove('active');
                 }
