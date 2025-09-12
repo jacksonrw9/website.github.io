@@ -3,7 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phizzle - Digitizing Quality Assurance</title>
+    <meta name="description" content="Digitize scientific workflows in regulated manufacturing. Connect, automate, and integrate analytical instruments with LIMS, MES, or QMS to ensure data integrity, efficiency, and compliance.">
+    <title>Phizzle - Digitizing Scientific Workflows</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-41FB3KKW2T"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-41FB3KKW2T');
+    </script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -168,7 +179,7 @@
         }
 
         .request-demo:hover {
-            background: #b45309;
+            background: #b45309 !important;
             color: white !important;
         }
 
@@ -184,24 +195,80 @@
         }
 
         .mobile-menu {
-            display: none;
-            background: #64748b;
-            padding: 1rem 0;
-            border-top: 1px solid #475569;
+            position: fixed;
+            top: 0;
+            right: -50vw;
+            width: 50vw;
+            height: 100vh;
+            background: #f3f4f6;
+            padding: 0;
+            transition: right 0.3s ease;
+            z-index: 1000;
+            overflow-y: auto;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
         }
 
         .mobile-menu.active {
-            display: block;
+            right: 0;
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #d1d5db;
+            background: #ffffff;
+        }
+
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: #374151;
+            cursor: pointer;
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            min-width: 44px;
+            min-height: 44px;
+            line-height: 1;
+        }
+
+        .mobile-menu-close:hover {
+            background: #f3f4f6;
+            color: #1f2937;
         }
 
         .mobile-nav-links {
             list-style: none;
-            padding: 0;
+            padding: 1rem 0 0 0;
             margin: 0;
         }
 
         .mobile-nav-links > li {
-            border-bottom: 1px solid #475569;
+            border-bottom: 1px solid #d1d5db;
         }
 
         .mobile-nav-links > li:last-child {
@@ -212,7 +279,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #ffffff;
+            color: #374151;
             text-decoration: none;
             padding: 1rem 2rem;
             font-weight: 500;
@@ -222,27 +289,27 @@
         }
 
         .mobile-nav-links > li > a:hover {
-            background-color: #475569;
+            background-color: #e5e7eb;
         }
 
-        .mobile-dropdown {
-            background: #475569;
+        .mobile-menu .mobile-dropdown {
+            background: #f3f4f6 !important;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
         }
 
-        .mobile-dropdown.active {
+        .mobile-menu .mobile-dropdown.active {
             max-height: 500px;
         }
 
-        .mobile-dropdown li {
+        .mobile-menu .mobile-dropdown li {
             list-style: none;
         }
 
-        .mobile-dropdown a {
+        .mobile-menu .mobile-dropdown a {
             display: block;
-            color: #e2e8f0;
+            color: #374151 !important;
             text-decoration: none;
             padding: 0.75rem 3rem;
             font-weight: 400;
@@ -252,14 +319,14 @@
             transition: background-color 0.3s ease;
         }
 
-        .mobile-dropdown a:hover {
-            background-color: #334155;
+        .mobile-menu .mobile-dropdown a:hover {
+            background-color: #e5e7eb !important;
         }
 
         .mobile-request-demo {
+            display: block;
             background: #d97706 !important;
             color: white !important;
-            margin: 1rem 2rem !important;
             padding: 0.75rem 1rem !important;
             border-radius: 6px !important;
             text-align: center !important;
@@ -268,6 +335,7 @@
             font-weight: 600 !important;
             font-size: 0.9rem !important;
             transition: background 0.3s ease !important;
+            text-decoration: none !important;
         }
 
         .mobile-request-demo:hover {
@@ -284,7 +352,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dqiggfeuq/image/upload/v1757288728/iStock-1219894389_1_gsxyor.png');
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dqiggfeuq/image/upload/v1757438043/iStock-2150276025_2_1_hoitjl.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -370,7 +438,7 @@
 
         .platform-step {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 0.75rem;
             text-align: left;
         }
@@ -387,7 +455,6 @@
             font-size: 0.9rem;
             font-weight: 600;
             flex-shrink: 0;
-            margin-top: 0.1rem;
         }
 
         .step-text {
@@ -1108,7 +1175,7 @@
                     <a href="connected-plant.html">Solutions ▼</a>
                     <ul class="dropdown">
                         <li><a href="connected-plant.html">Connected Plant</a></li>
-                        <li><a href="device-agents.html">Edge Puck</a></li>
+                        <li><a href="edge-puck.html">Edge Puck</a></li>
                         <li><a href="phizzle-lens.html">Phizzle Lens</a></li>
                         <li><a href="edge-manager.html">Edge Manager</a></li>
                     </ul>
@@ -1116,7 +1183,7 @@
                 <li>
                     <a href="#">Applications ▼</a>
                     <ul class="dropdown">
-                        <li><a href="biopharma-manufacturing.html">Biopharma Manufacturing</a></li>
+                        <li><a href="pharma-manufacturing.html">Pharma Manufacturing</a></li>
                         <li><a href="aerospace-manufacturing.html">Aerospace Manufacturing</a></li>
                         <li><a href="food-production.html">Food Production</a></li>
                     </ul>
@@ -1153,8 +1220,14 @@
             <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
         </div>
 
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
+
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <button class="mobile-menu-close" onclick="closeMobileMenu()">×</button>
+            </div>
             <ul class="mobile-nav-links">
                 <li>
                     <a href="#" onclick="toggleMobileDropdown(event, 'platform-dropdown')">
@@ -1175,7 +1248,7 @@
                     </a>
                     <ul class="mobile-dropdown" id="solutions-dropdown">
                         <li><a href="connected-plant.html">Connected Plant</a></li>
-                        <li><a href="device-agents.html">Edge Puck</a></li>
+                        <li><a href="edge-puck.html">Edge Puck</a></li>
                         <li><a href="phizzle-lens.html">Phizzle Lens</a></li>
                         <li><a href="edge-manager.html">Edge Manager</a></li>
                     </ul>
@@ -1186,7 +1259,7 @@
                         <span class="dropdown-arrow">▼</span>
                     </a>
                     <ul class="mobile-dropdown" id="applications-dropdown">
-                        <li><a href="biopharma-manufacturing.html">Biopharma Manufacturing</a></li>
+                        <li><a href="pharma-manufacturing.html">Pharma Manufacturing</a></li>
                         <li><a href="aerospace-manufacturing.html">Aerospace Manufacturing</a></li>
                         <li><a href="food-production.html">Food Production</a></li>
                     </ul>
@@ -1226,7 +1299,9 @@
                     </ul>
                 </li>
             </ul>
-            <a href="request-demo.html" class="mobile-request-demo">Request a Demo</a>
+            <div style="padding: 1rem 2rem; border-top: 1px solid #d1d5db;">
+                <a href="request-demo.html" class="mobile-request-demo">Request a Demo</a>
+            </div>
         </div>
     </nav>
 
@@ -1234,7 +1309,7 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1>Welcome to The Intersection of Science and IT</h1>
+                <h1>Welcome to the Intersection of <br>Science and IT</h1>
                 <p>Digitizing scientific workflows in regulated manufacturing environments to ensure data integrity, efficiency, and compliance with Connected Plant.</p>
             </div>
             <div class="hero-visual">
@@ -1268,7 +1343,7 @@
                         <div class="platform-step">
                             <div class="step-number">3</div>
                             <div class="step-text">
-                                <span class="step-action">Integrate</span> with Digital Systems and Existing SOPs
+                                <span class="step-action">Integrate</span> with Digital Systems
                             </div>
                         </div>
                     </div>
@@ -1294,12 +1369,12 @@
             <div class="benefits-grid">
                 <div class="benefit-item">
                     <div class="benefit-image" style="background-image: url('https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081563/biopharma-application-benefit3_qvnr3f.jpg'); background-size: cover; background-position: center; color: transparent;">
-                        BioPharma Manufacturing Image
+                        Pharma Manufacturing Image
                     </div>
                     <div class="benefit-content">
-                        <h3>Biopharma Manufacturing</h3>
-                        <p>Modernize multi-step data collection/entry SOPs by synchronizing data directly with LIMS, MES, or QMS without a paper trail. Ensure 21 CFR Part 11 compliance with a built-in review and electronic signature process.</p>
-                        <a href="biopharma-manufacturing.html" class="explore-btn">Explore Connected Plant for Biopharma Manufacturing</a>
+                        <h3>Pharma Manufacturing</h3>
+                        <p>Eliminate multi-step data collection and entry SOPs through hands-free data collection, automated formatting, and direct synchronization with LIMS, MES, or QMS systems — no paper trail required. Ensure 21 CFR Part 11 compliance with a built-in review and electronic signature process.</p>
+                        <a href="pharma-manufacturing.html" class="explore-btn">Explore Connected Plant for Pharma Manufacturing</a>
                     </div>
                 </div>
                 
@@ -1308,8 +1383,8 @@
                         Aerospace Innovation Image
                     </div>
                     <div class="benefit-content">
-                        <h3>Aerospace Innovation</h3>
-                        <p>Streamline manual quality documentation workflows by synchronizing precision measurement data directly with ERP, MES, or QMS — eliminating paper records. Ensure AS9100 and NADCAP compliance with automated traceability and detailed audit trails.</p>
+                        <h3>Aerospace Manufacturing</h3>
+                        <p>Streamline manual data collection workflows through hands-free data capture, automated formatting and data synchronization from precision measurement tools, testing equipment, and inspection instruments with ERP, MES, or QMS systems — eliminating paper records. Ensure AS9100 and NADCAP compliance with automated traceability and detailed audit trails.</p>
                         <a href="aerospace-manufacturing.html" class="explore-btn">Explore Connected Plant for Aerospace Manufacturing</a>
                     </div>
                 </div>
@@ -1321,7 +1396,7 @@
                     <div class="benefit-content">
                         <h3>Food Production</h3>
                         <p>Streamline critical control point monitoring and documentation by synchronizing real-time quality data directly with food safety management systems without a paper trail. Ensure HACCP and 21 CFR Part 11 compliance with continuous monitoring, electronic record keeping and detailed audit trails.</p>
-                        <a href="food-production.html" class="explore-btn">Explore Connected Plant for Food Manufacturing</a>
+                        <a href="food-production.html" class="explore-btn">Explore Connected Plant for Food Production</a>
                     </div>
                 </div>
             </div>
@@ -1330,11 +1405,11 @@
             <div style="width: 100%; background: #f8fafc; margin: 0; padding: 6rem 0 1rem 0; text-align: center;">
                 <div style="max-width: 1200px; margin: 0 auto; background: #ffffff; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); border: 1px solid #e2e8f0;">
                     <p style="font-size: 1.3rem; color: #4a90b8; line-height: 1.6; margin-bottom: 2rem;">
-                        How a Top-3 Global Biopharma Manufacturer Eliminated Over 80% of Their Air Particle Counter Related Failure Reports and Save $1.5M Annually In Labor Costs Across 3 Production Sites and 310 APCs.
+                        See how a Top-3 Pharma is saving $1.5M a year in labor costs and cut failure reports by 80%
                     </p>
                     <a href="apc-case-study.html" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #4a90b8; color: white; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 600; transition: background 0.3s ease; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; min-height: 44px;">
                         <span style="font-size: 0.8rem;">▶</span>
-                        Learn More
+                        View the Case Study
                     </a>
                 </div>
             </div>
@@ -1346,14 +1421,7 @@
         <div class="footer-container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <h3>
-                        <div class="logo-dots">
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                        </div>
-                        Phizzle
-                    </h3>
+                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757701267/__Phizzle-Logo-WHITE-01_5_hpfhss.svg" alt="Phizzle Logo">
                     <p>Welcome to The Intersection of Science and IT</p>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/company/phizzle/posts/?feedView=all" class="social-link linkedin">
@@ -1378,7 +1446,7 @@
                     <h4>Solutions</h4>
                     <ul>
                         <li><a href="connected-plant.html">Connected Plant</a></li>
-                        <li><a href="device-agents.html">Edge Puck</a></li>
+                        <li><a href="edge-puck.html">Edge Puck</a></li>
                         <li><a href="phizzle-lens.html">Phizzle Lens</a></li>
                         <li><a href="edge-manager.html">Edge Manager</a></li>
                     </ul>
@@ -1403,14 +1471,15 @@
                         <li><a href="news.html">News</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
-                </div>
+                </li>
                 
                 <div class="footer-section">
                     <div class="email-signup">
                         <h5>Stay Updated</h5>
                         <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 0.75rem;">Join our newsletter to get the latest updates</p>
-                        <form class="email-form">
-                            <input type="email" class="email-input" placeholder="Enter your email" required>
+                        <form class="email-form" name="newsletter" method="POST" data-netlify="true">
+                            <input type="hidden" name="form-name" value="newsletter" />
+                            <input type="email" class="email-input" name="email" placeholder="Enter your email" required>
                             <button type="submit" class="email-submit">Subscribe</button>
                         </form>
                     </div>
