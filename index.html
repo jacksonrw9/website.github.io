@@ -56,32 +56,7 @@
             gap: 0.5rem;
         }
 
-        .logo-dots {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-            align-items: center;
-        }
 
-        .dot {
-            background: #ffffff;
-            border-radius: 50%;
-        }
-
-        .dot:nth-child(1) {
-            width: 4px;
-            height: 4px;
-        }
-
-        .dot:nth-child(2) {
-            width: 6px;
-            height: 6px;
-        }
-
-        .dot:nth-child(3) {
-            width: 8px;
-            height: 8px;
-        }
 
         .nav-links {
             display: flex;
@@ -992,8 +967,8 @@
         /* Mobile Responsive Design (768px and below) */
         @media (max-width: 768px) {
             /* Even smaller logo on mobile */
-            .logo {
-                font-size: 1.4rem;
+            .logo img {
+                height: 28px;
             }
 
             /* Hero content centered on mobile */
@@ -1152,12 +1127,7 @@
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <div class="logo-dots">
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                </div>
-                Phizzle
+                <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757701267/__Phizzle-Logo-WHITE-01_5_hpfhss.svg" alt="Phizzle Logo">
             </a>
 
             <!-- Desktop Navigation -->
@@ -1421,7 +1391,9 @@
         <div class="footer-container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757701267/__Phizzle-Logo-WHITE-01_5_hpfhss.svg" alt="Phizzle Logo">
+                    <h3>
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757701267/__Phizzle-Logo-WHITE-01_5_hpfhss.svg" alt="Phizzle Logo" style="height: 28px; width: auto;">
+                    </h3>
                     <p>Welcome to The Intersection of Science and IT</p>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/company/phizzle/posts/?feedView=all" class="social-link linkedin">
