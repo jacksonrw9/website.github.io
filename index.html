@@ -3,8 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Digitize scientific workflows in regulated manufacturing. Connect, automate, and integrate analytical instruments with LIMS, MES, or QMS to ensure data integrity, efficiency, and compliance.">
-    <title>Phizzle - Digitizing Scientific Workflows</title>
+    <meta name="description" content="Request a personalized demo of Phizzle's Connected Plant platform. Schedule a consultation to see how we can digitize your scientific workflows and eliminate paper processes in manufacturing.">
+    <title>Request a Demo - Phizzle</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-41FB3KKW2T"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-41FB3KKW2T');
+    </script>
+
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/8070371.js"></script>
+    <!-- End of HubSpot Embed Code -->
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -18,6 +31,7 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #333;
+            background: #f8fafc;
         }
 
         /* Navigation */
@@ -117,17 +131,6 @@
             background-color: #f8fafc;
             color: #4a90b8;
             border-left-color: #4a90b8;
-        }
-
-        .dropdown-header {
-            color: #64748b;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 0.5rem 1.5rem;
-            border-bottom: 1px solid #e2e8f0;
-            margin-bottom: 0.5rem;
         }
 
         .request-demo {
@@ -314,316 +317,44 @@
             transform: rotate(180deg);
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dqiggfeuq/image/upload/v1757438043/iStock-2150276025_2_1_hoitjl.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            position: relative;
+        /* Main Content */
+        .main-content {
             padding: 4rem 0;
         }
 
-        .hero-container {
-            max-width: 1400px;
+        .form-container {
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
         }
 
-        .hero-content h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #ffffff;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            max-width: 800px;
-        }
-
-        .hero-content p {
-            font-size: 1.1rem;
-            color: #e2e8f0;
-            line-height: 1.6;
-            max-width: 650px;
-        }
-
-        /* Platform Section */
-        .platform-section {
-            background: #ffffff;
-            padding: 5rem 0;
-        }
-
-        .platform-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .platform-bubble {
+        /* Calendly Section */
+        .calendly-section {
             background: #ffffff;
             padding: 3rem;
             border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             border: 1px solid #e2e8f0;
-            max-width: 1200px;
-            width: 100%;
         }
 
-        .platform-title {
+        .calendly-header {
             text-align: center;
-            font-size: 2.2rem;
-            font-weight: 600;
-            color: #4a90b8;
-            margin-bottom: 2.5rem;
-            line-height: 1.2;
-        }
-
-        .platform-content {
-            display: grid;
-            grid-template-columns: 60% 40%;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .platform-left {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .platform-step {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-align: left;
-        }
-
-        .step-number {
-            background: #4a90b8;
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-            font-weight: 600;
-            flex-shrink: 0;
-        }
-
-        .step-text {
-            font-size: 1.6rem;
-            color: #1f2937;
-            line-height: 1.4;
-        }
-
-        .step-text .step-action {
-            font-weight: 700;
-            color: #4a90b8;
-        }
-
-        .platform-right {
-            text-align: left;
-            padding-right: 2rem;
-        }
-
-        .platform-description {
-            font-size: 0.9rem;
-            color: #64748b;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .solution-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: #22c55e;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s ease;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            min-height: 44px;
-        }
-
-        .solution-btn:hover {
-            background: #16a34a;
-        }
-
-        .solution-btn::before {
-            content: '▶';
-            font-size: 0.7rem;
-        }
-
-        /* Benefits Section */
-        .benefits-section {
-            background: #f8fafc;
-            padding: 5rem 0;
-        }
-
-        .benefits-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .benefits-header {
-            margin-bottom: 4rem;
-        }
-
-        .benefits-header h2 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: #4a90b8;
-            margin-bottom: 1rem;
-        }
-
-        .benefits-header p {
-            font-size: 1.1rem;
-            color: #64748b;
-            max-width: 800px;
-        }
-
-        .benefits-grid {
-            display: grid;
-            gap: 3rem;
-        }
-
-        .benefit-item {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .benefit-image {
-            width: 100%;
-            height: 200px;
-            background: #e2e8f0;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #64748b;
-            font-size: 0.9rem;
-            text-align: center;
-            padding: 1rem;
-        }
-
-        .benefit-content h3 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #4a90b8;
-            margin-bottom: 1rem;
-        }
-
-        .benefit-content p {
-            color: #64748b;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .explore-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: #22c55e;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s ease;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-            min-height: 44px;
-        }
-
-        .explore-btn:hover {
-            background: #16a34a;
-        }
-
-        .explore-btn::before {
-            content: '▶';
-            font-size: 0.8rem;
-        }
-
-        /* Full Width Image Section */
-        .full-width-image-section {
-            background: #ffffff;
-            padding: 2rem;
-            width: 100%;
-        }
-
-        .full-width-image-placeholder {
-            width: 100%;
-            height: 300px;
-            background-color: #f8fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Partners Section */
-        .partners-section {
-            background: #ffffff;
-            padding: 4rem 0;
-        }
-
-        .partners-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .partners-header {
             margin-bottom: 3rem;
         }
 
-        .partners-header h2 {
-            font-size: 2rem;
+        .calendly-header h1 {
+            font-size: 2.5rem;
             font-weight: 600;
-            color: #4a90b8;
+            color: #1f2937;
             margin-bottom: 1rem;
         }
 
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .partner-logo {
-            height: 80px;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .calendly-header p {
+            font-size: 1.1rem;
             color: #64748b;
-            font-weight: 600;
-            text-align: center;
-            padding: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
 
         /* Footer Section */
@@ -854,65 +585,8 @@
             }
 
             /* Smaller logo on tablet */
-            .logo {
-                font-size: 1.6rem;
-            }
-
-            .logo-dots .dot:nth-child(1) {
-                width: 3px;
-                height: 3px;
-            }
-
-            .logo-dots .dot:nth-child(2) {
-                width: 5px;
-                height: 5px;
-            }
-
-            .logo-dots .dot:nth-child(3) {
-                width: 7px;
-                height: 7px;
-            }
-
-            /* Hero stays left-aligned on tablet */
-            .hero-container {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            /* Platform section adjustments */
-            .platform-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .platform-bubble {
-                padding: 2rem;
-            }
-            
-            .platform-title {
-                font-size: 2rem;
-            }
-
-            .step-text {
-                font-size: 1.4rem;
-            }
-
-            .platform-right {
-                padding-right: 0;
-            }
-
-            /* Benefits section stacks vertically */
-            .benefit-item {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .benefit-image {
-                height: 180px;
+            .logo img {
+                height: 28px;
             }
 
             /* Footer adjustments */
@@ -935,94 +609,20 @@
         @media (max-width: 768px) {
             /* Even smaller logo on mobile */
             .logo img {
-                height: 28px;
+                height: 24px;
             }
 
-            /* Hero content centered on mobile */
-            .hero-content {
-                text-align: center;
+            /* Calendly content mobile adjustments */
+            .form-container {
+                padding: 0 1rem;
             }
 
-            .hero-content h1 {
+            .calendly-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .calendly-header h1 {
                 font-size: 2rem;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-            }
-
-            /* Platform section - everything centered */
-            .platform-bubble {
-                padding: 1.5rem;
-                margin: 0 1rem;
-                text-align: center;
-            }
-            
-            .platform-title {
-                font-size: 1.6rem;
-                margin-bottom: 2rem;
-            }
-
-            .platform-left {
-                align-items: center;
-            }
-
-            .platform-step {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 0.5rem;
-            }
-
-            .step-text {
-                font-size: 1.1rem;
-            }
-
-            .platform-description {
-                font-size: 0.9rem;
-                text-align: center;
-            }
-
-            /* Benefits section mobile */
-            .benefits-header h2 {
-                font-size: 1.8rem;
-                text-align: center;
-            }
-
-            .benefits-header p {
-                text-align: center;
-            }
-
-            .benefit-content {
-                text-align: center;
-            }
-
-            .benefit-content h3 {
-                font-size: 1.5rem;
-            }
-
-            .benefit-image {
-                height: 150px;
-            }
-
-            /* Case study section mobile */
-            .benefits-section > div > div:last-child {
-                padding: 4rem 1rem 1rem 1rem;
-            }
-
-            .benefits-section > div > div:last-child > div {
-                padding: 2rem;
-                margin: 0 1rem;
-            }
-
-            .benefits-section > div > div:last-child p {
-                font-size: 1.1rem;
-                text-align: center;
-            }
-
-            /* Partners grid mobile */
-            .partners-grid {
-                grid-template-columns: repeat(2, 1fr);
             }
 
             /* Footer mobile */
@@ -1055,36 +655,16 @@
                 padding: 0 1rem;
             }
 
-            .hero {
-                padding: 2rem 0;
+            .form-container {
+                padding: 0 0.5rem;
             }
 
-            .hero-container {
-                padding: 0 1rem;
+            .calendly-section {
+                padding: 1.5rem 1rem;
             }
 
-            .hero-content h1 {
+            .calendly-header h1 {
                 font-size: 1.8rem;
-            }
-
-            .platform-title {
-                font-size: 1.4rem;
-            }
-
-            .step-text {
-                font-size: 1rem;
-            }
-
-            .benefits-header h2 {
-                font-size: 1.6rem;
-            }
-
-            .benefit-content h3 {
-                font-size: 1.3rem;
-            }
-
-            .partners-grid {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -1242,116 +822,22 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Welcome to the Intersection of <br>Science and IT</h1>
-                <p>Digitizing scientific workflows in regulated manufacturing environments to ensure data integrity, efficiency, and compliance with Connected Plant.</p>
-            </div>
-            <div class="hero-visual">
-                <!-- Hero image space - would contain the manufacturing facility image -->
-            </div>
-        </div>
-    </section>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="form-container">
+            <div class="calendly-section">
+                <div class="calendly-header">
+                    <h1>Schedule Your Demo</h1>
+                    <p>Choose a convenient time to see how Phizzle's Connected Plant platform can digitize your scientific workflows and eliminate paper processes in manufacturing.</p>
+                </div>
 
-    <!-- Platform Section -->
-    <section class="platform-section">
-        <div class="platform-container">
-            <div class="platform-bubble">
-                <h2 class="platform-title">Digitize Scientific Workflows in 3 Steps:</h2>
-                
-                <div class="platform-content">
-                    <div class="platform-left">
-                        <div class="platform-step">
-                            <div class="step-number">1</div>
-                            <div class="step-text">
-                                <span class="step-action">Connect</span> to Analytical Scientific Instruments
-                            </div>
-                        </div>
-                        
-                        <div class="platform-step">
-                            <div class="step-number">2</div>
-                            <div class="step-text">
-                                <span class="step-action">Automate</span> Data Formatting
-                            </div>
-                        </div>
-                        
-                        <div class="platform-step">
-                            <div class="step-number">3</div>
-                            <div class="step-text">
-                                <span class="step-action">Integrate</span> with Digital Systems
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="platform-right">
-                        <p class="platform-description">
-                            Eliminate pen and paper processes, multi-step data entry SOPs and clunky middleware solutions to synchronize critical manufacturing data with LIMS, MES, or QMS. 
-                        </p>
-                        <a href="platform-overview.html" class="solution-btn">See Our Solution</a>
-                    </div>
-                </div>
+                <!-- Calendly inline widget begin -->
+                <div class="calendly-inline-widget" data-url="https://calendly.com/phizzledenverlab/connected-plant-demo-1?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=d97706" style="min-width:320px;height:700px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                <!-- Calendly inline widget end -->
             </div>
         </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section class="benefits-section">
-        <div class="benefits-container">
-            <div class="benefits-header">
-                <h2>Explore the Benefits of Connected Plant by Application</h2>
-            </div>
-            
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <div class="benefit-image" style="background-image: url('https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081563/biopharma-application-benefit3_qvnr3f.jpg'); background-size: cover; background-position: center; color: transparent;">
-                        Pharma Manufacturing Image
-                    </div>
-                    <div class="benefit-content">
-                        <h3>Pharma Manufacturing</h3>
-                        <p>Eliminate multi-step data collection and entry SOPs through hands-free data collection, automated formatting, and direct synchronization with LIMS, MES, or QMS systems — no paper trail required. Ensure 21 CFR Part 11 compliance with a built-in review and electronic signature process.</p>
-                        <a href="pharma-manufacturing.html" class="explore-btn">Explore Connected Plant for Pharma Manufacturing</a>
-                    </div>
-                </div>
-                
-                <div class="benefit-item">
-                    <div class="benefit-image" style="background-image: url('https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081546/aerospace-home_vkkssy.jpg'); background-size: cover; background-position: center; color: transparent;">
-                        Aerospace Innovation Image
-                    </div>
-                    <div class="benefit-content">
-                        <h3>Aerospace Manufacturing</h3>
-                        <p>Streamline manual data collection workflows through hands-free data capture, automated formatting and data synchronization from precision measurement tools, testing equipment, and inspection instruments with ERP, MES, or QMS systems — eliminating paper records. Ensure AS9100 and NADCAP compliance with automated traceability and detailed audit trails.</p>
-                        <a href="aerospace-manufacturing.html" class="explore-btn">Explore Connected Plant for Aerospace Manufacturing</a>
-                    </div>
-                </div>
-                
-                <div class="benefit-item">
-                    <div class="benefit-image" style="background-image: url('https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081543/food-production-home_wvzpet.png'); background-size: cover; background-position: center; color: transparent;">
-                        Food Production Image
-                    </div>
-                    <div class="benefit-content">
-                        <h3>Food Production</h3>
-                        <p>Streamline critical control point monitoring and documentation by synchronizing real-time quality data directly with food safety management systems without a paper trail. Ensure HACCP and 21 CFR Part 11 compliance with continuous monitoring, electronic record keeping and detailed audit trails.</p>
-                        <a href="food-production.html" class="explore-btn">Explore Connected Plant for Food Production</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Case Study Section -->
-            <div style="width: 100%; background: #f8fafc; margin: 0; padding: 6rem 0 1rem 0; text-align: center;">
-                <div style="max-width: 1200px; margin: 0 auto; background: #ffffff; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); border: 1px solid #e2e8f0;">
-                    <p style="font-size: 1.3rem; color: #4a90b8; line-height: 1.6; margin-bottom: 2rem;">
-                        See how a Top-3 Pharma is saving $1.5M a year in labor costs and cut failure reports by 80%
-                    </p>
-                    <a href="apc-case-study.html" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #4a90b8; color: white; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 600; transition: background 0.3s ease; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; min-height: 44px;">
-                        <span style="font-size: 0.8rem;">▶</span>
-                        View the Case Study
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
