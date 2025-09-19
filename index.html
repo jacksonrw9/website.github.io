@@ -356,57 +356,17 @@
             line-height: 1.6;
         }
 
-        /* FIXED CALENDLY WIDGET STYLING */
+        /* SIMPLIFIED CALENDLY IFRAME STYLING */
         .calendly-wrapper {
-            width: 100% !important;
-            min-width: 1000px !important;
-            max-width: 1200px !important;
-            margin: 0 auto !important;
-            overflow-x: auto !important;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow-x: auto;
         }
 
-        .calendly-inline-widget {
-            width: 100% !important;
-            min-width: 1000px !important;
-            height: 1000px !important;
-            margin: 0 auto !important;
-            display: block !important;
+        .calendly-wrapper iframe {
+            display: block;
             background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            overflow: visible !important;
-        }
-
-        /* Ensure the iframe inside gets proper sizing */
-        .calendly-inline-widget iframe {
-            width: 100% !important;
-            min-width: 1000px !important;
-            height: 100% !important;
-            border: none !important;
-            border-radius: 12px;
-            overflow: visible !important;
-        }
-
-        /* Force Calendly internal elements to proper width */
-        .calendly-inline-widget * {
-            min-width: inherit !important;
-        }
-
-        /* Target Calendly's internal styling more aggressively */
-        .calendly-inline-widget [data-testid*="calendar"],
-        .calendly-inline-widget [class*="calendar"],
-        .calendly-inline-widget [class*="Calendar"],
-        .calendly-inline-widget [class*="desktop"],
-        .calendly-inline-widget [class*="Desktop"] {
-            min-width: 1000px !important;
-            width: 100% !important;
-        }
-
-        /* Override any mobile classes Calendly might add */
-        .calendly-inline-widget [class*="mobile"],
-        .calendly-inline-widget [class*="Mobile"] {
-            min-width: 1000px !important;
-            width: 100% !important;
         }
 
         /* Footer Section */
@@ -693,17 +653,10 @@
             }
 
             /* FORCE DESKTOP CALENDLY SIZING ON MOBILE */
-            .calendly-inline-widget {
-                min-width: 700px !important; /* Force desktop width */
+            .calendly-wrapper iframe {
+                min-width: 1000px !important; /* Force desktop width */
                 height: 1000px !important; /* Keep desktop height */
-                margin: 0 auto !important;
-                border-radius: 12px !important;
                 overflow-x: auto !important; /* Allow horizontal scroll if needed */
-            }
-
-            .calendly-inline-widget iframe {
-                min-width: 700px !important; /* Force desktop width */
-                overflow-x: auto !important;
             }
 
             /* Footer mobile */
@@ -921,45 +874,14 @@
                     <h1>Request a Demo</h1>
                 </div>
 
-                <!-- Calendly inline widget begin -->
-                <div class="calendly-wrapper" style="width: 100%; min-width: 1000px; max-width: 1200px; margin: 0 auto; overflow-x: auto;">
-                    <div class="calendly-inline-widget" 
-                         data-url="https://calendly.com/phizzledenverlab/connected-plant-demo-1?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=d97706"
-                         style="width: 100%; min-width: 1000px; height: 1000px;">
-                    </div>
+                <!-- Calendly iframe begin -->
+                <div class="calendly-wrapper" style="width: 100%; max-width: 1200px; margin: 0 auto; overflow-x: auto;">
+                    <iframe src="https://calendly.com/phizzledenverlab/connected-plant-demo-1?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=d97706"
+                            style="width: 100%; min-width: 1000px; height: 1000px; border: none; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);"
+                            frameborder="0">
+                    </iframe>
                 </div>
-                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-                
-                <!-- Force Calendly to desktop mode -->
-                <script>
-                    // Wait for Calendly to load, then force desktop sizing
-                    window.addEventListener('message', function(e) {
-                        if (e.origin === 'https://calendly.com' && e.data.type === 'calendly.resize_window') {
-                            const calendlyWidget = document.querySelector('.calendly-inline-widget');
-                            if (calendlyWidget) {
-                                calendlyWidget.style.minWidth = '1000px';
-                                calendlyWidget.style.width = '100%';
-                            }
-                        }
-                    });
-                    
-                    // Also try after page load
-                    window.addEventListener('load', function() {
-                        setTimeout(function() {
-                            const calendlyWidget = document.querySelector('.calendly-inline-widget');
-                            const calendlyIframe = document.querySelector('.calendly-inline-widget iframe');
-                            if (calendlyWidget) {
-                                calendlyWidget.style.minWidth = '1000px !important';
-                                calendlyWidget.style.width = '100% !important';
-                            }
-                            if (calendlyIframe) {
-                                calendlyIframe.style.minWidth = '1000px !important';
-                                calendlyIframe.style.width = '100% !important';
-                            }
-                        }, 1000);
-                    });
-                </script>
-                <!-- Calendly inline widget end -->
+                <!-- Calendly iframe end -->
             </div>
         </div>
     </main>
