@@ -360,23 +360,37 @@
         .calendly-inline-widget {
             width: 100% !important;
             max-width: 1000px !important;
-            min-width: 320px !important;
+            min-width: 700px !important;
             height: 1000px !important;
             margin: 0 auto !important;
             display: block !important;
             background: #ffffff;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
+            overflow: visible !important;
         }
 
         /* Ensure the iframe inside gets proper sizing */
         .calendly-inline-widget iframe {
             width: 100% !important;
-            min-width: 320px !important;
+            min-width: 700px !important;
             height: 100% !important;
             border: none !important;
             border-radius: 12px;
+            overflow: visible !important;
+        }
+
+        /* Force Calendly internal elements to proper width */
+        .calendly-inline-widget * {
+            min-width: inherit !important;
+        }
+
+        /* Target Calendly's internal styling more aggressively */
+        .calendly-inline-widget [data-testid*="calendar"],
+        .calendly-inline-widget [class*="calendar"],
+        .calendly-inline-widget [class*="Calendar"] {
+            min-width: 700px !important;
+            width: 100% !important;
         }
 
         /* Footer Section */
@@ -650,10 +664,16 @@
 
             /* MOBILE CALENDLY SIZING */
             .calendly-inline-widget {
-                min-width: 300px !important;
+                min-width: 350px !important;
                 height: 900px !important;
                 margin: 0 !important;
                 border-radius: 8px !important;
+                overflow-x: auto !important;
+            }
+
+            .calendly-inline-widget iframe {
+                min-width: 350px !important;
+                overflow-x: auto !important;
             }
 
             /* Footer mobile */
@@ -866,7 +886,12 @@
                 </div>
 
                 <!-- Calendly inline widget begin -->
-                <div class="calendly-inline-widget" data-url="https://calendly.com/phizzledenverlab/connected-plant-demo-1?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=d97706"></div>
+                <div style="width: 100%; min-width: 700px; max-width: 1000px; margin: 0 auto;">
+                    <div class="calendly-inline-widget" 
+                         data-url="https://calendly.com/phizzledenverlab/connected-plant-demo-1?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=d97706"
+                         style="width: 100%; min-width: 700px; height: 1000px;">
+                    </div>
+                </div>
                 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
                 <!-- Calendly inline widget end -->
             </div>
