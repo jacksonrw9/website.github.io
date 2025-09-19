@@ -47,7 +47,7 @@
         }
 
         .content {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -57,6 +57,8 @@
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             backdrop-filter: blur(10px);
+            min-width: 1000px;
+            overflow-x: auto;
         }
 
         .calendly-section h2 {
@@ -72,7 +74,14 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             width: 100% !important;
-            min-width: 900px !important;
+            min-width: 1000px !important;
+            height: 700px !important;
+        }
+
+        /* Force Calendly to show desktop layout */
+        .calendly-inline-widget iframe {
+            width: 100% !important;
+            min-width: 1000px !important;
         }
 
         @media (max-width: 768px) {            
@@ -110,13 +119,13 @@
     <div class="container">
         <div class="header">
             <h1>Request a Demo</h1>
-            <p>Experience the future of connected plant solutions. Schedule a personalized demonstration and see how our technology can transform your operations.</p>
+            <p>Experience Phizzle's Connected Plant platform in a 20-minute demo. Our engineer will showcase key features, integrations, and device compatibility while answering your questions about functionality and implementation.</p>
         </div>
 
         <div class="content">
             <div class="calendly-section">
                 <!-- Calendly inline widget begin -->
-                <div class="calendly-inline-widget" data-url="https://calendly.com/phizzledenverlab/connected-plant-demo-1?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=d78d05" style="min-width:900px;height:700px;width:100%;"></div>
+                <div class="calendly-inline-widget" data-url="https://calendly.com/phizzledenverlab/connected-plant-demo-1?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=d78d05" style="min-width:1000px;height:700px;width:100%;"></div>
                 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
                 <!-- Calendly inline widget end -->
             </div>
