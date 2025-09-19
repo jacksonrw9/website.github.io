@@ -357,10 +357,17 @@
         }
 
         /* FIXED CALENDLY WIDGET STYLING */
+        .calendly-wrapper {
+            width: 100% !important;
+            min-width: 1000px !important;
+            max-width: 1200px !important;
+            margin: 0 auto !important;
+            overflow-x: auto !important;
+        }
+
         .calendly-inline-widget {
             width: 100% !important;
-            max-width: 1000px !important;
-            min-width: 700px !important;
+            min-width: 1000px !important;
             height: 1000px !important;
             margin: 0 auto !important;
             display: block !important;
@@ -373,7 +380,7 @@
         /* Ensure the iframe inside gets proper sizing */
         .calendly-inline-widget iframe {
             width: 100% !important;
-            min-width: 700px !important;
+            min-width: 1000px !important;
             height: 100% !important;
             border: none !important;
             border-radius: 12px;
@@ -388,8 +395,17 @@
         /* Target Calendly's internal styling more aggressively */
         .calendly-inline-widget [data-testid*="calendar"],
         .calendly-inline-widget [class*="calendar"],
-        .calendly-inline-widget [class*="Calendar"] {
-            min-width: 700px !important;
+        .calendly-inline-widget [class*="Calendar"],
+        .calendly-inline-widget [class*="desktop"],
+        .calendly-inline-widget [class*="Desktop"] {
+            min-width: 1000px !important;
+            width: 100% !important;
+        }
+
+        /* Override any mobile classes Calendly might add */
+        .calendly-inline-widget [class*="mobile"],
+        .calendly-inline-widget [class*="Mobile"] {
+            min-width: 1000px !important;
             width: 100% !important;
         }
 
@@ -906,13 +922,43 @@
                 </div>
 
                 <!-- Calendly inline widget begin -->
-                <div style="width: 100%; min-width: 700px; max-width: 1000px; margin: 0 auto;">
+                <div class="calendly-wrapper" style="width: 100%; min-width: 1000px; max-width: 1200px; margin: 0 auto; overflow-x: auto;">
                     <div class="calendly-inline-widget" 
                          data-url="https://calendly.com/phizzledenverlab/connected-plant-demo-1?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=d97706"
-                         style="width: 100%; min-width: 700px; height: 1000px;">
+                         style="width: 100%; min-width: 1000px; height: 1000px;">
                     </div>
                 </div>
                 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                
+                <!-- Force Calendly to desktop mode -->
+                <script>
+                    // Wait for Calendly to load, then force desktop sizing
+                    window.addEventListener('message', function(e) {
+                        if (e.origin === 'https://calendly.com' && e.data.type === 'calendly.resize_window') {
+                            const calendlyWidget = document.querySelector('.calendly-inline-widget');
+                            if (calendlyWidget) {
+                                calendlyWidget.style.minWidth = '1000px';
+                                calendlyWidget.style.width = '100%';
+                            }
+                        }
+                    });
+                    
+                    // Also try after page load
+                    window.addEventListener('load', function() {
+                        setTimeout(function() {
+                            const calendlyWidget = document.querySelector('.calendly-inline-widget');
+                            const calendlyIframe = document.querySelector('.calendly-inline-widget iframe');
+                            if (calendlyWidget) {
+                                calendlyWidget.style.minWidth = '1000px !important';
+                                calendlyWidget.style.width = '100% !important';
+                            }
+                            if (calendlyIframe) {
+                                calendlyIframe.style.minWidth = '1000px !important';
+                                calendlyIframe.style.width = '100% !important';
+                            }
+                        }, 1000);
+                    });
+                </script>
                 <!-- Calendly inline widget end -->
             </div>
         </div>
