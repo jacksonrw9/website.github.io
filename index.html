@@ -323,8 +323,7 @@
         }
 
         .form-container {
-            max-width: 100%;
-            width: 100%;
+            max-width: 1600px;
             margin: 0 auto;
             padding: 0 2rem;
         }
@@ -830,13 +829,10 @@
                     <h1>Request a Demo</h1>
                 </div>
 
-                <!-- Calendly popup widget begin -->
-                <div style="text-align: center; margin: 2rem 0;">
-                    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-                    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-                    <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/phizzledenverlab/connected-plant-demo-1?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=d97706'});return false;" style="display: inline-block; background: #1e293b; color: #ffffff; padding: 1rem 3rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; transition: background 0.3s ease, transform 0.2s ease; min-width: 200px; text-decoration: none;">Schedule Demo</a>
-                </div>
-                <!-- Calendly popup widget end -->
+                <!-- Calendly inline widget begin -->
+                <div class="calendly-inline-widget" data-url="https://calendly.com/phizzledenverlab/connected-plant-demo-1?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=d97706" style="min-width:320px;height:1000px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                <!-- Calendly inline widget end -->
             </div>
         </div>
     </main>
