@@ -639,6 +639,20 @@
                 grid-column: 1 / -1;
                 margin-top: 2rem;
             }
+
+            /* DISABLE RESPONSIVE FOR CALENDLY - KEEP DESKTOP SIZING */
+            .form-container {
+                padding: 0 2rem; /* Keep desktop padding */
+                max-width: 1200px; /* Keep desktop max-width */
+            }
+
+            .calendly-section {
+                padding: 0; /* Keep desktop padding */
+            }
+
+            .calendly-header h1 {
+                font-size: 2.5rem; /* Keep desktop font size */
+            }
         }
 
         /* Mobile Responsive Design (768px and below) */
@@ -648,31 +662,31 @@
                 height: 24px;
             }
 
-            /* Calendly content mobile adjustments */
+            /* DISABLE RESPONSIVE FOR CALENDLY CONTENT */
             .form-container {
-                padding: 0 1rem;
-                max-width: 100%;
+                padding: 0 1rem; /* Minimal padding only */
+                max-width: 1200px; /* Keep desktop sizing */
             }
 
             .calendly-section {
-                padding: 2rem 0;
+                padding: 2rem 0; /* Keep some vertical padding */
             }
 
             .calendly-header h1 {
-                font-size: 2rem;
+                font-size: 2rem; /* Slightly smaller but not too small */
             }
 
-            /* MOBILE CALENDLY SIZING */
+            /* FORCE DESKTOP CALENDLY SIZING ON MOBILE */
             .calendly-inline-widget {
-                min-width: 350px !important;
-                height: 900px !important;
-                margin: 0 !important;
-                border-radius: 8px !important;
-                overflow-x: auto !important;
+                min-width: 700px !important; /* Force desktop width */
+                height: 1000px !important; /* Keep desktop height */
+                margin: 0 auto !important;
+                border-radius: 12px !important;
+                overflow-x: auto !important; /* Allow horizontal scroll if needed */
             }
 
             .calendly-inline-widget iframe {
-                min-width: 350px !important;
+                min-width: 700px !important; /* Force desktop width */
                 overflow-x: auto !important;
             }
 
@@ -706,8 +720,11 @@
                 padding: 0 1rem;
             }
 
+            /* KEEP CALENDLY AT DESKTOP SIZE EVEN ON VERY SMALL SCREENS */
             .form-container {
                 padding: 0 0.5rem;
+                max-width: none; /* Remove max-width constraint */
+                overflow-x: auto; /* Allow horizontal scroll */
             }
 
             .calendly-section {
@@ -718,8 +735,11 @@
                 font-size: 1.8rem;
             }
 
+            /* FORCE DESKTOP CALENDLY SIZE */
             .calendly-inline-widget {
-                height: 850px !important;
+                min-width: 700px !important; /* Keep desktop width */
+                height: 1000px !important; /* Keep desktop height */
+                overflow-x: auto !important; /* Allow horizontal scroll */
             }
         }
     </style>
