@@ -323,12 +323,12 @@
         }
 
         .form-container {
-            max-width: 1600px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        /* Calendly Section */
+        /* Calendly Section - UPDATED FOR PROPER SIZING */
         .calendly-section {
             background: transparent;
             padding: 0;
@@ -354,6 +354,29 @@
             max-width: 600px;
             margin: 0 auto;
             line-height: 1.6;
+        }
+
+        /* FIXED CALENDLY WIDGET STYLING */
+        .calendly-inline-widget {
+            width: 100% !important;
+            max-width: 1000px !important;
+            min-width: 320px !important;
+            height: 1000px !important;
+            margin: 0 auto !important;
+            display: block !important;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        /* Ensure the iframe inside gets proper sizing */
+        .calendly-inline-widget iframe {
+            width: 100% !important;
+            min-width: 320px !important;
+            height: 100% !important;
+            border: none !important;
+            border-radius: 12px;
         }
 
         /* Footer Section */
@@ -614,14 +637,23 @@
             /* Calendly content mobile adjustments */
             .form-container {
                 padding: 0 1rem;
+                max-width: 100%;
             }
 
             .calendly-section {
-                padding: 2rem 1.5rem;
+                padding: 2rem 0;
             }
 
             .calendly-header h1 {
                 font-size: 2rem;
+            }
+
+            /* MOBILE CALENDLY SIZING */
+            .calendly-inline-widget {
+                min-width: 300px !important;
+                height: 900px !important;
+                margin: 0 !important;
+                border-radius: 8px !important;
             }
 
             /* Footer mobile */
@@ -659,11 +691,15 @@
             }
 
             .calendly-section {
-                padding: 1.5rem 1rem;
+                padding: 1.5rem 0;
             }
 
             .calendly-header h1 {
                 font-size: 1.8rem;
+            }
+
+            .calendly-inline-widget {
+                height: 850px !important;
             }
         }
     </style>
@@ -830,7 +866,7 @@
                 </div>
 
                 <!-- Calendly inline widget begin -->
-                <div class="calendly-inline-widget" data-url="https://calendly.com/phizzledenverlab/connected-plant-demo-1?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=d97706" style="min-width:320px;height:1000px;"></div>
+                <div class="calendly-inline-widget" data-url="https://calendly.com/phizzledenverlab/connected-plant-demo-1?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=d97706"></div>
                 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
                 <!-- Calendly inline widget end -->
             </div>
@@ -894,7 +930,7 @@
                         <li><a href="news.html">News</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
-                </div>
+                </li>
                 
                 <div class="footer-section">
                     <div class="email-signup">
