@@ -1,0 +1,673 @@
+<!DOCTYPE html>   
+<html lang="en">   
+<head>   
+  <meta charset="UTF-8">   
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+  <title>Phizzle ROI Calculator</title>   
+  <!-- Import Montserrat font from Google Fonts -->   
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">   
+  <style>   
+  body {   
+   font-family: 'Montserrat', sans-serif;   
+   background-color: #f4f4f4;   
+   margin: 0;   
+   padding: 16px;   
+   overflow-y: auto;   
+  }   
+   
+  h1, h2, h3 {   
+   text-align: center;   
+   margin: 8px 0;   
+  }   
+   
+  h1 {   
+   font-size: 40px;   
+  }   
+   
+  h2 {   
+   font-size: 28px;   
+   margin-bottom: 30px;   
+  }   
+   
+  h3 {   
+   font-size: 22px;   
+  }   
+   
+  h4 {   
+   text-align: center;   
+   margin: 8px 0;   
+   margin-bottom: 12px;   
+   font-size: 24px;   
+  }   
+   
+  h5 {   
+   text-align: center;   
+   font-size: 18px;   
+   color: #436c73;   
+  }   
+  
+  h6  {  
+   text-align: center;   
+   font-size: 26px;   
+   color: #436c73;  
+   margin: 15px;  
+  }  
+   
+  .read-more-btn {   
+   display: inline-block;   
+   background-color: #FF5A3D;   
+   color: white;   
+   padding: 10px 20px;   
+   font-weight: bold;   
+   font-size: 16px;   
+   border-radius: 5px;   
+   text-decoration: none;   
+   margin: 10px auto 20px;   
+   display: block;   
+   width: fit-content;   
+   text-align: center;   
+  }   
+   
+  .container {   
+   display: flex;   
+   justify-content: space-between;   
+   max-width: 100%;   
+   gap: 16px;   
+   flex-wrap: wrap;   
+   margin: 10px auto;   
+  }   
+   
+  .bubble {   
+   position: relative;   
+   background-color: white;   
+   border-radius: 10px;   
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);   
+   padding: 10px;   
+   width: 32%;   
+   box-sizing: border-box;   
+   margin-bottom: 5 px;   
+  }   
+  
+  .bubble + div {   
+   margin-top: 0;  
+  }  
+   
+  .form-group {   
+   margin-bottom: 16px;   
+  }   
+   
+  .question {   
+   display: block;   
+   margin-bottom: 8px;   
+   font-size: 15px;   
+   text-align: center;   
+  }   
+   
+  input {   
+   width: 100%;   
+   padding: 12px;   
+   border: 1px solid #ccc;   
+   border-radius: 5px;   
+   box-sizing: border-box;   
+  }   
+   
+  .result {   
+   margin-top: 16px;   
+   padding: 16px;   
+   background-color: #f0f0f0;   
+   border-radius: 5px;   
+   display: none;   
+  }   
+   
+  .btn {   
+   padding: 16px;   
+   background-color: #436C79;   
+   color: white;   
+   font-size: 18px;   
+   font-weight: bold;   
+   border: none;   
+   border-radius: 8px;   
+   cursor: pointer;   
+   text-align: center;   
+   width: 100%;   
+   max-width: 1300px;   
+   margin: 16px auto;   
+   display: none; /* Initially hidden */   
+   text-decoration: none;   
+   text-transform: uppercase;   
+  }   
+   
+  .btn:hover {   
+   background-color: #436C79;   
+  }   
+   
+  .roi-container {   
+   display: flex;   
+   justify-content: space-between;   
+   gap: 250px;   
+   margin-top: 16px;   
+   align-items: flex-start;   
+   max-width: 1000px;   
+   margin: 20px auto;   
+  }   
+   
+  .roi-results, .roi-chart {   
+   width: 48%;   
+   display: none;   
+  }   
+   
+  #savingsChart {   
+   max-width: 100%;   
+   width: 360px;   
+   height: 360px;   
+   margin: 0 auto;   
+  }   
+   
+  table {   
+   width: 100%;   
+   border-collapse: collapse;   
+   margin-top: 20px;   
+  }   
+   
+  table, th, td {   
+   border: 1px solid #ddd;   
+  }   
+   
+  th, td {   
+   padding: 12px;   
+   text-align: center;   
+  }   
+   
+  th {   
+   background-color: #f4f4f4;   
+  }   
+   
+  p {   
+   text-align: center;   
+   margin: 8px 0;   
+  }   
+   
+  .tooltip {   
+   font-size: 12px;   
+   color: gray;   
+   font-style: italic;   
+   position: absolute;   
+   top: 8px;   
+   right: 8px;   
+   cursor: pointer;   
+  }   
+   
+  .tooltip:hover::after {   
+   content: attr(data-tooltip);   
+   position: absolute;   
+   background-color: #333;   
+   color: white;   
+   padding: 8px;   
+   border-radius: 5px;   
+   top: -35px;   
+   right: 0;   
+   width: 200px;   
+   font-size: 12px;   
+   white-space: pre-wrap;   
+  }   
+   
+  @media (max-width: 768px) {   
+   .container, .roi-container {   
+    flex-direction: column;   
+   }   
+   
+   .bubble, .roi-results, .roi-chart {   
+    width: 100%;   
+   }   
+  }   
+   
+  /* Sandbox Form Styles */   
+  .sandbox-form-container {   
+   max-width: 400px;   
+   margin: 0 auto;   
+   padding: 20px;   
+   border: 1px solid #ddd;   
+   border-radius: 8px;   
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);   
+   display: none; /* Form is initially hidden */   
+  }   
+   
+  .sandbox-form-group {   
+   margin-bottom: 15px;   
+  }   
+   
+  .sandbox-label {   
+   display: block;   
+   font-weight: bold;   
+   margin-bottom: 5px;   
+  }   
+   
+  .sandbox-input {   
+   width: 100%;   
+   padding: 8px;   
+   border: 1px solid #ccc;   
+   border-radius: 4px;   
+  }   
+   
+  .sandbox-button {   
+   width: 100%;   
+   padding: 10px;   
+   background-color: #007bff;   
+   color: #fff;   
+   border: none;   
+   border-radius: 4px;   
+   font-size: 16px;   
+   cursor: pointer;   
+  }   
+   
+  .sandbox-button:hover {   
+   background-color: #0056b3;   
+  }   
+   
+  .sandbox-results {   
+   margin-top: 20px;   
+   font-size: 18px;   
+   color: green;   
+   text-align: center;   
+   display: none; /* Initially hidden */   
+  }   
+   
+  .sandbox-header {   
+   font-size: 18px;   
+   text-align: center;   
+   margin-bottom: 20px;   
+  }   
+    
+  ::-webkit-scrollbar {  
+    width: 0px;  
+    background: transparent;  
+  }  
+  </style>   
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>   
+</head>   
+<body>   
+   
+<h1>Phizzle's ROI Calculator</h1>   
+<h2>See How You Can Achieve a 1000% Return or More.</h2>   
+<h5>Industry and Customer Validated Savings Model</h5>   
+   
+<div class="container">   
+  <!-- APC Calculator Bubble -->   
+  <div class="bubble">   
+  <div class="tooltip" data-tooltip="Assumptions: 1.8 lab techs/apc, $60/hour per contractor at 2080 hours/year.">   
+   Assumptions   
+  </div>   
+  <h4>Efficiencies</h4>   
+  <div class="form-group">   
+   <label for="numAPCs" class="question">How many APC's are currently being operated in your facilities?</label>   
+   <label for="numAPCs" class="text">&nbsp;</label>
+   <input type="number" id="numAPCs" placeholder="Enter a Number" oninput="calculateAPCLaborCost(); checkIfAllInputsFilled(); updateROIResults();">   
+  </div>   
+   
+  <div class="result" id="apcResult">   
+   <h3>Your Efficiencies Savings:</h3>   
+   <p>We eliminate paper documentation and second person review <strong>creating a 40% boost in productivity</strong> among lab techs operating your air particle counters.</p>   
+   <p>Saving you <strong id="laborSavingsDisplay" style="color: green; font-size: 1.1em;"></strong> in labor costs every year and an additional <strong id="paperSavingsDisplay" style="color: green; font-size: 1.1em;"></strong> annually by eliminating paper.</p>   
+  </div>   
+  </div>   
+   
+  <!-- Failure Report Calculator Bubble -->   
+  <div class="bubble">   
+  <div class="tooltip" data-tooltip="Assumption: Each failure report costs $12,500.">   
+   Assumptions   
+  </div>   
+  <h4>Avoidance</h4>   
+  <div class="form-group">   
+   <label for="numFailureReports" class="question">On average, how many deviation reports are created each week leading to failure investigations?</label>    
+   <input type="number" id="numFailureReports" placeholder="Enter a Number" oninput="calculateFailureReportCost(); checkIfAllInputsFilled(); updateROIResults();">   
+  </div>   
+   
+  <div class="result" id="failureReportResult">   
+   <h3>Your Avoidance Savings:</h3>   
+   <p>Our end-to-end digital workflow <strong>reduces failure reports by 60%</strong>.</p>   
+   <p>Saving you <strong id="failureReportSavingsDisplay" style="color: green; font-size: 1.1em;"></strong> on failure reports annually.</p>   
+  </div>   
+  </div>   
+   
+  <!-- FDA Audit Calculator Bubble -->   
+  <div class="bubble">   
+  <div class="tooltip" data-tooltip="Assumption: Every FDA audit costs $300,000.">   
+   Assumptions   
+  </div>   
+  <h4>Risk Mitigation</h4>   
+  <div class="form-group">   
+   <label for="numFDAAudits" class="question">How many FDA audits have you undergone in the past three years?</label>    
+   <label for="numAPCs" class="text">&nbsp;</label>
+   <input type="number" id="numFDAAudits" placeholder="Enter a Number" oninput="calculateFDAAuditCost(); checkIfAllInputsFilled(); updateROIResults();">   
+  </div>   
+   
+  <div class="result" id="fdaAuditResult">   
+   <h3>Your Risk Mitigation Savings:</h3>   
+   <p>Our 21 CFR Part 11 Compliant Software <strong>reduces the occurrence of FDA Audits by 50%</strong>.</p>   
+   <p>Saving you <strong id="fdaAuditSavingsDisplay" style="color: green; font-size: 1.1em;"></strong> on FDA Audits annually.</p>   
+  </div>   
+  </div>   
+</div>   
+  
+<div class="container">   
+   <div style="width: 32%; text-align: center;">   
+    <h6>Remote Operation</h6>   
+   </div>   
+   <div style="width: 32%; text-align: center;">   
+    <h6>Automated Data Collection</h6>   
+   </div>   
+   <div style="width: 32%; text-align: center;">   
+    <h6>Digital Chain of Custody</h6>   
+   </div>   
+  </div>  
+  
+<!-- ROI Button, initially hidden -->   
+<button class="btn" id="calculateROIButton" onclick="displayAndCalculateROI()">Calculate Your Total Savings Over Three Years</button>   
+<!-- Additional Sandbox Button -->   
+<button class="read-more-btn" id="requestSandBoxButton2" onclick="showSandboxForm()"> Try the Software for Yourself in Our Sandbox Environment, Running Remote Samples in Compliance with 21 CFR 11</button>   
+   
+<!-- ROI Results and Table after Calculation -->   
+<div class="roi-container" id="roiContainer">   
+  <div class="roi-results" id="roiResult">   
+  <h2>Your Savings and ROI with Digital Air Over 3 Years:</h2>   
+  <table>   
+   <tr>   
+    <th>Year</th>   
+    <th>ROI</th>   
+    <th>Total Savings After Investment</th>   
+   </tr>   
+   <tr>   
+    <td>Year 1</td>   
+    <td id="roiYear1Display"></td>   
+    <td id="savingsYear1Display" style="color: green;"></td>   
+   </tr>   
+   <tr>   
+    <td>Year 2</td>   
+    <td id="roiYear2Display"></td>   
+    <td id="savingsYear2Display" style="color: green;"></td>   
+   </tr>   
+   <tr>   
+    <td>Year 3</td>   
+    <td id="roiYear3Display"></td>   
+    <td id="savingsYear3Display" style="color: green;"></td>   
+   </tr>   
+  </table>   
+  </div>   
+   
+  <div class="roi-chart" id="chartContainer">   
+  <h3>Annual Savings Breakdown</h3>   
+  <canvas id="savingsChart"></canvas>   
+  </div>   
+</div>   
+   
+<p class="demo-text" id="demoText" style="display: none;"> * Interested in learning more? Click below to request a demo. *</p>   
+   
+<a href="https://www.phizzle.com/request-a-demo" class="btn" id="requestDemoButton" target="_blank" style="display: none;">Request a Demo</a>   
+   
+<!-- Sandbox Button -->   
+<button class="read-more-btn" id="requestSandBox" onclick="showSandboxForm()" style="display: none;">Send Me a Sandbox: See Step by Step How Digital Air Works</button>   
+   
+<!-- Sandbox Form Container -->   
+<div id="sandboxFormContainer" class="sandbox-form-container">   
+  <p class="sandbox-header" id="sandboxHeader">Enter your information and a sandbox will be sent to your inbox shortly.</p>   
+  <form id="sandboxForm">   
+  <div class="sandbox-form-group">   
+   <label for="firstName" class="sandbox-label">First Name</label>   
+   <input type="text" id="firstName" name="firstName" required>   
+  </div>   
+  <div class="sandbox-form-group">   
+   <label for="lastName" class="sandbox-label">Last Name</label>   
+   <input type="text" id="lastName" name="lastName" required>   
+  </div>   
+  <div class="sandbox-form-group">   
+   <label for="email" class="sandbox-label">Best Email</label>   
+   <input type="email" id="email" name="email" required>   
+  </div>   
+  <div class="sandbox-form-group">   
+   <label for="company" class="sandbox-label">Company</label>   
+   <input type="text" id="company" name="company" required>   
+  </div>   
+  <button type="button" class="sandbox-button" onclick="submitSandboxForm()">Submit</button>   
+  </form>   
+</div>   
+   
+<!-- Sandbox Results Container -->   
+<div id="sandboxResults" class="sandbox-results"></div>   
+   
+<script>   
+  let currentLaborCost = 0, revisedLaborCost = 0, laborSavings = 0;   
+  let currentFailureReportCost = 0, revisedFailureReportCost = 0, failureReportSavings = 0;   
+  let currentFDAAuditCost = 0, revisedFDAAuditCost = 0, fdaAuditSavings = 0;   
+  let paperSavings = 0;   
+  let chart = null;   
+   
+  const customizationFee = 50000;   
+  const duration = 3;   
+   
+  function displayAndCalculateROI() {   
+  document.getElementById("roiResult").style.display = 'block';   
+  document.getElementById("chartContainer").style.display = 'block';   
+  document.getElementById("requestDemoButton").style.display = 'block';   
+  document.getElementById("demoText").style.display = 'block';   
+  document.getElementById("requestSandBox").style.display= 'block';   
+   
+  document.getElementById("roiContainer").scrollIntoView({   
+   behavior: 'smooth'   
+  });   
+   
+  calculateROI();   
+  }   
+   
+  function checkIfAllInputsFilled() {   
+  const apcsFilled = document.getElementById("numAPCs").value !== '';   
+  const failureReportsFilled = document.getElementById("numFailureReports").value !== '';   
+  const fdaAuditsFilled = document.getElementById("numFDAAudits").value !== '';   
+   
+  const allInputsFilled = apcsFilled && failureReportsFilled && fdaAuditsFilled;   
+  const calculateButton = document.getElementById("calculateROIButton");   
+  const requestSandBoxButton2 = document.getElementById("requestSandBoxButton2");   
+   
+  if (allInputsFilled) {   
+   calculateButton.style.display = 'block';   
+   requestSandBoxButton2.style.display = 'block';   
+   calculateButton.scrollIntoView({ behavior: 'smooth', block: 'center' });   
+  } else {   
+   calculateButton.style.display = 'none';   
+   requestSandBoxButton2.style.display = 'none';   
+   document.getElementById("roiResult").style.display = 'none';   
+   document.getElementById("chartContainer").style.display = 'none';   
+   document.getElementById("requestDemoButton").style.display = 'none';   
+   document.getElementById("demoText").style.display = 'none';   
+   document.getElementById("requestSandBox").style.display= 'none';   
+  }   
+  }   
+   
+  function calculateAPCLaborCost() {   
+  const numAPCs = parseFloat(document.getElementById("numAPCs").value);   
+  if (!isNaN(numAPCs) && numAPCs > 0) {   
+   currentLaborCost = 1.8 * 60 * 2080 * numAPCs;   
+   revisedLaborCost = (currentLaborCost) * 0.6;   
+   laborSavings = currentLaborCost - revisedLaborCost;   
+   paperSavings = numAPCs * 1000;   
+   
+   document.getElementById("laborSavingsDisplay").innerText = `$${laborSavings.toLocaleString()}`;   
+   document.getElementById("paperSavingsDisplay").innerText = `$${paperSavings.toLocaleString()}`;   
+   document.getElementById("apcResult").style.display = 'block';   
+  } else {   
+   document.getElementById("apcResult").style.display = 'none';   
+  }   
+  }   
+   
+  function calculateFailureReportCost() {   
+  const numFailureReports = parseFloat(document.getElementById("numFailureReports").value);   
+  if (!isNaN(numFailureReports) && numFailureReports > 0) {   
+   currentFailureReportCost = 12500 * numFailureReports * 52;   
+   revisedFailureReportCost = 0.4 * currentFailureReportCost;   
+   failureReportSavings = currentFailureReportCost - revisedFailureReportCost;   
+   
+   document.getElementById("failureReportSavingsDisplay").innerText = `$${failureReportSavings.toLocaleString()}`;   
+   document.getElementById("failureReportResult").style.display = 'block';   
+  } else {   
+   document.getElementById("failureReportResult").style.display = 'none';   
+  }   
+  }   
+   
+  function calculateFDAAuditCost() {   
+  const numFDAAudits = parseFloat(document.getElementById("numFDAAudits").value);   
+  if (!isNaN(numFDAAudits) && numFDAAudits > 0) {   
+   currentFDAAuditCost = (numFDAAudits * 300000) / 3;   
+   revisedFDAAuditCost = 0.5 * currentFDAAuditCost;   
+   fdaAuditSavings = currentFDAAuditCost - revisedFDAAuditCost;   
+   
+   document.getElementById("fdaAuditSavingsDisplay").innerText = `$${fdaAuditSavings.toLocaleString()}`;   
+   document.getElementById("fdaAuditResult").style.display = 'block';   
+  } else {   
+   document.getElementById("fdaAuditResult").style.display = 'none';   
+  }   
+  }   
+   
+  function calculateROI() {   
+  const totalSavings = laborSavings + failureReportSavings + fdaAuditSavings + paperSavings;   
+  const numAPCs = parseFloat(document.getElementById("numAPCs").value);   
+  let investment = numAPCs * duration * 10 * 365;   
+  investment -= investment * (numAPCs > 100 ? 0.1 : numAPCs > 25 ? 0.05 : 0);   
+   
+  const yearlyInvestment = investment / 3;   
+  const year1Investment = yearlyInvestment + customizationFee;   
+   
+  const roiYear1 = (totalSavings / year1Investment) * 100;   
+  const roiYear2 = (totalSavings / yearlyInvestment) * 100;   
+  const roiYear3 = (totalSavings / yearlyInvestment) * 100;   
+   
+  document.getElementById("roiYear1Display").innerText = `${roiYear1.toFixed(1)}%`;   
+  document.getElementById("roiYear2Display").innerText = `${roiYear2.toFixed(1)}%`;   
+  document.getElementById("roiYear3Display").innerText = `${roiYear3.toFixed(1)}%`;   
+   
+  document.getElementById("savingsYear1Display").innerText = `$${Math.round(totalSavings - year1Investment).toLocaleString()}`;   
+  document.getElementById("savingsYear2Display").innerText = `$${Math.round(totalSavings - yearlyInvestment).toLocaleString()}`;   
+  document.getElementById("savingsYear3Display").innerText = `$${Math.round(totalSavings - yearlyInvestment).toLocaleString()}`;   
+   
+  drawSavingsPieChart(laborSavings, failureReportSavings, fdaAuditSavings, paperSavings);   
+  }   
+   
+  function updateROIResults() {   
+  if (document.getElementById("roiResult").style.display === 'block') {   
+   calculateROI();   
+  }   
+  }   
+   
+  function drawSavingsPieChart(laborSavings, failureReportSavings, fdaAuditSavings, paperSavings) {   
+  const ctx = document.getElementById('savingsChart').getContext('2d');   
+   
+  if (chart) {   
+   chart.destroy();   
+  }   
+   
+  chart = new Chart(ctx, {   
+   type: 'pie',   
+   data: {   
+    labels: ['Labor Savings', 'Failure Report Savings', 'FDA Audit Savings', 'Paper-Based Savings'],   
+    datasets: [{   
+     data: [laborSavings, failureReportSavings, fdaAuditSavings, paperSavings],   
+     backgroundColor: ['#436C79', '#EE993C', '#DA5E26', '#000080'],   
+    }]   
+   },   
+   options: {   
+    responsive: true,   
+    title: {   
+     display: true,   
+     text: 'Savings Breakdown',   
+     fontSize: 34,   
+     fontStyle: 'bold',   
+     padding: 20   
+    },   
+    legend: {   
+     display: true,   
+     position: 'bottom',   
+     labels: {   
+      boxWidth: 20,   
+      fontSize: 14   
+     }   
+    },   
+    tooltips: {   
+     callbacks: {   
+      label: function(tooltipItem, data) {   
+      let label = data.labels[tooltipItem.index] || '';   
+      let value = data.datasets[0].data[tooltipItem.index] || 0;   
+   
+      return `${label} $${value.toLocaleString()}`;   
+      }   
+     }   
+    }   
+   }   
+  });   
+  }   
+   
+  // Function to show the sandbox form   
+  function showSandboxForm() {   
+  const sandboxFormContainer = document.getElementById('sandboxFormContainer');   
+  sandboxFormContainer.style.display = 'block'; // Make the form visible   
+   
+  sandboxFormContainer.scrollIntoView({   
+   behavior: 'smooth'   
+  });   
+  }   
+   
+  // Function to submit the sandbox form   
+  function submitSandboxForm() {   
+  const firstName = document.getElementById('firstName').value.trim();   
+  const lastName = document.getElementById('lastName').value.trim();   
+  const email = document.getElementById('email').value.trim();   
+  const company = document.getElementById('company').value.trim();   
+   
+  if (firstName && lastName && email && company) {   
+   const data = new URLSearchParams({   
+    firstName: firstName,   
+    lastName: lastName,   
+    email: email,   
+    company: company   
+   });   
+   
+   const scriptURL = "https://script.google.com/macros/s/AKfycbxwyt7Pr0LVem-737HmvfaXvB-F1zWPyFAOvOXdICnC5Xml2PwuDQK-p0q1LMnAMZHP3g/exec"; // Replace with your Google Apps Script Web App URL   
+   
+   fetch(scriptURL, {   
+    method: "POST",   
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },   
+    body: data.toString()   
+   })   
+   .then(response => {   
+    if (!response.ok) {   
+     throw new Error(`HTTP error! status: ${response.status}`);   
+    }   
+    return response.json(); // Parse the response as JSON   
+   })   
+   .then(result => {   
+    // Hide the form container   
+    const sandboxFormContainer = document.getElementById('sandboxFormContainer');   
+    sandboxFormContainer.style.display = 'none';   
+   
+    // Hide the sandbox header   
+    const sandboxHeader = document.getElementById('sandboxHeader');   
+    sandboxHeader.style.display = 'none';   
+   
+    // Hide the sandbox button   
+    const requestSandBoxButton = document.getElementById('requestSandBox');   
+    requestSandBoxButton.style.display = 'none';   
+   
+    // Display the thank-you message   
+    const sandboxResultsDiv = document.getElementById('sandboxResults');   
+    sandboxResultsDiv.innerHTML = "Thank you. Your Digital Air Sandbox Information will be sent to your inbox shortly.";   
+    sandboxResultsDiv.style.display = 'block'; // Explicitly show the results message   
+   })   
+   .catch(error => {   
+    console.error("Error:", error);   
+    alert("There was an error submitting your form. Please try again.");   
+   });   
+  } else {   
+   alert("Please fill in all fields before submitting.");   
+  }   
+  }   
+</script>   
+   
+</body>   
+</html>
