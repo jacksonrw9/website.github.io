@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Digitize scientific workflows in regulated manufacturing. Connect, automate, and integrate analytical instruments with LIMS, MES, or QMS to ensure data integrity, efficiency, and compliance.">
-    <title>Phizzle - Digitizing Scientific Workflows</title>
+    <meta name="description" content="Connected Plant for pharmaceutical manufacturing ensures GMP compliance, eliminates paper workflows, integrates with LIMS/MES systems, and maintains 21 CFR Part 11 compliance with digital data integrity.">
+    <title>Pharma Manufacturing - Phizzle</title>
 
     <!-- Favicon links -->
     <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
@@ -21,7 +21,7 @@
     </script>
 
     <!-- Start of HubSpot Embed Code -->
-    <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/8070371.js"></script>
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/8070371.js"></script>
     <!-- End of HubSpot Embed Code -->
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -135,17 +135,6 @@
             background-color: #f8fafc;
             color: #4a90b8;
             border-left-color: #4a90b8;
-        }
-
-        .dropdown-header {
-            color: #64748b;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 0.5rem 1.5rem;
-            border-bottom: 1px solid #e2e8f0;
-            margin-bottom: 0.5rem;
         }
 
         .request-demo {
@@ -332,338 +321,303 @@
             transform: rotate(180deg);
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://res.cloudinary.com/dqiggfeuq/image/upload/v1757437615/iStock-2150276025_wwqrbl.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            position: relative;
+        /* Main Content */
+        .main-content {
+            background: #ffffff;
             padding: 4rem 0;
         }
 
-        .hero-container {
+        .content-container {
             max-width: 1400px;
-            margin: 0 auto 0 2rem;
-            padding: 0 2rem 0 4rem;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 4rem;
-            align-items: center;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
-        .hero-text-box {
-            background: #436C79;
-            padding: 2.5rem;
-            border-radius: 0px;
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            max-width: 2000px;    
-            width: 100%;
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 5rem;
         }
 
         .hero-content h1 {
-            font-size: 2.0rem;
-            font-weight: 700;
-            color: #ffffff;
-            line-height: 1.3;
-            margin-bottom: 1.5rem;
-            max-width: 100%;
-        }
-        
-        @media (min-width: 1400px) {
-            .hero-content h1 {
-                font-size: 2.8rem;
-            }
-        }
-        
-        @media (max-width: 1025px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-        }
-
-        .hero-content p {
-            font-size: 1.1rem;
-            color: #ffffff;
-            line-height: 1.6;
-            max-width: 650px;
-        }
-
-        /* Platform Section */
-        .platform-section {
-            background: #ffffff;
-            padding: 5rem 0;
-        }
-
-        .platform-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .platform-bubble {
-            background: #ffffff;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid #e2e8f0;
-            max-width: 1200px;
-            width: 100%;
-        }
-
-        .platform-title {
-            text-align: center;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             font-weight: 600;
-            color: #4a90b8;
-            margin-bottom: 2.5rem;
+            color: #1f2937;
+            margin-bottom: 1.5rem;
             line-height: 1.2;
         }
 
-        .platform-content {
-            display: grid;
-            grid-template-columns: 60% 40%;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .platform-left {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .platform-step {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-align: left;
-        }
-
-        .step-number {
-            background: #4a90b8;
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-            font-weight: 600;
-            flex-shrink: 0;
-        }
-
-        .step-text {
-            font-size: 1.6rem;
-            color: #1f2937;
-            line-height: 1.4;
-        }
-
-        .step-text .step-action {
-            font-weight: 700;
-            color: #4a90b8;
-        }
-
-        .platform-right {
-            text-align: left;
-            padding-right: 2rem;
-        }
-
-        .platform-description {
-            font-size: 0.9rem;
+        .hero-content p {
+            font-size: 1rem;
             color: #64748b;
             line-height: 1.6;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
-        .solution-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: #22c55e;
+        .request-demo-btn {
+            display: inline-block;
+            background: #d97706;
             color: white;
-            padding: 0.5rem 1rem;
+            padding: 0.75rem 1.5rem;
             border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
-            transition: background 0.3s ease;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            transition: background 0.3s ease;
             min-height: 44px;
         }
 
-        .solution-btn:hover {
-            background: #16a34a;
+        .request-demo-btn:hover {
+            background: #b45309;
         }
 
-        .solution-btn::before {
-            content: '▶';
-            font-size: 0.7rem;
+        .hero-image {
+            width: 100%;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* Benefits Section */
-        .benefits-section {
-            background: #f8fafc;
-            padding: 5rem 0;
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
-        .benefits-container {
+        /* Connection Features Section */
+        .connection-section {
+            background: #e2e8f0;
+            padding: 4rem 0;
+            margin: 5rem -2rem;
+            border-radius: 20px;
+        }
+
+        .connection-container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        .benefits-header {
-            margin-bottom: 4rem;
+        .connection-header {
+            text-align: center;
+            margin-bottom: 3rem;
         }
 
-        .benefits-header h2 {
-            font-size: 2.5rem;
+        .connection-header h2 {
+            font-size: 2.2rem;
             font-weight: 600;
-            color: #4a90b8;
+            color: #1f2937;
             margin-bottom: 1rem;
         }
 
-        .benefits-header p {
-            font-size: 1.1rem;
-            color: #64748b;
-            max-width: 800px;
+        .connection-features {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
         }
 
-        .benefits-grid {
+        .connection-feature {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #4a90b8;
             display: grid;
-            gap: 3rem;
-        }
-
-        .benefit-item {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 3rem;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
             align-items: center;
         }
 
-        .benefit-image {
-            width: 100%;
-            height: 200px;
-            background: #e2e8f0;
+        .feature-content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .feature-content p {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .learn-more-link {
+            display: inline-block;
+            background: #4a90b8;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background 0.3s ease;
+            min-height: 44px;
+        }
+
+        .learn-more-link:hover {
+            background: #3a7ba8;
+            color: white;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #64748b;
-            font-size: 0.9rem;
+            color: #4a90b8;
+            font-size: 2rem;
+            margin: 0 auto;
+        }
+
+        .feature-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            margin: 5rem 0;
+        }
+
+        .benefits-header {
             text-align: center;
-            padding: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .benefits-header h2 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-content {
+            border-left: 4px solid #4a90b8;
+            padding-left: 2rem;
         }
 
         .benefit-content h3 {
-            font-size: 1.8rem;
+            font-size: 1.3rem;
             font-weight: 600;
-            color: #4a90b8;
+            color: #1f2937;
             margin-bottom: 1rem;
         }
 
         .benefit-content p {
             color: #64748b;
             line-height: 1.6;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
-        .explore-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: #22c55e;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s ease;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-            min-height: 44px;
-        }
-
-        .explore-btn:hover {
-            background: #16a34a;
-        }
-
-        .explore-btn::before {
-            content: '▶';
-            font-size: 0.8rem;
-        }
-
-        /* Full Width Image Section */
-        .full-width-image-section {
-            background: #ffffff;
-            padding: 2rem;
-            width: 100%;
-        }
-
-        .full-width-image-placeholder {
-            width: 100%;
-            height: 300px;
-            background-color: #f8fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 20px;
+        .benefit-image {
+            width: 350px;
+            height: auto;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: flex-start;
+            justify-content: flex-start;
+            color: #64748b;
+            font-size: 1rem;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 0;
         }
 
-        /* Partners Section */
-        .partners-section {
+        .benefit-image img {
+            width: 350px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 20px;
+            border: none;
+            box-shadow: none;
+        }
+
+        .ai-image {
+            color: #ffffff;
+        }
+
+        .cleanroom-image {
+            color: #ffffff;
+        }
+
+        .lab-image {
+            color: #ffffff;
+        }
+
+        .benefit-pair {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 2rem;
+            margin-bottom: 3.75rem;
+            align-items: start;
+            padding-bottom: 2.25rem;
+        }
+
+        .benefit-pair:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .benefit-pair .benefit-image {
+            order: 1;
+        }
+
+        .benefit-pair .benefit-content {
+            order: 2;
+        }
+
+        /* CTA Section */
+        .cta-section {
             background: #ffffff;
-            padding: 4rem 0;
+            padding: 3rem 0;
+            margin: 5rem -2rem 0;
+            text-align: center;
         }
 
-        .partners-container {
+        .cta-container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        .partners-header {
-            margin-bottom: 3rem;
-        }
-
-        .partners-header h2 {
-            font-size: 2rem;
+        .cta-section h2 {
+            font-size: 1.8rem;
             font-weight: 600;
-            color: #4a90b8;
+            color: #1f2937;
             margin-bottom: 1rem;
         }
 
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            align-items: center;
+        .cta-btn {
+            display: inline-block;
+            background: #d97706;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background 0.3s ease;
+            min-height: 44px;
         }
 
-        .partner-logo {
-            height: 80px;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #64748b;
-            font-weight: 600;
-            text-align: center;
-            padding: 1rem;
+        .cta-btn:hover {
+            background: #b45309;
         }
 
         /* Footer Section */
@@ -1012,45 +966,6 @@
                 height: 24px;
             }
 
-            .hero-container {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .platform-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .platform-bubble {
-                padding: 2rem;
-            }
-            
-            .platform-title {
-                font-size: 2rem;
-            }
-
-            .step-text {
-                font-size: 1.4rem;
-            }
-
-            .platform-right {
-                padding-right: 0;
-            }
-
-            .benefit-item {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .benefit-image {
-                height: 180px;
-            }
-
             .footer-content {
                 grid-template-columns: 1fr 1fr;
                 gap: 2rem;
@@ -1064,103 +979,21 @@
                 grid-column: 1 / -1;
                 margin-top: 2rem;
             }
+
+            .hero-section, .benefit-pair {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .connection-feature {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
         }
 
-        /* Mobile Responsive Design (768px and below) */
         @media (max-width: 768px) {
-            .logo img {
-                height: 28px;
-            }
-
-            .hero-content {
-                text-align: center;
-            }
-
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-
-            .hero-content h1 br {
-                display: inline;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-            }
-
-            .hero-text-box {
-                max-width: 100%;
-                padding: 2rem;
-            }
-
-            .platform-bubble {
-                padding: 1.5rem;
-                margin: 0 1rem;
-                text-align: center;
-            }
-            
-            .platform-title {
-                font-size: 1.6rem;
-                margin-bottom: 2rem;
-            }
-
-            .platform-left {
-                align-items: center;
-            }
-
-            .platform-step {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 0.5rem;
-            }
-
-            .step-text {
-                font-size: 1.1rem;
-            }
-
-            .platform-description {
-                font-size: 0.9rem;
-                text-align: center;
-            }
-
-            .benefits-header h2 {
-                font-size: 1.8rem;
-                text-align: center;
-            }
-
-            .benefits-header p {
-                text-align: center;
-            }
-
-            .benefit-content {
-                text-align: center;
-            }
-
-            .benefit-content h3 {
-                font-size: 1.5rem;
-            }
-
-            .benefit-image {
-                height: 150px;
-            }
-
-            .benefits-section > div > div:last-child {
-                padding: 4rem 1rem 1rem 1rem;
-            }
-
-            .benefits-section > div > div:last-child > div {
-                padding: 2rem;
-                margin: 0 1rem;
-            }
-
-            .benefits-section > div > div:last-child p {
-                font-size: 1.1rem;
-                text-align: center;
-            }
-
-            .partners-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .nav-container {
+                padding: 0 1rem;
             }
 
             .footer-content {
@@ -1174,8 +1007,21 @@
                 gap: 1rem;
             }
 
-            .footer-bottom-links {
-                gap: 1rem;
+            .hero-content h1 {
+                font-size: 2rem;
+                text-align: center;
+            }
+
+            .hero-content p {
+                text-align: center;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .connection-header h2, .benefits-header h2 {
+                font-size: 1.8rem;
             }
 
             .social-link {
@@ -1185,17 +1031,8 @@
             }
         }
 
-        /* Very small mobile (480px and below) */
         @media (max-width: 480px) {
-            .nav-container {
-                padding: 0 1rem;
-            }
-
-            .hero {
-                padding: 2rem 0;
-            }
-
-            .hero-container {
+            .content-container {
                 padding: 0 1rem;
             }
 
@@ -1203,28 +1040,8 @@
                 font-size: 1.8rem;
             }
 
-            .hero-text-box {
-                padding: 1.5rem;
-            }
-
-            .platform-title {
-                font-size: 1.4rem;
-            }
-
-            .step-text {
-                font-size: 1rem;
-            }
-
-            .benefits-header h2 {
+            .connection-header h2, .benefits-header h2 {
                 font-size: 1.6rem;
-            }
-
-            .benefit-content h3 {
-                font-size: 1.3rem;
-            }
-
-            .partners-grid {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -1382,118 +1199,115 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-text-box">
-                    <h1>Welcome to the Intersection<br/>of Science and IT</h1>
-                    <p>Digitizing scientific workflows in regulated manufacturing environments to ensure data integrity, efficiency, and compliance with Connected Plant.</p>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="content-container">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1>Connected Plant for Pharma Manufacturing</h1>
+                    <p>Ensure data integrity and streamline GMP workflows by eliminating paper, multistep data collection/entry SOPs, and unnecessary manual touch points with Connected Plant — unlocking data silos, more informed decision making, and AI/ML adoption. Maintain effortless compliance with 21 CFR Part 11 with a built-in e-sign and review process and extensive audit logging from one UI.</p>
+                    <a href="request-demo.html" class="request-demo-btn">Request a Demo</a>
                 </div>
-            </div>
-            <div class="hero-visual">
-                <!-- Hero image space - would contain the manufacturing facility image -->
-            </div>
-        </div>
-    </section>
+                <div class="hero-image">
+                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081548/connected-plant-computer_v4lsos.png" alt="Pharma Manufacturing"/>
+                </div>
+            </section>
 
-    <!-- Platform Section -->
-    <section class="platform-section">
-        <div class="platform-container">
-            <div class="platform-bubble">
-                <h2 class="platform-title">Digitize Scientific Workflows in 3 Steps:</h2>
-                
-                <div class="platform-content">
-                    <div class="platform-left">
-                        <div class="platform-step">
-                            <div class="step-number">1</div>
-                            <div class="step-text">
-                                <span class="step-action">Connect</span> to Analytical Scientific Instruments
-                            </div>
-                        </div>
-                        
-                        <div class="platform-step">
-                            <div class="step-number">2</div>
-                            <div class="step-text">
-                                <span class="step-action">Automate</span> Data Formatting
-                            </div>
-                        </div>
-                        
-                        <div class="platform-step">
-                            <div class="step-number">3</div>
-                            <div class="step-text">
-                                <span class="step-action">Integrate</span> with Digital Systems
-                            </div>
-                        </div>
+            <!-- Connection Features Section -->
+            <section class="connection-section">
+                <div class="connection-container">
+                    <div class="connection-header">
+                        <h2>Connect GMP Instruments to Digital Systems</h2>
                     </div>
                     
-                    <div class="platform-right">
-                        <p class="platform-description">
-                            Eliminate pen and paper processes, multi-step data entry SOPs and clunky middleware solutions to synchronize critical manufacturing data with LIMS, MES, or QMS. 
-                        </p>
-                        <a href="platform-overview.html" class="solution-btn">See Our Solution</a>
+                    <div class="connection-features">
+                        <div class="connection-feature">
+                            <div class="feature-content">
+                                <h3>Built For Workhorse Instruments:</h3>
+                                <p>Our platform connects to multi-vendor air particle counters, microbial air samplers, pH meters, balances, zeta potential analyzers and other analytical scientific instruments in GMP/ISO environments and extract their data through each instrument's native communication protocols.</p>
+                                <a href="connect.html" class="learn-more-link">Learn More About Connecting Instruments</a>
+                            </div>
+                            <div class="feature-icon">
+                                <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/c_crop,w_1800,h_600/v1759861947/Your_paragraph_text_14_dnlgsq.png" alt="Workhorse Instruments">
+                            </div>
+                        </div>
+                        
+                        <div class="connection-feature">
+                            <div class="feature-content">
+                                <h3>Eliminate Manual Data Formatting Processes:</h3>
+                                <p>Automate Standardization with Our Data Formatting Engine.</p>
+                                <a href="automate.html" class="learn-more-link">Learn More About Automating Data Formatting</a>
+                            </div>
+                        </div>
+                        
+                        <div class="connection-feature">
+                            <div class="feature-content">
+                                <h3>Integrate with Existing Digital Systems, SOPs and Compliance Parameters:</h3>
+                                <p>Critical data securely synchronizes to LIMS, MES, or QMS without changing any existing SOPs. We build around the infrastructure that's already in place.</p>
+                                <a href="integrate.html" class="learn-more-link">Learn More About Integrating With Digital Systems</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- Benefits Section -->
-    <section class="benefits-section">
-        <div class="benefits-container">
-            <div class="benefits-header">
-                <h2>Explore the Benefits of Connected Plant by Application</h2>
-            </div>
-            
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <div class="benefit-image" style="background-image: url('https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081563/biopharma-application-benefit3_qvnr3f.jpg'); background-size: cover; background-position: center; color: transparent;">
-                        Pharma Manufacturing Image
+            <!-- Benefits Section -->
+            <section class="benefits-section">
+                <div class="benefits-header">
+                    <h2>Benefits of Connected Plant in Pharma Manufacturing:</h2>
+                </div>
+                
+                <div class="benefit-pair">
+                    <div class="benefit-image ai-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758654528/iStock-2161298305_rbiuop.jpg" alt="Improved Data Integrity"/>
                     </div>
                     <div class="benefit-content">
-                        <h3>Pharma Manufacturing</h3>
-                        <p>Eliminate multi-step data collection and entry SOPs through hands-free data collection, automated formatting, and direct synchronization with LIMS, MES, or QMS systems — no paper trail required. Ensure 21 CFR Part 11 compliance with a built-in review and electronic signature process.</p>
-                        <a href="pharma-manufacturing.html" class="explore-btn">Explore Connected Plant for Pharma Manufacturing</a>
+                        <h3>Improved Data Integrity:</h3>
+                        <p>Accelerate data flow from GMP data sources to Digital Systems while maintaining the highest level of data integrity by integrating data sources directly with existing LIMS, MES, or QMS. Consistent, accessible data pipelines lay the foundation for advanced analytics, AI, and machine learning.</p>
                     </div>
                 </div>
                 
-                <div class="benefit-item">
-                    <div class="benefit-image" style="background-image: url('https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081546/aerospace-home_vkkssy.jpg'); background-size: cover; background-position: center; color: transparent;">
-                        Aerospace Innovation Image
+                <div class="benefit-pair">
+                    <div class="benefit-image cleanroom-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/c_crop,w_1323,h_744,x_44,y_0,ar_16:9/v1759857802/iStock-2036497686_ado6e3.jpg" alt="Reduced Cost of Quality"/>
                     </div>
                     <div class="benefit-content">
-                        <h3>Aerospace Manufacturing</h3>
-                        <p>Streamline manual data collection workflows through hands-free data capture, automated formatting and data synchronization from precision measurement tools, testing equipment, and inspection instruments with ERP, MES, or QMS systems — reducing paper-based processes. Support AS9100 and NADCAP compliance requirements with comprehensive traceability and detailed audit trails.</p>
-                        <a href="aerospace-manufacturing.html" class="explore-btn">Explore Connected Plant for Aerospace Manufacturing</a>
+                        <h3>Reduced Cost of Quality:</h3>
+                        <p>Prevent deviations and minimize CAPA investigations triggered by data transcription errors. Eliminate failed batch costs by ensuring data integrity from instrument to digital system. Maintain continuous inspection-readiness with organized digital records and complete audit trails to reduce preparation time, minimize regulatory findings, and decrease facility downtime during inspections.</p>
                     </div>
                 </div>
                 
-                <div class="benefit-item">
-                    <div class="benefit-image" style="background-image: url('https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081543/food-production-home_wvzpet.png'); background-size: cover; background-position: center; color: transparent;">
-                        Food Production Image
+                <div class="benefit-pair">
+                    <div class="benefit-image lab-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/c_crop,w_2000,h_1050,g_auto/v1759859257/cleanroom_image_mdqiid.jpg" alt="Enhanced Contamination Control"/>
                     </div>
                     <div class="benefit-content">
-                        <h3>Food Production</h3>
-                        <p>Streamline critical control point monitoring and documentation by synchronizing real-time quality data directly with food safety management systems, reducing paper-based processes. Support HACCP and 21 CFR Part 11 compliance requirements with continuous monitoring, electronic record keeping and detailed audit trails.</p>
-                        <a href="food-production.html" class="explore-btn">Explore Connected Plant for Food Production</a>
+                        <h3>Enhanced Contamination Control:</h3>
+                        <p>Remote operation of particle counters and microbial air samplers reduces personnel entry into Grade A/B cleanroom environments, minimizing contamination risk from gowning and human activity. Continuous monitoring detects particle count excursions in real-time, triggering immediate investigation protocols and enabling faster corrective action before product exposure occurs.</p>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Case Study Section -->
-            <div style="width: 100%; background: #f8fafc; margin: 0; padding: 6rem 0 1rem 0; text-align: center;">
-                <div style="max-width: 1200px; margin: 0 auto; background: #ffffff; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); border: 1px solid #e2e8f0;">
-                    <p style="font-size: 1.3rem; color: #4a90b8; line-height: 1.6; margin-bottom: 2rem;">
-                        See how a Top-3 Pharma is saving $1.5M a year in labor costs and cut failure reports by 80%
-                    </p>
-                    <a href="apc-case-study.html" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #4a90b8; color: white; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 600; transition: background 0.3s ease; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; min-height: 44px;">
-                        <span style="font-size: 0.8rem;">▶</span>
-                        View the Case Study
-                    </a>
+                
+                <div class="benefit-pair">
+                    <div class="benefit-image lab-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/c_crop,ar_16:9/v1759857426/iStock-2157274274_zicwdt.jpg" alt="Accelerated Batch Release"/>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Accelerated Batch Release:</h3>
+                        <p>Real-time data availability transforms sequential review into concurrent workflows. Instead of QA waiting for complete batch records after manufacturing finishes, review begins while operations are in progress, accelerating the path from batch completion to disposition decision.</p>
+                    </div>
                 </div>
-            </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="cta-section">
+                <div class="cta-container">
+                    <h2>See How Connected Plant Makes GMP Workflows Paperless</h2>
+                    <a href="request-demo.html" class="cta-btn">Request a Demo</a>
+                </div>
+            </section>
         </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
