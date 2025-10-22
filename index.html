@@ -414,7 +414,10 @@
         }
 
         .benefit-image {
-            width: 100%;
+            width: 120%;
+            max-width: 650px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
         }
 
         .capabilities-section {
@@ -755,8 +758,18 @@
             }
 
             .benefit-row {
+                display: flex;
+                flex-direction: column;
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+
+            .benefit-row:nth-child(2) .benefit-image {
+                order: 2;
+            }
+
+            .benefit-row:nth-child(2) .benefit-text {
+                order: 1;
             }
 
             .footer-content {
