@@ -761,6 +761,7 @@
                 flex-direction: column;
                 grid-template-columns: 1fr;
                 gap: 2rem;
+                min-height: auto;
             }
 
             .benefit-row:nth-child(2) .benefit-image {
@@ -769,6 +770,18 @@
 
             .benefit-row:nth-child(2) .benefit-text {
                 order: 1;
+            }
+
+            .benefit-image {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .benefit-image img {
+                width: 100% !important;
+                height: 400px !important;
+                object-fit: cover !important;
+                object-position: left center !important;
             }
 
             .footer-content {
@@ -801,6 +814,13 @@
 
             .benefit-text h2 {
                 font-size: 1.6rem;
+            }
+
+            .benefit-image img {
+                width: 100% !important;
+                height: 300px !important;
+                object-fit: cover !important;
+                object-position: left center !important;
             }
 
             .capabilities-title {
