@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phizzle - Digitizing GMP Workflows</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Connected Plant™ - Automate Compliant Data Flow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,1047 +13,376 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
+            font-family: 'Lato', sans-serif;
             color: #333;
+            line-height: 1.6;
         }
 
-        /* Navigation */
-        nav {
-            background: #64748b;
-            padding: 1rem 0;
-            position: relative;
-            z-index: 100;
-        }
-
-        .nav-container {
-            max-width: 1400px;
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #ffffff;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo-dots {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-            align-items: center;
-        }
-
-        .dot {
-            background: #ffffff;
-            border-radius: 50%;
-        }
-
-        .dot:nth-child(1) {
-            width: 4px;
-            height: 4px;
-        }
-
-        .dot:nth-child(2) {
-            width: 6px;
-            height: 6px;
-        }
-
-        .dot:nth-child(3) {
-            width: 8px;
-            height: 8px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-            align-items: center;
-        }
-
-        .nav-links > li {
-            position: relative;
-        }
-
-        .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: block;
-            padding: 0.5rem 0;
-        }
-
-        .nav-links > li > a:hover {
-            color: #94a3b8;
-        }
-
-        /* Dropdown Styles */
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            min-width: 250px;
-            padding: 1rem 0;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            margin-top: 0.5rem;
-            border: 1px solid #e2e8f0;
-        }
-
-        .nav-links > li:hover .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        .dropdown li {
-            list-style: none;
-        }
-
-        .dropdown a {
-            color: #374151;
-            padding: 0.75rem 1.5rem;
-            text-transform: none;
-            font-weight: 400;
-            font-size: 0.9rem;
-            letter-spacing: 0;
-            transition: background-color 0.2s ease;
-            border-left: 3px solid transparent;
-        }
-
-        .dropdown a:hover {
-            background-color: #f8fafc;
-            color: #4a90b8;
-            border-left-color: #4a90b8;
-        }
-
-        .dropdown-header {
-            color: #64748b;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 0.5rem 1.5rem;
-            border-bottom: 1px solid #e2e8f0;
-            margin-bottom: 0.5rem;
-        }
-
-        .request-demo {
-            background: #d97706 !important;
-            color: white !important;
-            padding: 0.5rem 1rem !important;
-            border-radius: 6px !important;
-            transition: background 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 600 !important;
-            font-size: 0.8rem !important;
-        }
-
-        .request-demo:hover {
-            background: #b45309;
-            color: white !important;
+            padding: 0 20px;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://i.postimg.cc/6qBqvHw8/cleanroomlandingimage.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            padding: 4rem 0;
+            background: linear-gradient(135deg, #e8f4f8 0%, #d4e9f2 100%);
+            padding: 60px 0;
+            text-align: center;
         }
 
-        .hero-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .hero h1 {
+            font-size: 2em;
+            font-weight: 700;
+            color: #2c5f7f;
+            margin-bottom: 20px;
+        }
+
+        .hero h2 {
+            font-size: 1.95em;
+            font-weight: 700;
+            color: #5a8ba8;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1em;
+            color: #7a9fb5;
+            font-weight: 300;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .section-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 60px;
             align-items: center;
         }
 
-        .hero-content h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #ffffff;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
+        .section-content.reverse {
+            grid-template-columns: 1fr 1fr;
         }
 
-        .hero-content p {
-            font-size: 1.1rem;
-            color: #e2e8f0;
-            line-height: 1.6;
-            max-width: 600px;
+        .section-content.reverse .text-content {
+            order: 2;
         }
 
-        /* Platform Section */
-        .platform-section {
-            background: #ffffff;
-            padding: 5rem 0;
+        .section-content.reverse .image-content {
+            order: 1;
         }
 
-        .platform-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .platform-bubble h2 {
-            font-size: 2.2rem;
-            font-weight: 600;
-            color: #4a90b8;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .platform-bubble p {
-            font-size: 1rem;
-            color: #64748b;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-        }
-
-        .how-it-works-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: #22c55e;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s ease;
+        .text-content h3 {
+            font-size: 0.9em;
             text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-        }
-
-        .how-it-works-btn:hover {
-            background: #16a34a;
-        }
-
-        .how-it-works-btn::before {
-            content: '▶';
-            font-size: 0.8rem;
-        }
-
-        .platform-bubble {
-            background: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            padding: 3rem;
-            border: 1px solid #e2e8f0;
-            max-width: 800px;
-            width: 100%;
-        }
-
-        .platform-steps {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .step {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .step-icon {
-            width: 40px;
-            height: 40px;
-            background: #4a90b8;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-            margin-top: 0.25rem;
-        }
-
-        .step-content h3 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: #4a90b8;
-            margin-bottom: 0.5rem;
-        }
-
-        .step-content h3 .step-number {
-            color: #1f2937;
-            margin-right: 0.5rem;
-            font-weight: 400;
-        }
-
-        .step-content h3 .step-action {
+            color: #5a8ba8;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
             font-weight: 700;
         }
 
-        .step-content p {
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        /* Benefits Section */
-        .benefits-section {
-            background: #f8fafc;
-            padding: 5rem 0;
-        }
-
-        .benefits-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .benefits-header {
-            margin-bottom: 4rem;
-        }
-
-        .benefits-header h2 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: #4a90b8;
-            margin-bottom: 1rem;
-        }
-
-        .benefits-header p {
-            font-size: 1.1rem;
-            color: #64748b;
-            max-width: 800px;
-        }
-
-        .benefits-grid {
-            display: grid;
-            gap: 3rem;
-        }
-
-        .benefit-item {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .benefit-image {
-            width: 100%;
-            height: 200px;
-            background: #e2e8f0;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #64748b;
-            font-size: 0.9rem;
-            text-align: center;
-            padding: 1rem;
-        }
-
-        .benefit-content h3 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #4a90b8;
-            margin-bottom: 1rem;
-        }
-
-        .benefit-content p {
-            color: #64748b;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .explore-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: #22c55e;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s ease;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-        }
-
-        .explore-btn:hover {
-            background: #16a34a;
-        }
-
-        .explore-btn::before {
-            content: '▶';
-            font-size: 0.8rem;
-        }
-
-        /* Full Width Image Section */
-        .full-width-image-section {
-            background: #ffffff;
-            padding: 2rem;
-            width: 100%;
-        }
-
-        .full-width-image-placeholder {
-            width: 100%;
-            height: 300px;
-            background-color: #f8fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Partners Section */
-        .partners-section {
-            background: #ffffff;
-            padding: 4rem 0;
-        }
-
-        .partners-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .partners-header {
-            margin-bottom: 3rem;
-        }
-
-        .partners-header h2 {
-            font-size: 2rem;
-            font-weight: 600;
-            color: #4a90b8;
-            margin-bottom: 1rem;
-        }
-
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .partner-logo {
-            height: 80px;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #64748b;
-            font-weight: 600;
-            text-align: center;
-            padding: 1rem;
-        }
-
-        /* Footer Section */
-        .footer {
-            background: #1e293b;
-            color: #e2e8f0;
-            padding: 4rem 0 2rem;
-        }
-
-        .footer-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-brand h3 {
-            font-size: 1.8rem;
+        .text-content h4 {
+            font-size: 1.8em;
+            color: #2c5f7f;
+            margin-bottom: 25px;
             font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
-        .footer-brand .logo-dots {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .footer-brand .dot:nth-child(1) {
-            width: 4px;
-            height: 4px;
-        }
-
-        .footer-brand .dot:nth-child(2) {
-            width: 6px;
-            height: 6px;
-        }
-
-        .footer-brand .dot:nth-child(3) {
-            width: 8px;
-            height: 8px;
-        }
-
-        .footer-brand p {
-            color: #94a3b8;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            max-width: 300px;
-        }
-
-        .footer-section h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .footer-section ul {
+        .text-content ul {
             list-style: none;
+            padding: 0;
         }
 
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
+        .text-content ul li {
+            padding-left: 25px;
+            margin-bottom: 15px;
+            position: relative;
+            color: #555;
+            line-height: 1.7;
         }
 
-        .footer-section ul li a {
-            color: #94a3b8;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-size: 0.9rem;
+        .text-content ul li:before {
+            content: "•";
+            color: #5a8ba8;
+            font-weight: bold;
+            font-size: 1.2em;
+            position: absolute;
+            left: 0;
         }
 
-        .footer-section ul li a:hover {
-            color: #ffffff;
+        .image-content {
+            text-align: center;
         }
 
-        .email-signup {
-            margin-top: 0;
+        .image-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
         }
 
-        .email-signup h5 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        /* Capabilities Section */
+        .capabilities {
+            background-color: #f8f9fa;
+            padding: 80px 0;
         }
 
-        .email-form {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 0.75rem;
-            flex-direction: column;
+        .capabilities h2 {
+            text-align: center;
+            font-size: 2.2em;
+            color: #2c5f7f;
+            margin-bottom: 60px;
+            font-weight: 700;
         }
 
-        .email-input {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #475569;
-            border-radius: 6px;
-            background: #334155;
-            color: #ffffff;
-            font-size: 0.9rem;
-            transition: border-color 0.3s ease;
-            margin-bottom: 0.5rem;
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
         }
 
-        .email-input::placeholder {
-            color: #94a3b8;
+        .capability-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
 
-        .email-input:focus {
-            outline: none;
-            border-color: #4a90b8;
+        .capability-card h3 {
+            font-size: 1.2em;
+            color: #2c5f7f;
+            margin-bottom: 15px;
+            font-weight: 700;
         }
 
-        .email-submit {
-            width: 100%;
-            padding: 0.75rem 1.25rem;
-            background: #4a90b8;
-            color: #ffffff;
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            font-size: 0.9rem;
+        .capability-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 0.95em;
         }
 
-        .email-submit:hover {
-            background: #3a7ba8;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-link {
-            width: 50px;
-            height: 50px;
-            background: transparent;
-            border: 2px solid #64748b;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #94a3b8;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.4rem;
-        }
-
-        .social-link:hover {
-            transform: translateY(-2px);
-        }
-
-        .social-link.linkedin {
-            border-color: #0077b5;
-            color: #0077b5;
-        }
-
-        .social-link.linkedin:hover {
-            background: #0077b5;
-            color: #ffffff;
-        }
-
-        .social-link.facebook {
-            border-color: #1877f2;
-            color: #1877f2;
-        }
-
-        .social-link.facebook:hover {
-            background: #1877f2;
-            color: #ffffff;
-        }
-
-        .social-link.youtube {
-            border-color: #ff0000;
-            color: #ff0000;
-        }
-
-        .social-link.youtube:hover {
-            background: #ff0000;
-            color: #ffffff;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #334155;
-            padding-top: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .footer-bottom p {
-            color: #64748b;
-            font-size: 0.9rem;
-        }
-
-        .footer-bottom-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .footer-bottom-links a {
-            color: #64748b;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-bottom-links a:hover {
-            color: #94a3b8;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-                gap: 2rem;
-            }
-
-            .footer-brand {
-                grid-column: 1 / -1;
-            }
-
-            .email-signup {
-                grid-column: 1 / -1;
-                margin-top: 2rem;
-            }
-
-            .hero-container,
-            .platform-container {
+        /* Responsive */
+        @media (max-width: 968px) {
+            .section-content,
+            .section-content.reverse {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                gap: 40px;
             }
 
-            .benefit-item {
+            .section-content.reverse .text-content,
+            .section-content.reverse .image-content {
+                order: initial;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero h2 {
+                font-size: 1.2em;
+            }
+
+            .text-content h4 {
+                font-size: 1.5em;
+            }
+
+            .capabilities-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .benefit-image {
-                height: 150px;
-            }
-
-            /* Mobile navigation adjustments */
-            .dropdown {
-                position: static;
-                transform: none;
-                box-shadow: none;
-                background: #475569;
-                margin: 0.5rem 0;
-                border-radius: 4px;
-            }
-
-            .dropdown a {
-                color: #e2e8f0;
-                padding: 0.5rem 1rem;
-            }
-
-            .dropdown a:hover {
-                background-color: #334155;
-                color: #94a3b8;
-                border-left-color: #94a3b8;
             }
         }
 
-        @media (max-width: 768px) {
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 1.6em;
             }
 
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
+            .hero h2 {
+                font-size: 1em;
             }
 
-            .nav-container {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 1rem;
+            .section {
+                padding: 50px 0;
             }
 
-            .nav-links {
-                gap: 1.5rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-
-            .platform-intro h2,
-            .benefits-header h2 {
-                font-size: 2rem;
-            }
-
-            .partners-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            .capabilities {
+                padding: 50px 0;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <div class="logo-dots">
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                </div>
-                Phizzle
-            </a>
-            <ul class="nav-links">
-                <li>
-                    <a href="#">Platform ▼</a>
-                    <ul class="dropdown">
-                        <li><a href="#">Platform Overview</a></li>
-                        <li><a href="#">Connect</a></li>
-                        <li><a href="#">Automate</a></li>
-                        <li><a href="#">Integrate</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Solutions ▼</a>
-                    <ul class="dropdown">
-                        <li><a href="#">Connected Plant</a></li>
-                        <li><a href="#">Edge Puck</a></li>
-                        <li><a href="#">Phizzle Lens</a></li>
-                        <li><a href="#">Edge Manager</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Applications ▼</a>
-                    <ul class="dropdown">
-                        <li><a href="#">Biopharma Manufacturing</a></li>
-                        <li><a href="#">Aerospace Manufacturing</a></li>
-                        <li><a href="#">Food Production</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Resources ▼</a>
-                    <ul class="dropdown">
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Videos</a></li>
-                        <li><a href="#">Webinars</a></li>
-                        <li><a href="#">Connected Plant Sandbox</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Partners ▼</a>
-                    <ul class="dropdown">
-                        <li><a href="#">Partners</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Company ▼</a>
-                    <ul class="dropdown">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </li>
-                <li><a href="#" class="request-demo">Request a Demo</a></li>
-            </ul>
-        </div>
-    </nav>
-
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Where GMP Meets IoT Precision</h1>
-                <p>Ensuring data integrity, workflow efficiency and compliance with Connected Plant.</p>
-            </div>
-            <div class="hero-visual">
-                <!-- Hero image space - would contain the manufacturing facility image -->
+        <div class="container">
+            <h1>Connected Plant™</h1>
+            <h2>Automate Compliant, Error-Free Data Flow from Multi-Vendor<br>Analytical Instruments to Existing LIMS, MES, or QMS</h2>
+            <p>Enhance Validated Manufacturing Systems Without Middleware or Replatforming</p>
+        </div>
+    </section>
+
+    <!-- Section 1: Data Integrity -->
+    <section class="section">
+        <div class="container">
+            <div class="section-content">
+                <div class="text-content">
+                    <h3>ENSURE DATA INTEGRITY</h3>
+                    <h4>Eliminate Manual Errors in Scientific Workflows</h4>
+                    <ul>
+                        <li>Automate result capture, format standardization and contextualized data entry to existing Digital Systems</li>
+                        <li>Schedule and initiate pre-configured samples from our vendor agnostic UI to reduce errors caused by gloves and front panel mistakes</li>
+                        <li>Lock out instrument screens during sampling to avoid interference</li>
+                    </ul>
+                </div>
+                <div class="image-content">
+                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1761249883/CP1_cropped_wkm0fo.png" alt="Connected Plant Interface">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Platform Section -->
-    <section class="platform-section">
-        <div class="platform-container">
-            <div class="platform-bubble">
-                <h2>GMP Workflows, Digitized in 3 Steps:</h2>
-                <p>(Eliminating pen and paper processes, data loss from external interruptions and clunky middleware push data to LIMS all from one UI.)</p>
-                <a href="#" class="how-it-works-btn">See how it works</a>
-                
-                <div class="platform-steps">
-                    <div class="step">
-                        <div class="step-icon">🔗</div>
-                        <div class="step-content">
-                            <h3><span class="step-number">1.</span><span class="step-action">Connecting</span> to Analytical Scientific Instruments.</h3>
-                        </div>
+    <!-- Section 2: Chain of Custody -->
+    <section class="section">
+        <div class="container">
+            <div class="section-content reverse">
+                <div class="text-content">
+                    <h3>MAINTAIN CHAIN OF CUSTODY</h3>
+                    <h4>Streamline Compliance</h4>
+                    <ul>
+                        <li>Capture Comprehensive Instrument, Operator and System Audit Logs</li>
+                        <li>Query audit logs and sample results with Connected Plant™ and export the data as a CSV, Excel, JSON, or PDF file</li>
+                        <li>Review, comment on, and e-sign sample results in accordance with 21 CFR Part 11</li>
+                    </ul>
+                </div>
+                <div class="image-content">
+                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1761240666/CP2_cropped_cahjco.png" alt="Measurement Data Interface">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Batch Release -->
+    <section class="section">
+        <div class="container">
+            <div class="section-content">
+                <div class="text-content">
+                    <h3>ACCELERATE BATCH RELEASE</h3>
+                    <h4>Optimize Quality Review</h4>
+                    <ul>
+                        <li>Reduce time lag between Manufacturing and QA</li>
+                        <li>Enable review by exception by flagging out of range readings in real time and notifying operators</li>
+                    </ul>
+                </div>
+                <div class="image-content">
+                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1761240667/CP3_cropped_okma6u.png" alt="Batch Release Dashboard">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Section -->
+    <section class="capabilities">
+        <div class="container">
+            <h2>Connected Plant™ Capabilities</h2>
+            <div style="background: white; padding: 50px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
+                    <div>
+                        <h3 style="font-size: 1.2em; color: #2c5f7f; margin-bottom: 15px; font-weight: 700;">Connect Analytical Scientific Instruments</h3>
+                        <p style="color: #666; line-height: 1.7; font-size: 0.95em;">Onboard multi-vendor instruments with our pre-built instrument connectors.</p>
                     </div>
+                    <div>
+                        <h3 style="font-size: 1.2em; color: #2c5f7f; margin-bottom: 15px; font-weight: 700;">Enable Remote Sampling</h3>
+                        <p style="color: #666; line-height: 1.7; font-size: 0.95em;">Preconfigure workflow recipes on instruments that require manual intervention, or remotely run entire samples and avoid cleanroom entry for routine environmental monitoring.</p>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.2em; color: #2c5f7f; margin-bottom: 15px; font-weight: 700;">Centralize Instrument Data and Audit Logs</h3>
+                        <p style="color: #666; line-height: 1.7; font-size: 0.95em;">Sample data and audit logs are stored on our platform and can be queried and exported.</p>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.2em; color: #2c5f7f; margin-bottom: 15px; font-weight: 700;">Integrate with existing LIMS, MES, and QMS</h3>
+                        <p style="color: #666; line-height: 1.7; font-size: 0.95em;">Synchronize data directly with Digital Systems without altering infrastructure.</p>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.2em; color: #2c5f7f; margin-bottom: 15px; font-weight: 700;">Support Paperless Scientific Workflows</h3>
+                        <p style="color: #666; line-height: 1.7; font-size: 0.95em;">Eliminate pen and clip board transcription and paper tape.</p>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.2em; color: #2c5f7f; margin-bottom: 15px; font-weight: 700;">Unlock Multi-Directional Workflows With LIMS, MES and QMS</h3>
+                        <p style="color: #666; line-height: 1.7; font-size: 0.95em;">Run scheduled samples from LIMS and push results to LIMS or MES within our platform.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Infrastructure Section -->
+    <section class="section" style="background-color: #ffffff;">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.2em; color: #2c5f7f; margin-bottom: 60px; font-weight: 700;">The Technical Infrastructure That Makes Paperless Manufacturing Workflows Possible</h2>
+            
+            <!-- Edge Puck -->
+            <div class="section-content" style="margin-bottom: 80px;">
+                <div class="text-content">
+                    <h3>EDGE PUCK™</h3>
+                    <h4>Purpose-Built for Cleanroom Gateway</h4>
+                    <p style="color: #666; line-height: 1.7; margin-bottom: 25px;">The only self-contained, cleanable gateway with an integrated computer that connects analytical instruments via Ethernet to enterprise data systems.</p>
                     
-                    <div class="step">
-                        <div class="step-icon">⚙️</div>
-                        <div class="step-content">
-                            <h3><span class="step-number">2.</span><span class="step-action">Automating</span> Data Capture and Formatting</h3>
-                        </div>
-                    </div>
+                    <h5 style="font-size: 1.1em; color: #5a8ba8; margin-bottom: 15px; font-weight: 700;">Key Features</h5>
+                    <ul>
+                        <li><strong>Mobile Design:</strong> Compact, battery-powered for space-constrained cleanrooms and mobile sampling</li>
+                        <li><strong>Enhanced Security:</strong> Converts vulnerable legacy protocols into encrypted MQTT communications eliminating the exposed threat surface</li>
+                        <li><strong>Continuous Operation:</strong> Maintains data capture during network failures and other external interruptions</li>
+                    </ul>
+                </div>
+                <div class="image-content">
+                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081556/edgepuck-hero_t4aaxo.jpg" alt="Edge Puck Device" style="box-shadow: none;">
+                </div>
+            </div>
+
+            <!-- Phizzle Lens -->
+            <div class="section-content" style="margin-bottom: 80px;">
+                <div class="text-content">
+                    <h3>PHIZZLE LENS</h3>
+                    <h4>Comprehensive System Oversight</h4>
+                    <p style="color: #666; line-height: 1.7; margin-bottom: 25px;">Provides visibility and resilient connectivity across multi-vendor analytical instruments.</p>
                     
-                    <div class="step">
-                        <div class="step-icon">🔄</div>
-                        <div class="step-content">
-                            <h3><span class="step-number">3.</span><span class="step-action">Integrating</span> with Digital Systems and Exisiting SOPS</h3>
-                        </div>
-                    </div>
+                    <h5 style="font-size: 1.1em; color: #5a8ba8; margin-bottom: 15px; font-weight: 700;">Key Features</h5>
+                    <ul>
+                        <li><strong>Data Loss Protection:</strong> Stressed-tested and validated for maximum uptime and reliability</li>
+                        <li><strong>Proactive Monitoring:</strong> Identifies and resolves issues before they impact operations</li>
+                        <li><strong>Access Control:</strong> Secures instruments against unauthorized access and sample interruption</li>
+                    </ul>
+                </div>
+                <div class="image-content">
+                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081546/phizzle-lens_qwqj3s.png" alt="Phizzle Lens Interface" style="box-shadow: none;">
+                </div>
+            </div>
+
+            <!-- Edge Manager -->
+            <div class="section-content">
+                <div class="text-content">
+                    <h3>EDGE MANAGER</h3>
+                    <h4>Unified Control Platform</h4>
+                    <p style="color: #666; line-height: 1.7; margin-bottom: 25px;">Microservices architecture that connects instruments to our infrastructure enabling continuous data capture, automated formatting, and remote operation.</p>
+                    
+                    <h5 style="font-size: 1.1em; color: #5a8ba8; margin-bottom: 15px; font-weight: 700;">Key Features</h5>
+                    <ul>
+                        <li><strong>Intelligent Integration:</strong> Manages all instrument specific communication protocols and securely integrates with backend systems</li>
+                        <li><strong>Remote Operation:</strong> Enables laboratory technicians to operate instruments outside the clean room or queue sample recipes before entering to avoid errors caused by gloves or screen errors</li>
+                        <li><strong>Compliance Ready:</strong> Enhanced audit logs including capture of instrument data, operator activity and connected system interactions for comprehensive regulatory trails</li>
+                    </ul>
+                </div>
+                <div class="image-content">
+                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757525007/Your_paragraph_text_4_-cropped_acnzur.svg" alt="Edge Manager Platform" style="box-shadow: none;">
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Benefits Section -->
-    <section class="benefits-section">
-        <div class="benefits-container">
-            <div class="benefits-header">
-                <h2>Explore the benefits of Digital Plant by application</h2>
-            </div>
-            
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <div class="benefit-image" style="background-image: url('https://i.postimg.cc/d0ThPk4V/biopharmaimage.jpg'); background-size: cover; background-position: center; color: transparent;">
-                        BioPharma Manufacturing Image
-                    </div>
-                    <div class="benefit-content">
-                        <h3>BioPharma Manufacturing</h3>
-                        <p>Get rid of paper printouts and multistep SOPs to get data in LIMS, MES, or QMS and ensure 21 CFR Part 11 compliance with a built in electronic review process.</p>
-                        <a href="#" class="explore-btn">Explore Digital Plant for BioPharma Manufacturing</a>
-                    </div>
-                </div>
-                
-                <div class="benefit-item">
-                    <div class="benefit-image" style="background-image: url('https://i.postimg.cc/282b4f1r/aerospaceimage.jpg'); background-size: cover; background-position: center; color: transparent;">
-                        Aerospace Innovation Image
-                    </div>
-                    <div class="benefit-content">
-                        <h3>Aerospace Innovation</h3>
-                        <p>Streamline manual workflows by connecting directly to systems and ensure AS9100 compliance.</p>
-                        <a href="#" class="explore-btn">Explore Digital Plant for Aerospace Innovation</a>
-                    </div>
-                </div>
-                
-                <div class="benefit-item">
-                    <div class="benefit-image" style="background-image: url('https://i.postimg.cc/jS1DFQ61/foodproductioncleanroom.webp'); background-size: cover; background-position: center; color: transparent;">
-                        Food Production Image
-                    </div>
-                    <div class="benefit-content">
-                        <h3>Food Production</h3>
-                        <p>Automate manual quality checks and paper-based batch records to ensure data flows directly into food safety systems and maintain HACCP compliance.</p>
-                        <a href="#" class="explore-btn">Explore Digital Plant for Food Manufacturing</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Image Placeholder Below Food Production -->
-            <div style="width: calc(100% + 4rem); height: 400px; background: #ffffff; margin: 3rem -2rem; display: flex; align-items: center; justify-content: center;">
-                <img src="https://i.postimg.cc/3R5dK8cC/Ourpartners.png" alt="Our Partners" style="width: 100%; height: 100%; object-fit: contain;">
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>
-                        <div class="logo-dots">
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                        </div>
-                        Phizzle
-                    </h3>
-                    <p>Where GMP Meets IoT Precision</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link linkedin">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link facebook">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link youtube">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Solutions</h4>
-                    <ul>
-                        <li><a href="#">Connected Plant</a></li>
-                        <li><a href="#">Edge Puck</a></li>
-                        <li><a href="#">Phizzle Lens</a></li>
-                        <li><a href="#">Edge Manager</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Videos</a></li>
-                        <li><a href="#">Webinars</a></li>
-                        <li><a href="#">Connected Plant Sandbox</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <div class="email-signup">
-                        <h5>Stay Updated</h5>
-                        <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 0.75rem;">Get the latest updates on quality assurance innovation</p>
-                        <form class="email-form">
-                            <input type="email" class="email-input" placeholder="Enter your email" required>
-                            <button type="submit" class="email-submit">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 Phizzle. All rights reserved.</p>
-                <div class="footer-bottom-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
-                </div>
-            </div>
-        </div>
-    </footer>
 </body>
 </html>
