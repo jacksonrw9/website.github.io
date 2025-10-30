@@ -389,7 +389,7 @@
             }
 
             .hero h2 {
-                font-size: 1.2em;
+                font-size: 1.65em;
             }
 
             .text-content h4 {
@@ -431,7 +431,7 @@
             }
 
             .hero h2 {
-                font-size: 1.1rem;
+                font-size: 1.4rem;
                 text-align: center;
             }
 
@@ -547,7 +547,7 @@
             }
 
             .hero h2 {
-                font-size: 0.9rem;
+                font-size: 1.15rem;
             }
 
             .hero p {
@@ -934,7 +934,7 @@
             }
 
             .hero h2 {
-                font-size: 1.2em;
+                font-size: 1.65em;
             }
 
             .text-content h4 {
@@ -1704,6 +1704,91 @@
                 padding: 0 1.5rem;
             }
         }
+
+        /* Request Demo CTA Section */
+        .demo-cta-section {
+            background: #436C79;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .demo-cta-section h2 {
+            color: white;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .demo-cta-section p {
+            color: white;
+            font-size: 1em;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .demo-cta-button {
+            display: inline-block;
+            background: #d97706;
+            color: white;
+            padding: 14px 32px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .demo-cta-button:hover {
+            background: #92400e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Responsive adjustments for CTA */
+        @media (max-width: 768px) {
+            .demo-cta-section {
+                padding: 60px 0;
+            }
+
+            .demo-cta-section h2 {
+                font-size: 1.6em;
+            }
+
+            .demo-cta-section p {
+                font-size: 0.95em;
+                padding: 0 20px;
+            }
+
+            .demo-cta-button {
+                font-size: 0.9rem;
+                padding: 12px 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .demo-cta-section {
+                padding: 50px 0;
+            }
+
+            .demo-cta-section h2 {
+                font-size: 1.4em;
+                padding: 0 20px;
+            }
+
+            .demo-cta-section p {
+                font-size: 0.9em;
+            }
+
+            .demo-cta-button {
+                font-size: 0.85rem;
+                padding: 10px 24px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1981,6 +2066,25 @@
                         <li><strong>Enhanced Security:</strong> Converts vulnerable legacy protocols into encrypted MQTT communications eliminating the exposed threat surface</li>
                         <li><strong>Continuous Operation:</strong> Maintains data capture during network failures and other external interruptions</li>
                     </ul>
+                    <div style="margin-top: 30px;">
+                        <a href="edge-puck.html" style="
+                            display: inline-block;
+                            background: #436C79;
+                            color: white;
+                            padding: 12px 28px;
+                            font-size: 0.9rem;
+                            font-weight: 600;
+                            text-decoration: none;
+                            border-radius: 6px;
+                            text-transform: uppercase;
+                            letter-spacing: 0.5px;
+                            transition: all 0.3s ease;
+                            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+                        " onmouseover="this.style.background='#365861'; this.style.transform='translateY(-1px)'; this.style.boxShadow='0 5px 15px rgba(0, 0, 0, 0.2)'" 
+                           onmouseout="this.style.background='#436C79'; this.style.transform='translateY(0)'; this.style.boxShadow='0 3px 10px rgba(0, 0, 0, 0.15)'">
+                            Learn More
+                        </a>
+                    </div>
                 </div>
                 <div class="image-content">
                     <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081556/edgepuck-hero_t4aaxo.jpg" alt="Edge Puck Device" style="box-shadow: none;">
@@ -2027,11 +2131,12 @@
         </div>
     </section>
 
-     <!-- Bottom CTA Section -->
-    <section class="bottom-cta-section">
-        <div class="bottom-cta-container">
-            <h2 style="font-size: 1.5rem;">Modernize Without Replacing, Go Paperless with Edge Puck</h2>
-            <a href="request-demo.html" class="request-demo-btn">Request a Demo</a>
+    <!-- Request Demo CTA Section -->
+    <section class="demo-cta-section">
+        <div class="container">
+            <h2>Ready to Modernize Your Scientific Workflows?</h2>
+            <p>See how Connected Plant™ can eliminate manual errors, ensure compliance, and accelerate your batch release process.</p>
+            <a href="request-demo.html" class="demo-cta-button">Request a Demo</a>
         </div>
     </section>
 
