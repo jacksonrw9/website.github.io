@@ -36,6 +36,7 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #333;
+            background-color: #f9fafb;
         }
 
         textarea {
@@ -353,9 +354,11 @@
         /* Contact Form */
         .contact-form {
             background: #ffffff;
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
+            padding: 3rem 4rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .form-row {
@@ -371,30 +374,34 @@
 
         .form-group label {
             display: block;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 500;
-            color: #374151;
-            margin-bottom: 0.5rem;
+            color: #4b5563;
+            margin-bottom: 0.75rem;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #d1d5db;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            color: #374151;
+            padding: 0.875rem 1rem;
+            border: 1.5px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            color: #1f2937;
             background: #ffffff;
-            transition: border-color 0.3s ease;
-            min-height: 44px;
+            transition: all 0.2s ease;
+        }
+
+        .form-group input:hover,
+        .form-group textarea:hover {
+            border-color: #d1d5db;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #436c79;
-            box-shadow: 0 0 0 3px rgba(74, 144, 184, 0.1);
+            border-color: #9ca3af;
+            box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.12);
         }
 
         .form-group textarea {
@@ -404,16 +411,15 @@
 
         /* Privacy Section */
         .privacy-section {
-            margin: 2rem 0;
-            padding: 1.5rem;
-            background: #f8fafc;
+            margin: 1.5rem 0;
+            padding: 1.25rem;
+            background: #f3f4f6;
             border-radius: 8px;
-            border-left: 4px solid #436c79;
         }
 
         .privacy-section p {
-            font-size: 0.85rem;
-            color: #64748b;
+            font-size: 0.875rem;
+            color: #6b7280;
             line-height: 1.6;
             margin-bottom: 1rem;
         }
@@ -459,24 +465,35 @@
 
         /* Submit Button */
         .submit-btn {
-            width: 100%;
-            background: #334155;
+            background: #1e293b;
             color: white;
-            padding: 1rem 2rem;
+            padding: 0.875rem 3rem;
             border: none;
-            border-radius: 8px;
+            border-radius: 6px;
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1.2px;
             cursor: pointer;
-            transition: background 0.3s ease;
-            margin-top: 1rem;
-            min-height: 44px;
+            transition: all 0.3s ease;
+            margin: 2rem auto 0;
+            min-height: 48px;
+            display: block;
+            width: auto;
         }
 
-        .submit-btn:hover {
-            background: #1e293b;
+        .submit-btn:hover:not(:disabled) {
+            background: #0f172a;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .submit-btn:active:not(:disabled) {
+            transform: translateY(1px);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
         }
 
         /* Footer */
@@ -1231,7 +1248,6 @@
                                 <label for="phone">Phone</label>
                                 <input type="text" id="phone" name="phone" tabindex="-1" autocomplete="off">
                             </div>
-                            <input type="hidden" name="newsletter-timestamp" id="newsletter-timestamp">
                             <input type="email" class="email-input" name="email" placeholder="Enter your email" required>
                             <button type="submit" class="email-submit">Subscribe</button>
                         </form>
@@ -1295,14 +1311,14 @@
         });
 
         // Anti-spam protection
-        const FORM_MIN_TIME = 3000; // Minimum 3 seconds to fill form
+        const CONTACT_FORM_MIN_TIME = 3000; // Minimum 3 seconds for contact form
+        const NEWSLETTER_FORM_MIN_TIME = 1000; // Minimum 1 second for newsletter
         const RATE_LIMIT_WINDOW = 60000; // 1 minute window
         const MAX_SUBMISSIONS = 2; // Max 2 submissions per window
         
         // Set timestamps when page loads
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('timestamp').value = Date.now();
-            document.getElementById('newsletter-timestamp').value = Date.now();
         });
         
         // Rate limiting helper
@@ -1342,7 +1358,7 @@
         }
         
         // Form validation
-        function validateForm(form) {
+        function validateForm(form, minTime = CONTACT_FORM_MIN_TIME) {
             let isValid = true;
             
             // Check honeypot
@@ -1353,7 +1369,7 @@
             
             // Check submission time
             const timestamp = parseInt(form.querySelector('input[name="timestamp"]').value);
-            if (Date.now() - timestamp < FORM_MIN_TIME) {
+            if (Date.now() - timestamp < minTime) {
                 return false; // Form submitted too quickly
             }
             
@@ -1514,12 +1530,6 @@
                 return; // Bot detected
             }
             
-            // Check timestamp
-            const timestamp = parseInt(e.target.querySelector('input[name="newsletter-timestamp"]').value);
-            if (Date.now() - timestamp < FORM_MIN_TIME) {
-                return; // Form submitted too quickly
-            }
-            
             // Check rate limit
             if (!checkRateLimit('newsletter_form_submissions')) {
                 alert('Too many submissions. Please wait a moment before trying again.');
@@ -1556,8 +1566,6 @@
             .then(data => {
                 submitBtn.textContent = 'Subscribed!';
                 e.target.reset();
-                // Reset timestamp for next submission
-                document.getElementById('newsletter-timestamp').value = Date.now();
                 setTimeout(() => {
                     submitBtn.textContent = 'Subscribe';
                     submitBtn.disabled = false;
