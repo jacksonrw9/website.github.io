@@ -134,7 +134,7 @@
         }
         
         .section {
-            margin-bottom: 4rem;
+            margin-bottom: 8rem;
         }
         
         .section-title {
@@ -175,9 +175,122 @@
             border: 1px solid var(--border-color);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            overflow: hidden;
             width: 250px;
             max-width: 250px;
+        }
+        
+        /* Popup Styles */
+        .product-popup {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f0f4f8;
+            border: 1px solid #d1d9e0;
+            border-radius: 16px;
+            padding: 1.5rem;
+            width: 320px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 9999;
+            margin-top: 0.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        }
+        
+        .product-popup::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid #f0f4f8;
+        }
+        
+        .product-popup::after {
+            content: '';
+            position: absolute;
+            top: -9px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 9px solid transparent;
+            border-right: 9px solid transparent;
+            border-bottom: 9px solid #d1d9e0;
+        }
+        
+        .product-card:hover .product-popup {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+            z-index: 9998;
+        }
+        
+        .popup-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .popup-capabilities {
+            margin-bottom: 1.5rem;
+        }
+        
+        .popup-capabilities h4 {
+            display: none;
+        }
+        
+        .popup-capabilities ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .popup-capabilities li {
+            font-size: 0.85rem;
+            color: #4a5568;
+            margin-bottom: 0.75rem;
+            padding-left: 1rem;
+            position: relative;
+            line-height: 1.4;
+        }
+        
+        .popup-capabilities li::before {
+            content: '•';
+            color: #2d3748;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        
+        .popup-learn-more {
+            background: #4a90e2;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .popup-learn-more:hover {
+            background: #357abd;
         }
         
         .product-card::before {
@@ -195,6 +308,7 @@
         .product-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-medium);
+            z-index: 20;
         }
         
         .product-card:hover::before {
@@ -417,12 +531,40 @@
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014864/CI-770-Cut-Out_SM_1_ngtqhw.png" alt="Climet 70 Series">
                     </div>
                     <div class="product-name">Climet 70 Series</div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">Climet 70 Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Initiate remote samples from your laptop, tablet, or handheld device</li>
+                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
+                                    <li>Enable continuous monitoring and review by exception workflows</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="popup-learn-more">Learn More</button>
+                    </div>
                 </div>
                 <div class="product-card" data-manufacturer="Climet" data-instrument="Air Particle Counters">
                     <div class="product-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014864/CI-154_left_small-2_1_frvcyk.png" alt="Climet 50 Series">
                     </div>
                     <div class="product-name">Climet 50 Series</div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">Climet 50 Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Initiate remote samples from your laptop, tablet, or handheld device</li>
+                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
+                                    <li>Enable continuous monitoring and review by exception workflows</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="popup-learn-more">Learn More</button>
+                    </div>
                 </div>
                 <div class="product-card" data-manufacturer="Climet" data-instrument="Air Particle Counters">
                     <div class="product-image">
@@ -435,36 +577,120 @@
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014864/9310-02_01_1_rrbud5.png" alt="Aerotrak 9310">
                     </div>
                     <div class="product-name">Aerotrak 9310</div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">Aerotrak 9310 Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Initiate remote samples from your laptop, tablet, or handheld device</li>
+                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
+                                    <li>Enable continuous monitoring and review by exception workflows</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="popup-learn-more">Learn More</button>
+                    </div>
                 </div>
                 <div class="product-card" data-manufacturer="Lasair" data-instrument="Air Particle Counters">
                     <div class="product-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/Lasair-III-wifi-Front_1_c86mqh.png" alt="Lasair III">
                     </div>
                     <div class="product-name">Lasair III</div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">Lasair III Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Initiate remote samples from your laptop, tablet, or handheld device</li>
+                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
+                                    <li>Enable continuous monitoring and review by exception workflows</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="popup-learn-more">Learn More</button>
+                    </div>
                 </div>
                 <div class="product-card" data-manufacturer="Lasair" data-instrument="Air Particle Counters">
                     <div class="product-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/lasair-pro-pic-1_1_gijy4p.png" alt="Lasair Pro">
                     </div>
                     <div class="product-name">Lasair Pro</div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">Lasair Pro Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Initiate remote samples from your laptop, tablet, or handheld device</li>
+                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
+                                    <li>Enable continuous monitoring and review by exception workflows</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="popup-learn-more">Learn More</button>
+                    </div>
                 </div>
                 <div class="product-card" data-manufacturer="Beckman Coulter" data-instrument="Air Particle Counters">
                     <div class="product-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/particle-counting-air-met-one-3400-plus-instrument-screen-600_550x310_zdansb.png" alt="MetOne Plus">
                     </div>
                     <div class="product-name">MetOne Plus</div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">MetOne Plus Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Initiate remote samples from your laptop, tablet, or handheld device</li>
+                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
+                                    <li>Enable continuous monitoring and review by exception workflows</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="popup-learn-more">Learn More</button>
+                    </div>
                 </div>
                 <div class="product-card" data-manufacturer="Beckman Coulter" data-instrument="Air Particle Counters">
                     <div class="product-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/Met-One-3400_zcyoga.png" alt="MetOne 3415">
                     </div>
                     <div class="product-name">MetOne 3415</div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">MetOne 3415 Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Initiate remote samples from your laptop, tablet, or handheld device</li>
+                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
+                                    <li>Enable continuous monitoring and review by exception workflows</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="popup-learn-more">Learn More</button>
+                    </div>
                 </div>
                 <div class="product-card" data-manufacturer="Lighthouse" data-instrument="Air Particle Counters">
                     <div class="product-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/p-230712-01005_1_xdqmab.png" alt="Lighthouse APEX">
                     </div>
                     <div class="product-name">Lighthouse APEX</div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">Lighthouse APEX Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Initiate remote samples from your laptop, tablet, or handheld device</li>
+                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
+                                    <li>Enable continuous monitoring and review by exception workflows</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="popup-learn-more">Learn More</button>
+                    </div>
                 </div>
             </div>
         </section>
