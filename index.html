@@ -28,7 +28,7 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--gradient-bg);
+            background: #f8fafc;
             color: var(--text-primary);
             line-height: 1.6;
             min-height: 100vh;
@@ -40,14 +40,16 @@
             padding: 2rem;
         }
         
+        .top-section-wrapper {
+            background: white;
+            margin: -2rem -2rem 2rem -2rem;
+            padding: 2rem;
+        }
+        
         .header {
             text-align: center;
-            margin-bottom: 3rem;
             padding: 2rem 0;
             background: white;
-            border-radius: 16px;
-            box-shadow: var(--shadow-medium);
-            border-left: 4px solid var(--accent-orange);
         }
         
         .header h1 {
@@ -63,6 +65,72 @@
             color: var(--text-secondary);
             font-size: 1.1rem;
             font-weight: 400;
+        }
+        
+        /* Filter Styles */
+        .filters-section {
+            background: white;
+            padding: 2rem;
+        }
+        
+        .filters-container {
+            display: flex;
+            gap: 2rem;
+            align-items: end;
+            flex-wrap: wrap;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .filter-label {
+            font-weight: 500;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+        
+        .filter-select {
+            font-family: 'Inter', sans-serif;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: white;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            min-width: 200px;
+            cursor: pointer;
+            transition: border-color 0.2s ease;
+        }
+        
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--accent-orange);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+        }
+        
+        .filter-select:hover {
+            border-color: var(--secondary-blue);
+        }
+        
+        .clear-filters-btn {
+            background: var(--secondary-blue);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            height: fit-content;
+        }
+        
+        .clear-filters-btn:hover {
+            background: var(--primary-blue);
+            transform: translateY(-1px);
         }
         
         .section {
@@ -248,7 +316,7 @@
         
         @media (max-width: 768px) {
             .products-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                grid-template-columns: repeat(auto-fill, 250px);
                 gap: 1rem;
             }
             
@@ -262,6 +330,15 @@
             
             .cta-section {
                 padding: 2rem;
+            }
+            
+            .filters-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-select {
+                min-width: auto;
             }
         }
         
@@ -290,63 +367,97 @@
 </head>
 <body>
     <div class="container">
-        <header class="header">
-            <h1>Instrument Connectors</h1>
-            <p>Scientific equipment and laboratory instruments catalog</p>
-        </header>
+        <div class="top-section-wrapper">
+            <header class="header">
+                <h1>Instrument Connectors</h1>
+                <p>Explore our growing library of instrument connectors</p>
+            </header>
+            
+            <section class="filters-section">
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <label for="manufacturer-filter" class="filter-label">Filter by Manufacturer:</label>
+                        <select id="manufacturer-filter" class="filter-select">
+                            <option value="">All Manufacturers</option>
+                            <option value="Aerotrak">Aerotrak</option>
+                            <option value="Beckman Coulter">Beckman Coulter</option>
+                            <option value="Climet">Climet</option>
+                            <option value="Gates Scientific">Gates Scientific</option>
+                            <option value="Lasair">Lasair</option>
+                            <option value="Lighthouse">Lighthouse</option>
+                            <option value="Malvern">Malvern</option>
+                            <option value="Mettler Toledo">Mettler Toledo</option>
+                            <option value="Sartorius">Sartorius</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="instrument-filter" class="filter-label">Filter by Instrument Type:</label>
+                        <select id="instrument-filter" class="filter-select">
+                            <option value="">All Instruments</option>
+                            <option value="Air Particle Counters">Air Particle Counters</option>
+                            <option value="Balances">Balances</option>
+                            <option value="pH Meters">pH Meters</option>
+                            <option value="Zeta Potential Analyzers">Zeta Potential Analyzers</option>
+                            <option value="Hot Plate Stirrer">Hot Plate Stirrer</option>
+                        </select>
+                    </div>
+                    <button id="clear-filters" class="clear-filters-btn">Clear All Filters</button>
+                </div>
+            </section>
+        </div>
         
         <section class="section">
             <h2 class="section-title">Air Particle Counters</h2>
             <div class="products-grid">
-                <div class="product-card">
+                <div class="product-card" data-manufacturer="Climet" data-instrument="Air Particle Counters">
                     <div class="product-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014864/CI-770-Cut-Out_SM_1_ngtqhw.png" alt="Climet 70 Series">
                     </div>
                     <div class="product-name">Climet 70 Series</div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-manufacturer="Climet" data-instrument="Air Particle Counters">
                     <div class="product-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014864/CI-154_left_small-2_1_frvcyk.png" alt="Climet 50 Series">
                     </div>
                     <div class="product-name">Climet 50 Series</div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-manufacturer="Climet" data-instrument="Air Particle Counters">
                     <div class="product-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/3100EthernetOPT_small-2_1_llhnwh.png" alt="Climet 3100">
                     </div>
                     <div class="product-name">Climet 3100</div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-manufacturer="Aerotrak" data-instrument="Air Particle Counters">
                     <div class="product-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014864/9310-02_01_1_rrbud5.png" alt="Aerotrak 9310">
                     </div>
                     <div class="product-name">Aerotrak 9310</div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-manufacturer="Lasair" data-instrument="Air Particle Counters">
                     <div class="product-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/Lasair-III-wifi-Front_1_c86mqh.png" alt="Lasair III">
                     </div>
                     <div class="product-name">Lasair III</div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-manufacturer="Lasair" data-instrument="Air Particle Counters">
                     <div class="product-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/lasair-pro-pic-1_1_gijy4p.png" alt="Lasair Pro">
                     </div>
                     <div class="product-name">Lasair Pro</div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-manufacturer="Beckman Coulter" data-instrument="Air Particle Counters">
                     <div class="product-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/particle-counting-air-met-one-3400-plus-instrument-screen-600_550x310_zdansb.png" alt="MetOne Plus">
                     </div>
                     <div class="product-name">MetOne Plus</div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-manufacturer="Beckman Coulter" data-instrument="Air Particle Counters">
                     <div class="product-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/Met-One-3400_zcyoga.png" alt="MetOne 3415">
                     </div>
                     <div class="product-name">MetOne 3415</div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-manufacturer="Lighthouse" data-instrument="Air Particle Counters">
                     <div class="product-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/p-230712-01005_1_xdqmab.png" alt="Lighthouse APEX">
                     </div>
@@ -358,19 +469,19 @@
         <section class="section">
             <h2 class="section-title">Balances</h2>
             <div class="products-grid">
-                <div class="product-card">
+                <div class="product-card" data-manufacturer="Mettler Toledo" data-instrument="Balances">
                     <div class="product-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014867/mettler-toledo-mr4002a-precision-balance-4200-g-x-0.01-g-internal-calibration-ntep__75427_1_b982wm.png" alt="Mettler Toledo MX4002">
                     </div>
                     <div class="product-name">Mettler Toledo MX4002</div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-manufacturer="Mettler Toledo" data-instrument="Balances">
                     <div class="product-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014864/30355411_1_hohffl.png" alt="Mettler Toledo MX205DU">
                     </div>
                     <div class="product-name">Mettler Toledo MX205DU</div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-manufacturer="Sartorius" data-instrument="Balances">
                     <div class="product-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/mca224s_2s00_u_cubis_1_xp3hw3.png" alt="Sartorius MCA224">
                     </div>
@@ -382,7 +493,7 @@
         <section class="section">
             <h2 class="section-title">pH Meters</h2>
             <div class="products-grid single-item">
-                <div class="product-card">
+                <div class="product-card" data-manufacturer="Mettler Toledo" data-instrument="pH Meters">
                     <div class="product-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/mettler-toledo_seven_excellence_n_1_afvwpw.png" alt="Mettler Toledo Seven Excellence">
                     </div>
@@ -394,7 +505,7 @@
         <section class="section">
             <h2 class="section-title">Zeta Potential Analyzers</h2>
             <div class="products-grid single-item">
-                <div class="product-card">
+                <div class="product-card" data-manufacturer="Malvern" data-instrument="Zeta Potential Analyzers">
                     <div class="product-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014864/636216769964211710NV_Original_file_1_mkxoxi.png" alt="Malvern Nano ZS">
                     </div>
@@ -406,7 +517,7 @@
         <section class="section">
             <h2 class="section-title">Hot Plate Stirrer</h2>
             <div class="products-grid single-item">
-                <div class="product-card">
+                <div class="product-card" data-manufacturer="Gates Scientific" data-instrument="Hot Plate Stirrer">
                     <div class="product-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014866/rs_w_600_h_600_fo3aum.png" alt="Gates Scientific Hot Plate Stirrer">
                     </div>
@@ -423,5 +534,71 @@
             <button class="cta-button">Custom Request</button>
         </section>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const manufacturerFilter = document.getElementById('manufacturer-filter');
+            const instrumentFilter = document.getElementById('instrument-filter');
+            const clearFiltersBtn = document.getElementById('clear-filters');
+            const allProductCards = document.querySelectorAll('.product-card');
+            const allSections = document.querySelectorAll('.section');
+
+            function filterProducts() {
+                const selectedManufacturer = manufacturerFilter.value;
+                const selectedInstrument = instrumentFilter.value;
+
+                // Reset all sections to be visible
+                allSections.forEach(section => {
+                    section.style.display = 'block';
+                });
+
+                // Show/hide individual product cards based on filters
+                allProductCards.forEach(card => {
+                    const cardManufacturer = card.getAttribute('data-manufacturer');
+                    const cardInstrument = card.getAttribute('data-instrument');
+                    
+                    const manufacturerMatch = !selectedManufacturer || cardManufacturer === selectedManufacturer;
+                    const instrumentMatch = !selectedInstrument || cardInstrument === selectedInstrument;
+                    
+                    if (manufacturerMatch && instrumentMatch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Hide sections that have no visible products
+                allSections.forEach(section => {
+                    const sectionCards = section.querySelectorAll('.product-card');
+                    const visibleCards = Array.from(sectionCards).filter(card => 
+                        card.style.display !== 'none'
+                    );
+                    
+                    if (visibleCards.length === 0) {
+                        section.style.display = 'none';
+                    }
+                });
+            }
+
+            function clearFilters() {
+                manufacturerFilter.value = '';
+                instrumentFilter.value = '';
+                
+                // Show all products and sections
+                allProductCards.forEach(card => {
+                    card.style.display = 'block';
+                });
+                
+                allSections.forEach(section => {
+                    section.style.display = 'block';
+                });
+            }
+
+            // Event listeners
+            manufacturerFilter.addEventListener('change', filterProducts);
+            instrumentFilter.addEventListener('change', filterProducts);
+            clearFiltersBtn.addEventListener('click', clearFilters);
+        });
+    </script>
 </body>
 </html>
