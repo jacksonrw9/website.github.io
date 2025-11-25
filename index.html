@@ -78,6 +78,7 @@
             gap: 2rem;
             align-items: end;
             flex-wrap: wrap;
+            justify-content: center;
         }
         
         .filter-group {
@@ -135,6 +136,12 @@
         
         .section {
             margin-bottom: 8rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section:has(.product-card:hover) {
+            z-index: 10;
         }
         
         .section-title {
@@ -193,7 +200,7 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 9999;
+            z-index: 101;
             margin-top: 0.5rem;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
         }
@@ -227,12 +234,17 @@
         .product-card:hover .product-popup {
             opacity: 1;
             visibility: visible;
+            z-index: 101;
         }
         
         .product-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-medium);
-            z-index: 9998;
+            z-index: 100;
+        }
+        
+        .product-card:hover .product-popup {
+            z-index: 101;
         }
         
         .popup-title {
@@ -303,12 +315,6 @@
             background: linear-gradient(90deg, var(--secondary-blue), var(--accent-orange));
             transform: scaleX(0);
             transition: transform 0.3s ease;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-medium);
-            z-index: 20;
         }
         
         .product-card:hover::before {
@@ -539,7 +545,7 @@
                                 <ul>
                                     <li>Initiate remote samples from your laptop, tablet, or handheld device</li>
                                     <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
-                                    <li>Enable continuous monitoring and review by exception workflows</li>
+                                    <li>Enable continuous monitoring, review by exception workflows, and more...</li>
                                 </ul>
                             </div>
                         </div>
@@ -559,7 +565,7 @@
                                 <ul>
                                     <li>Initiate remote samples from your laptop, tablet, or handheld device</li>
                                     <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
-                                    <li>Enable continuous monitoring and review by exception workflows</li>
+                                    <li>Enable continuous monitoring, review by exception workflows, and more...</li>
                                 </ul>
                             </div>
                         </div>
@@ -571,6 +577,20 @@
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/3100EthernetOPT_small-2_1_llhnwh.png" alt="Climet 3100">
                     </div>
                     <div class="product-name">Climet 3100</div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">Climet 3100 Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Initiate remote samples from your laptop, tablet, or handheld device</li>
+                                    <li>Monitor continuous samples in real-time and unlock data visibility throughout entire runs, not just averages or total channel counts</li>
+                                    <li>Enable review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action via email and text</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="popup-learn-more">Learn More</button>
+                    </div>
                 </div>
                 <div class="product-card" data-manufacturer="Aerotrak" data-instrument="Air Particle Counters">
                     <div class="product-image">
@@ -585,7 +605,7 @@
                                 <ul>
                                     <li>Initiate remote samples from your laptop, tablet, or handheld device</li>
                                     <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
-                                    <li>Enable continuous monitoring and review by exception workflows</li>
+                                    <li>Enable continuous monitoring, review by exception workflows, and more...</li>
                                 </ul>
                             </div>
                         </div>
@@ -605,7 +625,7 @@
                                 <ul>
                                     <li>Initiate remote samples from your laptop, tablet, or handheld device</li>
                                     <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
-                                    <li>Enable continuous monitoring and review by exception workflows</li>
+                                    <li>Enable continuous monitoring, review by exception workflows, and more...</li>
                                 </ul>
                             </div>
                         </div>
@@ -625,7 +645,7 @@
                                 <ul>
                                     <li>Initiate remote samples from your laptop, tablet, or handheld device</li>
                                     <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
-                                    <li>Enable continuous monitoring and review by exception workflows</li>
+                                    <li>Enable continuous monitoring, review by exception workflows, and more...</li>
                                 </ul>
                             </div>
                         </div>
@@ -634,9 +654,9 @@
                 </div>
                 <div class="product-card" data-manufacturer="Beckman Coulter" data-instrument="Air Particle Counters">
                     <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/particle-counting-air-met-one-3400-plus-instrument-screen-600_550x310_zdansb.png" alt="MetOne Plus">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/particle-counting-air-met-one-3400-plus-instrument-screen-600_550x310_zdansb.png" alt="Met One Plus">
                     </div>
-                    <div class="product-name">MetOne Plus</div>
+                    <div class="product-name">Met One Plus</div>
                     <div class="product-popup">
                         <div>
                             <h3 class="popup-title">MetOne Plus Connector Capabilities</h3>
@@ -645,7 +665,7 @@
                                 <ul>
                                     <li>Initiate remote samples from your laptop, tablet, or handheld device</li>
                                     <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
-                                    <li>Enable continuous monitoring and review by exception workflows</li>
+                                    <li>Enable continuous monitoring, review by exception workflows, and more...</li>
                                 </ul>
                             </div>
                         </div>
@@ -654,9 +674,9 @@
                 </div>
                 <div class="product-card" data-manufacturer="Beckman Coulter" data-instrument="Air Particle Counters">
                     <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/Met-One-3400_zcyoga.png" alt="MetOne 3415">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/Met-One-3400_zcyoga.png" alt="Met One 3415">
                     </div>
-                    <div class="product-name">MetOne 3415</div>
+                    <div class="product-name">Met One 3415</div>
                     <div class="product-popup">
                         <div>
                             <h3 class="popup-title">MetOne 3415 Connector Capabilities</h3>
@@ -665,7 +685,7 @@
                                 <ul>
                                     <li>Initiate remote samples from your laptop, tablet, or handheld device</li>
                                     <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
-                                    <li>Enable continuous monitoring and review by exception workflows</li>
+                                    <li>Enable continuous monitoring, review by exception workflows, and more...</li>
                                 </ul>
                             </div>
                         </div>
@@ -685,7 +705,7 @@
                                 <ul>
                                     <li>Initiate remote samples from your laptop, tablet, or handheld device</li>
                                     <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
-                                    <li>Enable continuous monitoring and review by exception workflows</li>
+                                    <li>Enable continuous monitoring, review by exception workflows, and more...</li>
                                 </ul>
                             </div>
                         </div>
@@ -703,18 +723,60 @@
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014867/mettler-toledo-mr4002a-precision-balance-4200-g-x-0.01-g-internal-calibration-ntep__75427_1_b982wm.png" alt="Mettler Toledo MX4002">
                     </div>
                     <div class="product-name">Mettler Toledo MX4002</div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">Mettler Toledo MX4002 Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Initiate sampling from a laptop, tablet or handheld device</li>
+                                    <li>Automate data collection, format standardization and synchronization with your existing LIMS or MES</li>
+                                    <li>Maintain complete traceability over balance results, operator actions and system events with HeartBeat based connectivity</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="popup-learn-more">Learn More</button>
+                    </div>
                 </div>
                 <div class="product-card" data-manufacturer="Mettler Toledo" data-instrument="Balances">
                     <div class="product-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014864/30355411_1_hohffl.png" alt="Mettler Toledo MX205DU">
                     </div>
                     <div class="product-name">Mettler Toledo MX205DU</div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">Mettler Toledo MX205DU Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Initiate sampling from a laptop, tablet or handheld device</li>
+                                    <li>Automate data collection, format standardization and synchronization with your existing LIMS or MES</li>
+                                    <li>Maintain complete traceability over balance results, operator actions and system events with HeartBeat based connectivity</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="popup-learn-more">Learn More</button>
+                    </div>
                 </div>
                 <div class="product-card" data-manufacturer="Sartorius" data-instrument="Balances">
                     <div class="product-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/mca224s_2s00_u_cubis_1_xp3hw3.png" alt="Sartorius MCA224">
                     </div>
                     <div class="product-name">Sartorius MCA224</div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">Sartorius MCA224 Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Initiate sampling from a laptop, tablet or handheld device</li>
+                                    <li>Automate data collection, format standardization and synchronization with your existing LIMS or MES</li>
+                                    <li>Maintain complete traceability over balance results, operator actions and system events with HeartBeat based connectivity</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="popup-learn-more">Learn More</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -727,6 +789,20 @@
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/mettler-toledo_seven_excellence_n_1_afvwpw.png" alt="Mettler Toledo Seven Excellence">
                     </div>
                     <div class="product-name">Mettler Toledo Seven Excellence</div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">Mettler Toledo Seven Excellence Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Initiate scheduled samples from a laptop, tablet, or handheld device</li>
+                                    <li>Automate data collection, format standardization, and synchronization with your existing LIMS or MES</li>
+                                    <li>Enable 21 CFR Part 11 Compliant electronic review and sign workflows, and more…</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="popup-learn-more">Learn More</button>
+                    </div>
                 </div>
             </div>
         </section>
