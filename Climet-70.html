@@ -117,18 +117,20 @@
         .cta-button {
             background: #ff6b35;
             color: white;
-            padding: 12px 24px;
+            padding: 16px 32px;
             border: none;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: 500;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
             text-decoration: none;
             cursor: pointer;
             display: inline-block;
+            transition: all 0.3s ease;
         }
 
         .cta-button:hover {
             background: #e55a2b;
+            transform: translateY(-1px);
         }
 
         /* Content Sections */
@@ -228,24 +230,30 @@
         .demo-content {
             display: grid;
             grid-template-columns: 1fr auto;
-            gap: 40px;
+            gap: 60px;
             align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .demo-text h2 {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             font-weight: 600;
             color: #333;
-            margin-bottom: 16px;
+            margin-bottom: 24px;
+            line-height: 1.2;
         }
 
         .demo-text p {
             color: #555;
-            margin-bottom: 24px;
+            margin-bottom: 32px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 500px;
         }
 
         .demo-image {
-            width: 150px;
+            width: 200px;
         }
 
         .demo-image img {
@@ -346,7 +354,7 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>Climet 70 Series Connector</h1>
-                    <p>Connect any Climet CI 170, 570, 770, or 1070 directly to your existing LIMS, MES or QMS. Eliminate manual data collection, reduce cleanroom entries and streamline QA by unlocking review by exception workflows.</p>
+                    <p>Enable hands-free dataflow from any Climet CI 170, 570, 770, or 1070 with your existing LIMS, MES or QMS. Eliminate manual data collection, reduce cleanroom entries and streamline QA by unlocking review by exception workflows.</p>
                 </div>
                 <div class="hero-image">
                     <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764595515/image_73_u9s8fj.png" alt="Climet Scientific Instrument Dashboard">
@@ -368,7 +376,7 @@
                         <span class="capability-title">Initiate remote samples</span> <span class="capability-desc">from your laptop or tablet and reduce cleanroom entries for routine sampling</span>
                     </li>
                     <li>
-                        <span class="capability-title">Enable continuous monitoring and review by exception workflows</span> <span class="capability-desc">by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action via email and text</span>
+                        <span class="capability-title">Unlock continuous monitoring and review by exception workflows</span> <span class="capability-desc">by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action via email and text</span>
                     </li>
                 </ul>
             </div>
@@ -381,7 +389,7 @@
         <div class="container">
             <div class="content-text" style="max-width: 800px; margin: 0 auto; text-align: center;">
                 <h2>Extend the Lifespan of Legacy Instruments</h2>
-                <p style="text-align: left;">Rather than replacing your legacy instruments because of networking limitations or inadequate integration with modern digital systems, the Climet 70 series connector allows regulated manufacturers to converts existing assets into connected, compliant nodes.</p>
+                <p style="text-align: left;">Rather than replacing your legacy instruments because of networking limitations or inadequate integration with modern digital systems, Phizzle's Climet 70 Series Connector allows regulated manufacturers to converts existing assets into connected, compliant nodes.</p>
             </div>
         </div>
     </section>
@@ -395,7 +403,7 @@
                     <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764595583/image_74_or6kp7.png" alt="Multi-Vendor Dashboard Interface">
                 </div>
                 <div class="content-text">
-                    <p>Many regulated manufacturing facilities and R&D labs have 100s, if not 1000s of instruments, and often they are not standardized for one manufacturer per device class. This opens the door error when operators have to follow a different SOP for each device to initiate samples and collect data.</p>
+                    <p>Many regulated manufacturing facilities and R&D labs have 100s, if not 1000s of instruments, and often they are not standardized for one manufacturer per device class. This opens the door to error when operators have to follow different SOPs for each device to initiate samples and collect data.</p>
                     <p>With Phizzle's air particle counter connectors, operators can initiate samples from <a href="#">multi-vendor devices all from one view</a>, eliminating:</p>
                     <ul>
                         <li>Training on proprietary sampling methods between vendor</li>
@@ -415,9 +423,9 @@
                 <div class="content-text">
                     <p>Maintain complete operational oversight and traceability by automatically capturing detailed instrument status updates, operator actions, and system events including:</p>
                     <ul>
-                        <li>Instrument offline updates, in progress status and start and stop times</li>
+                        <li>Instrument offline updates, sample in-progress status and run start and stop times</li>
                         <li>Which operator started a sample, reviewed the results and synchronized data to the LIMS or ELN</li>
-                        <li>When data was pushed to your backend systems or scheduled samples were pulled to be run</li>
+                        <li>When data was pushed to your backend systems or scheduled samples were pulled to be run on our UI</li>
                     </ul>
                 </div>
                 <div class="content-image">
@@ -432,7 +440,7 @@
         <div class="container">
             <div class="content-text" style="max-width: 800px; margin: 0 auto; text-align: center;">
                 <h2>Streamline Compliance</h2>
-                <p style="text-align: left;"><strong>Streamline review workflows</strong> by enabling operators to review, comment on, and electronically sign sample results in accordance with 21 CFR Part 11. Every action is time stamped and traceable, giving your QA teams full confidence in data integrity and compliance.</p>
+                <p style="text-align: left;"><strong>Streamline review workflows</strong> by enabling operators to review, comment on, and electronically sign sample results in real-time in accordance with 21 CFR Part 11. Every action is time stamped and traceable, giving your QA teams full confidence in data integrity and compliance.</p>
             </div>
         </div>
     </section>
@@ -463,7 +471,7 @@
                         How do you onboard an instrument?
                     </button>
                     <div class="faq-answer">
-                        <p>Our technical team handles the complete onboarding process, including device configuration, network setup, and integration with your existing systems. The process typically takes 1-2 business days.</p>
+                        <p>Follow our simple 5 step onboarding process by scanning a QR code. Our engineering team handles all of the technical details, so it doesn't consume your IT resources to set up Climet instruments.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -471,7 +479,7 @@
                         Where do you initiate samples using this connector?
                     </button>
                     <div class="faq-answer">
-                        <p>Samples can be initiated remotely through our web-based dashboard, mobile application, or directly integrated into your existing LIMS/MES workflow systems.</p>
+                        <p>Samples can be initiated remotely through our web-based UI. This is also where sample results and audit logs are stored, and can be queried and downloaded as a CSV, Excel, JSON, or PDF.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -487,7 +495,7 @@
                         What if you use a Climet 1070 and cart to mobile sample different cleanrooms?
                     </button>
                     <div class="faq-answer">
-                        <p>The connector supports mobile configurations with automatic location detection and seamless handoff between different network environments while maintaining data integrity and compliance.</p>
+                        <p>Our connectors paired with our hardware gateway solution, the Edge Puck, enables battery powered mobile connectivity through facilities while maintaining data integrity and compliance.</p>
                     </div>
                 </div>
             </div>
