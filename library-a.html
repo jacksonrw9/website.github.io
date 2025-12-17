@@ -93,9 +93,11 @@
             padding: 12px 16px;
             border: 2px solid var(--medium-gray);
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-family: 'Inter', sans-serif;
             transition: var(--transition);
+            height: 48px;
+            box-sizing: border-box;
         }
 
         #searchInput:focus {
@@ -105,16 +107,18 @@
         }
 
         .search-btn {
-            padding: 6px 8px;
+            padding: 12px 16px;
             background: var(--accent-color);
             color: white;
-            border: none;
+            border: 2px solid var(--accent-color);
             border-radius: 8px;
             font-family: 'Inter', sans-serif;
             font-weight: 500;
             cursor: pointer;
             transition: var(--transition);
             font-size: 0.9rem;
+            height: 48px;
+            box-sizing: border-box;
         }
 
         .search-btn:hover {
@@ -148,6 +152,8 @@
             align-items: center;
             gap: 8px;
             white-space: nowrap;
+            height: 48px;
+            box-sizing: border-box;
         }
 
         .filter-btn:hover {
@@ -210,6 +216,28 @@
             background: rgba(237, 137, 54, 0.1);
             color: var(--accent-color);
             font-weight: 500;
+        }
+
+        /* Clear Filters Button */
+        .clear-filters-btn {
+            padding: 12px 16px;
+            background: var(--secondary-color);
+            color: white;
+            border: 2px solid var(--secondary-color);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+            height: 48px;
+            box-sizing: border-box;
+        }
+
+        .clear-filters-btn:hover {
+            background: #1a202c;
+            transform: translateY(-1px);
         }
 
         /* Main Content */
@@ -450,6 +478,11 @@
                 padding: 10px 12px;
             }
             
+            .clear-filters-btn {
+                width: 200px;
+                font-size: 0.9rem;
+            }
+            
             .instruments-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
@@ -543,17 +576,6 @@
                         </div>
                         
                         <div class="filter-dropdown">
-                            <button class="filter-btn" id="connectorTypeBtn">
-                                Filter by Connector Type
-                                <span class="arrow">▼</span>
-                            </button>
-                            <div class="dropdown-content" id="connectorTypeDropdown">
-                                <div class="filter-option" data-filter="data-connector">Data Connector</div>
-                                <div class="filter-option" data-filter="connector-plus">Connector+</div>
-                            </div>
-                        </div>
-                        
-                        <div class="filter-dropdown">
                             <button class="filter-btn" id="manufacturerBtn">
                                 Filter by Manufacturer
                                 <span class="arrow">▼</span>
@@ -571,6 +593,8 @@
                                 <div class="filter-option" data-filter="gates-scientific">Gates Scientific</div>
                             </div>
                         </div>
+                        
+                        <button class="clear-filters-btn">Clear All Filters</button>
                     </div>
                 </div>
             </div>
@@ -741,6 +765,7 @@
             // Search functionality
             const searchInput = document.getElementById('searchInput');
             const searchBtn = document.querySelector('.search-btn');
+            const clearFiltersBtn = document.querySelector('.clear-filters-btn');
             
             function performSearch() {
                 const searchTerm = searchInput.value.toLowerCase();
@@ -755,6 +780,29 @@
                     }
                 });
             }
+
+            function clearAllFilters() {
+                // Clear search input
+                searchInput.value = '';
+                
+                // Clear all selected filter options
+                document.querySelectorAll('.filter-option.selected').forEach(option => {
+                    option.classList.remove('selected');
+                });
+                
+                // Close all dropdowns
+                document.querySelectorAll('.dropdown-content').forEach(dropdown => {
+                    dropdown.classList.remove('show');
+                });
+                document.querySelectorAll('.filter-btn').forEach(button => {
+                    button.classList.remove('active');
+                });
+                
+                // Show all cards
+                document.querySelectorAll('.instrument-card').forEach(card => {
+                    card.style.display = 'block';
+                });
+            }
             
             searchBtn.addEventListener('click', performSearch);
             searchInput.addEventListener('keypress', function(e) {
@@ -762,6 +810,7 @@
                     performSearch();
                 }
             });
+            clearFiltersBtn.addEventListener('click', clearAllFilters);
             
             // Filter dropdown functionality
             const filterButtons = document.querySelectorAll('.filter-btn');
