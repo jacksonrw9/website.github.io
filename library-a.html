@@ -229,7 +229,7 @@
         /* Instruments Grid */
         .instruments-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 25px;
             margin-bottom: 60px;
         }
@@ -244,6 +244,11 @@
             position: relative;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .instrument-card::before {
@@ -291,9 +296,14 @@
 
         .instrument-name {
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--primary-color);
             margin-bottom: 8px;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         /* Call to Action Section */
@@ -397,6 +407,10 @@
                 font-size: 0.85rem;
                 padding: 10px 12px;
             }
+            
+            .instruments-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
         
         @media (max-width: 768px) {
@@ -437,7 +451,7 @@
             }
             
             .instruments-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
             }
             
@@ -446,8 +460,14 @@
             }
             
             .instrument-image {
-                width: 100px;
-                height: 100px;
+                width: 80px;
+                height: 80px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .instruments-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -568,7 +588,7 @@
             <div class="cta-section">
                 <div class="cta-content">
                     <h3 class="cta-title">Not Seeing One of Your Instruments?</h3>
-                    <p class="cta-text">We're working around the clock to expand our collection of instrument connectors. Have a specific instrument or device you'd like to see supported? Let us know and we'll prioritize it for our development team.</p>
+                    <p class="cta-text">Have a specific instrument or device you'd like to see supported? Let us know and we'll prioritize it for our development team.</p>
                     <a href="#" class="cta-button">Instrument Request</a>
                 </div>
             </div>
