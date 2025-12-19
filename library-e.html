@@ -407,18 +407,19 @@
         .main-content {
             flex: 1;
             padding: 40px;
-            max-width: none;
+            max-width: 900px;
         }
 
         .header {
             margin-bottom: 30px;
             display: flex;
-            gap: 30px;
+            gap: 15px;
             align-items: flex-start;
+            justify-content: flex-start;
         }
 
         .header-content {
-            flex: 1;
+            flex: 0 1 500px;
         }
 
         .header-image {
@@ -567,12 +568,13 @@
 
         .bottom-section {
             display: flex;
-            gap: 30px;
+            gap: 15px;
             align-items: center;
+            justify-content: flex-start;
         }
 
         .bottom-content {
-            flex: 1;
+            flex: 0 1 500px;
         }
 
         .bottom-section h3 {
@@ -881,8 +883,10 @@
 
         @media (max-width: 768px) {
             .header { flex-direction: column; }
+            .header-content { flex: 1 1 auto; max-width: 100%; }
             .header-image { width: 100%; }
             .bottom-section { flex-direction: column; }
+            .bottom-content { flex: 1 1 auto; max-width: 100%; }
             .bottom-image { width: 100%; }
             .edge-puck-content { flex-direction: column; }
             .edge-puck-image { width: 100%; }
