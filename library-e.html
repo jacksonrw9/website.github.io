@@ -594,36 +594,40 @@
 
         .bottom-section {
             display: flex;
-            gap: 15px;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
             max-width: 850px;
             margin-left: auto;
             margin-right: auto;
             padding: 50px 0;
         }
 
-        .bottom-content {
-            flex: 0 1 500px;
-        }
-
-        .bottom-section h3 {
+        .bottom-title {
             font-size: 1.4em;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             color: #333;
+        }
+
+        .bottom-row {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .bottom-content {
+            flex: 1;
         }
 
         .bottom-section p {
             font-size: 1.1em;
             line-height: 1.7;
             color: #666;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
         }
 
         .bottom-image {
-            width: 281px;
-            height: 188px;
+            width: 250px;
+            height: 167px;
             background-color: #f0f0f0;
             border-radius: 8px;
             display: flex;
@@ -632,6 +636,7 @@
             font-size: 12px;
             color: #999;
             border: 1px solid #e0e0e0;
+            flex-shrink: 0;
         }
 
         .demo-button {
@@ -915,7 +920,7 @@
             .header { flex-direction: column; }
             .header-content { flex: 1 1 auto; max-width: 100%; }
             .header-image { width: 100%; }
-            .bottom-section { flex-direction: column; }
+            .bottom-row { flex-direction: column; }
             .bottom-content { flex: 1 1 auto; max-width: 100%; }
             .bottom-image { width: 100%; }
             .edge-puck-content { flex-direction: column; }
@@ -1160,13 +1165,15 @@
             </div>
 
             <div class="bottom-section">
-                <div class="bottom-content">
-                    <h3>Want More to Learn More<br>About our Solutions?</h3>
-                    <p>Click the button below and schedule a demo. A member of our engineering team will give you a short demo of our connectors solutions and answer any of your technical questions.</p>
-                    <button class="demo-button">Request a Demo</button>
-                </div>
-                <div class="bottom-image">
-                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757288728/iStock-1219894389_1_gsxyor.png" alt="CTA Image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                <h3 class="bottom-title">Want More to Learn More About our Solutions?</h3>
+                <div class="bottom-row">
+                    <div class="bottom-content">
+                        <p>Click the button below and schedule a demo. A member of our engineering team will give you a short demo of our connectors solutions and answer any of your technical questions.</p>
+                        <button class="demo-button">Request a Demo</button>
+                    </div>
+                    <div class="bottom-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757288728/iStock-1219894389_1_gsxyor.png" alt="CTA Image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                    </div>
                 </div>
             </div>
         </div>
