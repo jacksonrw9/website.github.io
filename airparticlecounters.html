@@ -521,6 +521,7 @@
             cursor: pointer;
             transition: var(--transition);
             border-bottom: 1px solid #f1f1f1;
+            border-left: 3px solid transparent;
         }
 
         .filter-option:last-child {
@@ -529,12 +530,15 @@
 
         .filter-option:hover {
             background: var(--light-gray);
+            border-left-color: #436c79;
+            color: #436c79;
         }
 
         .filter-option.selected {
             background: rgba(237, 137, 54, 0.1);
             color: var(--accent-color);
             font-weight: 500;
+            border-left-color: var(--accent-color);
         }
 
         /* Clear Filters Button */
