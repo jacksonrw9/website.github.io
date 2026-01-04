@@ -1307,12 +1307,13 @@
                     
                     <div class="filter-buttons">
                         <div class="filter-dropdown">
-                            <button class="filter-btn" id="instrumentTypeBtn">
-                                Filter by Instrument Type
+                            <button class="filter-btn" id="connectorTypeBtn">
+                                Filter by Connector Type
                                 <span class="arrow">▼</span>
                             </button>
-                            <div class="dropdown-content" id="instrumentTypeDropdown">
-                                <div class="filter-option" data-filter="air-particle-counters">Air Particle Counters</div>
+                            <div class="dropdown-content" id="connectorTypeDropdown">
+                                <div class="filter-option" data-filter="data-connector">Data Connector</div>
+                                <div class="filter-option" data-filter="connector-plus">Connector Plus</div>
                             </div>
                         </div>
                         
@@ -1615,7 +1616,8 @@
                     dropdowns.forEach(dd => {
                         if (dd.id !== dropdownId) {
                             dd.classList.remove('show');
-                            const btn = document.getElementById(dd.id.replace('Dropdown', 'Btn'));
+                            const btnId = dd.id.replace('Dropdown', 'Btn');
+                            const btn = document.getElementById(btnId);
                             if (btn) btn.classList.remove('active');
                         }
                     });
@@ -1647,16 +1649,22 @@
                     } else {
                         cards.forEach(card => {
                             const instrumentName = card.querySelector('.instrument-name').textContent.toLowerCase();
+                            const connectorType = card.querySelector('.connector-type') ? card.querySelector('.connector-type').textContent.toLowerCase() : '';
                             let showCard = false;
                             
                             selectedFilters.forEach(filter => {
                                 const filterValue = filter.getAttribute('data-filter');
+                                // Manufacturer filters
                                 if ((filterValue === 'climet' && instrumentName.includes('climet')) ||
                                     (filterValue === 'aerotrak' && instrumentName.includes('aerotrak')) ||
                                     (filterValue === 'lasair' && instrumentName.includes('lasair')) ||
                                     (filterValue === 'met-one' && instrumentName.includes('metone')) ||
-                                    (filterValue === 'lighthouse' && instrumentName.includes('lighthouse')) ||
-                                    filterValue === 'air-particle-counters') {
+                                    (filterValue === 'lighthouse' && instrumentName.includes('lighthouse'))) {
+                                    showCard = true;
+                                }
+                                // Connector type filters
+                                if ((filterValue === 'data-connector' && connectorType.includes('data connector')) ||
+                                    (filterValue === 'connector-plus' && connectorType.includes('connector plus'))) {
                                     showCard = true;
                                 }
                             });
