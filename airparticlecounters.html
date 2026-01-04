@@ -333,6 +333,27 @@
             transform: rotate(180deg);
         }
 
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #436c79;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 12px 0;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #da5e26;
+        }
+
+        .back-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -1139,6 +1160,7 @@
                     <ul class="dropdown">
                         <li><a href="connected-plant.html">Connected Plant™</a></li>
                         <li><a href="edge-puck.html">Edge Puck™</a></li>
+                        <li><a href="instrument-connectors.html">Instrument Connectors</a></li>
                     </ul>
                 </li>
                 <li>
@@ -1210,6 +1232,7 @@
                     <ul class="mobile-dropdown" id="solutions-dropdown">
                         <li><a href="connected-plant.html">Connected Plant™</a></li>
                         <li><a href="edge-puck.html">Edge Puck™</a></li>
+                        <li><a href="instrument-connectors.html">Instrument Connectors</a></li>
                     </ul>
                 </li>
                 <li>
@@ -1267,12 +1290,18 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <h1>Instrument Connectors</h1>
-                <p class="subtitle">Explore our growing library of instrument connectors</p>
+                <a href="Instrument_Connector_Library.html" class="back-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Back to the Complete Instrument Connector Library
+                </a>
+                <h1>Air Particle Counter Connectors</h1>
+                <p class="subtitle">Explore our Growing Library of APC Connectors</p>
                 
                 <div class="search-section">
                     <div class="search-bar">
-                        <input type="text" id="searchInput" placeholder="type instrument or manufacturer">
+                        <input type="text" id="searchInput" placeholder="Search by Instrument or Manufacturer">
                         <button type="button" class="search-btn">Search</button>
                     </div>
                     
@@ -1310,8 +1339,6 @@
 
     <main class="main-content">
         <div class="container">
-            <h2 class="section-title">Air Particle Counter Connectors</h2>
-            
             <div class="instruments-grid" id="instrumentsGrid">
                 <div class="instrument-card" onclick="window.location.href='Climet-70.html'" style="cursor: pointer;">
                     <div class="instrument-image">
@@ -1437,6 +1464,7 @@
                     <ul>
                         <li><a href="connected-plant.html">Connected Plant™</a></li>
                         <li><a href="edge-puck.html">Edge Puck™</a></li>
+                        <li><a href="instrument-connectors.html">Instrument Connectors</a></li>
                     </ul>
                 </div>
                 
