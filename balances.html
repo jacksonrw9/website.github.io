@@ -333,6 +333,27 @@
             transform: rotate(180deg);
         }
 
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #436c79;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 12px 0;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #da5e26;
+        }
+
+        .back-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -437,6 +458,15 @@
             display: inline-block;
         }
 
+        .filter-dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .filter-dropdown:hover .filter-btn {
+            border-color: var(--accent-color);
+            background: rgba(237, 137, 54, 0.05);
+        }
+
         .filter-btn {
             padding: 12px 16px;
             background: white;
@@ -459,18 +489,12 @@
             background: rgba(237, 137, 54, 0.05);
         }
 
-        .filter-btn.active {
-            background: var(--accent-color);
-            color: white;
-            border-color: var(--accent-color);
-        }
-
         .arrow {
             font-size: 0.8rem;
             transition: var(--transition);
         }
 
-        .filter-btn.active .arrow {
+        .filter-dropdown:hover .arrow {
             transform: rotate(180deg);
         }
 
@@ -488,11 +512,17 @@
             z-index: 1000;
             max-height: 300px;
             overflow-y: auto;
-            margin-top: 5px;
+            padding-top: 5px;
         }
 
-        .dropdown-content.show {
-            display: block;
+        .dropdown-content::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: transparent;
         }
 
         .filter-option {
@@ -500,6 +530,7 @@
             cursor: pointer;
             transition: var(--transition);
             border-bottom: 1px solid #f1f1f1;
+            border-left: 3px solid transparent;
         }
 
         .filter-option:last-child {
@@ -508,12 +539,15 @@
 
         .filter-option:hover {
             background: var(--light-gray);
+            border-left-color: #436c79;
+            color: #436c79;
         }
 
         .filter-option.selected {
             background: rgba(237, 137, 54, 0.1);
             color: var(--accent-color);
             font-weight: 500;
+            border-left-color: var(--accent-color);
         }
 
         /* Clear Filters Button */
@@ -1139,6 +1173,7 @@
                     <ul class="dropdown">
                         <li><a href="connected-plant.html">Connected Plant™</a></li>
                         <li><a href="edge-puck.html">Edge Puck™</a></li>
+                        <li><a href="instrument-connectors.html">Instrument Connectors</a></li>
                     </ul>
                 </li>
                 <li>
@@ -1210,6 +1245,7 @@
                     <ul class="mobile-dropdown" id="solutions-dropdown">
                         <li><a href="connected-plant.html">Connected Plant™</a></li>
                         <li><a href="edge-puck.html">Edge Puck™</a></li>
+                        <li><a href="instrument-connectors.html">Instrument Connectors</a></li>
                     </ul>
                 </li>
                 <li>
@@ -1267,23 +1303,30 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <h1>Instrument Connectors</h1>
-                <p class="subtitle">Explore our growing library of instrument connectors</p>
+                <a href="Instrument_Connector_Library.html" class="back-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Back to the Complete Instrument Connector Library
+                </a>
+                <h1>Balance Connectors</h1>
+                <p class="subtitle">Explore our Growing Library of Balance Connectors</p>
                 
                 <div class="search-section">
                     <div class="search-bar">
-                        <input type="text" id="searchInput" placeholder="type instrument or manufacturer">
+                        <input type="text" id="searchInput" placeholder="Search by Instrument or Manufacturer">
                         <button type="button" class="search-btn">Search</button>
                     </div>
                     
                     <div class="filter-buttons">
                         <div class="filter-dropdown">
-                            <button class="filter-btn" id="instrumentTypeBtn">
-                                Filter by Instrument Type
+                            <button class="filter-btn" id="connectorTypeBtn">
+                                Filter by Connector Type
                                 <span class="arrow">▼</span>
                             </button>
-                            <div class="dropdown-content" id="instrumentTypeDropdown">
-                                <div class="filter-option" data-filter="balances">Balances</div>
+                            <div class="dropdown-content" id="connectorTypeDropdown">
+                                <div class="filter-option" data-filter="data-connector">Data Connector</div>
+                                <div class="filter-option" data-filter="connector-plus">Connector Plus</div>
                             </div>
                         </div>
                         
@@ -1295,7 +1338,6 @@
                             <div class="dropdown-content" id="manufacturerDropdown">
                                 <div class="filter-option" data-filter="mettler-toledo">Mettler Toledo</div>
                                 <div class="filter-option" data-filter="sartorius">Sartorius</div>
-                                <div class="filter-option" data-filter="ohaus">Ohaus</div>
                             </div>
                         </div>
                         
@@ -1308,70 +1350,52 @@
 
     <main class="main-content">
         <div class="container">
-            <h2 class="section-title">Balance Connectors</h2>
-            
             <div class="instruments-grid" id="instrumentsGrid">
-                <div class="instrument-card">
+                <div class="instrument-card" data-manufacturer="mettler-toledo" data-connector="data-connector">
                     <div class="instrument-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014867/mettler-toledo-mr4002a-precision-balance-4200-g-x-0.01-g-internal-calibration-ntep__75427_1_b982wm.png" alt="Mettler Toledo MX4002">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976029/mettler-toledo-mr4002a-precision-balance-4200-g-x-0.01-g-internal-calibration-ntep__75427_2_n9rwut.png" alt="Mettler Toledo MX4002">
                     </div>
                     <div class="instrument-name">Mettler Toledo MX4002</div>
                     <div class="connector-type">Data Connector</div>
                 </div>
 
-                <div class="instrument-card" onclick="window.location.href='mettler-toledo-205.html'" style="cursor: pointer;">
+                <div class="instrument-card" data-manufacturer="mettler-toledo" data-connector="data-connector">
                     <div class="instrument-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014864/30355411_1_hohffl.png" alt="Mettler Toledo MX205DU">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976019/30355411_2_urbuti.png" alt="Mettler Toledo MX205DU">
                     </div>
                     <div class="instrument-name">Mettler Toledo MX205DU</div>
                     <div class="connector-type">Data Connector</div>
                 </div>
 
-                <div class="instrument-card">
+                <div class="instrument-card" data-manufacturer="sartorius" data-connector="data-connector">
                     <div class="instrument-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766534899/download_5_vvn4t1.png" alt="Sartorius Secura">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976023/download_5_gunngw.png" alt="Sartorius Secura">
                     </div>
                     <div class="instrument-name">Sartorius Secura</div>
-                    <div class="connector-type">Connector Plus</div>
+                    <div class="connector-type">Data Connector</div>
                 </div>
 
-                <div class="instrument-card">
+                <div class="instrument-card" data-manufacturer="sartorius" data-connector="data-connector">
                     <div class="instrument-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766534894/BCE223-1S-2T_2_gmdqdl.png" alt="Sartorius Entris II">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976019/BCE223-1S-2T_2_rqheoi.png" alt="Sartorius Entris II">
                     </div>
                     <div class="instrument-name">Sartorius Entris II</div>
                     <div class="connector-type">Data Connector</div>
                 </div>
 
-                <div class="instrument-card">
+                <div class="instrument-card" data-manufacturer="sartorius" data-connector="data-connector">
                     <div class="instrument-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766534889/sartorius-mce2202s-2s00-0-cubis-ii-precision-balance-2200-g-x-10-mg-no-draft-shield-100-to-240-vac-50-60-hz-3974242_1_gw7xpm.png" alt="Sartorius Cubis II">
                     </div>
                     <div class="instrument-name">Sartorius Cubis II</div>
-                    <div class="connector-type">Connector Plus</div>
+                    <div class="connector-type">Data Connector</div>
                 </div>
 
-                <div class="instrument-card">
+                <div class="instrument-card" data-manufacturer="sartorius" data-connector="data-connector">
                     <div class="instrument-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766535342/New_Explorer_Plus_Semi-Micro_01_1_gfwone.png" alt="Ohaus Explorer Plus">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766534882/download_2_1_hbdtuv.png" alt="Sartorius Quintix">
                     </div>
-                    <div class="instrument-name">Ohaus Explorer Plus</div>
-                    <div class="connector-type">Connector Plus</div>
-                </div>
-
-                <div class="instrument-card">
-                    <div class="instrument-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766534871/Pioneer_Analytical_Density_600x600-1_1_zwj5qo.png" alt="Ohaus Pioneer">
-                    </div>
-                    <div class="instrument-name">Ohaus Pioneer</div>
-                    <div class="connector-type">Connector Plus</div>
-                </div>
-
-                <div class="instrument-card">
-                    <div class="instrument-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766534992/F295514_p.eps-650_zjabpp.png" alt="Ohaus Scout">
-                    </div>
-                    <div class="instrument-name">Ohaus Scout</div>
+                    <div class="instrument-name">Sartorius Quintix</div>
                     <div class="connector-type">Data Connector</div>
                 </div>
             </div>
@@ -1419,6 +1443,7 @@
                     <ul>
                         <li><a href="connected-plant.html">Connected Plant™</a></li>
                         <li><a href="edge-puck.html">Edge Puck™</a></li>
+                        <li><a href="instrument-connectors.html">Instrument Connectors</a></li>
                     </ul>
                 </div>
                 
@@ -1525,7 +1550,7 @@
                 cards.forEach(card => {
                     const instrumentName = card.querySelector('.instrument-name').textContent.toLowerCase();
                     if (instrumentName.includes(searchTerm) || searchTerm === '') {
-                        card.style.display = 'block';
+                        card.style.display = 'flex';
                     } else {
                         card.style.display = 'none';
                     }
@@ -1537,14 +1562,8 @@
                 document.querySelectorAll('.filter-option.selected').forEach(option => {
                     option.classList.remove('selected');
                 });
-                document.querySelectorAll('.dropdown-content').forEach(dropdown => {
-                    dropdown.classList.remove('show');
-                });
-                document.querySelectorAll('.filter-btn').forEach(button => {
-                    button.classList.remove('active');
-                });
                 document.querySelectorAll('.instrument-card').forEach(card => {
-                    card.style.display = 'block';
+                    card.style.display = 'flex';
                 });
             }
             
@@ -1569,7 +1588,8 @@
                     dropdowns.forEach(dd => {
                         if (dd.id !== dropdownId) {
                             dd.classList.remove('show');
-                            const btn = document.getElementById(dd.id.replace('Dropdown', 'Btn'));
+                            const btnId = dd.id.replace('Dropdown', 'Btn');
+                            const btn = document.getElementById(btnId);
                             if (btn) btn.classList.remove('active');
                         }
                     });
@@ -1597,23 +1617,32 @@
                     const cards = document.querySelectorAll('.instrument-card');
                     
                     if (selectedFilters.length === 0) {
-                        cards.forEach(card => card.style.display = 'block');
+                        cards.forEach(card => card.style.display = 'flex');
                     } else {
+                        const selectedManufacturers = [];
+                        const selectedConnectors = [];
+                        
+                        selectedFilters.forEach(filter => {
+                            const filterValue = filter.getAttribute('data-filter');
+                            if (filterValue === 'mettler-toledo' || filterValue === 'sartorius') {
+                                selectedManufacturers.push(filterValue);
+                            } else if (filterValue === 'data-connector' || filterValue === 'connector-plus') {
+                                selectedConnectors.push(filterValue);
+                            }
+                        });
+                        
                         cards.forEach(card => {
-                            const instrumentName = card.querySelector('.instrument-name').textContent.toLowerCase();
-                            let showCard = false;
+                            const cardManufacturer = card.getAttribute('data-manufacturer');
+                            const cardConnector = card.getAttribute('data-connector');
                             
-                            selectedFilters.forEach(filter => {
-                                const filterValue = filter.getAttribute('data-filter');
-                                if ((filterValue === 'mettler-toledo' && instrumentName.includes('mettler toledo')) ||
-                                    (filterValue === 'sartorius' && instrumentName.includes('sartorius')) ||
-                                    (filterValue === 'ohaus' && instrumentName.includes('ohaus')) ||
-                                    filterValue === 'balances') {
-                                    showCard = true;
-                                }
-                            });
+                            let matchManufacturer = selectedManufacturers.length === 0 || selectedManufacturers.includes(cardManufacturer);
+                            let matchConnector = selectedConnectors.length === 0 || selectedConnectors.includes(cardConnector);
                             
-                            card.style.display = showCard ? 'block' : 'none';
+                            if (matchManufacturer && matchConnector) {
+                                card.style.display = 'flex';
+                            } else {
+                                card.style.display = 'none';
+                            }
                         });
                     }
                 });
