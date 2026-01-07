@@ -1337,7 +1337,7 @@
                                 <span class="arrow">▼</span>
                             </button>
                             <div class="dropdown-content" id="manufacturerDropdown">
-                                <div class="filter-option" data-filter="gates-scientific">Gates Scientific</div>
+                                <div class="filter-option" data-filter="Gate-scientific">Gate Scientific</div>
                                 <div class="filter-option" data-filter="ika">IKA</div>
                                 <div class="filter-option" data-filter="corning">Corning</div>
                                 <div class="filter-option" data-filter="thermo-fisher">Thermo Fisher</div>
@@ -1356,9 +1356,9 @@
             <div class="instruments-grid" id="instrumentsGrid">
                 <div class="instrument-card">
                     <div class="instrument-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765928926/rs_w_600_h_600_o1fwzg.png" alt="Gates Scientific Hot Plate Stirrer">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765928926/rs_w_600_h_600_o1fwzg.png" alt="Gate Scientific Hot Plate Stirrer">
                     </div>
-                    <div class="instrument-name">Gates Scientific Hot Plate Stirrer</div>
+                    <div class="instrument-name">Gate Scientific Hot Plate Stirrer</div>
                     <div class="connector-type">Connector Plus</div>
                 </div>
             </div>
@@ -1590,7 +1590,7 @@
                             selectedFilters.forEach(filter => {
                                 const filterValue = filter.getAttribute('data-filter');
                                 // Manufacturer filters
-                                if ((filterValue === 'gates-scientific' && instrumentName.includes('gates')) ||
+                                if ((filterValue === 'Gate-scientific' && instrumentName.includes('Gate')) ||
                                     (filterValue === 'ika' && instrumentName.includes('ika')) ||
                                     (filterValue === 'corning' && instrumentName.includes('corning')) ||
                                     (filterValue === 'thermo-fisher' && instrumentName.includes('thermo'))) {
