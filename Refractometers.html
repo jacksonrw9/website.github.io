@@ -43,7 +43,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
             color: var(--text-color);
             line-height: 1.6;
@@ -972,6 +972,12 @@
         }
 
         /* Nav Responsive */
+        @media (max-width: 1600px) {
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+        }
+        
         @media (max-width: 1500px) and (min-width: 1351px) {
             .nav-links { gap: 2rem; }
             .nav-links a { font-size: 0.9rem; }
@@ -1350,7 +1356,7 @@
     <main class="main-content">
         <div class="container">
             <div class="instruments-grid" id="instrumentsGrid">
-                <div class="instrument-card">
+                <div class="instrument-card" onclick="window.location.href='Mettler-Toledo-RM-Series.html'" style="cursor: pointer;">
                     <div class="instrument-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1767899177/mettler_toledo_easyr40_closed_lid_diag_l_1_mxbnhz.png" alt="Mettler Toledo RM40">
                     </div>
