@@ -43,7 +43,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
             color: var(--text-color);
             line-height: 1.6;
@@ -972,6 +972,12 @@
         }
 
         /* Nav Responsive */
+        @media (max-width: 1600px) {
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+        }
+        
         @media (max-width: 1500px) and (min-width: 1351px) {
             .nav-links { gap: 2rem; }
             .nav-links a { font-size: 0.9rem; }
