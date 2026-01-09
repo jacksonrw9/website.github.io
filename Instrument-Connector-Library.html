@@ -336,7 +336,7 @@
         }
         
         .header {
-            text-align: center;
+            text-align: left;
             padding: 1rem 0;
             background: white;
         }
@@ -363,7 +363,7 @@
         
         .search-container {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             margin-bottom: 2rem;
         }
         
@@ -423,7 +423,7 @@
             gap: 2rem;
             align-items: end;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: flex-start;
         }
         
         .filter-group {
@@ -633,6 +633,7 @@
         }
         
         .popup-learn-more {
+            display: block;
             background: #436c79;
             color: white;
             border: none;
@@ -642,12 +643,15 @@
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s ease;
-            display: block;
             margin: 0 auto;
+            text-decoration: none;
+            text-align: center;
+            font-family: inherit;
         }
         
         .popup-learn-more:hover {
             background: #30444d;
+            color: white;
         }
         
         .product-card::before {
@@ -669,13 +673,12 @@
         .product-image {
             width: 100%;
             height: 160px;
-            background: var(--light-gray);
+            background: white;
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 1rem;
-            border: 1px solid var(--border-color);
             position: relative;
             overflow: hidden;
         }
@@ -1176,6 +1179,15 @@
                 padding: 0.7rem 1rem;
                 font-size: 0.8rem;
             }
+            
+            .filters-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-select {
+                min-width: auto;
+            }
 
             .products-grid {
                 grid-template-columns: repeat(auto-fill, 250px);
@@ -1193,14 +1205,26 @@
             .cta-section {
                 padding: 2rem;
             }
-            
-            .filters-container {
-                flex-direction: column;
-                align-items: stretch;
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
-            
-            .filter-select {
-                min-width: auto;
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .footer-bottom-links {
+                gap: 1rem;
+            }
+
+            .social-link {
+                width: 44px;
+                height: 44px;
+                font-size: 1.2rem;
             }
 
             .footer-content {
@@ -1519,7 +1543,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Aerotrak-9310.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
                 <div class="product-card" data-manufacturer="Climet" data-instrument="Air Particle Counters" data-connector="Connector Plus">
@@ -1542,7 +1566,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Climet-3100.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
                 <div class="product-card" data-manufacturer="Climet" data-instrument="Air Particle Counters" data-connector="Connector Plus">
@@ -1565,7 +1589,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Climet-50.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
                 <div class="product-card" data-manufacturer="Climet" data-instrument="Air Particle Counters" data-connector="Connector Plus">
@@ -1588,7 +1612,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Climet-70.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
                 <div class="product-card" data-manufacturer="Lasair" data-instrument="Air Particle Counters" data-connector="Connector Plus">
@@ -1611,7 +1635,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Lasair-iii.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
                 <div class="product-card" data-manufacturer="Lasair" data-instrument="Air Particle Counters" data-connector="Connector Plus">
@@ -1634,7 +1658,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Lasair-Pro.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
                 <div class="product-card" data-manufacturer="Lighthouse" data-instrument="Air Particle Counters" data-connector="Connector Plus">
@@ -1657,7 +1681,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Lighthouse-ApexZ.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
                 <div class="product-card" data-manufacturer="Lighthouse" data-instrument="Air Particle Counters" data-connector="Connector Plus">
@@ -1680,7 +1704,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Lighthouse-Solair.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
                 <div class="product-card" data-manufacturer="Beckman Coulter" data-instrument="Air Particle Counters" data-connector="Connector Plus">
@@ -1703,7 +1727,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="MetOne-3415.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
                 <div class="product-card" data-manufacturer="Beckman Coulter" data-instrument="Air Particle Counters" data-connector="Connector Plus">
@@ -1726,7 +1750,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="MetOne-Plus.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -1755,7 +1779,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Mettler-Toledo-205.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
                 <div class="product-card" data-manufacturer="Mettler Toledo" data-instrument="Balances" data-connector="Data Connector">
@@ -1778,7 +1802,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Mettler-Toledo-4002.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
                 <div class="product-card" data-manufacturer="Sartorius" data-instrument="Balances" data-connector="Data Connector">
@@ -1801,7 +1825,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Sartorius-Cubis-ii.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
                 <div class="product-card" data-manufacturer="Sartorius" data-instrument="Balances" data-connector="Data Connector">
@@ -1824,7 +1848,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Sartorius-Entris-ii.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
                 <div class="product-card" data-manufacturer="Sartorius" data-instrument="Balances" data-connector="Data Connector">
@@ -1847,7 +1871,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Sartorius-Quintix.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
                 <div class="product-card" data-manufacturer="Sartorius" data-instrument="Balances" data-connector="Data Connector">
@@ -1870,7 +1894,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Sartorius-Secura.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -1899,7 +1923,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Gate-Scientific-HPS.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -1928,7 +1952,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Mettler-Toledo-MP-Series.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -1957,7 +1981,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Climet-97.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -1986,7 +2010,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="#" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -2015,7 +2039,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Mettler-Toledo-RM-Series.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -2044,7 +2068,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="#" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -2055,15 +2079,15 @@
             <div class="products-grid single-item">
                 <div class="product-card" data-manufacturer="Malvern" data-instrument="Zeta Potential Analyzers" data-connector="Data Connector">
                     <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976019/636216769964211710NV_Original_file_1_1_y79gfp.png" alt="Malvern Nano Zs">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976019/636216769964211710NV_Original_file_1_1_y79gfp.png" alt="Malvern Nano ZS">
                     </div>
                     <div class="product-name">
-                        Malvern Nano Zs
+                        Malvern Nano ZS
                         <div class="connector-type">Data Connector</div>
                     </div>
                     <div class="product-popup">
                         <div>
-                            <h3 class="popup-title">Malvern Nano Zs Connector Capabilities</h3>
+                            <h3 class="popup-title">Malvern Nano ZS Connector Capabilities</h3>
                             <div class="popup-capabilities">
                                 <h4>Capabilities</h4>
                                 <ul>
@@ -2073,7 +2097,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Malvern-Zeta-Sizer.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
             </div>
