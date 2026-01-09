@@ -343,35 +343,29 @@
         
         .header h1 {
             font-family: 'Inter', sans-serif;
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary-blue);
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #5B7C8A;
             letter-spacing: -0.02em;
             margin-bottom: 0.5rem;
         }
         
         .header p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
+            color: #6B7280;
+            font-size: 1.2rem;
             font-weight: 400;
+            margin-bottom: 0.5rem;
         }
         
         /* Filter Styles */
         .filters-section {
-            padding: 1rem 0 2rem 0;
-        }
-        
-        .search-container {
-            display: flex;
-            justify-content: flex-start;
-            margin-bottom: 2rem;
+            padding: 0.25rem 0 2rem 0;
         }
         
         .search-bar {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            max-width: 500px;
+            max-width: 450px;
             width: 100%;
         }
         
@@ -398,31 +392,11 @@
             color: #9ca3af;
         }
         
-        .search-btn {
-            background: #da5e26;
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: var(--shadow-light);
-        }
-        
-        .search-btn:hover {
-            background: #b45309;
-            transform: translateY(-1px);
-        }
-        
         .filters-container {
             display: flex;
-            gap: 2rem;
-            align-items: end;
-            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: nowrap;
             justify-content: flex-start;
         }
         
@@ -430,12 +404,6 @@
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
-        }
-        
-        .filter-label {
-            font-weight: 500;
-            color: var(--text-primary);
-            font-size: 0.9rem;
         }
         
         .filter-select {
@@ -446,7 +414,7 @@
             background: white;
             color: var(--text-primary);
             font-size: 0.9rem;
-            min-width: 200px;
+            min-width: 180px;
             cursor: pointer;
             transition: border-color 0.2s ease;
         }
@@ -464,18 +432,21 @@
         .clear-filters-btn {
             background: #436c79;
             color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
+            border: 1px solid #436c79;
+            padding: 0.75rem 1.2rem;
             border-radius: 8px;
             font-size: 0.9rem;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s ease;
-            height: fit-content;
+            height: auto;
+            font-family: 'Inter', sans-serif;
+            white-space: nowrap;
         }
         
         .clear-filters-btn:hover {
             background: #30444d;
+            border-color: #30444d;
             transform: translateY(-1px);
         }
         
@@ -1165,19 +1136,9 @@
                 height: 28px;
             }
 
-            .search-bar {
-                margin: 0 1rem;
-                gap: 0.5rem;
-            }
-            
             .search-input {
                 font-size: 0.9rem;
                 padding: 0.7rem 0.8rem;
-            }
-            
-            .search-btn {
-                padding: 0.7rem 1rem;
-                font-size: 0.8rem;
             }
             
             .filters-container {
@@ -1195,7 +1156,8 @@
             }
             
             .header h1 {
-                font-size: 1.6rem;
+                font-size: 2rem;
+                font-weight: 600;
             }
             
             .container {
@@ -1256,11 +1218,12 @@
             }
 
             .header h1 {
-                font-size: 1.4rem;
+                font-size: 1.8rem;
+                font-weight: 600;
             }
 
             .header p {
-                font-size: 0.9rem;
+                font-size: 1rem;
             }
 
             .section-title {
@@ -1463,21 +1426,17 @@
         <div class="container">
             <header class="header">
                 <h1>Instrument Connectors</h1>
-                <p>Explore our growing library of instrument connectors</p>
+                <p>Explore our Growing Library of Instrument Connectors</p>
             </header>
             
             <section class="filters-section">
-                <div class="search-container">
+                <div class="filters-container">
                     <div class="search-bar">
                         <input type="text" id="search-input" class="search-input" placeholder="Search by Instrument or Manufacturer">
-                        <button id="search-btn" class="search-btn">Search</button>
                     </div>
-                </div>
-                <div class="filters-container">
                     <div class="filter-group">
-                        <label for="manufacturer-filter" class="filter-label">Filter by Manufacturer:</label>
                         <select id="manufacturer-filter" class="filter-select">
-                            <option value="">All Manufacturers</option>
+                            <option value="">Filter by Manufacturer</option>
                             <option value="Aerotrak">Aerotrak</option>
                             <option value="Beckman Coulter">Beckman Coulter</option>
                             <option value="Climet">Climet</option>
@@ -1490,9 +1449,8 @@
                         </select>
                     </div>
                     <div class="filter-group">
-                        <label for="instrument-filter" class="filter-label">Filter by Instrument Type:</label>
                         <select id="instrument-filter" class="filter-select">
-                            <option value="">All Instruments</option>
+                            <option value="">Filter by Instrument Type</option>
                             <option value="Air Particle Counters">Air Particle Counters</option>
                             <option value="Balances">Balances</option>
                             <option value="Hot Plate Stirrers">Hot Plate Stirrers</option>
@@ -1505,9 +1463,8 @@
                         </select>
                     </div>
                     <div class="filter-group">
-                        <label for="connector-filter" class="filter-label">Filter by Connector Type:</label>
                         <select id="connector-filter" class="filter-select">
-                            <option value="">All Connector Types</option>
+                            <option value="">Filter by Connector Type</option>
                             <option value="Connector Plus">Connector Plus</option>
                             <option value="Data Connector">Data Connector</option>
                         </select>
@@ -2283,7 +2240,6 @@
             const instrumentFilter = document.getElementById('instrument-filter');
             const connectorFilter = document.getElementById('connector-filter');
             const searchInput = document.getElementById('search-input');
-            const searchBtn = document.getElementById('search-btn');
             const clearFiltersBtn = document.getElementById('clear-filters');
             const allProductCards = document.querySelectorAll('.product-card');
             const allSections = document.querySelectorAll('.section');
@@ -2353,7 +2309,6 @@
             instrumentFilter.addEventListener('change', filterProducts);
             connectorFilter.addEventListener('change', filterProducts);
             searchInput.addEventListener('input', filterProducts); // Real-time search as user types
-            searchBtn.addEventListener('click', filterProducts); // Search button click
             clearFiltersBtn.addEventListener('click', clearFilters);
 
             // Allow Enter key to trigger search
