@@ -43,7 +43,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
             color: var(--text-color);
             line-height: 1.6;
@@ -971,7 +971,48 @@
             color: #94a3b8;
         }
 
-        /* Responsive Design */
+        /* Nav Responsive */
+        @media (max-width: 1600px) {
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+        }
+        
+        @media (max-width: 1500px) and (min-width: 1351px) {
+            .nav-links { gap: 2rem; }
+            .nav-links a { font-size: 0.9rem; }
+        }
+
+        @media (max-width: 1350px) and (min-width: 1301px) {
+            .nav-links { gap: 1.8rem; }
+            .nav-links a { font-size: 0.9rem; letter-spacing: 0.4px; }
+            .request-demo { padding: 0.45rem 0.9rem !important; font-size: 0.75rem !important; }
+        }
+
+        @media (max-width: 1300px) and (min-width: 1201px) {
+            .nav-links { gap: 1.6rem; }
+            .nav-links a { font-size: 0.87rem; letter-spacing: 0.35px; }
+            .request-demo { padding: 0.42rem 0.85rem !important; font-size: 0.72rem !important; }
+        }
+
+        @media (max-width: 1200px) and (min-width: 1101px) {
+            .nav-links { gap: 1.4rem; }
+            .nav-links a { font-size: 0.84rem; letter-spacing: 0.3px; }
+            .request-demo { padding: 0.4rem 0.8rem !important; font-size: 0.7rem !important; }
+            .logo { font-size: 1.9rem; }
+            .logo img { height: 30px; }
+        }
+
+        @media (max-width: 1100px) and (min-width: 1026px) {
+            .nav-links { gap: 1.2rem; }
+            .nav-links a { font-size: 0.8rem; letter-spacing: 0.2px; padding: 0.4rem 0; }
+            .request-demo { padding: 0.35rem 0.7rem !important; font-size: 0.65rem !important; letter-spacing: 0.2px !important; }
+            .logo { font-size: 1.8rem; }
+            .logo img { height: 28px; }
+            .dropdown { min-width: 200px; padding: 0.7rem 0; }
+            .dropdown a { padding: 0.5rem 1rem; font-size: 0.8rem; }
+        }
+        
         @media (max-width: 1025px) {
             .nav-links { display: none; }
             .mobile-menu-toggle { display: block; }
@@ -993,6 +1034,7 @@
             }
         }
 
+        /* Responsive Design */
         @media (max-width: 1200px) {
             .search-section {
                 flex-wrap: wrap;
@@ -1263,7 +1305,7 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <a href="Instrument_Connector_Library.html" class="back-link">
+                <a href="Instrument-Connector-Library.html" class="back-link">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M19 12H5M12 19l-7-7 7-7"/>
                     </svg>
