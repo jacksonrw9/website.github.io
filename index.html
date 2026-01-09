@@ -336,7 +336,7 @@
         }
         
         .header {
-            text-align: center;
+            text-align: left;
             padding: 1rem 0;
             background: white;
         }
@@ -361,12 +361,69 @@
             padding: 1rem 0 2rem 0;
         }
         
+        .search-container {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 2rem;
+        }
+        
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        .search-input {
+            font-family: 'Inter', sans-serif;
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: white;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            outline: none;
+            box-shadow: var(--shadow-light);
+            transition: border-color 0.2s ease;
+        }
+        
+        .search-input:focus {
+            border-color: var(--accent-orange);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+        }
+        
+        .search-input::placeholder {
+            color: #9ca3af;
+        }
+        
+        .search-btn {
+            background: #da5e26;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: var(--shadow-light);
+        }
+        
+        .search-btn:hover {
+            background: #b45309;
+            transform: translateY(-1px);
+        }
+        
         .filters-container {
             display: flex;
             gap: 2rem;
             align-items: end;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: flex-start;
         }
         
         .filter-group {
@@ -576,6 +633,7 @@
         }
         
         .popup-learn-more {
+            display: block;
             background: #436c79;
             color: white;
             border: none;
@@ -585,12 +643,15 @@
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s ease;
-            display: block;
             margin: 0 auto;
+            text-decoration: none;
+            text-align: center;
+            font-family: inherit;
         }
         
         .popup-learn-more:hover {
             background: #30444d;
+            color: white;
         }
         
         .product-card::before {
@@ -612,13 +673,12 @@
         .product-image {
             width: 100%;
             height: 160px;
-            background: var(--light-gray);
+            background: white;
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 1rem;
-            border: 1px solid var(--border-color);
             position: relative;
             overflow: hidden;
         }
@@ -644,10 +704,23 @@
             color: var(--text-primary);
             text-align: center;
             line-height: 1.4;
-            min-height: 2.8rem;
+            min-height: 3.2rem;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .connector-type {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #6b7280;
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            border: none;
+            text-align: center;
         }
         
         .cta-section {
@@ -690,7 +763,7 @@
         
         .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg, var(--accent-orange), #d35400);
+            background: #da5e26;
             color: white;
             border: none;
             padding: 1rem 2.5rem;
@@ -716,8 +789,9 @@
         }
         
         .cta-button:hover {
+            background: #b45309;
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(230, 126, 34, 0.3);
+            box-shadow: 0 8px 25px rgba(218, 94, 38, 0.3);
         }
         
         .cta-button:hover::before {
@@ -1091,6 +1165,30 @@
                 height: 28px;
             }
 
+            .search-bar {
+                margin: 0 1rem;
+                gap: 0.5rem;
+            }
+            
+            .search-input {
+                font-size: 0.9rem;
+                padding: 0.7rem 0.8rem;
+            }
+            
+            .search-btn {
+                padding: 0.7rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .filters-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-select {
+                min-width: auto;
+            }
+
             .products-grid {
                 grid-template-columns: repeat(auto-fill, 250px);
                 gap: 1rem;
@@ -1107,14 +1205,26 @@
             .cta-section {
                 padding: 2rem;
             }
-            
-            .filters-container {
-                flex-direction: column;
-                align-items: stretch;
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
-            
-            .filter-select {
-                min-width: auto;
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .footer-bottom-links {
+                gap: 1rem;
+            }
+
+            .social-link {
+                width: 44px;
+                height: 44px;
+                font-size: 1.2rem;
             }
 
             .footer-content {
@@ -1357,6 +1467,12 @@
             </header>
             
             <section class="filters-section">
+                <div class="search-container">
+                    <div class="search-bar">
+                        <input type="text" id="search-input" class="search-input" placeholder="Search by Instrument or Manufacturer">
+                        <button id="search-btn" class="search-btn">Search</button>
+                    </div>
+                </div>
                 <div class="filters-container">
                     <div class="filter-group">
                         <label for="manufacturer-filter" class="filter-label">Filter by Manufacturer:</label>
@@ -1379,9 +1495,21 @@
                             <option value="">All Instruments</option>
                             <option value="Air Particle Counters">Air Particle Counters</option>
                             <option value="Balances">Balances</option>
+                            <option value="Hot Plate Stirrers">Hot Plate Stirrers</option>
+                            <option value="Melting Point Systems">Melting Point Systems</option>
+                            <option value="Microbial Air Samplers">Microbial Air Samplers</option>
                             <option value="pH Meters">pH Meters</option>
+                            <option value="Refractometers">Refractometers</option>
+                            <option value="Spectrophotometers">Spectrophotometers</option>
                             <option value="Zeta Potential Analyzers">Zeta Potential Analyzers</option>
-                            <option value="Hot Plate Stirrer">Hot Plate Stirrer</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="connector-filter" class="filter-label">Filter by Connector Type:</label>
+                        <select id="connector-filter" class="filter-select">
+                            <option value="">All Connector Types</option>
+                            <option value="Connector Plus">Connector Plus</option>
+                            <option value="Data Connector">Data Connector</option>
                         </select>
                     </div>
                     <button id="clear-filters" class="clear-filters-btn">Clear All Filters</button>
@@ -1395,71 +1523,14 @@
         <section class="section">
             <h2 class="section-title">Air Particle Counters</h2>
             <div class="products-grid">
-                <div class="product-card" data-manufacturer="Climet" data-instrument="Air Particle Counters">
+                <div class="product-card" data-manufacturer="Aerotrak" data-instrument="Air Particle Counters" data-connector="Connector Plus">
                     <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014864/CI-770-Cut-Out_SM_1_ngtqhw.png" alt="Climet 70 Series">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976020/9310-02_01_2_bm6koj.png" alt="Aerotrak 9310">
                     </div>
-                    <div class="product-name">Climet 70 Series</div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Climet 70 Series Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
-                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
-                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action via email and text</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <button class="popup-learn-more">Learn More</button>
+                    <div class="product-name">
+                        Aerotrak 9310
+                        <div class="connector-type">Connector Plus</div>
                     </div>
-                </div>
-                <div class="product-card" data-manufacturer="Climet" data-instrument="Air Particle Counters">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014864/CI-154_left_small-2_1_frvcyk.png" alt="Climet 50 Series">
-                    </div>
-                    <div class="product-name">Climet 50 Series</div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Climet 50 Series Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
-                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
-                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action via email and text</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <button class="popup-learn-more">Learn More</button>
-                    </div>
-                </div>
-                <div class="product-card" data-manufacturer="Climet" data-instrument="Air Particle Counters">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/3100EthernetOPT_small-2_1_llhnwh.png" alt="Climet 3100">
-                    </div>
-                    <div class="product-name">Climet 3100</div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Climet 3100 Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
-                                    <li>Monitor continuous samples in real-time and unlock data visibility throughout entire runs, not just averages or total channel counts</li>
-                                    <li>Enable review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action via email and text</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <button class="popup-learn-more">Learn More</button>
-                    </div>
-                </div>
-                <div class="product-card" data-manufacturer="Aerotrak" data-instrument="Air Particle Counters">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014864/9310-02_01_1_rrbud5.png" alt="Aerotrak 9310">
-                    </div>
-                    <div class="product-name">Aerotrak 9310</div>
                     <div class="product-popup">
                         <div>
                             <h3 class="popup-title">Aerotrak 9310 Connector Capabilities</h3>
@@ -1472,14 +1543,86 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Aerotrak-9310.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
-                <div class="product-card" data-manufacturer="Lasair" data-instrument="Air Particle Counters">
+                <div class="product-card" data-manufacturer="Climet" data-instrument="Air Particle Counters" data-connector="Connector Plus">
                     <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/Lasair-III-wifi-Front_1_c86mqh.png" alt="Lasair III">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976018/3100EthernetOPT_small-2_3_hwcf9m.png" alt="Climet 3100">
                     </div>
-                    <div class="product-name">Lasair III</div>
+                    <div class="product-name">
+                        Climet 3100
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">Climet 3100 Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
+                                    <li>Monitor continuous samples in real-time and unlock data visibility throughout entire runs, not just averages or total channel counts</li>
+                                    <li>Enable review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action via email and text</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Climet-3100.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="product-card" data-manufacturer="Climet" data-instrument="Air Particle Counters" data-connector="Connector Plus">
+                    <div class="product-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976019/CI-154_left_small-2_2_ovhoda.png" alt="Climet 50 Series">
+                    </div>
+                    <div class="product-name">
+                        Climet 50 Series
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">Climet 50 Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
+                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
+                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action via email and text</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Climet-50.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="product-card" data-manufacturer="Climet" data-instrument="Air Particle Counters" data-connector="Connector Plus">
+                    <div class="product-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976021/CI-770-Cut-Out_SM_3_j2eccr.png" alt="Climet 70 Series">
+                    </div>
+                    <div class="product-name">
+                        Climet 70 Series
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">Climet 70 Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
+                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
+                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action via email and text</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Climet-70.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="product-card" data-manufacturer="Lasair" data-instrument="Air Particle Counters" data-connector="Connector Plus">
+                    <div class="product-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766435975/Lasair-III-wifi-Front_1_hjm82e.png" alt="Lasair III">
+                    </div>
+                    <div class="product-name">
+                        Lasair III
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
                     <div class="product-popup">
                         <div>
                             <h3 class="popup-title">Lasair III Connector Capabilities</h3>
@@ -1492,14 +1635,17 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Lasair-iii.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
-                <div class="product-card" data-manufacturer="Lasair" data-instrument="Air Particle Counters">
+                <div class="product-card" data-manufacturer="Lasair" data-instrument="Air Particle Counters" data-connector="Connector Plus">
                     <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/lasair-pro-pic-1_1_gijy4p.png" alt="Lasair Pro">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766435976/lasair-pro-pic-1_1_rx1s50.png" alt="Lasair Pro">
                     </div>
-                    <div class="product-name">Lasair Pro</div>
+                    <div class="product-name">
+                        Lasair Pro
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
                     <div class="product-popup">
                         <div>
                             <h3 class="popup-title">Lasair Pro Connector Capabilities</h3>
@@ -1512,17 +1658,20 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Lasair-Pro.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
-                <div class="product-card" data-manufacturer="Beckman Coulter" data-instrument="Air Particle Counters">
+                <div class="product-card" data-manufacturer="Lighthouse" data-instrument="Air Particle Counters" data-connector="Connector Plus">
                     <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/particle-counting-air-met-one-3400-plus-instrument-screen-600_550x310_zdansb.png" alt="Met One Plus">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766435976/p-230712-01005_1_sgra2m.png" alt="Lighthouse ApexZ">
                     </div>
-                    <div class="product-name">Met One Plus</div>
+                    <div class="product-name">
+                        Lighthouse ApexZ
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
                     <div class="product-popup">
                         <div>
-                            <h3 class="popup-title">Met One Plus Connector Capabilities</h3>
+                            <h3 class="popup-title">Lighthouse ApexZ Connector Capabilities</h3>
                             <div class="popup-capabilities">
                                 <h4>Capabilities</h4>
                                 <ul>
@@ -1532,14 +1681,40 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Lighthouse-ApexZ.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
-                <div class="product-card" data-manufacturer="Beckman Coulter" data-instrument="Air Particle Counters">
+                <div class="product-card" data-manufacturer="Lighthouse" data-instrument="Air Particle Counters" data-connector="Connector Plus">
                     <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/Met-One-3400_zcyoga.png" alt="Met One 3415">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766435980/solair-lighthouse_ushc6o.png" alt="Lighthouse Solair">
                     </div>
-                    <div class="product-name">Met One 3415</div>
+                    <div class="product-name">
+                        Lighthouse Solair
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">Lighthouse Solair Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
+                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
+                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action via email and text</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Lighthouse-Solair.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="product-card" data-manufacturer="Beckman Coulter" data-instrument="Air Particle Counters" data-connector="Connector Plus">
+                    <div class="product-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766435976/Met-One-3400_viflm2.png" alt="Met One 3415">
+                    </div>
+                    <div class="product-name">
+                        Met One 3415
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
                     <div class="product-popup">
                         <div>
                             <h3 class="popup-title">Met One 3415 Connector Capabilities</h3>
@@ -1552,17 +1727,20 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="MetOne-3415.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
-                <div class="product-card" data-manufacturer="Lighthouse" data-instrument="Air Particle Counters">
+                <div class="product-card" data-manufacturer="Beckman Coulter" data-instrument="Air Particle Counters" data-connector="Connector Plus">
                     <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/p-230712-01005_1_xdqmab.png" alt="Lighthouse APEX">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766435976/particle-counting-air-met-one-3400-plus-instrument-screen-600_550x310_ekptr6.png" alt="Met One Plus">
                     </div>
-                    <div class="product-name">Lighthouse APEX</div>
+                    <div class="product-name">
+                        Met One Plus
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
                     <div class="product-popup">
                         <div>
-                            <h3 class="popup-title">Lighthouse APEX Connector Capabilities</h3>
+                            <h3 class="popup-title">Met One Plus Connector Capabilities</h3>
                             <div class="popup-capabilities">
                                 <h4>Capabilities</h4>
                                 <ul>
@@ -1572,7 +1750,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="MetOne-Plus.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -1581,31 +1759,14 @@
         <section class="section">
             <h2 class="section-title">Balances</h2>
             <div class="products-grid">
-                <div class="product-card" data-manufacturer="Mettler Toledo" data-instrument="Balances">
+                <div class="product-card" data-manufacturer="Mettler Toledo" data-instrument="Balances" data-connector="Data Connector">
                     <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014867/mettler-toledo-mr4002a-precision-balance-4200-g-x-0.01-g-internal-calibration-ntep__75427_1_b982wm.png" alt="Mettler Toledo MX4002">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976019/30355411_2_urbuti.png" alt="Mettler Toledo MX205DU">
                     </div>
-                    <div class="product-name">Mettler Toledo MX4002</div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Mettler Toledo MX4002 Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Initiate sampling from a laptop, tablet or handheld device</li>
-                                    <li>Automate data collection, format standardization and synchronization with your existing LIMS or MES</li>
-                                    <li>Maintain complete traceability over balance results, operator actions and system events with HeartBeat based connectivity</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <button class="popup-learn-more">Learn More</button>
+                    <div class="product-name">
+                        Mettler Toledo MX205DU
+                        <div class="connector-type">Data Connector</div>
                     </div>
-                </div>
-                <div class="product-card" data-manufacturer="Mettler Toledo" data-instrument="Balances">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014864/30355411_1_hohffl.png" alt="Mettler Toledo MX205DU">
-                    </div>
-                    <div class="product-name">Mettler Toledo MX205DU</div>
                     <div class="product-popup">
                         <div>
                             <h3 class="popup-title">Mettler Toledo MX205DU Connector Capabilities</h3>
@@ -1618,17 +1779,20 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Mettler-Toledo-205.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
-                <div class="product-card" data-manufacturer="Sartorius" data-instrument="Balances">
+                <div class="product-card" data-manufacturer="Mettler Toledo" data-instrument="Balances" data-connector="Data Connector">
                     <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/mca224s_2s00_u_cubis_1_xp3hw3.png" alt="Sartorius MCA224">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976029/mettler-toledo-mr4002a-precision-balance-4200-g-x-0.01-g-internal-calibration-ntep__75427_2_n9rwut.png" alt="Mettler Toledo MX4002">
                     </div>
-                    <div class="product-name">Sartorius MCA224</div>
+                    <div class="product-name">
+                        Mettler Toledo MX4002
+                        <div class="connector-type">Data Connector</div>
+                    </div>
                     <div class="product-popup">
                         <div>
-                            <h3 class="popup-title">Sartorius MCA224 Connector Capabilities</h3>
+                            <h3 class="popup-title">Mettler Toledo MX4002 Connector Capabilities</h3>
                             <div class="popup-capabilities">
                                 <h4>Capabilities</h4>
                                 <ul>
@@ -1638,72 +1802,115 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Mettler-Toledo-4002.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
-            </div>
-        </section>
-        
-        <section class="section">
-            <h2 class="section-title">pH Meters</h2>
-            <div class="products-grid single-item">
-                <div class="product-card" data-manufacturer="Mettler Toledo" data-instrument="pH Meters">
+                <div class="product-card" data-manufacturer="Sartorius" data-instrument="Balances" data-connector="Data Connector">
                     <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014865/mettler-toledo_seven_excellence_n_1_afvwpw.png" alt="Mettler Toledo Seven Excellence">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766534889/sartorius-mce2202s-2s00-0-cubis-ii-precision-balance-2200-g-x-10-mg-no-draft-shield-100-to-240-vac-50-60-hz-3974242_1_gw7xpm.png" alt="Sartorius Cubis II">
                     </div>
-                    <div class="product-name">Mettler Toledo Seven Excellence</div>
+                    <div class="product-name">
+                        Sartorius Cubis II
+                        <div class="connector-type">Data Connector</div>
+                    </div>
                     <div class="product-popup">
                         <div>
-                            <h3 class="popup-title">Mettler Toledo Seven Excellence Connector Capabilities</h3>
+                            <h3 class="popup-title">Sartorius Cubis II Connector Capabilities</h3>
                             <div class="popup-capabilities">
                                 <h4>Capabilities</h4>
                                 <ul>
-                                    <li>Initiate scheduled samples from a laptop, tablet, or handheld device</li>
-                                    <li>Automate data collection, format standardization, and synchronization with your existing LIMS or MES</li>
-                                    <li>Enable 21 CFR Part 11 Compliant electronic review and sign workflows, and more…</li>
+                                    <li>Initiate sampling from a laptop, tablet or handheld device</li>
+                                    <li>Automate data collection, format standardization and synchronization with your existing LIMS or MES</li>
+                                    <li>Maintain complete traceability over balance results, operator actions and system events</li>
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Sartorius-Cubis-ii.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
-            </div>
-        </section>
-        
-        <section class="section">
-            <h2 class="section-title">Zeta Potential Analyzers</h2>
-            <div class="products-grid single-item">
-                <div class="product-card" data-manufacturer="Malvern" data-instrument="Zeta Potential Analyzers">
+                <div class="product-card" data-manufacturer="Sartorius" data-instrument="Balances" data-connector="Data Connector">
                     <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014864/636216769964211710NV_Original_file_1_mkxoxi.png" alt="Malvern Nano ZS">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976019/BCE223-1S-2T_2_rqheoi.png" alt="Sartorius Entris II">
                     </div>
-                    <div class="product-name">Malvern Nano ZS</div>
+                    <div class="product-name">
+                        Sartorius Entris II
+                        <div class="connector-type">Data Connector</div>
+                    </div>
                     <div class="product-popup">
                         <div>
-                            <h3 class="popup-title">Malvern Nano ZS Connector Capabilities</h3>
+                            <h3 class="popup-title">Sartorius Entris II Connector Capabilities</h3>
                             <div class="popup-capabilities">
                                 <h4>Capabilities</h4>
                                 <ul>
-                                    <li>Initiate sample analysis from your laptop or tablet</li>
-                                    <li>Automate data collection and format standardization</li>
-                                    <li>Synchronize zeta potential analysis results directly to your LIMS or ELN without USB transfers or pen and paper methods</li>
+                                    <li>Initiate sampling from a laptop, tablet or handheld device</li>
+                                    <li>Automate data collection, format standardization and synchronization with your existing LIMS or MES</li>
+                                    <li>Maintain complete traceability over balance results, operator actions and system events</li>
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Sartorius-Entris-ii.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="product-card" data-manufacturer="Sartorius" data-instrument="Balances" data-connector="Data Connector">
+                    <div class="product-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766534882/download_2_1_hbdtuv.png" alt="Sartorius Quintix">
+                    </div>
+                    <div class="product-name">
+                        Sartorius Quintix
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">Sartorius Quintix Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Initiate sampling from a laptop, tablet or handheld device</li>
+                                    <li>Automate data collection, format standardization and synchronization with your existing LIMS or MES</li>
+                                    <li>Maintain complete traceability over balance results, operator actions and system events</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Sartorius-Quintix.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="product-card" data-manufacturer="Sartorius" data-instrument="Balances" data-connector="Data Connector">
+                    <div class="product-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976023/download_5_gunngw.png" alt="Sartorius Secura">
+                    </div>
+                    <div class="product-name">
+                        Sartorius Secura
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">Sartorius Secura Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Initiate sampling from a laptop, tablet or handheld device</li>
+                                    <li>Automate data collection, format standardization and synchronization with your existing LIMS or MES</li>
+                                    <li>Maintain complete traceability over balance results, operator actions and system events</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Sartorius-Secura.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
             </div>
         </section>
         
         <section class="section">
-            <h2 class="section-title">Hot Plate Stirrer</h2>
+            <h2 class="section-title">Hot Plate Stirrers</h2>
             <div class="products-grid single-item">
-                <div class="product-card" data-manufacturer="Gates Scientific" data-instrument="Hot Plate Stirrer">
+                <div class="product-card" data-manufacturer="Gates Scientific" data-instrument="Hot Plate Stirrers" data-connector="Connector Plus">
                     <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1764014866/rs_w_600_h_600_fo3aum.png" alt="Gates Scientific Hot Plate Stirrer">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976032/rs_w_600_h_600_1_smdsmk.png" alt="Gates Scientific Hot Plate Stirrer">
                     </div>
-                    <div class="product-name">Gates Scientific Hot Plate Stirrer</div>
+                    <div class="product-name">
+                        Gates Scientific Hot Plate Stirrer
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
                     <div class="product-popup">
                         <div>
                             <h3 class="popup-title">Gates Scientific Hot Plate Stirrer Connector Capabilities</h3>
@@ -1716,7 +1923,181 @@
                                 </ul>
                             </div>
                         </div>
-                        <button class="popup-learn-more">Learn More</button>
+                        <a href="Gate-Scientific-HPS.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Melting Point Systems</h2>
+            <div class="products-grid single-item">
+                <div class="product-card" data-manufacturer="Mettler Toledo" data-instrument="Melting Point Systems" data-connector="Data Connector">
+                    <div class="product-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1767893251/EquipmentThumbImage_7441_16536502344775870_qjdsaq.png" alt="Mettler Toledo MP Series">
+                    </div>
+                    <div class="product-name">
+                        Mettler Toledo MP Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">Mettler Toledo MP Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Automate melting point measurement data collection and analysis</li>
+                                    <li>Synchronize measurement results directly with your LIMS or ELN systems</li>
+                                    <li>Enable automated measurement protocols and maintain complete audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Mettler-Toledo-MP-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Microbial Air Samplers</h2>
+            <div class="products-grid single-item">
+                <div class="product-card" data-manufacturer="Climet" data-instrument="Microbial Air Samplers" data-connector="Connector Plus">
+                    <div class="product-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765928923/CI-97-microbial-air-sampler_1_1_xjbga7.gif" alt="Climet 97">
+                    </div>
+                    <div class="product-name">
+                        Climet 97
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">Climet 97 Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Initiate remote microbial sampling from your laptop or tablet and reduce cleanroom entries</li>
+                                    <li>Automate microbial sampling data collection and synchronization with your existing LIMS or ELN systems</li>
+                                    <li>Enable scheduled sampling protocols and maintain complete audit trails for regulatory compliance</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Climet-97.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">pH Meters</h2>
+            <div class="products-grid single-item">
+                <div class="product-card" data-manufacturer="Mettler Toledo" data-instrument="pH Meters" data-connector="Connector Plus">
+                    <div class="product-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1767208232/mettler-toledo_seven_excellence_n_2_c7wxmg.png" alt="Mettler Toledo Seven Excellence">
+                    </div>
+                    <div class="product-name">
+                        Seven Excellence
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">Seven Excellence Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Initiate scheduled samples from a laptop, tablet, or handheld device</li>
+                                    <li>Automate data collection, format standardization, and synchronization with your existing LIMS or MES</li>
+                                    <li>Enable 21 CFR Part 11 Compliant electronic review and sign workflows, and more…</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="#" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Refractometers</h2>
+            <div class="products-grid single-item">
+                <div class="product-card" data-manufacturer="Mettler Toledo" data-instrument="Refractometers" data-connector="Data Connector">
+                    <div class="product-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1767901056/mettler_r4_front_l_1_jjpy5y.png" alt="Mettler Toledo RM Series">
+                    </div>
+                    <div class="product-name">
+                        Mettler Toledo RM Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">Mettler Toledo RM Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Automate refractive index measurement data collection</li>
+                                    <li>Synchronize measurement results directly with your LIMS or ELN systems</li>
+                                    <li>Enable scheduled measurement protocols and maintain complete traceability for analytical workflows</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Mettler-Toledo-RM-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Spectrophotometers</h2>
+            <div class="products-grid single-item">
+                <div class="product-card" data-manufacturer="Mettler Toledo" data-instrument="Spectrophotometers" data-connector="Data Connector">
+                    <div class="product-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1767812032/30254728_1_u9ox2y.png" alt="Mettler Toledo UV Vis Excellence">
+                    </div>
+                    <div class="product-name">
+                        Mettler Toledo UV Vis Excellence
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">Mettler Toledo UV Vis Excellence Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Automate UV-Visible spectroscopy measurement data collection and analysis</li>
+                                    <li>Synchronize spectral data and results directly with your LIMS or ELN systems</li>
+                                    <li>Enable automated analytical methods and maintain complete audit trails for regulatory compliance</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="#" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Zeta Potential Analyzers</h2>
+            <div class="products-grid single-item">
+                <div class="product-card" data-manufacturer="Malvern" data-instrument="Zeta Potential Analyzers" data-connector="Data Connector">
+                    <div class="product-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976019/636216769964211710NV_Original_file_1_1_y79gfp.png" alt="Malvern Nano ZS">
+                    </div>
+                    <div class="product-name">
+                        Malvern Nano ZS
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="product-popup">
+                        <div>
+                            <h3 class="popup-title">Malvern Nano ZS Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <h4>Capabilities</h4>
+                                <ul>
+                                    <li>Initiate sample analysis from your laptop or tablet</li>
+                                    <li>Automate data collection and format standardization</li>
+                                    <li>Synchronize zeta potential analysis results directly to your LIMS or ELN without USB transfers or pen and paper methods</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Malvern-Zeta-Sizer.html" class="popup-learn-more">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -1900,6 +2281,9 @@
         document.addEventListener('DOMContentLoaded', function() {
             const manufacturerFilter = document.getElementById('manufacturer-filter');
             const instrumentFilter = document.getElementById('instrument-filter');
+            const connectorFilter = document.getElementById('connector-filter');
+            const searchInput = document.getElementById('search-input');
+            const searchBtn = document.getElementById('search-btn');
             const clearFiltersBtn = document.getElementById('clear-filters');
             const allProductCards = document.querySelectorAll('.product-card');
             const allSections = document.querySelectorAll('.section');
@@ -1907,6 +2291,8 @@
             function filterProducts() {
                 const selectedManufacturer = manufacturerFilter.value;
                 const selectedInstrument = instrumentFilter.value;
+                const selectedConnector = connectorFilter.value;
+                const searchTerm = searchInput.value.toLowerCase().trim();
 
                 allSections.forEach(section => {
                     section.style.display = 'block';
@@ -1915,11 +2301,20 @@
                 allProductCards.forEach(card => {
                     const cardManufacturer = card.getAttribute('data-manufacturer');
                     const cardInstrument = card.getAttribute('data-instrument');
+                    const cardConnector = card.getAttribute('data-connector');
+                    const productName = card.querySelector('.product-name').textContent.toLowerCase();
                     
                     const manufacturerMatch = !selectedManufacturer || cardManufacturer === selectedManufacturer;
                     const instrumentMatch = !selectedInstrument || cardInstrument === selectedInstrument;
+                    const connectorMatch = !selectedConnector || cardConnector === selectedConnector;
                     
-                    if (manufacturerMatch && instrumentMatch) {
+                    // Search functionality - check if search term matches manufacturer or product name
+                    const searchMatch = !searchTerm || 
+                        cardManufacturer.toLowerCase().includes(searchTerm) ||
+                        productName.includes(searchTerm) ||
+                        cardInstrument.toLowerCase().includes(searchTerm);
+                    
+                    if (manufacturerMatch && instrumentMatch && connectorMatch && searchMatch) {
                         card.style.display = 'block';
                     } else {
                         card.style.display = 'none';
@@ -1941,6 +2336,8 @@
             function clearFilters() {
                 manufacturerFilter.value = '';
                 instrumentFilter.value = '';
+                connectorFilter.value = '';
+                searchInput.value = '';
                 
                 allProductCards.forEach(card => {
                     card.style.display = 'block';
@@ -1951,9 +2348,20 @@
                 });
             }
 
+            // Event listeners
             manufacturerFilter.addEventListener('change', filterProducts);
             instrumentFilter.addEventListener('change', filterProducts);
+            connectorFilter.addEventListener('change', filterProducts);
+            searchInput.addEventListener('input', filterProducts); // Real-time search as user types
+            searchBtn.addEventListener('click', filterProducts); // Search button click
             clearFiltersBtn.addEventListener('click', clearFilters);
+
+            // Allow Enter key to trigger search
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    filterProducts();
+                }
+            });
         });
     </script>
 </body>
