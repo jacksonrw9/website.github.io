@@ -494,12 +494,17 @@
         .product-card {
             background: white;
             border-radius: 12px;
-            padding: 1.5rem;
+            padding: 25px 15px;
             border: 1px solid var(--border-color);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             width: 250px;
             max-width: 250px;
+            min-height: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
         }
         
         /* Popup Styles */
@@ -642,14 +647,14 @@
         }
         
         .product-image {
-            width: 100%;
-            height: 160px;
+            width: 100px;
+            height: 100px;
             background: white;
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1rem;
+            margin: 0 auto 15px;
             position: relative;
             overflow: hidden;
         }
@@ -1434,7 +1439,7 @@
             <section class="filters-section">
                 <div class="filters-container">
                     <div class="search-bar">
-                        <input type="text" id="search-input" class="search-input" placeholder="Search by Instrument or Manufacturer">
+                        <input type="text" id="search-input" class="search-input" placeholder="Search By Model or Manufacturer">
                     </div>
                     <div class="filter-group">
                         <select id="manufacturer-filter" class="filter-select">
