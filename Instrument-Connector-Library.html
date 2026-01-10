@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -497,17 +498,18 @@
             background: white;
             border-radius: 16px;
             padding: 25px 15px;
-            text-align: center;
-            transition: var(--transition);
-            cursor: pointer;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            min-height: 136px;
+            width: 100%;
+            min-height: 160px;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
         
         .instrument-card:hover {
@@ -653,7 +655,7 @@
         
         .instrument-name {
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 500;
             color: #436c79;
             text-align: center;
             line-height: 1.4;
@@ -1139,7 +1141,7 @@
             
             .instrument-card {
                 padding: 20px 15px;
-                min-height: 119px;
+                min-height: 140px;
             }
             
             .instrument-image {
@@ -1235,7 +1237,7 @@
             }
 
             .instrument-card {
-                min-height: 102px;
+                min-height: 120px;
             }
         }
         
