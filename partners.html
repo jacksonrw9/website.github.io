@@ -47,7 +47,7 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #e1ebee 0%, #d5e2e6 25%, #c9d9de 50%, #bdd1d7 75%, #b1c9d0 100%);
-            padding: 60px 0;
+            padding: 30px 0;
             text-align: left;
         }
 
@@ -133,7 +133,7 @@
             height: auto;
             border-radius: 8px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-            transform: scale(1.1);
+            transform: scale(1.3);
         }
 
         /* Partners Section */
@@ -143,16 +143,24 @@
         }
 
         .partners-section h2 {
-            text-align: center;
+            text-align: left;
             font-size: 2.2em;
             color: #353535;
             margin-bottom: 60px;
             font-weight: 700;
+            border-bottom: 4px solid #353535;
+            padding-bottom: 15px;
+            display: block;
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .partners-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
             gap: 40px;
             align-items: center;
             justify-items: center;
@@ -178,12 +186,12 @@
             max-height: 60px;
             max-width: 100%;
             object-fit: contain;
-            filter: grayscale(30%) opacity(80%);
+            filter: none;
             transition: filter 0.3s ease;
         }
 
         .partner-logo:hover img {
-            filter: grayscale(0%) opacity(100%);
+            filter: none;
         }
 
         /* Mobile Menu Styles */
@@ -392,7 +400,8 @@
 
             .partners-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
+                grid-template-rows: repeat(3, 1fr);
+                gap: 30px;
             }
         }
 
@@ -450,6 +459,7 @@
 
             .partners-grid {
                 grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, 1fr);
                 gap: 20px;
             }
 
@@ -1017,11 +1027,6 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
         }
-
-        .white-paper-button::after {
-            content: "📄";
-            font-size: 1.2em;
-        }
     </style>
 </head>
 <body>
@@ -1188,9 +1193,12 @@
             <div class="section-content">
                 <div class="image-content">
                     <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062681/image_tmpqi5.jpg" alt="Laboratory Environment" style="transform: none; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);">
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="#" class="white-paper-button">Read the Full Partner White Paper</a>
+                    </div>
                 </div>
                 <div class="text-content">
-                    <h3>EMPOWERING THE INDUSTRY 4.0 VISION ONE CONNECTOR AT A TIME</h3>
+                    <h4>Empowering the Industry 4.0 Vision One Connector At A Time</h4>
                     <p style="color: #353535; line-height: 1.7; margin-bottom: 25px; font-size: 0.95em;">
                         Phizzle enables regulated manufacturers to modernize data workflows with solutions that fit into their existing infrastructure. From streamlined data flow to fully automated and integrated processes with remote operation capabilities, we allow facilities to realize their specific digitization vision.
                     </p>
@@ -1199,8 +1207,6 @@
                     <p style="color: #353535; line-height: 1.7; margin-bottom: 25px; font-size: 0.95em;">
                         A partnership with Phizzle enables automation providers and device manufacturers with an enterprise-ready solution that provides connectivity out of the box. While competitors leave customers to manage complex integrations independently, the Phizzle integrated solution delivers Day 1 productivity, lower total cost of ownership, and instruments whose lifecycle depends on functionality rather than connectivity limitations. For decision makers, this means an elimination of the hidden IT burden that typically accompanies laboratory automation expansion.
                     </p>
-                    
-                    <a href="#" class="white-paper-button">Read the Full Partner White Paper</a>
                 </div>
             </div>
         </div>
