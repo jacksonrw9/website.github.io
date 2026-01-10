@@ -47,8 +47,11 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #e1ebee 0%, #d5e2e6 25%, #c9d9de 50%, #bdd1d7 75%, #b1c9d0 100%);
-            padding: 30px 0;
+            padding: 60px 0 15px 0;
             text-align: left;
+            display: flex;
+            align-items: flex-end;
+            min-height: 150px;
         }
 
         .hero h1 {
@@ -56,6 +59,8 @@
             font-weight: 700;
             color: #353535;
             margin-bottom: 20px;
+            text-align: left;
+            width: 100%;
         }
 
         /* Section Styles */
@@ -95,11 +100,21 @@
             font-weight: 700;
         }
 
-        .text-content h4 {
-            font-size: 1.8em;
-            color: #353535;
+        /* Shared heading class for consistent sizing */
+        .section-heading {
+            font-size: 1.53em;
+            color: #436c79;
             margin-bottom: 15px;
             font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .text-content h4 {
+            font-size: 1.53em;
+            color: #436c79;
+            margin-bottom: 15px;
+            font-weight: 700;
+            line-height: 1.2;
         }
 
         .text-content ul {
@@ -183,7 +198,7 @@
         }
 
         .partner-logo img {
-            max-height: 60px;
+            max-height: 72px;
             max-width: 100%;
             object-fit: contain;
             filter: none;
@@ -473,11 +488,11 @@
             }
 
             .partner-logo {
-                height: 60px;
+                height: 72px;
             }
 
             .partner-logo img {
-                max-height: 40px;
+                max-height: 48px;
             }
         }
 
@@ -1203,16 +1218,16 @@
                 <div class="image-content">
                     <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062681/image_tmpqi5.jpg" alt="Laboratory Environment" style="transform: none; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);">
                     <div style="text-align: center; margin-top: 15px;">
-                        <a href="#" class="white-paper-button">Read the Full Partner White Paper</a>
+                        <a href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768063427/Whitepaper_Connected-Plant_napcgt.pdf" target="_blank" class="white-paper-button">Read the Full Partner White Paper</a>
                     </div>
                 </div>
                 <div class="text-content">
-                    <h4>Empowering the Industry 4.0 Vision One Connector At A Time</h4>
+                    <h4 class="section-heading">Empowering the Industry 4.0 Vision One Connector At A Time</h4>
                     <p style="color: #353535; line-height: 1.7; margin-bottom: 25px; font-size: 0.95em;">
                         Phizzle enables regulated manufacturers to modernize data workflows with solutions that fit into their existing infrastructure. From streamlined data flow to fully automated and integrated processes with remote operation capabilities, we allow facilities to realize their specific digitization vision.
                     </p>
                     
-                    <h4 style="font-size: 1.4em; margin-bottom: 20px; margin-top: 30px;">Benefits of a Partnership with Phizzle</h4>
+                    <h4 class="section-heading" style="margin-bottom: 20px; margin-top: 30px;">Benefits of a Partnership with Phizzle</h4>
                     <p style="color: #353535; line-height: 1.7; margin-bottom: 25px; font-size: 0.95em;">
                         A partnership with Phizzle enables automation providers and device manufacturers with an enterprise-ready solution that provides connectivity out of the box. While competitors leave customers to manage complex integrations independently, the Phizzle integrated solution delivers Day 1 productivity, lower total cost of ownership, and instruments whose lifecycle depends on functionality rather than connectivity limitations. For decision makers, this means an elimination of the hidden IT burden that typically accompanies laboratory automation expansion.
                     </p>
