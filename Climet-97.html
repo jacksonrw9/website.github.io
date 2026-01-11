@@ -470,10 +470,11 @@
         .hero-content {
             display: grid;
             grid-template-columns: 1fr auto;
-            gap: 45px;
+            gap: 120px;
             align-items: center;
-            max-width: 850px;
+            max-width: 1000px;
             margin: 0 auto;
+            padding-right: 100px;
         }
 
         .hero-text h1 {
@@ -610,6 +611,29 @@
             font-size: 0.95em;
         }
 
+        .content-text ul, .content-text ol {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .content-text li {
+            color: #353535;
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+
+        .content-text ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #436C79;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
         .content-image img {
             width: 100%;
             height: auto;
@@ -639,6 +663,14 @@
             color: #353535;
             line-height: 1.7;
             font-size: 0.95em;
+            margin-bottom: 20px;
+        }
+
+        .compliance-content ul {
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 40px;
         }
 
         /* FAQ Section - GREY */
@@ -1208,7 +1240,7 @@
                         <span class="capability-title">Ensure Data Integrity</span> <span class="capability-desc">by automating secure data collection and eliminate inefficiency and potential for human error from collection workflows</span>
                     </li>
                     <li>
-                        <span class="capability-title">Automate Data Synchronization</span> <span class="capability-desc">securely to backend systems (LIMS, ELN, QMS, or MES) without exposing your instruments to direct network threats</span>
+                        <span class="capability-title">Automate Data Synchronization</span> <span class="capability-desc">securely with backend systems (LIMS, ELN, QMS, or MES) without exposing your instruments to direct network threats</span>
                     </li>
                     <li>
                         <span class="capability-title">Protect Against Data Loss</span> <span class="capability-desc">during network failures and power outages</span>
@@ -1243,7 +1275,14 @@
         <div class="container">
             <div class="compliance-content">
                 <h2>Streamline Compliance and Chain of Custody</h2>
-                <p>Uphold Chain of Custody by automatically collecting contextualized data for each record including: a sample ID, operator involved, time generated, location of the file and crc. The connector also enables operators to add notes to that file.</p>
+                <p>Maintain comprehensive operational oversight and traceability by automatically capturing detailed instrument status updates, operator actions, and system events including:</p>
+                <ul>
+                    <li>Instrument offline updates, sample in-progress status and run start and stop times</li>
+                    <li>Which operator started a sample, reviewed the results and synchronized data to the LIMS, ELN, MES, or QMS</li>
+                    <li>When data was pushed to your backend systems or scheduled samples were pulled to be run on our UI</li>
+                    <li>Plus enable real-time review workflows with 21 CFR Part 11 Compliant electronic signatures</li>
+                    <li>Query and download results + audit trails to CSV, Excel, JSON, or PDF</li>
+                </ul>
             </div>
         </div>
     </section>
