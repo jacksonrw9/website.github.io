@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scientific Equipment Catalog</title>
-    
+    <meta name="description" content="Digitize scientific workflows in regulated manufacturing. Connect, automate, and integrate analytical instruments with LIMS, MES, or QMS to ensure data integrity, efficiency, and compliance.">
+    <title>Phizzle - Digitizing Scientific Workflows</title>
+
     <!-- Favicon links -->
     <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
     <link rel="shortcut icon" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
-
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-41FB3KKW2T"></script>
     <script>
@@ -23,7 +24,7 @@
     <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/8070371.js"></script>
     <!-- End of HubSpot Embed Code -->
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -35,7 +36,6 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: #f8fafc;
         }
 
         /* Navigation */
@@ -135,6 +135,17 @@
             background-color: #f8fafc;
             color: #436c79;
             border-left-color: #436c79;
+        }
+
+        .dropdown-header {
+            color: #64748b;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.5rem 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 0.5rem;
         }
 
         .request-demo {
@@ -321,494 +332,379 @@
             transform: rotate(180deg);
         }
 
-        /* Catalog Styles */
-        :root {
-            --primary-blue: #1e3a5f;
-            --secondary-blue: #2c5f87;
-            --accent-orange: #e67e22;
-            --light-gray: #f8fafc;
-            --border-color: #e2e8f0;
-            --text-primary: #2d3748;
-            --text-secondary: #718096;
-            --shadow-light: 0 2px 4px rgba(0,0,0,0.04);
-            --shadow-medium: 0 4px 12px rgba(0,0,0,0.08);
-            --gradient-bg: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://res.cloudinary.com/dqiggfeuq/image/upload/v1757437615/iStock-2150276025_wwqrbl.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 4rem 0;
         }
 
-        .container {
-            max-width: 1200px;
+        .hero-container {
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
-        
-        .top-section-wrapper {
-            background: white;
+
+        .hero-text-box {
+            background: #436C79;
+            padding: 2.5rem;
+            border-radius: 0px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 2000px;    
             width: 100%;
-            margin: 0;
-            padding: 0;
         }
-        
-        .header {
-            text-align: left;
-            padding: 1rem 0;
-            background: white;
+
+        .hero-content h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            max-width: 1000px;
         }
-        
-        .header h1 {
-            font-family: 'Inter', sans-serif;
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary-blue);
-            letter-spacing: -0.02em;
-            margin-bottom: 0.5rem;
-        }
-        
-        .header p {
-            color: var(--text-secondary);
+
+        .hero-content p {
             font-size: 1.1rem;
-            font-weight: 400;
+            color: #ffffff;
+            line-height: 1.6;
+            max-width: 650px;
         }
-        
-        /* Filter Styles */
-        .filters-section {
-            padding: 1rem 0 2rem 0;
+
+        /* Platform Section */
+        .platform-section {
+            background: #ffffff;
+            padding: 5rem 0;
         }
-        
-        .search-container {
+
+        .platform-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
-            justify-content: flex-start;
-            margin-bottom: 2rem;
+            justify-content: center;
+            align-items: center;
         }
-        
-        .search-bar {
+
+        .platform-bubble {
+            background: #ffffff;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .platform-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #436c79;
+            margin-bottom: 2.5rem;
+            line-height: 1.2;
+        }
+
+        .platform-content {
+            display: grid;
+            grid-template-columns: 60% 40%;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .platform-left {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .platform-step {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            max-width: 500px;
-            width: 100%;
+            gap: 0.75rem;
+            text-align: left;
         }
-        
-        .search-input {
-            font-family: 'Inter', sans-serif;
-            flex: 1;
-            padding: 0.75rem 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            background: white;
-            color: var(--text-primary);
-            font-size: 0.95rem;
-            outline: none;
-            box-shadow: var(--shadow-light);
-            transition: border-color 0.2s ease;
-        }
-        
-        .search-input:focus {
-            border-color: var(--accent-orange);
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
-        }
-        
-        .search-input::placeholder {
-            color: #9ca3af;
-        }
-        
-        .search-btn {
-            background: #da5e26;
+
+        .step-number {
+            background: #436c79;
             color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 0.9rem;
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            font-size: 1.6rem;
+            color: #1f2937;
+            line-height: 1.4;
+        }
+
+        .step-text .step-action {
+            font-weight: 700;
+            color: #436c79;
+        }
+
+        .platform-right {
+            text-align: left;
+            padding-right: 2rem;
+        }
+
+        .platform-description {
+            font-size: 0.9rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #22c55e;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            box-shadow: var(--shadow-light);
+            min-height: 44px;
         }
-        
-        .search-btn:hover {
-            background: #b45309;
-            transform: translateY(-1px);
+
+        .solution-btn:hover {
+            background: #16a34a;
         }
-        
-        .filters-container {
-            display: flex;
-            gap: 2rem;
-            align-items: end;
-            flex-wrap: wrap;
-            justify-content: flex-start;
+
+        /* Partner Carousel Section */
+        .partner-carousel-section {
+            background: #f8fafc;
+            padding: 3rem 0;
+            overflow: hidden;
         }
-        
-        .filter-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        
-        .filter-label {
-            font-weight: 500;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-        }
-        
-        .filter-select {
-            font-family: 'Inter', sans-serif;
-            padding: 0.75rem 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            background: white;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            min-width: 200px;
-            cursor: pointer;
-            transition: border-color 0.2s ease;
-        }
-        
-        .filter-select:focus {
-            outline: none;
-            border-color: var(--accent-orange);
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
-        }
-        
-        .filter-select:hover {
-            border-color: var(--secondary-blue);
-        }
-        
-        .clear-filters-btn {
-            background: #436c79;
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            height: fit-content;
-        }
-        
-        .clear-filters-btn:hover {
-            background: #30444d;
-            transform: translateY(-1px);
-        }
-        
-        .section {
-            margin-bottom: 3rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .section:has(.product-card:hover) {
-            z-index: 10;
-        }
-        
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--primary-blue);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border-color);
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background: var(--accent-orange);
-        }
-        
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, 250px);
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .products-grid.single-item {
-            justify-items: start;
-        }
-        
-        .product-card {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            width: 250px;
-            max-width: 250px;
-        }
-        
-        /* Popup Styles */
-        .product-popup {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #f0f4f8;
-            border: 1px solid #d1d9e0;
-            border-radius: 16px;
-            padding: 1.5rem;
-            width: 320px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 101;
-            margin-top: 0.5rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-        }
-        
-        .product-popup::before {
-            content: '';
-            position: absolute;
-            top: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 8px solid transparent;
-            border-right: 8px solid transparent;
-            border-bottom: 8px solid #f0f4f8;
-        }
-        
-        .product-popup::after {
-            content: '';
-            position: absolute;
-            top: -9px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 9px solid transparent;
-            border-right: 9px solid transparent;
-            border-bottom: 9px solid #d1d9e0;
-        }
-        
-        .product-card:hover .product-popup {
-            opacity: 1;
-            visibility: visible;
-            z-index: 101;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-medium);
-            z-index: 100;
-        }
-        
-        .product-card:hover .product-popup {
-            z-index: 101;
-        }
-        
-        .popup-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-        
-        .popup-capabilities {
-            margin-bottom: 1.5rem;
-        }
-        
-        .popup-capabilities h4 {
-            display: none;
-        }
-        
-        .popup-capabilities ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .popup-capabilities li {
-            font-size: 0.85rem;
-            color: #4a5568;
-            margin-bottom: 0.75rem;
-            padding-left: 1rem;
-            position: relative;
-            line-height: 1.4;
-        }
-        
-        .popup-capabilities li::before {
-            content: '•';
-            color: #2d3748;
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-            font-size: 1rem;
-        }
-        
-        .popup-learn-more {
-            display: block;
-            background: #436c79;
-            color: white;
-            border: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s ease;
+
+        .partner-carousel-container {
+            max-width: 100%;
             margin: 0 auto;
-            text-decoration: none;
-            text-align: center;
-            font-family: inherit;
         }
-        
-        .popup-learn-more:hover {
-            background: #30444d;
-            color: white;
+
+        .partner-carousel-wrapper {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
         }
-        
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--secondary-blue), var(--accent-orange));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
+
+        .partner-carousel-track {
+            display: inline-flex;
+            animation: scroll 30s linear infinite;
         }
-        
-        .product-card:hover::before {
-            transform: scaleX(1);
-        }
-        
-        .product-image {
-            width: 100%;
-            height: 160px;
-            background: white;
-            border-radius: 8px;
+
+        .partner-logo-item {
+            flex: 0 0 auto;
+            height: 80px;
+            width: 200px;
+            margin: 0 2rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1rem;
-            position: relative;
-            overflow: hidden;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0;
         }
-        
-        .product-image img {
-            width: 100%;
-            height: 100%;
+
+        .partner-logo-item img {
+            max-height: 60px;
+            max-width: 160px;
             object-fit: contain;
-            padding: 0.5rem;
+            filter: grayscale(100%) opacity(0.6);
+            transition: all 0.3s ease;
         }
-        
-        .product-image::before {
-            content: '🔬';
-            font-size: 2rem;
-            opacity: 0.3;
-            position: absolute;
-            z-index: -1;
+
+        .partner-logo-item:hover img {
+            filter: grayscale(0%) opacity(1);
+            transform: scale(1.05);
         }
-        
-        .product-name {
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            text-align: center;
-            line-height: 1.4;
-            min-height: 3.2rem;
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .partner-carousel-track:hover {
+            animation-play-state: paused;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            background: #f8fafc;
+            padding: 5rem 0;
+        }
+
+        .benefits-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .benefits-header {
+            margin-bottom: 4rem;
+        }
+
+        .benefits-header h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #436c79;
+            margin-bottom: 1rem;
+        }
+
+        .benefits-header p {
+            font-size: 1.1rem;
+            color: #64748b;
+            max-width: 800px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .benefit-item {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .benefit-image {
+            width: 100%;
+            height: 200px;
+            background: #e2e8f0;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        
-        .connector-type {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: #6b7280;
-            background: transparent;
-            padding: 0;
-            border-radius: 0;
-            border: none;
+            color: #64748b;
+            font-size: 0.9rem;
             text-align: center;
+            padding: 1rem;
         }
-        
-        .cta-section {
-            background: white;
-            border-radius: 16px;
-            padding: 3rem;
-            text-align: center;
-            box-shadow: var(--shadow-medium);
-            border: 1px solid var(--border-color);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent 0%, rgba(230, 126, 34, 0.02) 50%, transparent 100%);
-            pointer-events: none;
-        }
-        
-        .cta-title {
-            font-size: 1.5rem;
+
+        .benefit-content h3 {
+            font-size: 1.8rem;
             font-weight: 600;
-            color: var(--primary-blue);
+            color: #436c79;
             margin-bottom: 1rem;
         }
-        
-        .cta-description {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+
+        .benefit-content p {
+            color: #64748b;
             line-height: 1.6;
+            margin-bottom: 1.5rem;
         }
-        
-        .cta-button {
-            display: inline-block;
-            background: #da5e26;
+
+        .explore-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #22c55e;
             color: white;
-            border: none;
-            padding: 1rem 2.5rem;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
             text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            min-height: 44px;
         }
-        
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
+
+        .explore-btn:hover {
+            background: #16a34a;
+        }
+
+        /* Full Width Image Section */
+        .full-width-image-section {
+            background: #ffffff;
+            padding: 2rem;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
         }
-        
-        .cta-button:hover {
-            background: #b45309;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(218, 94, 38, 0.3);
+
+        .full-width-image-placeholder {
+            width: 100%;
+            height: 300px;
+            background-color: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        
-        .cta-button:hover::before {
-            left: 100%;
+
+        /* Partners Section */
+        .partners-section {
+            background: #ffffff;
+            padding: 4rem 0;
+        }
+
+        .partners-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .partners-header {
+            margin-bottom: 3rem;
+        }
+
+        .partners-header h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #436c79;
+            margin-bottom: 1rem;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .partner-logo {
+            height: 80px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-weight: 600;
+            text-align: center;
+            padding: 1rem;
         }
 
         /* Footer Section */
@@ -1157,6 +1053,45 @@
                 height: 24px;
             }
 
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .platform-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .platform-bubble {
+                padding: 2rem;
+            }
+            
+            .platform-title {
+                font-size: 2rem;
+            }
+
+            .step-text {
+                font-size: 1.4rem;
+            }
+
+            .platform-right {
+                padding-right: 0;
+            }
+
+            .benefit-item {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .benefit-image {
+                height: 180px;
+            }
+
             .footer-content {
                 grid-template-columns: 1fr 1fr;
                 gap: 2rem;
@@ -1170,6 +1105,11 @@
                 grid-column: 1 / -1;
                 margin-top: 2rem;
             }
+
+            .partner-logo-item {
+                width: 150px;
+                margin: 0 1rem;
+            }
         }
 
         /* Mobile Responsive Design (768px and below) */
@@ -1178,47 +1118,93 @@
                 height: 28px;
             }
 
-            .search-bar {
-                margin: 0 1rem;
-                gap: 0.5rem;
-            }
-            
-            .search-input {
-                font-size: 0.9rem;
-                padding: 0.7rem 0.8rem;
-            }
-            
-            .search-btn {
-                padding: 0.7rem 1rem;
-                font-size: 0.8rem;
-            }
-            
-            .filters-container {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .filter-select {
-                min-width: auto;
+            .hero-content {
+                text-align: center;
             }
 
-            .products-grid {
-                grid-template-columns: repeat(auto-fill, 250px);
-                gap: 1rem;
+            .hero-content h1 {
+                font-size: 2rem;
             }
-            
-            .header h1 {
-                font-size: 1.6rem;
+
+            .hero-content p {
+                font-size: 1rem;
             }
-            
-            .container {
-                padding: 1rem;
-            }
-            
-            .cta-section {
+
+            .hero-text-box {
+                max-width: 100%;
                 padding: 2rem;
             }
 
+            .platform-bubble {
+                padding: 1.5rem;
+                margin: 0 1rem;
+                text-align: center;
+            }
+            
+            .platform-title {
+                font-size: 1.6rem;
+                margin-bottom: 2rem;
+            }
+
+            .platform-left {
+                align-items: center;
+            }
+
+            .platform-step {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            .step-text {
+                font-size: 1.1rem;
+            }
+
+            .platform-description {
+                font-size: 0.9rem;
+                text-align: center;
+            }
+
+            .benefits-header h2 {
+                font-size: 1.8rem;
+                text-align: center;
+            }
+
+            .benefits-header p {
+                text-align: center;
+            }
+
+            .benefit-content {
+                text-align: center;
+            }
+
+            .benefit-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .benefit-image {
+                height: 150px;
+            }
+
+            .benefits-section > div > div:last-child {
+                padding: 4rem 1rem 1rem 1rem;
+            }
+
+            .benefits-section > div > div:last-child > div {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+
+            .benefits-section > div > div:last-child p {
+                font-size: 1.1rem;
+                text-align: center;
+            }
+
+            .partners-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -1240,25 +1226,15 @@
                 font-size: 1.2rem;
             }
 
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            .partner-logo-item {
+                width: 120px;
+                height: 60px;
+                margin: 0 0.5rem;
             }
 
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-
-            .footer-bottom-links {
-                gap: 1rem;
-            }
-
-            .social-link {
-                width: 44px;
-                height: 44px;
-                font-size: 1.2rem;
+            .partner-logo-item img {
+                max-height: 40px;
+                max-width: 100px;
             }
         }
 
@@ -1268,58 +1244,52 @@
                 padding: 0 1rem;
             }
 
-            .header h1 {
+            .hero {
+                padding: 2rem 0;
+            }
+
+            .hero-container {
+                padding: 0 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-text-box {
+                padding: 1.5rem;
+            }
+
+            .platform-title {
                 font-size: 1.4rem;
             }
 
-            .header p {
-                font-size: 0.9rem;
+            .step-text {
+                font-size: 1rem;
             }
 
-            .section-title {
-                font-size: 1.2rem;
+            .benefits-header h2 {
+                font-size: 1.6rem;
             }
 
-            .cta-title {
-                font-size: 1.2rem;
+            .benefit-content h3 {
+                font-size: 1.3rem;
             }
 
-            .cta-description {
-                font-size: 0.9rem;
-            }
-
-            .products-grid {
+            .partners-grid {
                 grid-template-columns: 1fr;
-                justify-items: center;
             }
 
-            .product-card {
-                width: 100%;
-                max-width: 280px;
+            .partner-logo-item {
+                width: 100px;
+                height: 50px;
+            }
+
+            .partner-logo-item img {
+                max-height: 30px;
+                max-width: 80px;
             }
         }
-        
-        /* Subtle animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .section {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-        
-        .section:nth-child(2) { animation-delay: 0.1s; }
-        .section:nth-child(3) { animation-delay: 0.2s; }
-        .section:nth-child(4) { animation-delay: 0.3s; }
-        .section:nth-child(5) { animation-delay: 0.4s; }
-        .section:nth-child(6) { animation-delay: 0.5s; }
     </style>
 </head>
 <body>
@@ -1473,659 +1443,176 @@
         </div>
     </nav>
 
-    <!-- Catalog Content -->
-    <div class="top-section-wrapper">
-        <div class="container">
-            <header class="header">
-                <h1>Instrument Connectors</h1>
-                <p>Explore our growing library of instrument connectors</p>
-            </header>
-            
-            <section class="filters-section">
-                <div class="search-container">
-                    <div class="search-bar">
-                        <input type="text" id="search-input" class="search-input" placeholder="Search by Instrument or Manufacturer">
-                        <button id="search-btn" class="search-btn">Search</button>
-                    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text-box">
+                    <h1>Welcome to the Intersection <br/>of Science and IT</h1>
+                    <p>Digitizing scientific workflows in regulated manufacturing environments to ensure data integrity, efficiency, and compliance with Connected Plant™.</p>
                 </div>
-                <div class="filters-container">
-                    <div class="filter-group">
-                        <label for="manufacturer-filter" class="filter-label">Filter by Manufacturer:</label>
-                        <select id="manufacturer-filter" class="filter-select">
-                            <option value="">All Manufacturers</option>
-                            <option value="Aerotrak">Aerotrak</option>
-                            <option value="Beckman Coulter">Beckman Coulter</option>
-                            <option value="Climet">Climet</option>
-                            <option value="Gates Scientific">Gates Scientific</option>
-                            <option value="Lasair">Lasair</option>
-                            <option value="Lighthouse">Lighthouse</option>
-                            <option value="Malvern">Malvern</option>
-                            <option value="Mettler Toledo">Mettler Toledo</option>
-                            <option value="Sartorius">Sartorius</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="instrument-filter" class="filter-label">Filter by Instrument Type:</label>
-                        <select id="instrument-filter" class="filter-select">
-                            <option value="">All Instruments</option>
-                            <option value="Air Particle Counters">Air Particle Counters</option>
-                            <option value="Balances">Balances</option>
-                            <option value="Hot Plate Stirrers">Hot Plate Stirrers</option>
-                            <option value="Melting Point Systems">Melting Point Systems</option>
-                            <option value="Microbial Air Samplers">Microbial Air Samplers</option>
-                            <option value="pH Meters">pH Meters</option>
-                            <option value="Refractometers">Refractometers</option>
-                            <option value="Spectrophotometers">Spectrophotometers</option>
-                            <option value="Zeta Potential Analyzers">Zeta Potential Analyzers</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="connector-filter" class="filter-label">Filter by Connector Type:</label>
-                        <select id="connector-filter" class="filter-select">
-                            <option value="">All Connector Types</option>
-                            <option value="Connector Plus">Connector Plus</option>
-                            <option value="Data Connector">Data Connector</option>
-                        </select>
-                    </div>
-                    <button id="clear-filters" class="clear-filters-btn">Clear All Filters</button>
-                </div>
-            </section>
+            </div>
+            <div class="hero-visual">
+                <!-- Hero image space - would contain the manufacturing facility image -->
+            </div>
         </div>
-    </div>
-    
-    <div class="container">
-        
-        <section class="section">
-            <h2 class="section-title">Air Particle Counters</h2>
-            <div class="products-grid">
-                <div class="product-card" data-manufacturer="Aerotrak" data-instrument="Air Particle Counters" data-connector="Connector Plus">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976020/9310-02_01_2_bm6koj.png" alt="Aerotrak 9310">
-                    </div>
-                    <div class="product-name">
-                        Aerotrak 9310
-                        <div class="connector-type">Connector Plus</div>
-                    </div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Aerotrak 9310 Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
-                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
-                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action via email and text</li>
-                                </ul>
+    </section>
+
+    <!-- Platform Section -->
+    <section class="platform-section">
+        <div class="platform-container">
+            <div class="platform-bubble">
+                <h2 class="platform-title">Digitize Scientific Workflows in 3 Steps:</h2>
+                
+                <div class="platform-content">
+                    <div class="platform-left">
+                        <div class="platform-step">
+                            <div class="step-number">1</div>
+                            <div class="step-text">
+                                <span class="step-action">Connect</span> to Analytical Scientific Instruments
                             </div>
                         </div>
-                        <a href="Aerotrak-9310.html" class="popup-learn-more">Learn More</a>
-                    </div>
-                </div>
-                <div class="product-card" data-manufacturer="Climet" data-instrument="Air Particle Counters" data-connector="Connector Plus">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976018/3100EthernetOPT_small-2_3_hwcf9m.png" alt="Climet 3100">
-                    </div>
-                    <div class="product-name">
-                        Climet 3100
-                        <div class="connector-type">Connector Plus</div>
-                    </div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Climet 3100 Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
-                                    <li>Monitor continuous samples in real-time and unlock data visibility throughout entire runs, not just averages or total channel counts</li>
-                                    <li>Enable review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action via email and text</li>
-                                </ul>
+                        
+                        <div class="platform-step">
+                            <div class="step-number">2</div>
+                            <div class="step-text">
+                                <span class="step-action">Automate</span> Data Formatting
                             </div>
                         </div>
-                        <a href="Climet-3100.html" class="popup-learn-more">Learn More</a>
-                    </div>
-                </div>
-                <div class="product-card" data-manufacturer="Climet" data-instrument="Air Particle Counters" data-connector="Connector Plus">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976019/CI-154_left_small-2_2_ovhoda.png" alt="Climet 50 Series">
-                    </div>
-                    <div class="product-name">
-                        Climet 50 Series
-                        <div class="connector-type">Connector Plus</div>
-                    </div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Climet 50 Series Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
-                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
-                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action via email and text</li>
-                                </ul>
+                        
+                        <div class="platform-step">
+                            <div class="step-number">3</div>
+                            <div class="step-text">
+                                <span class="step-action">Integrate</span> with Digital Systems
                             </div>
                         </div>
-                        <a href="Climet-50.html" class="popup-learn-more">Learn More</a>
                     </div>
-                </div>
-                <div class="product-card" data-manufacturer="Climet" data-instrument="Air Particle Counters" data-connector="Connector Plus">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976021/CI-770-Cut-Out_SM_3_j2eccr.png" alt="Climet 70 Series">
-                    </div>
-                    <div class="product-name">
-                        Climet 70 Series
-                        <div class="connector-type">Connector Plus</div>
-                    </div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Climet 70 Series Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
-                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
-                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action via email and text</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="Climet-70.html" class="popup-learn-more">Learn More</a>
-                    </div>
-                </div>
-                <div class="product-card" data-manufacturer="Lasair" data-instrument="Air Particle Counters" data-connector="Connector Plus">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766435975/Lasair-III-wifi-Front_1_hjm82e.png" alt="Lasair III">
-                    </div>
-                    <div class="product-name">
-                        Lasair III
-                        <div class="connector-type">Connector Plus</div>
-                    </div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Lasair III Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
-                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
-                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action via email and text</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="Lasair-iii.html" class="popup-learn-more">Learn More</a>
-                    </div>
-                </div>
-                <div class="product-card" data-manufacturer="Lasair" data-instrument="Air Particle Counters" data-connector="Connector Plus">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766435976/lasair-pro-pic-1_1_rx1s50.png" alt="Lasair Pro">
-                    </div>
-                    <div class="product-name">
-                        Lasair Pro
-                        <div class="connector-type">Connector Plus</div>
-                    </div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Lasair Pro Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
-                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
-                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action via email and text</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="Lasair-Pro.html" class="popup-learn-more">Learn More</a>
-                    </div>
-                </div>
-                <div class="product-card" data-manufacturer="Lighthouse" data-instrument="Air Particle Counters" data-connector="Connector Plus">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766435976/p-230712-01005_1_sgra2m.png" alt="Lighthouse ApexZ">
-                    </div>
-                    <div class="product-name">
-                        Lighthouse ApexZ
-                        <div class="connector-type">Connector Plus</div>
-                    </div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Lighthouse ApexZ Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
-                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
-                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action via email and text</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="Lighthouse-ApexZ.html" class="popup-learn-more">Learn More</a>
-                    </div>
-                </div>
-                <div class="product-card" data-manufacturer="Lighthouse" data-instrument="Air Particle Counters" data-connector="Connector Plus">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766435980/solair-lighthouse_ushc6o.png" alt="Lighthouse Solair">
-                    </div>
-                    <div class="product-name">
-                        Lighthouse Solair
-                        <div class="connector-type">Connector Plus</div>
-                    </div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Lighthouse Solair Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
-                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
-                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action via email and text</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="Lighthouse-Solair.html" class="popup-learn-more">Learn More</a>
-                    </div>
-                </div>
-                <div class="product-card" data-manufacturer="Beckman Coulter" data-instrument="Air Particle Counters" data-connector="Connector Plus">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766435976/Met-One-3400_viflm2.png" alt="Met One 3415">
-                    </div>
-                    <div class="product-name">
-                        Met One 3415
-                        <div class="connector-type">Connector Plus</div>
-                    </div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Met One 3415 Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
-                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
-                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action via email and text</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="MetOne-3415.html" class="popup-learn-more">Learn More</a>
-                    </div>
-                </div>
-                <div class="product-card" data-manufacturer="Beckman Coulter" data-instrument="Air Particle Counters" data-connector="Connector Plus">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766435976/particle-counting-air-met-one-3400-plus-instrument-screen-600_550x310_ekptr6.png" alt="Met One Plus">
-                    </div>
-                    <div class="product-name">
-                        Met One Plus
-                        <div class="connector-type">Connector Plus</div>
-                    </div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Met One Plus Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
-                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
-                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action via email and text</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="MetOne-Plus.html" class="popup-learn-more">Learn More</a>
+                    
+                    <div class="platform-right">
+                        <p class="platform-description">
+                            Eliminate pen and paper processes, multi-step data entry SOPs and clunky middleware solutions to synchronize critical manufacturing data with LIMS, MES, or QMS. 
+                        </p>
+                        <a href="platform-overview.html" class="solution-btn">See Our Solution</a>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <section class="section">
-            <h2 class="section-title">Balances</h2>
-            <div class="products-grid">
-                <div class="product-card" data-manufacturer="Mettler Toledo" data-instrument="Balances" data-connector="Data Connector">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976019/30355411_2_urbuti.png" alt="Mettler Toledo MX205DU">
+        </div>
+    </section>
+
+    <!-- Partner Carousel Section -->
+    <section class="partner-carousel-section">
+        <div class="partner-carousel-container">
+            <div class="partner-carousel-wrapper">
+                <div class="partner-carousel-track">
+                    <div class="partner-logo-item">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768256017/image_81_unji0b.png" alt="Partner Logo">
                     </div>
-                    <div class="product-name">
-                        Mettler Toledo MX205DU
-                        <div class="connector-type">Data Connector</div>
+                    <div class="partner-logo-item">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768256003/image_82_ya955m.png" alt="Partner Logo">
                     </div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Mettler Toledo MX205DU Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Initiate sampling from a laptop, tablet or handheld device</li>
-                                    <li>Automate data collection, format standardization and synchronization with your existing LIMS or MES</li>
-                                    <li>Maintain complete traceability over balance results, operator actions and system events with HeartBeat based connectivity</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="Mettler-Toledo-205.html" class="popup-learn-more">Learn More</a>
+                    <div class="partner-logo-item">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062710/vendor-logo_nqhj8r.png" alt="Partner Logo">
                     </div>
-                </div>
-                <div class="product-card" data-manufacturer="Mettler Toledo" data-instrument="Balances" data-connector="Data Connector">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976029/mettler-toledo-mr4002a-precision-balance-4200-g-x-0.01-g-internal-calibration-ntep__75427_2_n9rwut.png" alt="Mettler Toledo MX4002">
+                    <div class="partner-logo-item">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062706/Cisco_logo_blue_2016.svg_a7q8d7.png" alt="Partner Logo">
                     </div>
-                    <div class="product-name">
-                        Mettler Toledo MX4002
-                        <div class="connector-type">Data Connector</div>
+                    <div class="partner-logo-item">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062704/image_77_ydv8xp.png" alt="Partner Logo">
                     </div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Mettler Toledo MX4002 Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Initiate sampling from a laptop, tablet or handheld device</li>
-                                    <li>Automate data collection, format standardization and synchronization with your existing LIMS or MES</li>
-                                    <li>Maintain complete traceability over balance results, operator actions and system events with HeartBeat based connectivity</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="Mettler-Toledo-4002.html" class="popup-learn-more">Learn More</a>
+                    <div class="partner-logo-item">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062700/kl_1_lvmmcr.png" alt="Partner Logo">
                     </div>
-                </div>
-                <div class="product-card" data-manufacturer="Sartorius" data-instrument="Balances" data-connector="Data Connector">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766534889/sartorius-mce2202s-2s00-0-cubis-ii-precision-balance-2200-g-x-10-mg-no-draft-shield-100-to-240-vac-50-60-hz-3974242_1_gw7xpm.png" alt="Sartorius Cubis II">
+                    <div class="partner-logo-item">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062692/image_78_upmcar.png" alt="Partner Logo">
                     </div>
-                    <div class="product-name">
-                        Sartorius Cubis II
-                        <div class="connector-type">Data Connector</div>
+                    <div class="partner-logo-item">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062690/image_80_o9aupz.png" alt="Partner Logo">
                     </div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Sartorius Cubis II Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Initiate sampling from a laptop, tablet or handheld device</li>
-                                    <li>Automate data collection, format standardization and synchronization with your existing LIMS or MES</li>
-                                    <li>Maintain complete traceability over balance results, operator actions and system events</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="Sartorius-Cubis-ii.html" class="popup-learn-more">Learn More</a>
+                    <!-- Duplicate items for seamless loop -->
+                    <div class="partner-logo-item">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768256017/image_81_unji0b.png" alt="Partner Logo">
                     </div>
-                </div>
-                <div class="product-card" data-manufacturer="Sartorius" data-instrument="Balances" data-connector="Data Connector">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976019/BCE223-1S-2T_2_rqheoi.png" alt="Sartorius Entris II">
+                    <div class="partner-logo-item">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768256003/image_82_ya955m.png" alt="Partner Logo">
                     </div>
-                    <div class="product-name">
-                        Sartorius Entris II
-                        <div class="connector-type">Data Connector</div>
+                    <div class="partner-logo-item">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062710/vendor-logo_nqhj8r.png" alt="Partner Logo">
                     </div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Sartorius Entris II Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Initiate sampling from a laptop, tablet or handheld device</li>
-                                    <li>Automate data collection, format standardization and synchronization with your existing LIMS or MES</li>
-                                    <li>Maintain complete traceability over balance results, operator actions and system events</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="Sartorius-Entris-ii.html" class="popup-learn-more">Learn More</a>
+                    <div class="partner-logo-item">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062706/Cisco_logo_blue_2016.svg_a7q8d7.png" alt="Partner Logo">
                     </div>
-                </div>
-                <div class="product-card" data-manufacturer="Sartorius" data-instrument="Balances" data-connector="Data Connector">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766534882/download_2_1_hbdtuv.png" alt="Sartorius Quintix">
+                    <div class="partner-logo-item">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062704/image_77_ydv8xp.png" alt="Partner Logo">
                     </div>
-                    <div class="product-name">
-                        Sartorius Quintix
-                        <div class="connector-type">Data Connector</div>
+                    <div class="partner-logo-item">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062700/kl_1_lvmmcr.png" alt="Partner Logo">
                     </div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Sartorius Quintix Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Initiate sampling from a laptop, tablet or handheld device</li>
-                                    <li>Automate data collection, format standardization and synchronization with your existing LIMS or MES</li>
-                                    <li>Maintain complete traceability over balance results, operator actions and system events</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="Sartorius-Quintix.html" class="popup-learn-more">Learn More</a>
+                    <div class="partner-logo-item">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062692/image_78_upmcar.png" alt="Partner Logo">
                     </div>
-                </div>
-                <div class="product-card" data-manufacturer="Sartorius" data-instrument="Balances" data-connector="Data Connector">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976023/download_5_gunngw.png" alt="Sartorius Secura">
-                    </div>
-                    <div class="product-name">
-                        Sartorius Secura
-                        <div class="connector-type">Data Connector</div>
-                    </div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Sartorius Secura Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Initiate sampling from a laptop, tablet or handheld device</li>
-                                    <li>Automate data collection, format standardization and synchronization with your existing LIMS or MES</li>
-                                    <li>Maintain complete traceability over balance results, operator actions and system events</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="Sartorius-Secura.html" class="popup-learn-more">Learn More</a>
+                    <div class="partner-logo-item">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062690/image_80_o9aupz.png" alt="Partner Logo">
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <section class="section">
-            <h2 class="section-title">Hot Plate Stirrers</h2>
-            <div class="products-grid single-item">
-                <div class="product-card" data-manufacturer="Gates Scientific" data-instrument="Hot Plate Stirrers" data-connector="Connector Plus">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976032/rs_w_600_h_600_1_smdsmk.png" alt="Gates Scientific Hot Plate Stirrer">
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="benefits-container">
+            <div class="benefits-header">
+                <h2>Explore the Benefits of Connected Plant by Application</h2>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-image" style="background-image: url('https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081563/biopharma-application-benefit3_qvnr3f.jpg'); background-size: cover; background-position: center; color: transparent;">
+                        Pharma Manufacturing Image
                     </div>
-                    <div class="product-name">
-                        Gates Scientific Hot Plate Stirrer
-                        <div class="connector-type">Connector Plus</div>
+                    <div class="benefit-content">
+                        <h3>Pharma Manufacturing</h3>
+                        <p>Automate data capture, format standardization and synchronization with LIMS, MES, or QMS systems. Ensure 21 CFR Part 11 compliance with a built-in review, electronic signature process and detailed audit trails.</p>
+                        <a href="pharma-manufacturing.html" class="explore-btn">Explore Connected Plant for Pharma Manufacturing</a>
                     </div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Gates Scientific Hot Plate Stirrer Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Automate pH and temperature data collection</li>
-                                    <li>Synchronize data directly with LIMS or MES</li>
-                                    <li>Maintain detailed logs of instrument data, operator usage, and system events</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="Gate-Scientific-HPS.html" class="popup-learn-more">Learn More</a>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-image" style="background-image: url('https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081546/aerospace-home_vkkssy.jpg'); background-size: cover; background-position: center; color: transparent;">
+                        Aerospace Innovation Image
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Aerospace Manufacturing</h3>
+                        <p>Enable hands-free data capture, automated formatting and data synchronization with ERP, MES, or QMS systems. Support AS9100 and NADCAP compliance requirements with comprehensive traceability and detailed audit trails.</p>
+                        <a href="aerospace-manufacturing.html" class="explore-btn">Explore Connected Plant for Aerospace Manufacturing</a>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-image" style="background-image: url('https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081543/food-production-home_wvzpet.png'); background-size: cover; background-position: center; color: transparent;">
+                        Food Production Image
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Food Production</h3>
+                        <p>Streamline critical control point monitoring and documentation by synchronizing real-time quality data directly with food safety management systems. Support HACCP and 21 CFR Part 11 compliance requirements with continuous monitoring, electronic record keeping and detailed audit trails.</p>
+                        <a href="food-production.html" class="explore-btn">Explore Connected Plant for Food Production</a>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <section class="section">
-            <h2 class="section-title">Melting Point Systems</h2>
-            <div class="products-grid single-item">
-                <div class="product-card" data-manufacturer="Mettler Toledo" data-instrument="Melting Point Systems" data-connector="Data Connector">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1767893251/EquipmentThumbImage_7441_16536502344775870_qjdsaq.png" alt="Mettler Toledo MP Series">
-                    </div>
-                    <div class="product-name">
-                        Mettler Toledo MP Series
-                        <div class="connector-type">Data Connector</div>
-                    </div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Mettler Toledo MP Series Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Automate melting point measurement data collection and analysis</li>
-                                    <li>Synchronize measurement results directly with your LIMS or ELN systems</li>
-                                    <li>Enable automated measurement protocols and maintain complete audit trails for quality control</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="Mettler-Toledo-MP-Series.html" class="popup-learn-more">Learn More</a>
-                    </div>
+            
+            <!-- Case Study Section -->
+            <div style="width: 100%; background: #f8fafc; margin: 0; padding: 6rem 0 1rem 0; text-align: center;">
+                <div style="max-width: 1200px; margin: 0 auto; background: #ffffff; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); border: 1px solid #e2e8f0;">
+                    <p style="font-size: 1.3rem; color: #436c79; line-height: 1.6; margin-bottom: 2rem;">
+                        See how a Top-3 Pharma is saving $1.5M a year in labor costs and cut failure reports by 80%
+                    </p>
+                    <a href="apc-case-study.html" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #436c79; color: white; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 600; transition: background 0.3s ease; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; min-height: 44px;">
+                        View the Case Study
+                    </a>
                 </div>
             </div>
-        </section>
-        
-        <section class="section">
-            <h2 class="section-title">Microbial Air Samplers</h2>
-            <div class="products-grid single-item">
-                <div class="product-card" data-manufacturer="Climet" data-instrument="Microbial Air Samplers" data-connector="Connector Plus">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765928923/CI-97-microbial-air-sampler_1_1_xjbga7.gif" alt="Climet 97">
-                    </div>
-                    <div class="product-name">
-                        Climet 97
-                        <div class="connector-type">Connector Plus</div>
-                    </div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Climet 97 Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Initiate remote microbial sampling from your laptop or tablet and reduce cleanroom entries</li>
-                                    <li>Automate microbial sampling data collection and synchronization with your existing LIMS or ELN systems</li>
-                                    <li>Enable scheduled sampling protocols and maintain complete audit trails for regulatory compliance</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="Climet-97.html" class="popup-learn-more">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="section">
-            <h2 class="section-title">pH Meters</h2>
-            <div class="products-grid single-item">
-                <div class="product-card" data-manufacturer="Mettler Toledo" data-instrument="pH Meters" data-connector="Connector Plus">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1767208232/mettler-toledo_seven_excellence_n_2_c7wxmg.png" alt="Mettler Toledo Seven Excellence">
-                    </div>
-                    <div class="product-name">
-                        Seven Excellence
-                        <div class="connector-type">Connector Plus</div>
-                    </div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Seven Excellence Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Initiate scheduled samples from a laptop, tablet, or handheld device</li>
-                                    <li>Automate data collection, format standardization, and synchronization with your existing LIMS or MES</li>
-                                    <li>Enable 21 CFR Part 11 Compliant electronic review and sign workflows, and more…</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="#" class="popup-learn-more">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="section">
-            <h2 class="section-title">Refractometers</h2>
-            <div class="products-grid single-item">
-                <div class="product-card" data-manufacturer="Mettler Toledo" data-instrument="Refractometers" data-connector="Data Connector">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1767901056/mettler_r4_front_l_1_jjpy5y.png" alt="Mettler Toledo RM Series">
-                    </div>
-                    <div class="product-name">
-                        Mettler Toledo RM Series
-                        <div class="connector-type">Data Connector</div>
-                    </div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Mettler Toledo RM Series Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Automate refractive index measurement data collection</li>
-                                    <li>Synchronize measurement results directly with your LIMS or ELN systems</li>
-                                    <li>Enable scheduled measurement protocols and maintain complete traceability for analytical workflows</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="Mettler-Toledo-RM-Series.html" class="popup-learn-more">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="section">
-            <h2 class="section-title">Spectrophotometers</h2>
-            <div class="products-grid single-item">
-                <div class="product-card" data-manufacturer="Mettler Toledo" data-instrument="Spectrophotometers" data-connector="Data Connector">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1767812032/30254728_1_u9ox2y.png" alt="Mettler Toledo UV Vis Excellence">
-                    </div>
-                    <div class="product-name">
-                        Mettler Toledo UV Vis Excellence
-                        <div class="connector-type">Data Connector</div>
-                    </div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Mettler Toledo UV Vis Excellence Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Automate UV-Visible spectroscopy measurement data collection and analysis</li>
-                                    <li>Synchronize spectral data and results directly with your LIMS or ELN systems</li>
-                                    <li>Enable automated analytical methods and maintain complete audit trails for regulatory compliance</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="#" class="popup-learn-more">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="section">
-            <h2 class="section-title">Zeta Potential Analyzers</h2>
-            <div class="products-grid single-item">
-                <div class="product-card" data-manufacturer="Malvern" data-instrument="Zeta Potential Analyzers" data-connector="Data Connector">
-                    <div class="product-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976019/636216769964211710NV_Original_file_1_1_y79gfp.png" alt="Malvern Nano ZS">
-                    </div>
-                    <div class="product-name">
-                        Malvern Nano ZS
-                        <div class="connector-type">Data Connector</div>
-                    </div>
-                    <div class="product-popup">
-                        <div>
-                            <h3 class="popup-title">Malvern Nano ZS Connector Capabilities</h3>
-                            <div class="popup-capabilities">
-                                <h4>Capabilities</h4>
-                                <ul>
-                                    <li>Initiate sample analysis from your laptop or tablet</li>
-                                    <li>Automate data collection and format standardization</li>
-                                    <li>Synchronize zeta potential analysis results directly to your LIMS or ELN without USB transfers or pen and paper methods</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="Malvern-Zeta-Sizer.html" class="popup-learn-more">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="cta-section">
-            <h2 class="cta-title">Not Seeing One of Your Instruments?</h2>
-            <p class="cta-description">
-                Let us know which instrument(s) you're interested in connecting by clicking the instrument request button below.
-            </p>
-            <a href="instrument-request.html" class="cta-button">Instrument Request</a>
-        </section>
-    </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -2208,7 +1695,6 @@
     </footer>
 
     <script>
-        // Mobile Menu Functions
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             const overlay = document.getElementById('mobileMenuOverlay');
@@ -2244,7 +1730,7 @@
             });
             
             dropdown.classList.toggle('active');
-            if (arrow) arrow.classList.toggle('rotated');
+            arrow.classList.toggle('rotated');
         }
 
         document.addEventListener('keydown', function(event) {
@@ -2253,7 +1739,6 @@
             }
         });
 
-        // Newsletter Form
         document.getElementById('newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -2290,93 +1775,6 @@
                 console.error('Error:', error);
                 submitBtn.textContent = 'Error - Try Again';
                 submitBtn.disabled = false;
-            });
-        });
-
-        // Catalog Filter Functions
-        document.addEventListener('DOMContentLoaded', function() {
-            const manufacturerFilter = document.getElementById('manufacturer-filter');
-            const instrumentFilter = document.getElementById('instrument-filter');
-            const connectorFilter = document.getElementById('connector-filter');
-            const searchInput = document.getElementById('search-input');
-            const searchBtn = document.getElementById('search-btn');
-            const clearFiltersBtn = document.getElementById('clear-filters');
-            const allProductCards = document.querySelectorAll('.product-card');
-            const allSections = document.querySelectorAll('.section');
-
-            function filterProducts() {
-                const selectedManufacturer = manufacturerFilter.value;
-                const selectedInstrument = instrumentFilter.value;
-                const selectedConnector = connectorFilter.value;
-                const searchTerm = searchInput.value.toLowerCase().trim();
-
-                allSections.forEach(section => {
-                    section.style.display = 'block';
-                });
-
-                allProductCards.forEach(card => {
-                    const cardManufacturer = card.getAttribute('data-manufacturer');
-                    const cardInstrument = card.getAttribute('data-instrument');
-                    const cardConnector = card.getAttribute('data-connector');
-                    const productName = card.querySelector('.product-name').textContent.toLowerCase();
-                    
-                    const manufacturerMatch = !selectedManufacturer || cardManufacturer === selectedManufacturer;
-                    const instrumentMatch = !selectedInstrument || cardInstrument === selectedInstrument;
-                    const connectorMatch = !selectedConnector || cardConnector === selectedConnector;
-                    
-                    // Search functionality - check if search term matches manufacturer or product name
-                    const searchMatch = !searchTerm || 
-                        cardManufacturer.toLowerCase().includes(searchTerm) ||
-                        productName.includes(searchTerm) ||
-                        cardInstrument.toLowerCase().includes(searchTerm);
-                    
-                    if (manufacturerMatch && instrumentMatch && connectorMatch && searchMatch) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-
-                allSections.forEach(section => {
-                    const sectionCards = section.querySelectorAll('.product-card');
-                    const visibleCards = Array.from(sectionCards).filter(card => 
-                        card.style.display !== 'none'
-                    );
-                    
-                    if (visibleCards.length === 0) {
-                        section.style.display = 'none';
-                    }
-                });
-            }
-
-            function clearFilters() {
-                manufacturerFilter.value = '';
-                instrumentFilter.value = '';
-                connectorFilter.value = '';
-                searchInput.value = '';
-                
-                allProductCards.forEach(card => {
-                    card.style.display = 'block';
-                });
-                
-                allSections.forEach(section => {
-                    section.style.display = 'block';
-                });
-            }
-
-            // Event listeners
-            manufacturerFilter.addEventListener('change', filterProducts);
-            instrumentFilter.addEventListener('change', filterProducts);
-            connectorFilter.addEventListener('change', filterProducts);
-            searchInput.addEventListener('input', filterProducts); // Real-time search as user types
-            searchBtn.addEventListener('click', filterProducts); // Search button click
-            clearFiltersBtn.addEventListener('click', clearFilters);
-
-            // Allow Enter key to trigger search
-            searchInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    filterProducts();
-                }
             });
         });
     </script>
