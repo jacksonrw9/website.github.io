@@ -1659,53 +1659,52 @@
                     if (selectedFilters.length === 0) {
                         cards.forEach(card => card.style.display = 'block');
                     } else {
+                        // Separate manufacturer and connector type filters
+                        const selectedManufacturers = [];
+                        const selectedConnectorTypes = [];
+                        
+                        selectedFilters.forEach(filter => {
+                            const filterValue = filter.getAttribute('data-filter');
+                            if (filterValue === 'climet' || filterValue === 'aerotrak' || 
+                                filterValue === 'lasair' || filterValue === 'met-one' || 
+                                filterValue === 'lighthouse') {
+                                selectedManufacturers.push(filterValue);
+                            } else if (filterValue === 'data-connector' || filterValue === 'connector-plus') {
+                                selectedConnectorTypes.push(filterValue);
+                            }
+                        });
+                        
                         cards.forEach(card => {
-                            // Separate manufacturer and connector type filters
-                            const selectedManufacturers = [];
-                            const selectedConnectorTypes = [];
+                            const instrumentName = card.querySelector('.instrument-name').textContent.toLowerCase();
+                            const connectorType = card.querySelector('.connector-type') ? 
+                                card.querySelector('.connector-type').textContent.toLowerCase() : '';
                             
-                            selectedFilters.forEach(filter => {
-                                const filterValue = filter.getAttribute('data-filter');
-                                if (filterValue === 'climet' || filterValue === 'aerotrak' || 
-                                    filterValue === 'lasair' || filterValue === 'met-one' || 
-                                    filterValue === 'lighthouse') {
-                                    selectedManufacturers.push(filterValue);
-                                } else if (filterValue === 'data-connector' || filterValue === 'connector-plus') {
-                                    selectedConnectorTypes.push(filterValue);
-                                }
-                            });
+                            // Check manufacturer match (OR within manufacturers)
+                            let matchManufacturer = selectedManufacturers.length === 0 || 
+                                selectedManufacturers.some(mfr => {
+                                    if (mfr === 'climet') return instrumentName.includes('climet');
+                                    if (mfr === 'aerotrak') return instrumentName.includes('aerotrak');
+                                    if (mfr === 'lasair') return instrumentName.includes('lasair');
+                                    if (mfr === 'met-one') return instrumentName.includes('met one');
+                                    if (mfr === 'lighthouse') return instrumentName.includes('lighthouse');
+                                    return false;
+                                });
                             
-                            cards.forEach(card => {
-                                const instrumentName = card.querySelector('.instrument-name').textContent.toLowerCase();
-                                const connectorType = card.querySelector('.connector-type') ? 
-                                    card.querySelector('.connector-type').textContent.toLowerCase() : '';
-                                
-                                // Check manufacturer match (OR within manufacturers)
-                                let matchManufacturer = selectedManufacturers.length === 0 || 
-                                    selectedManufacturers.some(mfr => {
-                                        if (mfr === 'climet') return instrumentName.includes('climet');
-                                        if (mfr === 'aerotrak') return instrumentName.includes('aerotrak');
-                                        if (mfr === 'lasair') return instrumentName.includes('lasair');
-                                        if (mfr === 'met-one') return instrumentName.includes('met one');
-                                        if (mfr === 'lighthouse') return instrumentName.includes('lighthouse');
-                                        return false;
-                                    });
-                                
-                                // Check connector type match (OR within connector types)
-                                let matchConnectorType = selectedConnectorTypes.length === 0 || 
-                                    selectedConnectorTypes.some(type => {
-                                        if (type === 'data-connector') return connectorType.includes('data connector');
-                                        if (type === 'connector-plus') return connectorType.includes('connector plus');
-                                        return false;
-                                    });
-                                
-                                // Show card only if BOTH conditions match (AND logic between filter groups)
-                                if (matchManufacturer && matchConnectorType) {
-                                    card.style.display = 'block';
-                                } else {
-                                    card.style.display = 'none';
-                                }
-                            });
+                            // Check connector type match (OR within connector types)
+                            let matchConnectorType = selectedConnectorTypes.length === 0 || 
+                                selectedConnectorTypes.some(type => {
+                                    if (type === 'data-connector') return connectorType.includes('data connector');
+                                    if (type === 'connector-plus') return connectorType.includes('connector plus');
+                                    return false;
+                                });
+                            
+                            // Show card only if BOTH conditions match (AND logic between filter groups)
+                            if (matchManufacturer && matchConnectorType) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
                     }
                 });
             });
