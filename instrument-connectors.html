@@ -18,9 +18,13 @@
         gtag('js', new Date());
         gtag('config', 'G-41FB3KKW2T');
     </script>
+    
     <!-- Start of HubSpot Embed Code -->
     <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/8070371.js"></script>
     <!-- End of HubSpot Embed Code -->
+
+    <!-- reCAPTCHA v3 - REPLACE YOUR_RECAPTCHA_SITE_KEY WITH YOUR ACTUAL KEY -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdMSlIsAAAAAM0-_ceRbleipqde79b79h-3XfPY"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -677,7 +681,7 @@
         }
 
         .demo-button {
-            background-color: #ff6b35;
+            background-color: #da5e26;
             color: white;
             border: none;
             padding: 10px 25px;
@@ -690,7 +694,7 @@
         }
 
         .demo-button:hover {
-            background-color: #e55a2e;
+            background-color: #b45309;
         }
 
         @media (max-width: 600px) {
@@ -1161,7 +1165,7 @@
 
                 <div class="connector-type">
                     <h3>Connector Plus: <span class="colored-text"> Data Connector + Control To Unlock Industry 4.0 Standards</span></h3>
-                    <p>Unlike basic industry connectors, these connectors act as comprehensive device agents that handle everything behind the scenes: automatically communicating in the native protocols of each instrument, handling all of the idiosyncrasies between each device, and continuously tracking device updates with second-by-second HeartBeat monitoring. Connecting your instrument to a Connector Plus allows you to:</p>
+                    <p>Unlike basic industry connectors, these connectors act as comprehensive device agents that handle everything behind the scenes: automatically communicating in the native protocols of each instrument, handling all of the idiosyncrasies between each device, and continuously tracking device updates with second-by-second Heartbeat monitoring. Connecting your instrument to a Connector Plus allows you to:</p>
                     <ul>
                         <li>Automate error-free data capture, format standardization from multi-vendor instruments, and secure synchronization with existing backend systems (LIMS, ELN, QMS, etc.)</li>
                         <li>Initiate samples from your laptop and eliminate glove-related and front-panel mistakes</li>
@@ -1179,7 +1183,7 @@
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/c_crop,w_1492,h_924,x_120,y_220/v1757081556/edgepuck-hero_t4aaxo.jpg" alt="Edge Puck Image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
                     </div>
                     <div class="edge-puck-text">
-                        <p>The Edge Puck™ is a self-contained gateway with an integrated computer that hosts our instrument connectors directly on-device: Purpose-built for regulated manufacturing, cleanroom facilities, and laboratory environments, it is cleanable, portable, and fully compliant with cleanroom standards. This enables your team to:</p>
+                        <p>The Edge Puck™ is a self-contained gateway that hosts our instrument connectors directly on-device: Purpose-built for regulated manufacturing, cleanroom facilities, and laboratory environments, it is cleanable, portable, and fully compliant with cleanroom standards. This enables your team to:</p>
                     </div>
                 </div>
                 <ul class="edge-puck-bullets">
@@ -1197,58 +1201,13 @@
                     </div>
                     <div class="bottom-content">
                         <p>Click the button below and schedule a demo. A member of our engineering team will give you a short demo of our instrument connectors and answer any of your technical questions.</p>
-                        <button class="demo-button">Request a Demo</button>
+                        <button class="demo-button" onclick="window.location.href='request-demo.html'">Request a Demo</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script>
-        function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const overlay = document.getElementById('mobileMenuOverlay');
-            mobileMenu.classList.toggle('active');
-            overlay.classList.toggle('active');
-        }
-
-        function closeMobileMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const overlay = document.getElementById('mobileMenuOverlay');
-            mobileMenu.classList.remove('active');
-            overlay.classList.remove('active');
-        }
-
-        function toggleMobileDropdown(event, dropdownId) {
-            event.preventDefault();
-            const dropdown = document.getElementById(dropdownId);
-            const arrow = event.target.querySelector('.dropdown-arrow');
-            
-            const allDropdowns = document.querySelectorAll('.mobile-dropdown');
-            const allArrows = document.querySelectorAll('.dropdown-arrow');
-            
-            allDropdowns.forEach(dd => {
-                if (dd.id !== dropdownId) {
-                    dd.classList.remove('active');
-                }
-            });
-            
-            allArrows.forEach(arr => {
-                if (arr !== arrow) {
-                    arr.classList.remove('rotated');
-                }
-            });
-            
-            dropdown.classList.toggle('active');
-            if (arrow) arrow.classList.toggle('rotated');
-        }
-
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeMobileMenu();
-            }
-        });
-    </script>
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
@@ -1315,6 +1274,11 @@
                             <input type="email" class="email-input" name="email" placeholder="Enter your email" required>
                             <button type="submit" class="email-submit">Subscribe</button>
                         </form>
+                        <p style="font-size: 0.75rem; color: #64748b; margin-top: 0.5rem; line-height: 1.4;">
+                            This site is protected by reCAPTCHA and the Google 
+                            <a href="https://policies.google.com/privacy" style="color: #94a3b8; text-decoration: underline;">Privacy Policy</a> and 
+                            <a href="https://policies.google.com/terms" style="color: #94a3b8; text-decoration: underline;">Terms of Service</a> apply.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1330,6 +1294,8 @@
     </footer>
 
     <script>
+        const RECAPTCHA_SITE_KEY = '6LdMSlIsAAAAAM0-_ceRbleipqde79b79h-3XfPY';
+
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             const overlay = document.getElementById('mobileMenuOverlay');
@@ -1374,7 +1340,8 @@
             }
         });
 
-        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+        // Newsletter form with reCAPTCHA protection
+        document.getElementById('newsletter-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             
             const email = e.target.querySelector('input[name="email"]').value;
@@ -1383,34 +1350,54 @@
             submitBtn.textContent = 'Subscribing...';
             submitBtn.disabled = true;
             
-            fetch('https://api.hsforms.com/submissions/v3/integration/submit/8070371/5efde115-8a41-4e38-8176-4b121279ff42', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    fields: [
-                        {
-                            name: "email",
-                            value: email
+            try {
+                // Get reCAPTCHA token
+                const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'newsletter_signup' });
+                
+                // Submit to HubSpot
+                const response = await fetch('https://api.hsforms.com/submissions/v3/integration/submit/8070371/5efde115-8a41-4e38-8176-4b121279ff42', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        fields: [
+                            {
+                                name: "email",
+                                value: email
+                            }
+                        ],
+                        context: {
+                            pageUri: window.location.href,
+                            pageName: document.title
                         }
-                    ]
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                submitBtn.textContent = 'Subscribed!';
-                e.target.reset();
-                setTimeout(() => {
-                    submitBtn.textContent = 'Subscribe';
-                    submitBtn.disabled = false;
-                }, 2000);
-            })
-            .catch(error => {
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    submitBtn.textContent = 'Subscribed!';
+                    submitBtn.style.background = '#10b981';
+                    e.target.reset();
+                    setTimeout(() => {
+                        submitBtn.textContent = 'Subscribe';
+                        submitBtn.style.background = '#436c79';
+                        submitBtn.disabled = false;
+                    }, 3000);
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (error) {
                 console.error('Error:', error);
                 submitBtn.textContent = 'Error - Try Again';
-                submitBtn.disabled = false;
-            });
+                submitBtn.style.background = '#ef4444';
+                setTimeout(() => {
+                    submitBtn.textContent = 'Subscribe';
+                    submitBtn.style.background = '#436c79';
+                    submitBtn.disabled = false;
+                }, 2500);
+            }
         });
     </script>
 </body>
