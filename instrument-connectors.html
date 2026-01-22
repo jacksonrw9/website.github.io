@@ -1376,7 +1376,8 @@
                 
                 const data = await response.json();
                 
-                if (response.ok) {
+                // HubSpot returns success in the response body, not just HTTP status
+                if (data.inlineMessage || data.redirectUri || !data.errors) {
                     submitBtn.textContent = 'Subscribed!';
                     submitBtn.style.background = '#10b981';
                     e.target.reset();
@@ -1386,7 +1387,7 @@
                         submitBtn.disabled = false;
                     }, 3000);
                 } else {
-                    throw new Error('Submission failed');
+                    throw new Error(data.message || 'Submission failed');
                 }
             } catch (error) {
                 console.error('Error:', error);
