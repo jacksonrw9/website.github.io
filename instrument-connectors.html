@@ -1375,6 +1375,7 @@
                 });
                 
                 const data = await response.json();
+                console.log('HubSpot response:', data); // checks what Hubspot is returning
                 
                 // HubSpot returns success in the response body, not just HTTP status
                 if (data.inlineMessage || data.redirectUri || !data.errors) {
