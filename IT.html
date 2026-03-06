@@ -14,7 +14,7 @@ body { font-family: 'Inter', sans-serif; background: #fff; }
 .b-nav { background: #30444D; padding: 1rem 2.5rem; display: flex; justify-content: space-between; align-items: center; }
 .b-nav-cta { background: #da5e26; color: #fff; padding: 0.5rem 1.2rem; border-radius: 6px; text-decoration: none; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
 
-.b-hero { background: #fff; padding: 8rem 2.5rem; border-bottom: 3px solid #e1ebee; }
+.b-hero { background: #fff; padding: 12rem 2.5rem; border-bottom: 3px solid #e1ebee; }
 .b-hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center; }
 .b-hero-tag { display: inline-block; color: #436c79; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1.25rem; }
 .b-hero h1 { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; color: #1f2937; line-height: 1.25; margin-bottom: 2rem; max-width: 620px; }
@@ -31,7 +31,8 @@ body { font-family: 'Inter', sans-serif; background: #fff; }
 .b-section { padding: 11rem 2.5rem; }
 .b-section-inner { max-width: 1200px; margin: 0 auto; }
 .b-section-header { margin-bottom: 2.5rem; }
-.b-section h2 { font-size: 1.6rem; font-weight: 700; color: #1f2937; }
+.b-section-header h2 { display: table; padding-bottom: 0.75rem; border-bottom: 2px solid #64748b; width: calc(100% + 50px); max-width: fit-content; padding-right: 50px; }
+.b-section h2 { font-size: 2.2rem; font-weight: 700; color: #1f2937; }
 
 .b-grid { display: grid; gap: 1rem; }
 .b-grid-3 { grid-template-columns: repeat(3, 1fr); }
@@ -54,7 +55,7 @@ body { font-family: 'Inter', sans-serif; background: #fff; }
 .bullet-icon { width: 36px; height: 36px; border-radius: 8px; background: #e1ebee; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .bullet-text { font-size: 0.9rem; line-height: 1.65; color: #374151; padding-top: 0.4rem; }
 
-.b-cta { background: #fff; padding: 4rem 2.5rem; text-align: center; }
+.b-cta { background: #fff; padding: 4rem 2.5rem; }
 .b-cta h2 { font-size: 1.6rem; font-weight: 700; color: #1f2937; margin-bottom: 2rem; }
 .b-cta-btn { display: inline-block; background: #da5e26; color: #fff; padding: 0.8rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; transition: opacity 0.2s; }
 .b-cta-btn:hover { opacity: 0.85; }
@@ -145,7 +146,7 @@ body { font-family: 'Inter', sans-serif; background: #fff; }
 <div style="background:#fff; padding:0 2.5rem;">
   <div class="split-section">
     <div class="split-content">
-      <h2 style="font-size:1.5rem; font-weight:700; color:#30444D; margin-bottom:2rem;">Uphold Chain of Custody</h2>
+      <h2 style="font-size:2.2rem; font-weight:700; color:#30444D; padding-bottom:0.75rem; padding-right:50px; border-bottom:2px solid #64748b; display:table; max-width:fit-content; margin-bottom:2rem;">Uphold Chain of Custody</h2>
       <div class="bullet">
         <div class="bullet-icon"><svg class="icon"><use href="#icon-verify"/></svg></div>
         <div class="bullet-text">Verify data authenticity from capture to storage with checksums before and after each transfer</div>
@@ -193,7 +194,7 @@ body { font-family: 'Inter', sans-serif; background: #fff; }
       <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1772804281/Screenshot_2026-03-06_at_5.37.54_AM_b2wgum.png" alt="Customize Data Pipelines">
     </div>
     <div class="split-content right">
-      <h2 style="font-size:1.5rem; font-weight:700; color:#1f2937; margin-bottom:2rem;">Customize Data Pipelines to your Operational Requirements</h2>
+      <h2 style="font-size:2.2rem; font-weight:700; color:#1f2937; margin-bottom:2rem;">Customize Data Pipelines to your Operational Requirements</h2>
       <div class="bullet">
         <div class="bullet-icon"><svg class="icon"><use href="#icon-route"/></svg></div>
         <div class="bullet-text">Automate the formatting of scientific and analytical data from multi-vendor instruments, so it's ready for LIMS, ELN, and MES without manual intervention.</div>
@@ -214,7 +215,7 @@ body { font-family: 'Inter', sans-serif; background: #fff; }
 <div style="background:#e1ebee; padding:0 2.5rem;">
   <div class="split-section">
     <div class="split-content">
-      <h2 style="font-size:1.5rem; font-weight:700; color:#30444D; margin-bottom:2rem;">Contextualized Data</h2>
+      <h2 style="font-size:2.2rem; font-weight:700; color:#30444D; padding-bottom:0.75rem; padding-right:50px; border-bottom:2px solid #64748b; display:table; max-width:fit-content; margin-bottom:2rem;">Contextualized Data</h2>
       <div class="bullet">
         <div class="bullet-icon"><svg class="icon"><use href="#icon-tag"/></svg></div>
         <div class="bullet-text">Each file or collected sample is captured along with comprehensive metadata, including the file name, type, size, checksum, timestamp, and additional instrument information such as the serial number, last calibration date, and current firmware.</div>
@@ -234,8 +235,8 @@ body { font-family: 'Inter', sans-serif; background: #fff; }
 </div>
 
 <!-- CTA -->
-<div class="b-cta">
-  <div style="max-width:900px; margin:0 auto; display:grid; grid-template-columns:auto 1fr; gap:3rem; align-items:flex-start; text-align:left;">
+<div class="b-cta" style="text-align:left;">
+  <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:auto 1fr; gap:3rem; align-items:flex-start; text-align:left;">
     <div style="background:#30444D; border-radius:12px; padding:2.3rem 2.6rem; min-width:276px; flex-shrink:0; box-shadow: 0 12px 40px rgba(0,0,0,0.18); align-self:flex-start;">
       <div class="b-hero-badge-item"><svg class="icon" style="width:16px;height:16px;stroke:#22c55e"><use href="#icon-check"/></svg><div class="b-hero-badge-text">21 CFR Part 11 &amp; 211 Compliant</div></div>
       <div class="b-hero-badge-item"><svg class="icon" style="width:16px;height:16px;stroke:#22c55e"><use href="#icon-check"/></svg><div class="b-hero-badge-text">Legacy &amp; Modern Instruments</div></div>
