@@ -23,7 +23,6 @@ body { font-family: 'Inter', sans-serif; background: #fff; }
 .b-hero-btn:hover { background: #b94f1f; }
 .b-hero-btn.outline { background: transparent; color: #436c79; border: 2px solid #436c79; }
 .b-hero-btn.outline:hover { background: #e1ebee; }
-
 .b-hero-badge { background: #30444D; border-radius: 12px; padding: 2rem 2.25rem; min-width: 240px; box-shadow: 0 12px 40px rgba(0,0,0,0.18); }
 .b-hero-badge-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
 .b-hero-badge-item:last-child { border-bottom: none; }
@@ -32,7 +31,6 @@ body { font-family: 'Inter', sans-serif; background: #fff; }
 .b-section { padding: 11rem 2.5rem; }
 .b-section-inner { max-width: 1200px; margin: 0 auto; }
 .b-section-header { margin-bottom: 2.5rem; }
-.b-section-header h2 { display: table; padding-bottom: 0.75rem; border-bottom: 2px solid #64748b; max-width: fit-content; padding-right: 50px; }
 .b-section h2 { font-size: 2.2rem; font-weight: 700; color: #1f2937; }
 
 .b-grid { display: grid; gap: 1rem; }
@@ -55,7 +53,7 @@ body { font-family: 'Inter', sans-serif; background: #fff; }
 .bullet-icon { width: 36px; height: 36px; border-radius: 8px; background: #e1ebee; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .bullet-text { font-size: 0.9rem; line-height: 1.65; color: #374151; padding-top: 0.4rem; }
 
-.b-cta { background: #fff; padding: 6rem 2.5rem; }
+.b-cta { background: #e1ebee; padding: 6rem 2.5rem; }
 .b-cta h2 { font-size: 2rem; font-weight: 700; color: #1f2937; margin-bottom: 0.75rem; }
 .b-cta-btn { display: inline-block; background: #da5e26; color: #fff; padding: 0.8rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; transition: opacity 0.2s; }
 .b-cta-btn:hover { opacity: 0.85; }
@@ -113,11 +111,11 @@ body { font-family: 'Inter', sans-serif; background: #fff; }
   </div>
 </div>
 
-<!-- 01 IT EDGE — split like Chain of Custody -->
+<!-- 01 IT EDGE -->
 <div style="background:#e1ebee; padding:0 2.5rem;">
   <div class="split-section">
     <div class="split-content">
-      <h2 style="font-size:2.2rem; font-weight:700; color:#30444D; padding-bottom:0.75rem; padding-right:50px; border-bottom:2px solid #64748b; display:table; max-width:fit-content; margin-bottom:2rem;">Phizzle's IT Edge</h2>
+      <h2 style="font-size:2.2rem; font-weight:700; color:#30444D; margin-bottom:2rem;">Phizzle's IT Edge</h2>
       <div class="bullet">
         <div class="bullet-icon"><svg class="icon"><use href="#icon-gateway"/></svg></div>
         <div class="bullet-text"><strong>Simplified Connectivity</strong> — Simplify instrument-network configurations with the Edge Puck, a purpose-built gateway that connects directly to instruments without WiFi or API capabilities</div>
@@ -141,58 +139,42 @@ body { font-family: 'Inter', sans-serif; background: #fff; }
   </div>
 </div>
 
-<!-- 02 CHAIN OF CUSTODY -->
+<!-- 02 PROVE DATA INTEGRITY -->
 <div style="background:#fff; padding:0 2.5rem;">
   <div class="split-section">
     <div class="split-img">
-      <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1772806093/Screenshot_2026-03-06_at_5.16.14_AM_yan4uq.png" alt="Chain of Custody">
+      <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1772806093/Screenshot_2026-03-06_at_5.16.14_AM_yan4uq.png" alt="Prove Data Integrity">
     </div>
     <div class="split-content right">
-      <h2 style="font-size:2.2rem; font-weight:700; color:#30444D; padding-bottom:0.75rem; padding-right:50px; border-bottom:2px solid #64748b; display:table; max-width:fit-content; margin-bottom:2rem;">Uphold Chain of Custody</h2>
-      <div class="bullet">
-        <div class="bullet-icon"><svg class="icon"><use href="#icon-verify"/></svg></div>
-        <div class="bullet-text">Verify data authenticity from capture to storage with checksums before and after each transfer</div>
-      </div>
+      <h2 style="font-size:2.2rem; font-weight:700; color:#30444D; margin-bottom:2rem;">Prove Data Integrity</h2>
       <div class="bullet">
         <div class="bullet-icon"><svg class="icon"><use href="#icon-audit"/></svg></div>
         <div class="bullet-text">Log complete audit trails, including every touch point with operators, front-end, and backend systems</div>
       </div>
       <div class="bullet">
+        <div class="bullet-icon"><svg class="icon"><use href="#icon-verify"/></svg></div>
+        <div class="bullet-text">Verify data authenticity from capture to storage with checksums</div>
+      </div>
+      <div class="bullet">
         <div class="bullet-icon"><svg class="icon"><use href="#icon-version"/></svg></div>
         <div class="bullet-text">Track all data alterations and maintain version history tied to audit trails</div>
       </div>
-    </div>
-  </div>
-</div>
-
-<!-- 03 CONTROL & COMPLIANCE -->
-<div class="b-section" style="background:#436c79;">
-  <div class="b-section-inner">
-    <div class="b-section-header"><h2 style="color:#fff; border-bottom-color:rgba(255,255,255,0.5);">Control and Compliance</h2></div>
-    <div class="b-grid b-grid-3">
-      <div class="b-card" style="background:rgba(255,255,255,0.12); border-color:rgba(255,255,255,0.15); border-top-color:rgba(255,255,255,0.5);">
-        <div class="b-card-chip" style="background:rgba(255,255,255,0.15);"><svg class="icon" style="stroke:#fff;"><use href="#icon-compliance"/></svg></div>
-        <p style="color:rgba(255,255,255,0.9);">Implements data workflows and systems that meet 21 CFR Part 11 and 211 compliance standards</p>
+      <div class="bullet">
+        <div class="bullet-icon"><svg class="icon"><use href="#icon-compliance"/></svg></div>
+        <div class="bullet-text">Leverage data workflows and systems that are built to meet 21 CFR Part 11 and 211 compliance standards</div>
       </div>
-      <div class="b-card" style="background:rgba(255,255,255,0.12); border-color:rgba(255,255,255,0.15); border-top-color:rgba(255,255,255,0.5);">
-        <div class="b-card-chip" style="background:rgba(255,255,255,0.15);"><svg class="icon" style="stroke:#fff;"><use href="#icon-signature"/></svg></div>
-        <p style="color:rgba(255,255,255,0.9);">Manages electronic signatures for edits and reviews</p>
-      </div>
-      <div class="b-card" style="background:rgba(255,255,255,0.12); border-color:rgba(255,255,255,0.15); border-top-color:rgba(255,255,255,0.5);">
-        <div class="b-card-chip" style="background:rgba(255,255,255,0.15);"><svg class="icon" style="stroke:#fff;"><use href="#icon-filelog"/></svg></div>
-        <p style="color:rgba(255,255,255,0.9);">Logs comprehensive audit trails for regulatory audits</p>
+      <div class="bullet">
+        <div class="bullet-icon"><svg class="icon"><use href="#icon-signature"/></svg></div>
+        <div class="bullet-text">Manage electronic signatures for edits and reviews</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- 04 DATA PIPELINES -->
-<div style="background:#fff; padding:0 2.5rem;">
+<!-- 03 DATA PIPELINES -->
+<div style="background:#e1ebee; padding:0 2.5rem;">
   <div class="split-section">
-    <div class="split-img">
-      <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1772804281/Screenshot_2026-03-06_at_5.37.54_AM_b2wgum.png" alt="Customize Data Pipelines">
-    </div>
-    <div class="split-content right">
+    <div class="split-content">
       <h2 style="font-size:2.2rem; font-weight:700; color:#1f2937; margin-bottom:2rem;">Customize Data Pipelines to your Operational Requirements</h2>
       <div class="bullet">
         <div class="bullet-icon"><svg class="icon"><use href="#icon-route"/></svg></div>
@@ -207,14 +189,23 @@ body { font-family: 'Inter', sans-serif; background: #fff; }
         <div class="bullet-text">Enable administrators to easily make changes to routing rules without setting foot on the production floor, including scaled configuration deployment across multi-vendor and multi-type</div>
       </div>
     </div>
+    <div class="split-img">
+      <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1772804281/Screenshot_2026-03-06_at_5.37.54_AM_b2wgum.png" alt="Customize Data Pipelines">
+    </div>
   </div>
 </div>
 
-<!-- 05 CONTEXTUALIZED DATA -->
-<div style="background:#e1ebee; padding:0 2.5rem;">
+<!-- 04 CONTEXTUALIZED DATA -->
+<div style="background:#fff; padding:0 2.5rem;">
   <div class="split-section">
-    <div class="split-content">
-      <h2 style="font-size:2.2rem; font-weight:700; color:#30444D; padding-bottom:0.75rem; padding-right:50px; border-bottom:2px solid #64748b; display:table; max-width:fit-content; margin-bottom:2rem;">Contextualized Data</h2>
+    <div class="split-img">
+      <div style="width:100%; height:260px; border:2px dashed #9ab4bc; border-radius:10px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.75rem;">
+        <svg style="width:36px;height:36px;stroke:#9ab4bc;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:#9ab4bc;">Image Placeholder</span>
+      </div>
+    </div>
+    <div class="split-content right">
+      <h2 style="font-size:2.2rem; font-weight:700; color:#30444D; margin-bottom:2rem;">Contextualized Data</h2>
       <div class="bullet">
         <div class="bullet-icon"><svg class="icon"><use href="#icon-tag"/></svg></div>
         <div class="bullet-text">Each file or collected sample is captured along with comprehensive metadata, including the file name, type, size, checksum, timestamp, and additional instrument information such as the serial number, last calibration date, and current firmware.</div>
@@ -224,19 +215,12 @@ body { font-family: 'Inter', sans-serif; background: #fff; }
         <div class="bullet-text">Metadata is attached and preserved with the scientific data lifecycle</div>
       </div>
     </div>
-    <div class="split-img">
-      <div style="width:100%; height:260px; border:2px dashed #9ab4bc; border-radius:10px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.75rem;">
-        <svg style="width:36px;height:36px;stroke:#9ab4bc;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:#9ab4bc;">Image Placeholder</span>
-      </div>
-    </div>
   </div>
 </div>
 
 <!-- CTA -->
 <div class="b-cta">
   <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:auto 1fr; gap:6rem; align-items:flex-start;">
-    <!-- CTA: badge -->
     <div style="background:#30444D; border-radius:12px; padding:2.5rem 3rem; flex-shrink:0; box-shadow:0 12px 40px rgba(0,0,0,0.18); min-width:300px;">
       <div class="b-hero-badge-item" style="padding:0.8rem 0;"><svg class="icon" style="width:20px;height:20px;stroke:#22c55e; flex-shrink:0;"><use href="#icon-check"/></svg><div style="font-size:0.95rem; color:rgba(255,255,255,0.85); font-weight:500;">21 CFR Part 11 &amp; 211 Compliant</div></div>
       <div class="b-hero-badge-item" style="padding:0.8rem 0;"><svg class="icon" style="width:20px;height:20px;stroke:#22c55e; flex-shrink:0;"><use href="#icon-check"/></svg><div style="font-size:0.95rem; color:rgba(255,255,255,0.85); font-weight:500;">Legacy &amp; Modern Instruments</div></div>
