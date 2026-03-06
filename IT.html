@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Connector for IT — Phizzle</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #fff; }
+
+.icon { width: 20px; height: 20px; stroke: #436c79; stroke-width: 1.75; fill: none; stroke-linecap: round; stroke-linejoin: round; display: block; }
+
+.b-nav { background: #30444D; padding: 1rem 2.5rem; display: flex; justify-content: space-between; align-items: center; }
+.b-nav-cta { background: #da5e26; color: #fff; padding: 0.5rem 1.2rem; border-radius: 6px; text-decoration: none; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+
+.b-hero { background: #fff; padding: 5rem 2.5rem 4rem; border-bottom: 3px solid #e1ebee; }
+.b-hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center; }
+.b-hero-tag { display: inline-block; color: #436c79; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1.25rem; }
+.b-hero h1 { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; color: #1f2937; line-height: 1.25; margin-bottom: 2rem; max-width: 620px; }
+.b-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.b-hero-btn { display: inline-block; background: #da5e26; color: #fff; padding: 0.75rem 1.75rem; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; transition: background 0.2s; }
+.b-hero-btn:hover { background: #b94f1f; }
+.b-hero-btn.outline { background: transparent; color: #436c79; border: 2px solid #436c79; }
+.b-hero-btn.outline:hover { background: #e1ebee; }
+.b-hero-badge { background: #30444D; border-radius: 12px; padding: 2rem 2.25rem; min-width: 240px; }
+.b-hero-badge-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.b-hero-badge-item:last-child { border-bottom: none; }
+.b-hero-badge-text { font-size: 0.78rem; color: rgba(255,255,255,0.75); font-weight: 500; }
+
+.b-section { padding: 6rem 2.5rem; }
+.b-section-inner { max-width: 1200px; margin: 0 auto; }
+.b-section-header { margin-bottom: 2.5rem; }
+.b-section h2 { font-size: 1.6rem; font-weight: 700; color: #1f2937; }
+
+.b-grid { display: grid; gap: 1rem; }
+.b-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.b-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+.b-card { background: #fff; border-radius: 10px; padding: 1.75rem; border: 1px solid #e2e8f0; border-top: 3px solid #436c79; transition: transform 0.2s, box-shadow 0.2s; }
+.b-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+
+.b-card-chip { width: 36px; height: 36px; border-radius: 8px; background: #e1ebee; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+.b-card-title { font-size: 0.8rem; font-weight: 700; color: #30444D; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.b-card p { font-size: 0.875rem; line-height: 1.65; color: #1f2937; }
+
+.split-section { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; min-height: 420px; }
+.split-content { padding: 5rem 2.5rem 5rem 0; display: flex; flex-direction: column; justify-content: center; }
+.split-content.right { padding: 5rem 0 5rem 2.5rem; }
+.split-img { display: flex; align-items: center; justify-content: center; padding: 2rem; }
+.split-img img { width: 100%; border-radius: 10px; object-fit: cover; }
+
+.bullet { display: flex; align-items: flex-start; gap: 0.9rem; margin-bottom: 1.25rem; }
+.bullet-icon { width: 36px; height: 36px; border-radius: 8px; background: #e1ebee; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.bullet-text { font-size: 0.9rem; line-height: 1.65; color: #374151; padding-top: 0.4rem; }
+
+.b-cta { background: #fff; padding: 4rem 2.5rem; text-align: center; }
+.b-cta h2 { font-size: 1.6rem; font-weight: 700; color: #1f2937; margin-bottom: 2rem; }
+.b-cta-btn { display: inline-block; background: #da5e26; color: #fff; padding: 0.8rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; transition: opacity 0.2s; }
+.b-cta-btn:hover { opacity: 0.85; }
+
+.b-footer { background: #1e293b; padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; }
+.b-footer p { color: #64748b; font-size: 0.85rem; }
+
+@media (max-width: 900px) {
+  .b-hero-inner, .split-section { grid-template-columns: 1fr; }
+  .b-hero-badge { display: none; }
+  .b-grid-3, .b-grid-4 { grid-template-columns: 1fr; }
+  .split-content, .split-content.right { padding: 3rem 0; }
+}
+</style>
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="icon-connect" viewBox="0 0 24 24"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8H6a2 2 0 0 0-2 2v2a7 7 0 0 0 14 0v-2a2 2 0 0 0-2-2z"/></symbol>
+  <symbol id="icon-gateway" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></symbol>
+  <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></symbol>
+  <symbol id="icon-resilience" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></symbol>
+  <symbol id="icon-verify" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></symbol>
+  <symbol id="icon-audit" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></symbol>
+  <symbol id="icon-version" viewBox="0 0 24 24"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></symbol>
+  <symbol id="icon-compliance" viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></symbol>
+  <symbol id="icon-signature" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></symbol>
+  <symbol id="icon-filelog" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 11 17 15 13"/></symbol>
+  <symbol id="icon-route" viewBox="0 0 24 24"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></symbol>
+  <symbol id="icon-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="icon-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></symbol>
+  <symbol id="icon-tag" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></symbol>
+  <symbol id="icon-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+  <symbol id="icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+</svg>
+
+<!-- NAV -->
+<nav class="b-nav">
+  <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757701267/__Phizzle-Logo-WHITE-01_5_hpfhss.svg" alt="Phizzle" style="height:30px;">
+  <a href="#" class="b-nav-cta">Request a Demo</a>
+</nav>
+
+<!-- HERO -->
+<div class="b-hero">
+  <div class="b-hero-inner">
+    <div>
+      <div class="b-hero-tag">For IT &amp; Infrastructure Teams</div>
+      <h1>Unlock Compliant Data Flow Without the Burden of Custom Instrument Integrations</h1>
+      <div class="b-hero-actions">
+        <a href="#" class="b-hero-btn">Request a Demo</a>
+        <a href="#" class="b-hero-btn outline">Learn More</a>
+      </div>
+    </div>
+    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081553/tech-infrastructure_wvzghj.png" alt="Tech Infrastructure" style="width:320px; border-radius:10px; object-fit:cover;">
+  </div>
+</div>
+
+<!-- 01 IT EDGE -->
+<div class="b-section" style="background:#e1ebee;">
+  <div class="b-section-inner">
+    <div class="b-section-header"><h2>Phizzle's IT Edge</h2></div>
+    <div class="b-grid b-grid-4">
+      <div class="b-card">
+        <div class="b-card-chip"><svg class="icon"><use href="#icon-gateway"/></svg></div>
+        <div class="b-card-title">Simplified Connectivity</div>
+        <p>Simplify instrument-network configurations with the Edge Puck, a purpose-built gateway that connects directly to instruments without WiFi or API capabilities</p>
+      </div>
+      <div class="b-card">
+        <div class="b-card-chip"><svg class="icon"><use href="#icon-shield"/></svg></div>
+        <div class="b-card-title">Network Isolation</div>
+        <p>Secure instrument communication through the Edge Puck's private network architecture, eliminating revalidation requirements for network changes.</p>
+      </div>
+      <div class="b-card">
+        <div class="b-card-chip"><svg class="icon"><use href="#icon-resilience"/></svg></div>
+        <div class="b-card-title">Data Resilience</div>
+        <p>Buffer data during network interruptions, and automatically resume transfer when connectivity is reestablished.</p>
+      </div>
+      <div class="b-card">
+        <div class="b-card-chip"><svg class="icon"><use href="#icon-connect"/></svg></div>
+        <div class="b-card-title">Instrument Compatibility</div>
+        <p>Connect legacy and modern instruments with our pre-built instrument connectors and streamlined onboarding process to reduce time to value</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 02 CHAIN OF CUSTODY -->
+<div style="background:#fff; padding:0 2.5rem;">
+  <div class="split-section">
+    <div class="split-content">
+      <h2 style="font-size:1.5rem; font-weight:700; color:#30444D; margin-bottom:2rem;">Uphold Chain of Custody</h2>
+      <div class="bullet">
+        <div class="bullet-icon"><svg class="icon"><use href="#icon-verify"/></svg></div>
+        <div class="bullet-text">Verify data authenticity from capture to storage with checksums before and after each transfer</div>
+      </div>
+      <div class="bullet">
+        <div class="bullet-icon"><svg class="icon"><use href="#icon-audit"/></svg></div>
+        <div class="bullet-text">Log complete audit trails, including every touch point with operators, front-end, and backend systems</div>
+      </div>
+      <div class="bullet">
+        <div class="bullet-icon"><svg class="icon"><use href="#icon-version"/></svg></div>
+        <div class="bullet-text">Track all data alterations and maintain version history tied to audit trails</div>
+      </div>
+    </div>
+    <div class="split-img">
+      <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1772803013/Screenshot_2026-03-06_at_5.16.14_AM_emk7hw.png" alt="Chain of Custody">
+    </div>
+  </div>
+</div>
+
+<!-- 03 CONTROL & COMPLIANCE -->
+<div class="b-section" style="background:#436c79;">
+  <div class="b-section-inner">
+    <div class="b-section-header"><h2 style="color:#fff;">Control and Compliance</h2></div>
+    <div class="b-grid b-grid-3">
+      <div class="b-card" style="background:rgba(255,255,255,0.12); border-color:rgba(255,255,255,0.15); border-top-color:rgba(255,255,255,0.5);">
+        <div class="b-card-chip" style="background:rgba(255,255,255,0.15);"><svg class="icon" style="stroke:#fff;"><use href="#icon-compliance"/></svg></div>
+        <p style="color:rgba(255,255,255,0.9);">Implements data workflows and systems that meet 21 CFR Part 11 and 211 compliance standards</p>
+      </div>
+      <div class="b-card" style="background:rgba(255,255,255,0.12); border-color:rgba(255,255,255,0.15); border-top-color:rgba(255,255,255,0.5);">
+        <div class="b-card-chip" style="background:rgba(255,255,255,0.15);"><svg class="icon" style="stroke:#fff;"><use href="#icon-signature"/></svg></div>
+        <p style="color:rgba(255,255,255,0.9);">Manages electronic signatures for edits and reviews</p>
+      </div>
+      <div class="b-card" style="background:rgba(255,255,255,0.12); border-color:rgba(255,255,255,0.15); border-top-color:rgba(255,255,255,0.5);">
+        <div class="b-card-chip" style="background:rgba(255,255,255,0.15);"><svg class="icon" style="stroke:#fff;"><use href="#icon-filelog"/></svg></div>
+        <p style="color:rgba(255,255,255,0.9);">Logs comprehensive audit trails for regulatory audits</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 04 DATA PIPELINES -->
+<div style="background:#fff; padding:0 2.5rem;">
+  <div class="split-section">
+    <div class="split-img">
+      <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1772804281/Screenshot_2026-03-06_at_5.37.54_AM_b2wgum.png" alt="Customize Data Pipelines">
+    </div>
+    <div class="split-content right">
+      <h2 style="font-size:1.5rem; font-weight:700; color:#1f2937; margin-bottom:2rem;">Customize Data Pipelines to your Operational Requirements</h2>
+      <div class="bullet">
+        <div class="bullet-icon"><svg class="icon"><use href="#icon-route"/></svg></div>
+        <div class="bullet-text">Automate the formatting of scientific and analytical data from multi-vendor instruments, so it's ready for LIMS, ELN, and MES without manual intervention.</div>
+      </div>
+      <div class="bullet">
+        <div class="bullet-icon"><svg class="icon"><use href="#icon-lock"/></svg></div>
+        <div class="bullet-text">Capture data files directly from instruments to maintain a true copy that cannot be altered, and tracked versions for additional edits with a comprehensive audit log.</div>
+      </div>
+      <div class="bullet">
+        <div class="bullet-icon"><svg class="icon"><use href="#icon-settings"/></svg></div>
+        <div class="bullet-text">Enable administrators to easily make changes to routing rules without setting foot on the production floor, including scaled configuration deployment across multi-vendor and multi-type</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 05 CONTEXTUALIZED DATA -->
+<div style="background:#e1ebee; padding:0 2.5rem;">
+  <div class="split-section">
+    <div class="split-content">
+      <h2 style="font-size:1.5rem; font-weight:700; color:#30444D; margin-bottom:2rem;">Contextualized Data</h2>
+      <div class="bullet">
+        <div class="bullet-icon"><svg class="icon"><use href="#icon-tag"/></svg></div>
+        <div class="bullet-text">Each file or collected sample is captured along with comprehensive metadata, including the file name, type, size, checksum, timestamp, and additional instrument information such as the serial number, last calibration date, and current firmware.</div>
+      </div>
+      <div class="bullet">
+        <div class="bullet-icon"><svg class="icon"><use href="#icon-link"/></svg></div>
+        <div class="bullet-text">Metadata is attached and preserved with the scientific data lifecycle</div>
+      </div>
+    </div>
+    <div class="split-img">
+      <div style="width:100%; height:260px; border:2px dashed #9ab4bc; border-radius:10px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.75rem;">
+        <svg style="width:36px;height:36px;stroke:#9ab4bc;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:#9ab4bc;">Image Placeholder</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="b-cta">
+  <div style="max-width:900px; margin:0 auto; display:grid; grid-template-columns:auto 1fr; gap:3rem; align-items:center; text-align:left;">
+    <div style="background:#30444D; border-radius:12px; padding:2rem 2.25rem; min-width:240px; flex-shrink:0;">
+      <div class="b-hero-badge-item"><svg class="icon" style="width:16px;height:16px;stroke:#22c55e"><use href="#icon-check"/></svg><div class="b-hero-badge-text">21 CFR Part 11 &amp; 211 Compliant</div></div>
+      <div class="b-hero-badge-item"><svg class="icon" style="width:16px;height:16px;stroke:#22c55e"><use href="#icon-check"/></svg><div class="b-hero-badge-text">Legacy &amp; Modern Instruments</div></div>
+      <div class="b-hero-badge-item"><svg class="icon" style="width:16px;height:16px;stroke:#22c55e"><use href="#icon-check"/></svg><div class="b-hero-badge-text">Streamlined Integration</div></div>
+      <div class="b-hero-badge-item"><svg class="icon" style="width:16px;height:16px;stroke:#22c55e"><use href="#icon-check"/></svg><div class="b-hero-badge-text">Advanced Data Loss Prevention</div></div>
+      <div class="b-hero-badge-item" style="border-bottom:none;"><svg class="icon" style="width:16px;height:16px;stroke:#22c55e"><use href="#icon-check"/></svg><div class="b-hero-badge-text">SHA-256 Integrity Verification</div></div>
+    </div>
+    <div>
+      <h2 style="margin-bottom:0.75rem;">See Our Data Solution in Action</h2>
+      <p style="color:#64748b; font-size:0.9rem; line-height:1.7; margin-bottom:1.5rem;">Get a live walkthrough of data going from instrument to backend systems with complete traceability and learn more about our edge, allowing regulated manufacturers to standardize and scale without the usual IT burden.</p>
+      <a href="#" class="b-cta-btn">Request a Demo</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="b-footer">
+  <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757701267/__Phizzle-Logo-WHITE-01_5_hpfhss.svg" alt="Phizzle" style="height:24px; opacity:0.6;">
+  <p>&copy; 2026 Phizzle. All rights reserved.</p>
+</div>
+
+</body>
+</html>
