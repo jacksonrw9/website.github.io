@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Digitize scientific workflows in regulated manufacturing. Connect, automate, and integrate analytical instruments with LIMS, MES, or QMS to ensure data integrity, efficiency, and compliance.">
+    <meta name="description" content="Digitize scientific workflows in regulated manufacturing. Connect, automate, and integrate analytical instruments with LIMS, MES, ELN or QMS to ensure data integrity, efficiency, and compliance.">
     <title>Phizzle - Digitizing Scientific Workflows</title>
 
     <!-- Favicon links -->
@@ -23,6 +23,15 @@
     <!-- Start of HubSpot Embed Code -->
     <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/8070371.js"></script>
     <!-- End of HubSpot Embed Code -->
+
+    <!-- Configure HubSpot to ignore our custom forms -->
+    <script>
+    window._hsq = window._hsq || [];
+    window._hsq.push(['setPath', window.location.pathname]);
+
+    // Tell HubSpot to NOT track form submissions
+    window._hsq.push(['disableFormAutoCollect']);
+    </script>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -600,21 +609,24 @@
 
         .benefits-grid {
             display: grid;
-            gap: 3rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
         }
 
         .benefit-item {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 3rem;
-            align-items: center;
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            border: 1px solid #e2e8f0;
         }
 
         .benefit-image {
             width: 100%;
             height: 200px;
             background: #e2e8f0;
-            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -622,24 +634,37 @@
             font-size: 0.9rem;
             text-align: center;
             padding: 1rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-content {
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            align-items: center;
+            text-align: center;
         }
 
         .benefit-content h3 {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             font-weight: 600;
             color: #436c79;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
 
         .benefit-content p {
             color: #64748b;
             line-height: 1.6;
             margin-bottom: 1.5rem;
+            flex: 1;
+            font-size: 0.92rem;
         }
 
         .explore-btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
             background: #22c55e;
             color: white;
@@ -652,6 +677,7 @@
             font-size: 0.9rem;
             letter-spacing: 0.5px;
             min-height: 44px;
+            align-self: center;
         }
 
         .explore-btn:hover {
@@ -718,6 +744,128 @@
             font-weight: 600;
             text-align: center;
             padding: 1rem;
+        }
+
+        /* Product Showcase Section */
+        .product-showcase-section {
+            background: #ffffff;
+            padding: 5rem 0;
+        }
+
+        .product-showcase-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            gap: 5rem;
+        }
+
+        .product-showcase-item {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .product-showcase-item.reverse {
+            grid-template-columns: 1fr 380px;
+        }
+
+        .product-showcase-item.reverse .product-image-wrap {
+            order: 2;
+        }
+
+        .product-showcase-item.reverse .product-text-wrap {
+            order: 1;
+        }
+
+        .product-image-wrap img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .product-text-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .product-text-wrap h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #436c79;
+            margin-bottom: 1.75rem;
+            align-self: flex-start;
+        }
+
+        .product-bullet-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            align-self: stretch;
+        }
+
+        .product-bullet-list li {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+
+        .product-bullet-list li .bullet-icon {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            background: #436c79;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px;
+        }
+
+        .product-bullet-list li .bullet-icon svg {
+            width: 12px;
+            height: 12px;
+            fill: white;
+        }
+
+        .product-bullet-list li .bullet-text {
+            font-size: 0.95rem;
+            color: #374151;
+            line-height: 1.6;
+        }
+
+        .product-bullet-list li .bullet-text strong {
+            color: #1f2937;
+            font-weight: 600;
+        }
+
+        .product-learn-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #22c55e;
+            color: white;
+            padding: 0.75rem 1.75rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            min-height: 44px;
+            align-self: center;
+        }
+
+        .product-learn-btn:hover {
+            background: #16a34a;
         }
 
         /* Footer Section */
@@ -1096,13 +1244,19 @@
                 padding-right: 0;
             }
 
-            .benefit-item {
+            .benefits-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
             }
 
             .benefit-image {
                 height: 180px;
+            }
+
+            /* 2-col on mid-size tablets */
+            @media (min-width: 600px) and (max-width: 1025px) {
+                .benefits-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
             }
 
             .footer-content {
@@ -1122,6 +1276,21 @@
             .partner-logo-item {
                 width: 180px;
                 margin: 0 1rem;
+            }
+
+            .product-showcase-item,
+            .product-showcase-item.reverse {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .product-showcase-item.reverse .product-image-wrap,
+            .product-showcase-item.reverse .product-text-wrap {
+                order: unset;
+            }
+
+            .product-image-wrap img {
+                height: 220px;
             }
         }
 
@@ -1189,15 +1358,15 @@
             }
 
             .benefit-content {
-                text-align: center;
+                text-align: left;
             }
 
             .benefit-content h3 {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
             }
 
             .benefit-image {
-                height: 150px;
+                height: 180px;
             }
 
             .benefits-section > div > div:last-child {
@@ -1248,6 +1417,27 @@
             .partner-logo-item img {
                 max-height: 48px;
                 max-width: 120px;
+            }
+
+            .product-showcase-section {
+                padding: 3rem 0;
+            }
+
+            .product-showcase-container {
+                gap: 3rem;
+            }
+
+            .product-text-wrap h2 {
+                font-size: 1.6rem;
+                text-align: center;
+            }
+
+            .product-bullet-list li .bullet-text {
+                font-size: 0.9rem;
+            }
+
+            .product-image-wrap img {
+                height: 200px;
             }
         }
 
@@ -1302,10 +1492,26 @@
                 max-height: 36px;
                 max-width: 96px;
             }
+
+            .product-text-wrap h2 {
+                font-size: 1.4rem;
+            }
+        }
+
+        .grecaptcha-badge {
+            visibility: hidden;
         }
     </style>
 </head>
 <body>
+    <!-- Announcement Bar -->
+    <div style="background: #436c79; padding: 1rem 2rem; text-align: center;">
+        <p style="color: #ffffff; font-size: 0.9rem; margin: 0;">
+            <strong>Introducing the Data Connector:</strong> Eliminate Manual Capture and Support Compliance at Scale.&nbsp;&nbsp;
+            <a href="instrument-connectors.html" style="color: #ffffff; font-weight: 700; text-decoration: underline; white-space: nowrap;">Learn More</a>
+        </p>
+    </div>
+
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
@@ -1503,7 +1709,7 @@
                     
                     <div class="platform-right">
                         <p class="platform-description">
-                            Eliminate pen and paper processes, multi-step data entry SOPs and clunky middleware solutions to synchronize critical manufacturing data with LIMS, MES, or QMS. 
+                            Eliminate pen and paper processes, multi-step data entry SOPs and clunky middleware solutions to synchronize critical manufacturing data with LIMS, MES, ELN or QMS. 
                         </p>
                         <a href="platform-overview.html" class="solution-btn">See Our Solution</a>
                     </div>
@@ -1512,11 +1718,93 @@
         </div>
     </section>
 
+    <!-- Product Showcase Section: Edge Puck, Connected Plant, Instrument Connectors -->
+    <section class="product-showcase-section">
+        <div class="product-showcase-container">
+
+            <!-- Phizzle Edge Puck -->
+            <div class="product-showcase-item">
+                <div class="product-image-wrap">
+                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081556/edgepuck-hero_t4aaxo.jpg" alt="Phizzle Edge Puck">
+                </div>
+                <div class="product-text-wrap">
+                    <h2>Phizzle Edge Puck</h2>
+                    <ul class="product-bullet-list">
+                        <li>
+                            <span class="bullet-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            <span class="bullet-text"><strong>Purpose-Built for Cleanrooms:</strong> Compact, cleanable, and malware-hardened gateway built for regulated environments</span>
+                        </li>
+                        <li>
+                            <span class="bullet-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            <span class="bullet-text"><strong>Extend the Lifespan of Legacy Instruments:</strong> Converts existing lab devices into connected data nodes while supporting audit trail and data integrity</span>
+                        </li>
+                        <li>
+                            <span class="bullet-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            <span class="bullet-text"><strong>Protects Against Data-Loss:</strong> Maintain continuous data capture even during network failures and power outages</span>
+                        </li>
+                    </ul>
+                    <a href="edge-puck.html" class="product-learn-btn">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Connected Plant Platform -->
+            <div class="product-showcase-item reverse">
+                <div class="product-image-wrap">
+                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081548/connected-plant-computer_v4lsos.png" alt="Connected Plant Platform">
+                </div>
+                <div class="product-text-wrap">
+                    <h2>Connected Plant Platform</h2>
+                    <ul class="product-bullet-list">
+                        <li>
+                            <span class="bullet-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            <span class="bullet-text"><strong>Synchronize Data Directly with Backend Systems:</strong> Automatically push instrument data to your existing LMS, MES, or QMS</span>
+                        </li>
+                        <li>
+                            <span class="bullet-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            <span class="bullet-text"><strong>Manage Instruments Remotely:</strong> Configure and monitor multi-vendor analytical instruments from a single administrator interface</span>
+                        </li>
+                        <li>
+                            <span class="bullet-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            <span class="bullet-text"><strong>Query Audit Logs and Results Instantly:</strong> Access a fully searchable, time-stamped record of all instrument data and transactions for compliance and reporting</span>
+                        </li>
+                    </ul>
+                    <a href="connected-plant.html" class="product-learn-btn">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Instrument Connectors -->
+            <div class="product-showcase-item">
+                <div class="product-image-wrap">
+                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1774458333/image_83_ofkibj.png" alt="Instrument Connectors">
+                </div>
+                <div class="product-text-wrap">
+                    <h2>Instrument Connectors</h2>
+                    <ul class="product-bullet-list">
+                        <li>
+                            <span class="bullet-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            <span class="bullet-text"><strong>Standardize Multi-Vendor Outputs:</strong> Our connectors standardize the communication idiosyncrasies between vendors, so your IT team isn't burdened maintaining one-off integrations</span>
+                        </li>
+                        <li>
+                            <span class="bullet-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            <span class="bullet-text"><strong>Different Connectors for Different Digitization Visions:</strong> From simple validated data extraction to fully automated sample initiation and format standardization</span>
+                        </li>
+                        <li>
+                            <span class="bullet-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            <span class="bullet-text"><strong>Support Compliance Automatically:</strong> Every result includes a detailed audit log, chain of custody tracking, and built-in 21 CFR Part 11 e-sign workflows</span>
+                        </li>
+                    </ul>
+                    <a href="instrument-connectors.html" class="product-learn-btn">Learn More</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- Benefits Section -->
     <section class="benefits-section">
         <div class="benefits-container">
             <div class="benefits-header">
-                <h2>Explore the Benefits of Connected Plant by Application</h2>
+                <h2>Explore the Benefits by Application</h2>
             </div>
             
             <div class="benefits-grid">
@@ -1526,8 +1814,8 @@
                     </div>
                     <div class="benefit-content">
                         <h3>Pharma Manufacturing</h3>
-                        <p>Automate data capture, format standardization and synchronization with LIMS, MES, or QMS systems. Ensure 21 CFR Part 11 compliance with a built-in review, electronic signature process and detailed audit trails.</p>
-                        <a href="pharma-manufacturing.html" class="explore-btn">Explore Connected Plant for Pharma Manufacturing</a>
+                        <p>Automate data capture, format standardization and synchronization with LIMS, MES, ELN or QMS. Ensure 21 CFR Part 11 compliance with a built-in review, electronic signature process and detailed audit trails.</p>
+                        <a href="pharma-manufacturing.html" class="explore-btn">Learn More</a>
                     </div>
                 </div>
                 
@@ -1537,8 +1825,8 @@
                     </div>
                     <div class="benefit-content">
                         <h3>Aerospace Manufacturing</h3>
-                        <p>Enable hands-free data capture, automated formatting and data synchronization with ERP, MES, or QMS systems. Support AS9100 and NADCAP compliance requirements with comprehensive traceability and detailed audit trails.</p>
-                        <a href="aerospace-manufacturing.html" class="explore-btn">Explore Connected Plant for Aerospace Manufacturing</a>
+                        <p>Enable hands-free data capture, automated formatting and data synchronization with ERP, MES, or QMS. Support AS9100 and NADCAP compliance requirements with comprehensive traceability and detailed audit trails.</p>
+                        <a href="aerospace-manufacturing.html" class="explore-btn">Learn More</a>
                     </div>
                 </div>
                 
@@ -1549,7 +1837,7 @@
                     <div class="benefit-content">
                         <h3>Food Production</h3>
                         <p>Streamline critical control point monitoring and documentation by synchronizing real-time quality data directly with food safety management systems. Support HACCP and 21 CFR Part 11 compliance requirements with continuous monitoring, electronic record keeping and detailed audit trails.</p>
-                        <a href="food-production.html" class="explore-btn">Explore Connected Plant for Food Production</a>
+                        <a href="food-production.html" class="explore-btn">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -1558,7 +1846,7 @@
             <section class="partner-carousel-section">
                 <div style="max-width: 1400px; margin: 0 auto;">
                     <div class="partners-header" style="margin-left: 0;">
-                        <h2 style="font-size: 2.5rem;">Partners</h2>
+                        <h2 style="font-size: 2.5rem;"></h2>
                     </div>
                 </div>
             </section>
@@ -1588,6 +1876,9 @@
                         <div class="partner-logo-item">
                             <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062690/image_80_o9aupz.png" alt="Partner Logo">
                         </div>
+                        <div class="partner-logo-item">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768423417/logo_nzc7we.png" alt="Partner Logo">
+                        </div>
                         <!-- Duplicate items for seamless loop -->
                         <div class="partner-logo-item">
                             <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768256017/image_81_unji0b.png" alt="Partner Logo">
@@ -1613,6 +1904,9 @@
                         <div class="partner-logo-item">
                             <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062690/image_80_o9aupz.png" alt="Partner Logo">
                         </div>
+                        <div class="partner-logo-item">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768423417/logo_nzc7we.png" alt="Partner Logo">
+                        </div>
                     </div>
                 </div>
 
@@ -1631,6 +1925,46 @@
     </section>
 
     <!-- Footer -->
+    <!-- Latest Blog Posts Section -->
+    <section style="background: #ffffff; padding: 5rem 0;">
+        <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
+            <h2 style="font-size: 2.5rem; font-weight: 600; color: #436c79; margin-bottom: 2.5rem;">Latest Blog Posts</h2>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+
+                <a href="blog-8.html" style="text-decoration: none; display: flex; flex-direction: column; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 30px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'">
+                    <div style="width: 100%; height: 200px; overflow: hidden;">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1774380640/iStock-899692870_d7xczx.jpg" alt="The Hidden Cost of Disconnected Instruments" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="padding: 1.5rem; flex: 1;">
+                        <h3 style="font-size: 1.05rem; font-weight: 600; color: #1f2937; line-height: 1.4;">The Hidden Cost of Disconnected Instruments in Pharma Manufacturing</h3>
+                    </div>
+                </a>
+
+                <a href="blog-why-manual-transcription-is-your-biggest-data-integrity-risk-in-regulated-manufacturing.html" style="text-decoration: none; display: flex; flex-direction: column; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 30px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'">
+                    <div style="width: 100%; height: 200px; overflow: hidden;">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1773854153/iStock-1283845706_lrpx9q.jpg" alt="Manual transcription data integrity risk" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="padding: 1.5rem; flex: 1;">
+                        <h3 style="font-size: 1.05rem; font-weight: 600; color: #1f2937; line-height: 1.4;">Why Manual Transcription Is Your Biggest Data Integrity Risk in Regulated Manufacturing</h3>
+                    </div>
+                </a>
+
+                <a href="blog-7.html" style="text-decoration: none; display: flex; flex-direction: column; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 30px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'">
+                    <div style="width: 100%; height: 200px; overflow: hidden;">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081547/videos-feature_yjz496.png" alt="Edge Puck GMP Instrument Connectivity" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="padding: 1.5rem; flex: 1;">
+                        <h3 style="font-size: 1.05rem; font-weight: 600; color: #1f2937; line-height: 1.4;">How the Edge Puck™ Solves Multi-Vendor Instrument Connectivity in GMP Environments</h3>
+                    </div>
+                </a>
+
+            </div>
+            <div style="text-align: center; margin-top: 2.5rem;">
+                <a href="blog.html" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #436c79; color: white; padding: 0.75rem 1.75rem; border-radius: 6px; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; min-height: 44px; transition: background 0.3s ease;" onmouseover="this.style.background='#30444d'" onmouseout="this.style.background='#436c79'">View All Posts</a>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-content">
@@ -1692,16 +2026,21 @@
                     <div class="email-signup">
                         <h5>Stay Updated</h5>
                         <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 0.75rem;">Join our newsletter to get the latest updates</p>
-                        <form class="email-form" id="newsletter-form">
+                        <form class="email-form" id="newsletter-form" data-hsforms-ignore="true" data-hs-cf-bound="true">
                             <input type="email" class="email-input" name="email" placeholder="Enter your email" required>
                             <button type="submit" class="email-submit">Subscribe</button>
                         </form>
+                        <p style="font-size: 0.75rem; color: #64748b; margin-top: 0.5rem; line-height: 1.4;">
+                            This site is protected by reCAPTCHA and the Google 
+                            <a href="https://policies.google.com/privacy" style="color: #94a3b8; text-decoration: underline;">Privacy Policy</a> and 
+                            <a href="https://policies.google.com/terms" style="color: #94a3b8; text-decoration: underline;">Terms of Service</a> apply.
+                        </p>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Phizzle. All rights reserved.</p>
+                <p>&copy; 2026 Phizzle. All rights reserved.</p>
                 <div class="footer-bottom-links">
                     <a href="privacy-policy.html">Privacy Policy</a>
                     <a href="terms-of-use.html">Terms of Use</a>
@@ -1755,8 +2094,15 @@
             }
         });
 
+        // Load reCAPTCHA
+        const script = document.createElement('script');
+        script.src = 'https://www.google.com/recaptcha/enterprise.js?render=6Le6W1osAAAAAEySdjeFfrJffcwvyfL2ph1Dsxyf';
+        document.head.appendChild(script);
+        
+        // HubSpot Form Integration for Newsletter Form  
         document.getElementById('newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
+            e.stopPropagation();
             
             const email = e.target.querySelector('input[name="email"]').value;
             const submitBtn = e.target.querySelector('button[type="submit"]');
@@ -1764,33 +2110,40 @@
             submitBtn.textContent = 'Subscribing...';
             submitBtn.disabled = true;
             
-            fetch('https://api.hsforms.com/submissions/v3/integration/submit/8070371/5efde115-8a41-4e38-8176-4b121279ff42', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    fields: [
-                        {
-                            name: "email",
-                            value: email
-                        }
-                    ]
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                submitBtn.textContent = 'Subscribed!';
-                e.target.reset();
-                setTimeout(() => {
-                    submitBtn.textContent = 'Subscribe';
-                    submitBtn.disabled = false;
-                }, 2000);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                submitBtn.textContent = 'Error - Try Again';
-                submitBtn.disabled = false;
+            // Get reCAPTCHA token
+            grecaptcha.enterprise.ready(function() {
+                grecaptcha.enterprise.execute('6Le6W1osAAAAAEySdjeFfrJffcwvyfL2ph1Dsxyf', {action: 'submit'}).then(function(token) {
+                    
+                    // Submit to Netlify function
+                    fetch('/.netlify/functions/submit-form', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            recaptchaToken: token,
+                            formData: {
+                                fields: [{ name: "email", value: email }],
+                                context: {
+                                    pageUri: window.location.href,
+                                    pageName: document.title
+                                }
+                            }
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        submitBtn.textContent = 'Subscribed!';
+                        e.target.reset();
+                        setTimeout(() => {
+                            submitBtn.textContent = 'Subscribe';
+                            submitBtn.disabled = false;
+                        }, 2000);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        submitBtn.textContent = 'Error - Try Again';
+                        submitBtn.disabled = false;
+                    });
+                });
             });
         });
     </script>
