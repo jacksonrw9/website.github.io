@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phizzle Interactive Booth</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg-card: #436C79;
+    --bg-card-hover: #3a5e6a;
+    --text-dark: #30444D;
+    --text-body: #4a6a75;
+    --text-white: #ffffff;
+  }
+
+  html, body {
+    width: 100%; height: 100%;
+    font-family: 'Lato', sans-serif;
+    background: #c8dde4;
+    background-image: url('https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1776357718/wavy-4K_ydrqeh.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--text-dark);
+    overflow: hidden;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+  }
+
+  /* === LAYOUT === */
+  .dashboard {
+    width: 100%; height: 100%;
+    display: grid;
+    grid-template-columns: 2.8fr 1fr;
+    grid-template-rows: auto 1fr;
+    padding: 40px 50px 40px 50px;
+    gap: 0;
+  }
+
+  /* === LOGO === */
+  .logo-area {
+    grid-column: 1;
+    grid-row: 1;
+    padding-bottom: 24px;
+  }
+  .logo-area img {
+    height: 100px;
+    width: auto;
+  }
+
+  /* === RIGHT COLUMN (spans both rows) === */
+  .right-column {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    min-height: 0;
+  }
+  .right-column h2 {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--text-dark);
+    text-align: center;
+    height: 94px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* === VIDEO SECTION === */
+  .video-area {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 40px;
+    min-height: 0;
+  }
+  .video-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #1a3a4a;
+    border: 6px solid #436C79;
+    position: relative;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    cursor: pointer;
+  }
+  .local-video {
+    width: 100%; height: 100%; border: none;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    position: absolute;
+    inset: 0;
+  }
+  .play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    z-index: 3;
+    filter: drop-shadow(0 4px 16px rgba(0,0,0,0.3));
+    transition: transform 0.25s ease;
+  }
+  .play-btn:hover {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+  .video-container.playing .play-btn,
+  .video-container.playing .video-thumbnail {
+    display: none;
+  }
+  .video-container.playing.paused .play-btn {
+    display: block;
+  }
+  .video-thumbnail {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+  .pause-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    z-index: 3;
+    filter: drop-shadow(0 4px 16px rgba(0,0,0,0.3));
+    transition: transform 0.25s ease, opacity 0.3s ease;
+    display: none;
+    opacity: 0;
+  }
+  .pause-btn:hover {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+  .video-container.playing .pause-btn {
+    display: block;
+  }
+  .video-container.playing.paused .pause-btn {
+    display: none;
+  }
+  .video-container.playing:hover .pause-btn {
+    opacity: 1;
+  }
+  .video-label-below {
+    font-family: 'Lato', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--text-dark);
+    padding: 16px 0 0 0;
+    text-align: center;
+  }
+
+  /* === WIDGETS AREA === */
+  .widgets-area {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    min-height: 0;
+    flex: 1;
+  }
+
+  .widget-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 0;
+    flex: 1;
+  }
+
+  .widget-card {
+    border-radius: 16px;
+    background: var(--bg-card);
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    width: 100%;
+    height: 85%;
+  }
+  .widget-card:hover {
+    background: var(--bg-card-hover);
+  }
+  .widget-card:active {
+    transform: scale(0.97);
+  }
+  .widget-title {
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--text-white);
+    letter-spacing: 0.3px;
+  }
+  .widget-desc {
+    font-size: 16px;
+    color: var(--text-body);
+    line-height: 1.5;
+    padding: 0 8px;
+    text-align: center;
+  }
+
+  /* === FULLSCREEN MODAL === */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(5,34,57,0.92);
+    backdrop-filter: blur(24px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+  .modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .modal-panel {
+    width: 92vw;
+    height: 88vh;
+    border-radius: 28px;
+    background: #f0f5f7;
+    border: 1px solid rgba(67,108,121,0.2);
+    box-shadow: 0 24px 80px rgba(0,0,0,0.4);
+    padding: 48px 64px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transform: scale(0.92);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    overflow-y: auto;
+  }
+  .modal-overlay.active .modal-panel {
+    transform: scale(1);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 24px; right: 24px;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: none;
+    color: white;
+    font-size: 24px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    z-index: 2;
+  }
+  .modal-close:hover {
+    background: var(--bg-card-hover);
+  }
+
+  .modal-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: none;
+    color: white;
+    font-size: 28px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    z-index: 1001;
+  }
+  .modal-nav:hover {
+    background: var(--bg-card-hover);
+  }
+  .modal-nav.prev { left: 16px; }
+  .modal-nav.next { right: 16px; }
+
+  .modal-indicator {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+  }
+  .modal-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: rgba(67,108,121,0.25);
+    transition: all 0.3s ease;
+  }
+  .modal-dot.active {
+    background: var(--bg-card);
+    box-shadow: 0 0 8px rgba(67,108,121,0.3);
+  }
+
+  .modal-title {
+    font-weight: 900;
+    font-size: 36px;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+  }
+  .modal-subtitle {
+    font-size: 14px;
+    color: var(--text-body);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 32px;
+  }
+  .modal-body {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-body);
+    flex: 1;
+  }
+  .modal-body h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 28px 0 12px;
+  }
+  .modal-body h3:first-child { margin-top: 0; }
+  .modal-body ul {
+    list-style: none;
+    padding: 0; margin: 10px 0;
+  }
+  .modal-body ul li {
+    padding: 6px 0 6px 24px;
+    position: relative;
+    font-size: 16px;
+  }
+  .modal-body ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--bg-card);
+  }
+
+  /* === ANIMATIONS === */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .anim-in {
+    animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    opacity: 0;
+  }
+  .anim-d1 { animation-delay: 0.1s; }
+  .anim-d2 { animation-delay: 0.2s; }
+  .anim-d3 { animation-delay: 0.3s; }
+  .anim-d4 { animation-delay: 0.4s; }
+  .anim-d5 { animation-delay: 0.5s; }
+  .anim-d6 { animation-delay: 0.6s; }
+</style>
+</head>
+<body>
+
+<div class="dashboard">
+  <!-- Logo -->
+  <div class="logo-area anim-in anim-d1">
+    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1775663892/__Phizzle-Logo-MAIN_dark-green-dots-01_2_vskfdy.png" alt="Phizzle">
+  </div>
+
+  <!-- Right Column -->
+  <div class="right-column">
+    <h2>Tap Below to Learn More</h2>
+
+    <div class="widgets-area">
+    <div class="widget-block anim-in anim-d3">
+      <div class="widget-card" onclick="openModal(0)">
+        <div class="widget-title">Connected Plant™: Support Data Integrity and Compliance</div>
+      </div>
+    </div>
+
+    <div class="widget-block anim-in anim-d4">
+      <div class="widget-card" onclick="openModal(1)">
+        <div class="widget-title">Edge Puck™ Cleanroom Gateway</div>
+      </div>
+    </div>
+
+    <div class="widget-block anim-in anim-d5">
+      <div class="widget-card" onclick="openModal(2)">
+        <div class="widget-title">Supported Lab and Analytical Instruments</div>
+      </div>
+    </div>
+
+    <div class="widget-block anim-in anim-d6">
+      <div class="widget-card" onclick="openModal(3)">
+        <div class="widget-title">Connecting Devices to LabWare</div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <!-- Video -->
+  <div class="video-area anim-in anim-d2">
+    <div class="video-container" id="videoContainer" onclick="toggleVideo()">
+      <img class="video-thumbnail" src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1757081556/edgepuck-hero_t4aaxo.jpg" alt="Video thumbnail">
+      <video id="localVideo" class="local-video" preload="metadata">
+        <source src="The Edge Puck- Clip 11 - 4K.mp4" type="video/mp4">
+      </video>
+      <div class="play-btn" id="playBtn">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="white" />
+          <circle cx="50" cy="50" r="42" fill="#436C79" />
+          <polygon points="42,30 75,50 42,70" fill="white" />
+        </svg>
+      </div>
+      <div class="pause-btn" id="pauseBtn">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="white" />
+          <circle cx="50" cy="50" r="42" fill="#436C79" />
+          <rect x="34" y="28" width="12" height="44" rx="3" fill="white" />
+          <rect x="54" y="28" width="12" height="44" rx="3" fill="white" />
+        </svg>
+      </div>
+    </div>
+    <div class="video-label-below">Tap to Watch the 60 Second Demo</div>
+  </div>
+</div>
+
+<!-- Fullscreen Modal -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <button class="modal-nav prev" onclick="event.stopPropagation(); navModal(-1)">‹</button>
+  <button class="modal-nav next" onclick="event.stopPropagation(); navModal(1)">›</button>
+  <div class="modal-panel" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modalContent"></div>
+    <div class="modal-indicator" id="modalDots"></div>
+  </div>
+</div>
+
+<script>
+  const slides = [
+    {
+      title: 'Connected Plant™: Support Data Integrity and Compliance',
+      subtitle: 'See the Difference',
+      body: `
+        <h3>Manual Workflows</h3>
+        <p>Traditional scientific workflows rely on manual data transcription, paper-based records, and disconnected systems — leading to errors, delays, and compliance risks in regulated environments.</p>
+        <h3>The Phizzle Way</h3>
+        <p>Phizzle digitizes and automates scientific workflows end-to-end. Data flows directly from instruments into your systems of record with full audit trails, eliminating manual steps and ensuring data integrity.</p>
+        <h3>Key Benefits</h3>
+        <ul>
+          <li>Eliminate manual transcription errors</li>
+          <li>Automated audit trails for regulatory compliance</li>
+          <li>Real-time data availability across systems</li>
+          <li>Reduced cycle times and faster batch release</li>
+        </ul>
+      `
+    },
+    {
+      title: 'Edge Puck™: Cleanroom Gateway',
+      subtitle: 'Connecting Legacy & Modern Instrumentation',
+      body: `
+        <h3>Purpose-Built Hardware</h3>
+        <p>The Edge Puck is a compact, fanless gateway designed specifically for GMP cleanroom environments. It connects directly to laboratory instruments and securely transmits data to enterprise systems.</p>
+        <h3>Key Features</h3>
+        <ul>
+          <li>Cleanroom-compatible form factor — no fans, no particles</li>
+          <li>Supports both legacy serial and modern network instruments</li>
+          <li>Plug-and-play deployment with zero instrument downtime</li>
+          <li>Encrypted, bi-directional data transfer</li>
+        </ul>
+      `
+    },
+    {
+      title: 'Supported Lab and Analytical Instruments',
+      subtitle: 'Broad Compatibility Across the Lab',
+      body: `
+        <h3>Instrument Coverage</h3>
+        <p>Phizzle supports a wide range of scientific instruments across analytical, bioanalytical, and manufacturing environments — from chromatography and spectroscopy to balances and environmental monitors.</p>
+        <h3>Categories</h3>
+        <ul>
+          <li>HPLC, UPLC & Gas Chromatography</li>
+          <li>Mass Spectrometry & Spectrophotometry</li>
+          <li>Dissolution & Particle Analysis</li>
+          <li>Balances, pH Meters & Environmental Monitors</li>
+        </ul>
+        <p>New instruments are added continuously. Ask us about your specific setup at the booth.</p>
+      `
+    },
+    {
+      title: 'Connecting Devices to LabWare',
+      subtitle: 'Learn More About Phizzle',
+      body: `
+        <h3>About Phizzle</h3>
+        <p>Phizzle sits at the intersection of science and IT, digitizing scientific workflows in regulated manufacturing environments to support data integrity, efficiency, and compliance with Connected Plant™.</p>
+        <h3>Get in Touch</h3>
+        <ul>
+          <li>Website: phizzle.com</li>
+          <li>Email: info@phizzle.com</li>
+          <li>Visit us at the booth for a live demo</li>
+        </ul>
+        <h3>Resources</h3>
+        <p>White papers, case studies, and technical documentation available — ask a team member or scan the QR code at the booth.</p>
+      `
+    }
+  ];
+
+  let currentSlide = 0;
+
+  function renderModal() {
+    const data = slides[currentSlide];
+    document.getElementById('modalContent').innerHTML = `
+      <div class="modal-title">${data.title}</div>
+      <div class="modal-subtitle">${data.subtitle}</div>
+      <div class="modal-body">${data.body}</div>
+    `;
+    const dots = document.getElementById('modalDots');
+    dots.innerHTML = slides.map((_, i) =>
+      `<div class="modal-dot ${i === currentSlide ? 'active' : ''}"></div>`
+    ).join('');
+    document.querySelector('.modal-nav.prev').style.display = currentSlide === 0 ? 'none' : 'flex';
+    document.querySelector('.modal-nav.next').style.display = currentSlide === slides.length - 1 ? 'none' : 'flex';
+  }
+
+  function openModal(index) {
+    currentSlide = index;
+    renderModal();
+    document.getElementById('modalOverlay').classList.add('active');
+  }
+
+  function closeModal(e) {
+    if (e && e.target !== document.getElementById('modalOverlay') && e.type === 'click') return;
+    document.getElementById('modalOverlay').classList.remove('active');
+  }
+
+  function navModal(dir) {
+    currentSlide = (currentSlide + dir + slides.length) % slides.length;
+    renderModal();
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (!document.getElementById('modalOverlay').classList.contains('active')) return;
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowLeft') navModal(-1);
+    if (e.key === 'ArrowRight') navModal(1);
+  });
+
+  function toggleVideo() {
+    const container = document.getElementById('videoContainer');
+    const video = document.getElementById('localVideo');
+    const playBtn = document.getElementById('playBtn');
+    const pauseBtn = document.getElementById('pauseBtn');
+
+    if (!container.classList.contains('playing')) {
+      // Start playing
+      container.classList.add('playing');
+      container.classList.remove('paused');
+      video.currentTime = 0;
+      video.play();
+    } else if (video.paused) {
+      // Resume
+      container.classList.remove('paused');
+      video.play();
+    } else {
+      // Pause
+      container.classList.add('paused');
+      video.pause();
+    }
+  }
+
+  document.getElementById('localVideo').addEventListener('ended', function() {
+    const container = document.getElementById('videoContainer');
+    container.classList.remove('playing');
+    container.classList.remove('paused');
+    this.currentTime = 0;
+  });
+</script>
+</body>
+</html>
