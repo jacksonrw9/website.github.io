@@ -35,56 +35,63 @@
   .dashboard {
     width: 100%; height: 100%;
     display: grid;
-    grid-template-columns: 2.8fr 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
     padding: 40px 50px 40px 50px;
     gap: 0;
   }
 
-  /* === LOGO === */
-  .logo-area {
+  /* === LEFT COLUMN === */
+  .left-column {
     grid-column: 1;
     grid-row: 1;
-    padding-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    padding-right: 40px;
+    min-height: 0;
+  }
+
+  /* === LOGO === */
+  .logo-area {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;
   }
   .logo-area img {
     height: 100px;
     width: auto;
   }
 
-  /* === RIGHT COLUMN (spans both rows) === */
+  /* === RIGHT COLUMN === */
   .right-column {
     grid-column: 2;
-    grid-row: 1 / 3;
+    grid-row: 1;
     display: flex;
     flex-direction: column;
     gap: 0;
     min-height: 0;
   }
   .right-column h2 {
-    font-size: 32px;
+    font-size: 42px;
     font-weight: 900;
     color: var(--text-dark);
     text-align: center;
-    height: 94px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 16px 0;
     flex-shrink: 0;
   }
 
   /* === VIDEO SECTION === */
   .video-area {
-    grid-column: 1;
-    grid-row: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-right: 40px;
     min-height: 0;
+    flex: 1;
   }
   .video-container {
     width: 100%;
+    max-height: 100%;
     aspect-ratio: 16 / 9;
     border-radius: 16px;
     overflow: hidden;
@@ -160,7 +167,7 @@
   }
   .video-label-below {
     font-family: 'Lato', sans-serif;
-    font-size: 32px;
+    font-size: 42px;
     font-weight: 900;
     color: var(--text-dark);
     padding: 16px 0 0 0;
@@ -206,7 +213,7 @@
   }
   .widget-title {
     font-weight: 700;
-    font-size: 18px;
+    font-size: 23px;
     color: var(--text-white);
     letter-spacing: 0.3px;
   }
@@ -318,25 +325,25 @@
 
   .modal-title {
     font-weight: 900;
-    font-size: 36px;
+    font-size: 47px;
     color: var(--text-dark);
     margin-bottom: 16px;
   }
   .modal-subtitle {
-    font-size: 14px;
+    font-size: 18px;
     color: var(--text-body);
     text-transform: uppercase;
     letter-spacing: 1.5px;
     margin-bottom: 32px;
   }
   .modal-body {
-    font-size: 18px;
+    font-size: 23px;
     line-height: 1.8;
     color: var(--text-body);
     flex: 1;
   }
   .modal-body h3 {
-    font-size: 20px;
+    font-size: 26px;
     font-weight: 700;
     color: var(--text-dark);
     margin: 28px 0 12px;
@@ -349,7 +356,7 @@
   .modal-body ul li {
     padding: 6px 0 6px 24px;
     position: relative;
-    font-size: 16px;
+    font-size: 21px;
   }
   .modal-body ul li::before {
     content: '→';
@@ -378,25 +385,53 @@
 <body>
 
 <div class="dashboard">
-  <!-- Logo -->
-  <div class="logo-area anim-in anim-d1">
-    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1775663892/__Phizzle-Logo-MAIN_dark-green-dots-01_2_vskfdy.png" alt="Phizzle">
+  <div class="left-column">
+    <!-- Logo -->
+    <div class="logo-area anim-in anim-d1">
+      <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1775663892/__Phizzle-Logo-MAIN_dark-green-dots-01_2_vskfdy.png" alt="Phizzle">
+    </div>
+
+    <!-- Video -->
+    <div class="video-area anim-in anim-d2">
+      <div class="video-container" id="videoContainer" onclick="toggleVideo()">
+        <img class="video-thumbnail" src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1757081556/edgepuck-hero_t4aaxo.jpg" alt="Video thumbnail">
+        <video id="localVideo" class="local-video" preload="metadata">
+          <source src="https://res.cloudinary.com/dqiggfeuq/video/upload/q_auto/f_auto/v1776362179/The_Edge_Puck-_Clip_11_-_4K_g913zb.mp4" type="video/mp4">
+        </video>
+        <div class="play-btn" id="playBtn">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="48" fill="white" />
+            <circle cx="50" cy="50" r="42" fill="#436C79" />
+            <polygon points="40,28 74,50 40,72" fill="white" />
+          </svg>
+        </div>
+        <div class="pause-btn" id="pauseBtn">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="48" fill="white" />
+            <circle cx="50" cy="50" r="42" fill="#436C79" />
+            <rect x="34" y="28" width="12" height="44" rx="3" fill="white" />
+            <rect x="54" y="28" width="12" height="44" rx="3" fill="white" />
+          </svg>
+        </div>
+      </div>
+      <div class="video-label-below">Tap to Watch the 60-Second Demo</div>
+    </div>
   </div>
 
   <!-- Right Column -->
   <div class="right-column">
-    <h2>Tap Below to Learn More</h2>
+    <h2>Tap to Learn More</h2>
 
     <div class="widgets-area">
     <div class="widget-block anim-in anim-d3">
       <div class="widget-card" onclick="openModal(0)">
-        <div class="widget-title">Connected Plant™: Support Data Integrity and Compliance</div>
+        <div class="widget-title">Connected Plant™<br>Support Data Integrity and Compliance</div>
       </div>
     </div>
 
     <div class="widget-block anim-in anim-d4">
       <div class="widget-card" onclick="openModal(1)">
-        <div class="widget-title">Edge Puck™ Cleanroom Gateway</div>
+        <div class="widget-title">Edge Puck™<br>Cleanroom Gateway</div>
       </div>
     </div>
 
@@ -412,32 +447,6 @@
       </div>
     </div>
     </div>
-  </div>
-
-  <!-- Video -->
-  <div class="video-area anim-in anim-d2">
-    <div class="video-container" id="videoContainer" onclick="toggleVideo()">
-      <img class="video-thumbnail" src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1757081556/edgepuck-hero_t4aaxo.jpg" alt="Video thumbnail">
-      <video id="localVideo" class="local-video" preload="metadata">
-        <source src="https://res.cloudinary.com/dqiggfeuq/video/upload/q_auto/f_auto/v1776362179/The_Edge_Puck-_Clip_11_-_4K_g913zb.mp4" type="video/mp4">
-      </video>
-      <div class="play-btn" id="playBtn">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="48" fill="white" />
-          <circle cx="50" cy="50" r="42" fill="#436C79" />
-          <polygon points="42,30 75,50 42,70" fill="white" />
-        </svg>
-      </div>
-      <div class="pause-btn" id="pauseBtn">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="48" fill="white" />
-          <circle cx="50" cy="50" r="42" fill="#436C79" />
-          <rect x="34" y="28" width="12" height="44" rx="3" fill="white" />
-          <rect x="54" y="28" width="12" height="44" rx="3" fill="white" />
-        </svg>
-      </div>
-    </div>
-    <div class="video-label-below">Tap to Watch the 60 Second Demo</div>
   </div>
 </div>
 
@@ -458,48 +467,83 @@
       title: 'Connected Plant™: Support Data Integrity and Compliance',
       subtitle: 'See the Difference',
       body: `
-        <h3>Manual Workflows</h3>
-        <p>Traditional scientific workflows rely on manual data transcription, paper-based records, and disconnected systems — leading to errors, delays, and compliance risks in regulated environments.</p>
-        <h3>The Phizzle Way</h3>
-        <p>Phizzle digitizes and automates scientific workflows end-to-end. Data flows directly from instruments into your systems of record with full audit trails, eliminating manual steps and ensuring data integrity.</p>
-        <h3>Key Benefits</h3>
-        <ul>
-          <li>Eliminate manual transcription errors</li>
-          <li>Automated audit trails for regulatory compliance</li>
-          <li>Real-time data availability across systems</li>
-          <li>Reduced cycle times and faster batch release</li>
-        </ul>
+        <table style="width:100%;border-collapse:collapse;margin-bottom:28px;">
+          <thead>
+            <tr>
+              <th style="text-align:left;padding:12px 16px;background:#c0392b;color:white;border-radius:8px 0 0 0;font-size:18px;width:50%;">Manual Workflows</th>
+              <th style="text-align:left;padding:12px 16px;background:#27ae60;color:white;font-size:18px;width:50%;border-radius:0 8px 0 0;">The Phizzle Way</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background:rgba(67,108,121,0.08);">
+              <td style="padding:12px 16px;border-bottom:1px solid rgba(67,108,121,0.15);">Paper records, USB flash drives, and manual transcription</td>
+              <td style="padding:12px 16px;border-bottom:1px solid rgba(67,108,121,0.15);">→ Automated capture directly from instruments</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 16px;border-bottom:1px solid rgba(67,108,121,0.15);">Disconnected instruments and systems</td>
+              <td style="padding:12px 16px;border-bottom:1px solid rgba(67,108,121,0.15);">→ Bi-directional integration with LIMS, QMS, and MES</td>
+            </tr>
+            <tr style="background:rgba(67,108,121,0.08);">
+              <td style="padding:12px 16px;border-bottom:1px solid rgba(67,108,121,0.15);">Fragmented audit trails</td>
+              <td style="padding:12px 16px;border-bottom:1px solid rgba(67,108,121,0.15);">→ Hands-free event tracking stored in a unified, searchable audit log</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 16px;border-bottom:1px solid rgba(67,108,121,0.15);">Error-prone data handoffs</td>
+              <td style="padding:12px 16px;border-bottom:1px solid rgba(67,108,121,0.15);">→ Supports chain of custody from instrument to final destination + 21 CFR Part 11-compliant audit logs and e-signatures</td>
+            </tr>
+            <tr style="background:rgba(67,108,121,0.08);">
+              <td style="padding:12px 16px;">Delayed QA review and batch release</td>
+              <td style="padding:12px 16px;">→ Real-time data flow and exception flagging that notifies operators immediately</td>
+            </tr>
+          </tbody>
+        </table>
       `
     },
     {
       title: 'Edge Puck™: Cleanroom Gateway',
-      subtitle: 'Connecting Legacy & Modern Instrumentation',
+      subtitle: 'A Gateway Designed for GMP Requirements',
       body: `
-        <h3>Purpose-Built Hardware</h3>
-        <p>The Edge Puck is a compact, fanless gateway designed specifically for GMP cleanroom environments. It connects directly to laboratory instruments and securely transmits data to enterprise systems.</p>
-        <h3>Key Features</h3>
-        <ul>
-          <li>Cleanroom-compatible form factor — no fans, no particles</li>
-          <li>Supports both legacy serial and modern network instruments</li>
-          <li>Plug-and-play deployment with zero instrument downtime</li>
-          <li>Encrypted, bi-directional data transfer</li>
-        </ul>
+        <div style="display:flex;gap:32px;align-items:center;">
+          <div style="flex:1;font-size:23px;line-height:1.7;">
+            <p style="margin:0 0 14px;"><strong>Purpose-Built for Cleanrooms</strong> — Cleanable, portable, and fully compliant with cleanroom material standards.</p>
+            <p style="margin:0 0 14px;"><strong>Universal Connectivity</strong> — Ethernet, Serial, and USB ports connect both legacy instruments and newer models.</p>
+            <p style="margin:0 0 14px;"><strong>Continuous Data Protection</strong> — Battery backup and local storage ensure uninterrupted data capture during power outages and network failures.</p>
+            <p style="margin:0 0 14px;"><strong>Private Network Architecture</strong> — Creates a private network for instruments, eliminating threat surfaces on open networks, which also simplifies instrument connectivity when network configurations are altered.</p>
+            <p style="margin:0 0 14px;"><strong>Malware Hardened</strong> — Read-only file system prevents malicious software installation.</p>
+            <p style="margin:0;"><strong>Simple Onboarding</strong> — Pre-built connectors let you bring instruments online in a 5-step process. No IT burden.</p>
+          </div>
+          <div style="flex-shrink:0;width:38%;">
+            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1757081556/edgepuck-hero_t4aaxo.jpg" alt="Edge Puck" style="width:100%;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.15);">
+          </div>
+        </div>
       `
     },
     {
       title: 'Supported Lab and Analytical Instruments',
       subtitle: 'Broad Compatibility Across the Lab',
       body: `
-        <h3>Instrument Coverage</h3>
-        <p>Phizzle supports a wide range of scientific instruments across analytical, bioanalytical, and manufacturing environments — from chromatography and spectroscopy to balances and environmental monitors.</p>
-        <h3>Categories</h3>
-        <ul>
-          <li>HPLC, UPLC & Gas Chromatography</li>
-          <li>Mass Spectrometry & Spectrophotometry</li>
-          <li>Dissolution & Particle Analysis</li>
-          <li>Balances, pH Meters & Environmental Monitors</li>
-        </ul>
-        <p>New instruments are added continuously. Ask us about your specific setup at the booth.</p>
+        <div style="display:flex;gap:40px;align-items:flex-start;">
+          <div style="flex:1;font-size:23px;line-height:1.4;">
+            <h3 style="margin-top:0;margin-bottom:12px;">Instrument Types</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 24px;">
+              <p style="margin:0;padding:8px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Air Particle Counters</p>
+              <p style="margin:0;padding:8px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Melting Point Systems</p>
+              <p style="margin:0;padding:8px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Balances</p>
+              <p style="margin:0;padding:8px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Microbial Air Samplers</p>
+              <p style="margin:0;padding:8px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Cell Counters</p>
+              <p style="margin:0;padding:8px 0;border-bottom:1px solid rgba(67,108,121,0.12);">pH Meters</p>
+              <p style="margin:0;padding:8px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Chemistry Analyzers</p>
+              <p style="margin:0;padding:8px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Refractometers</p>
+              <p style="margin:0;padding:8px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Hot-Plate Stirrers</p>
+              <p style="margin:0;padding:8px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Spectrophotometers</p>
+              <p style="margin:0;padding:8px 0;">Zeta Potential Analyzers</p>
+            </div>
+          </div>
+          <div style="flex-shrink:0;width:38%;">
+            <h3 style="margin-top:0;margin-bottom:12px;">Manufacturers</h3>
+            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1776456424/Instrument_Connector_Logos_ohxwae.jpg" alt="Supported Manufacturers" style="width:100%;border-radius:12px;">
+          </div>
+        </div>
       `
     },
     {
