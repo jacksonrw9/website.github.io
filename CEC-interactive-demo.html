@@ -37,7 +37,7 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr;
-    padding: 40px 50px 40px 50px;
+    padding: 40px 30px 40px 30px;
     gap: 0;
   }
 
@@ -73,7 +73,7 @@
     min-height: 0;
   }
   .right-column h2 {
-    font-size: 42px;
+    font-size: 52px;
     font-weight: 900;
     color: var(--text-dark);
     text-align: center;
@@ -167,7 +167,7 @@
   }
   .video-label-below {
     font-family: 'Lato', sans-serif;
-    font-size: 42px;
+    font-size: 52px;
     font-weight: 900;
     color: var(--text-dark);
     padding: 16px 0 0 0;
@@ -213,7 +213,7 @@
   }
   .widget-title {
     font-weight: 700;
-    font-size: 23px;
+    font-size: 30px;
     color: var(--text-white);
     letter-spacing: 0.3px;
   }
@@ -305,42 +305,46 @@
   .modal-nav.next { right: 16px; }
 
   .modal-indicator {
-    position: absolute;
-    bottom: 28px;
+    position: fixed;
+    bottom: 24px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     gap: 10px;
+    z-index: 1001;
   }
   .modal-dot {
     width: 10px; height: 10px;
     border-radius: 50%;
-    background: rgba(67,108,121,0.25);
+    background: rgba(255,255,255,0.4);
     transition: all 0.3s ease;
   }
   .modal-dot.active {
-    background: var(--bg-card);
-    box-shadow: 0 0 8px rgba(67,108,121,0.3);
+    background: white;
+    box-shadow: 0 0 8px rgba(255,255,255,0.5);
   }
 
   .modal-title {
     font-weight: 900;
     font-size: 47px;
     color: var(--text-dark);
-    margin-bottom: 16px;
+    margin-bottom: 0;
   }
   .modal-subtitle {
-    font-size: 18px;
-    color: var(--text-body);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 32px;
+    font-size: 32px;
+    color: #446c7a;
+    font-weight: 700;
+    letter-spacing: 0;
+    margin-bottom: 0;
   }
   .modal-body {
     font-size: 23px;
     line-height: 1.8;
     color: var(--text-body);
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .modal-body h3 {
     font-size: 26px;
@@ -350,19 +354,12 @@
   }
   .modal-body h3:first-child { margin-top: 0; }
   .modal-body ul {
-    list-style: none;
-    padding: 0; margin: 10px 0;
+    list-style: disc;
+    padding: 0 0 0 24px; margin: 10px 0;
   }
   .modal-body ul li {
-    padding: 6px 0 6px 24px;
-    position: relative;
+    padding: 6px 0;
     font-size: 21px;
-  }
-  .modal-body ul li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--bg-card);
   }
 
   /* === ANIMATIONS === */
@@ -430,23 +427,31 @@
     </div>
 
     <div class="widget-block anim-in anim-d4">
-      <div class="widget-card" onclick="openModal(1)">
+      <div class="widget-card" onclick="openModal(2)">
         <div class="widget-title">Edge Puck™<br>Cleanroom Gateway</div>
       </div>
     </div>
 
     <div class="widget-block anim-in anim-d5">
-      <div class="widget-card" onclick="openModal(2)">
+      <div class="widget-card" onclick="openModal(3)">
         <div class="widget-title">Supported Lab and Analytical Instruments</div>
       </div>
     </div>
 
     <div class="widget-block anim-in anim-d6">
-      <div class="widget-card" onclick="openModal(3)">
-        <div class="widget-title">Connecting Devices to LabWare</div>
+      <div class="widget-card" onclick="openModal(4)">
+        <div class="widget-title">Connecting Instruments to LabWare</div>
       </div>
     </div>
     </div>
+  </div>
+</div>
+
+<!-- Sub Modal for Data Connector / Connector Plus -->
+<div id="subModalOverlay" onclick="closeSubModal()" style="position:fixed;inset:0;z-index:2000;background:rgba(5,34,57,0.95);backdrop-filter:blur(24px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.35s ease;">
+  <div onclick="event.stopPropagation()" style="width:88vw;max-height:85vh;border-radius:28px;background:#f0f5f7;padding:48px 64px;position:relative;overflow-y:auto;transform:scale(0.92);transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);" id="subModalPanel">
+    <button onclick="closeSubModal()" style="position:absolute;top:24px;right:24px;width:48px;height:48px;border-radius:50%;background:#436C79;border:none;color:white;font-size:24px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;">✕</button>
+    <div id="subModalContent"></div>
   </div>
 </div>
 
@@ -457,15 +462,15 @@
   <div class="modal-panel" onclick="event.stopPropagation()">
     <button class="modal-close" onclick="closeModal()">✕</button>
     <div id="modalContent"></div>
-    <div class="modal-indicator" id="modalDots"></div>
   </div>
+  <div class="modal-indicator" id="modalDots"></div>
 </div>
 
 <script>
   const slides = [
     {
-      title: 'Connected Plant™: Support Data Integrity and Compliance',
-      subtitle: 'See the Difference',
+      title: 'Connected Plant™',
+      subtitle: 'Support Data Integrity and Compliance with Paperless Workflows',
       body: `
         <table style="width:100%;border-collapse:collapse;margin-bottom:28px;">
           <thead>
@@ -497,20 +502,47 @@
             </tr>
           </tbody>
         </table>
+        <p style="text-align:center;font-size:20px;font-weight:700;color:#30444D;margin-top:24px;">Tap the arrow on the right side of screen to learn about our different integration levels →</p>
       `
     },
     {
-      title: 'Edge Puck™: Cleanroom Gateway',
-      subtitle: 'A Gateway Designed for GMP Requirements',
+      title: 'Connected Plant™',
+      subtitle: 'Choose the Integration Level That Fits Your Needs',
       body: `
-        <div style="display:flex;gap:32px;align-items:center;">
+        <div>
+          <p style="font-size:21px;line-height:1.5;margin:8px 0 16px;text-align:center;">We offer two modules that fit with your existing infrastructure and match where you are in your digitization journey.</p>
+          <div style="display:flex;gap:40px;justify-content:center;flex:1;">
+            <div style="flex:1;max-width:38%;cursor:pointer;" onclick="openSubModal('dataConnector')">
+              <div style="text-align:center;background:#e8edef;border-radius:16px;padding:20px;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                  <h3 style="font-size:30px;font-weight:700;color:#30444D;margin:0 0 12px;">Data Connector</h3>
+                  <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1775662908/videos-feature_yjz496_bes52p.png" alt="Data Connector" style="width:80%;border-radius:12px;margin:0 auto 12px;display:block;">
+                  <p style="font-size:18px;line-height:1.4;color:#4a6a75;margin:0 auto 16px;max-width:380px;">Securely capture data from multi-vendor and type instruments without one-off connectors or putting strain on IT resources</p>
+                  <div style="display:inline-block;padding:10px 24px;background:#DA5E26;border-radius:8px;font-size:15px;font-weight:700;color:white;cursor:pointer;text-transform:uppercase;letter-spacing:1px;">Tap to Learn More</div>
+              </div>
+            </div>
+            <div style="flex:1;max-width:38%;cursor:pointer;" onclick="openSubModal('connectorPlus')">
+              <div style="text-align:center;background:#e8edef;border-radius:16px;padding:20px;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                  <h3 style="font-size:30px;font-weight:700;color:#30444D;margin:0 0 12px;">Connector Plus</h3>
+                  <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1775071485/copy_of_istock-2167549227_1_offhww_8e5d3a.jpg" alt="Connector Plus" style="width:80%;border-radius:12px;margin:0 auto 12px;display:block;">
+                  <p style="font-size:18px;line-height:1.4;color:#4a6a75;margin:0 auto 16px;max-width:380px;">Unlock next level automation, control and oversight at scale with existing legacy and modern multi-vendor instruments</p>
+                  <div style="display:inline-block;padding:10px 24px;background:#DA5E26;border-radius:8px;font-size:15px;font-weight:700;color:white;cursor:pointer;text-transform:uppercase;letter-spacing:1px;">Tap to Learn More</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `
+    },
+    {
+      title: 'Edge Puck™',
+      subtitle: 'Cleanroom Gateway Built for GxP Requirements',
+      body: `
+        <div style="display:flex;gap:60px;align-items:center;">
           <div style="flex:1;font-size:23px;line-height:1.7;">
             <p style="margin:0 0 14px;"><strong>Purpose-Built for Cleanrooms</strong> — Cleanable, portable, and fully compliant with cleanroom material standards.</p>
             <p style="margin:0 0 14px;"><strong>Universal Connectivity</strong> — Ethernet, Serial, and USB ports connect both legacy instruments and newer models.</p>
             <p style="margin:0 0 14px;"><strong>Continuous Data Protection</strong> — Battery backup and local storage ensure uninterrupted data capture during power outages and network failures.</p>
             <p style="margin:0 0 14px;"><strong>Private Network Architecture</strong> — Creates a private network for instruments, eliminating threat surfaces on open networks, which also simplifies instrument connectivity when network configurations are altered.</p>
-            <p style="margin:0 0 14px;"><strong>Malware Hardened</strong> — Read-only file system prevents malicious software installation.</p>
-            <p style="margin:0;"><strong>Simple Onboarding</strong> — Pre-built connectors let you bring instruments online in a 5-step process. No IT burden.</p>
+            <p style="margin:0;"><strong>Malware Hardened</strong> — Read-only file system prevents malicious software installation.</p>
           </div>
           <div style="flex-shrink:0;width:38%;">
             <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1757081556/edgepuck-hero_t4aaxo.jpg" alt="Edge Puck" style="width:100%;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.15);">
@@ -547,19 +579,24 @@
       `
     },
     {
-      title: 'Connecting Devices to LabWare',
-      subtitle: 'Learn More About Phizzle',
+      title: 'Connecting Instruments to LabWare',
+      subtitle: 'Feed Lab Data Directly to Your Dashboard',
       body: `
-        <h3>About Phizzle</h3>
-        <p>Phizzle sits at the intersection of science and IT, digitizing scientific workflows in regulated manufacturing environments to support data integrity, efficiency, and compliance with Connected Plant™.</p>
-        <h3>Get in Touch</h3>
-        <ul>
-          <li>Website: phizzle.com</li>
-          <li>Email: info@phizzle.com</li>
-          <li>Visit us at the booth for a live demo</li>
-        </ul>
-        <h3>Resources</h3>
-        <p>White papers, case studies, and technical documentation available — ask a team member or scan the QR code at the booth.</p>
+        <div style="display:flex;margin:auto 0;">
+          <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding-right:40px;border-right:1px solid rgba(67,108,121,0.25);">
+            <p style="margin:0 0 28px;font-size:38px;line-height:1.6;">The LabWare + Phizzle Partnership will allow labs, cleanrooms and production facilities to:</p>
+            <ul style="list-style:none;padding:0;margin:0;font-size:36px;line-height:1.8;">
+              <li style="padding:8px 0 8px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Integrate instrument results and audit data directly into LabWare</li>
+              <li style="padding:8px 0 8px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Enable realtime dataflow with comprehensive compliance support and data integrity protection</li>
+              <li style="padding:8px 0 8px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Unlock scaleable automation across multi-vendor and multi-type instrumentation</li>
+            </ul>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-left:40px;">
+            <p style="font-size:38px;font-weight:700;color:#30444D;margin:0 0 32px;line-height:1.4;text-align:center;">Watch the Demo of Phizzle Integrating Instruments Natively in LabWare's Interface</p>
+            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1776659752/image_98_y97jjx.png" alt="QR Code" style="width:260px;height:260px;margin:0 auto 16px;display:block;">
+            <p style="font-size:34px;color:#4a6a75;margin:0;text-align:center;">Scan the QR Code</p>
+          </div>
+        </div>
       `
     }
   ];
@@ -568,6 +605,7 @@
 
   function renderModal() {
     const data = slides[currentSlide];
+    document.getElementById('modalContent').style.cssText = 'display:flex;flex-direction:column;flex:1;min-height:0;';
     document.getElementById('modalContent').innerHTML = `
       <div class="modal-title">${data.title}</div>
       <div class="modal-subtitle">${data.subtitle}</div>
@@ -633,6 +671,81 @@
     container.classList.remove('paused');
     this.currentTime = 0;
   });
+
+  // Scale dashboard to fit any screen size
+  // Designed at 1920x1080 - scales proportionally
+  function scaleDashboard() {
+    const baseWidth = 1920;
+    const baseHeight = 1080;
+    const scaleX = window.innerWidth / baseWidth;
+    const scaleY = window.innerHeight / baseHeight;
+    const scale = Math.min(scaleX, scaleY);
+    const dash = document.querySelector('.dashboard');
+    dash.style.width = baseWidth + 'px';
+    dash.style.height = baseHeight + 'px';
+    dash.style.transform = `scale(${scale})`;
+    dash.style.transformOrigin = 'top left';
+    dash.style.position = 'absolute';
+    dash.style.left = ((window.innerWidth - baseWidth * scale) / 2) + 'px';
+    dash.style.top = ((window.innerHeight - baseHeight * scale) / 2) + 'px';
+  }
+  scaleDashboard();
+  window.addEventListener('resize', scaleDashboard);
+
+  const subModalData = {
+    dataConnector: {
+      title: 'Data Connector',
+      subtitle: 'Capabilities',
+      items: [
+        { bold: 'Streamline Paperless Data Capture:', text: 'Automatically capture instrument data files with full metadata tracking, eliminating manual transcription errors and USB transfer chaos.' },
+        { bold: 'Validate Once, Deploy Everywhere:', text: 'Present as a standard storage device to ANY connected instrument without instrument-by-instrument integration projects.' },
+        { bold: 'Maintain Complete Chain of Custody:', text: 'Track every file from instrument to cloud with comprehensive audit trails (file name, version, checksum, timestamp, device ID).' },
+        { bold: 'Buffer Data During Network Outages:', text: 'Store data locally during interruptions, then auto-sync when connectivity returns for zero data loss.' },
+        { bold: 'Search and Retrieve Files Instantly:', text: 'Access files across all instruments and sites from one centralized interface.' },
+        { bold: 'Enable Bi-Directional File Access:', text: 'Allow workstations to view original data without creating uncontrolled copies that break compliance.' },
+        { bold: 'Support Multi-Cloud Storage:', text: 'Direct each instrument\'s data to the correct destination automatically with rules-based routing for Azure, AWS S3, and more.' }
+      ]
+    },
+    connectorPlus: {
+      title: 'Connector Plus',
+      subtitle: 'Capabilities',
+      items: [
+        { bold: 'Automate Data Flow:', text: 'Enables hands-free data collection, format standardization, and direct synchronization with LIMS, ELNs, MES, or cloud servers.' },
+        { bold: 'Second-by-Second Heartbeat Monitoring:', text: 'Capture all audit events from instruments down to the second they happen, even if the network is down.' },
+        { bold: 'Lock Out Screens During Samples:', text: 'Eliminate accidental sample tampering.' },
+        { bold: 'Remotely Initiate Samples:', text: 'Reduce cleanroom entries and screen-based sampling errors.' },
+        { bold: 'Monitor Real-Time Instrument Data:', text: 'Get the whole picture of continuous samples, not just the average and alerts.' },
+        { bold: 'Enable Review-By-Exception Workflows:', text: 'Flag out-of-specification samples and notify operators immediately.' }
+      ]
+    }
+  };
+
+  function openSubModal(key) {
+    const data = subModalData[key];
+    const content = document.getElementById('subModalContent');
+    content.innerHTML = `
+      <div style="margin-bottom:0;">
+        <h2 style="font-size:47px;font-weight:900;color:#30444D;margin:0 0 4px;">${data.title}</h2>
+        <p style="font-size:32px;font-weight:700;color:#446c7a;margin:0 0 24px;">${data.subtitle}</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        ${data.items.map(item => `
+          <p style="font-size:22px;line-height:1.6;color:#4a6a75;margin:0;"><strong style="color:#30444D;">${item.bold}</strong> ${item.text}</p>
+        `).join('')}
+      </div>
+    `;
+    const overlay = document.getElementById('subModalOverlay');
+    overlay.style.opacity = '1';
+    overlay.style.pointerEvents = 'all';
+    document.getElementById('subModalPanel').style.transform = 'scale(1)';
+  }
+
+  function closeSubModal() {
+    const overlay = document.getElementById('subModalOverlay');
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none';
+    document.getElementById('subModalPanel').style.transform = 'scale(0.92)';
+  }
 </script>
 </body>
 </html>
