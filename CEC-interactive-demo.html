@@ -165,6 +165,30 @@
   .video-container.playing:hover .pause-btn {
     opacity: 1;
   }
+  .rewind-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(calc(-50% - 110px), -50%);
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    z-index: 3;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+    transition: transform 0.25s ease, opacity 0.3s ease;
+    display: none;
+    opacity: 0;
+  }
+  .rewind-btn:hover {
+    transform: translate(calc(-50% - 110px), -50%) scale(1.1);
+  }
+  .video-container.playing .rewind-btn {
+    display: none;
+  }
+  .video-container.playing.paused .rewind-btn {
+    display: block;
+    opacity: 1;
+  }
   .video-label-below {
     font-family: 'Lato', sans-serif;
     font-size: 52px;
@@ -393,7 +417,7 @@
       <div class="video-container" id="videoContainer" onclick="toggleVideo()">
         <img class="video-thumbnail" src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1757081556/edgepuck-hero_t4aaxo.jpg" alt="Video thumbnail">
         <video id="localVideo" class="local-video" preload="metadata">
-          <source src="https://res.cloudinary.com/dqiggfeuq/video/upload/q_auto/f_auto/v1776362179/The_Edge_Puck-_Clip_11_-_4K_g913zb.mp4" type="video/mp4">
+          <source src="https://res.cloudinary.com/dqiggfeuq/video/upload/v1777493088/CEC_Video-Demo-April-2026_rmbe7a.mp4" type="video/mp4">
         </video>
         <div class="play-btn" id="playBtn">
           <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -410,8 +434,17 @@
             <rect x="54" y="28" width="12" height="44" rx="3" fill="white" />
           </svg>
         </div>
+        <div class="rewind-btn" onclick="event.stopPropagation(); rewindVideo()">
+          <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="28" fill="white" />
+            <circle cx="30" cy="30" r="24" fill="#436C79" />
+            <polygon points="28,20 16,30 28,40" fill="white" />
+            <polygon points="40,20 28,30 40,40" fill="white" />
+            <text x="30" y="50" text-anchor="middle" fill="white" font-size="11" font-weight="900" font-family="Lato">10s</text>
+          </svg>
+        </div>
       </div>
-      <div class="video-label-below">Tap to Watch the 60-Second Demo</div>
+      <div class="video-label-below">Tap to Watch the 70-Second Demo</div>
     </div>
   </div>
 
@@ -514,7 +547,8 @@
           <div style="display:flex;gap:40px;justify-content:center;flex:1;">
             <div style="flex:1;max-width:38%;cursor:pointer;" onclick="openSubModal('dataConnector')">
               <div style="text-align:center;background:#e8edef;border-radius:16px;padding:20px;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-                  <h3 style="font-size:30px;font-weight:700;color:#30444D;margin:0 0 12px;">Data Connector</h3>
+                  <h3 style="font-size:30px;font-weight:700;color:#30444D;margin:0;">Data Connector</h3>
+                  <p style="font-size:20px;color:#446c7a;font-weight:700;margin:-4px 0 12px;">Compliant File Capture</p>
                   <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1775662908/videos-feature_yjz496_bes52p.png" alt="Data Connector" style="width:80%;border-radius:12px;margin:0 auto 12px;display:block;">
                   <p style="font-size:18px;line-height:1.4;color:#4a6a75;margin:0 auto 16px;max-width:380px;">Securely capture data from multi-vendor and type instruments without one-off connectors or putting strain on IT resources</p>
                   <div style="display:inline-block;padding:10px 24px;background:#DA5E26;border-radius:8px;font-size:15px;font-weight:700;color:white;cursor:pointer;text-transform:uppercase;letter-spacing:1px;">Tap to Learn More</div>
@@ -522,7 +556,8 @@
             </div>
             <div style="flex:1;max-width:38%;cursor:pointer;" onclick="openSubModal('connectorPlus')">
               <div style="text-align:center;background:#e8edef;border-radius:16px;padding:20px;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-                  <h3 style="font-size:30px;font-weight:700;color:#30444D;margin:0 0 12px;">Connector Plus</h3>
+                  <h3 style="font-size:30px;font-weight:700;color:#30444D;margin:0;">Connector Plus</h3>
+                  <p style="font-size:20px;color:#446c7a;font-weight:700;margin:-4px 0 12px;">End-to-End Instrument Automation</p>
                   <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1775071485/copy_of_istock-2167549227_1_offhww_8e5d3a.jpg" alt="Connector Plus" style="width:80%;border-radius:12px;margin:0 auto 12px;display:block;">
                   <p style="font-size:18px;line-height:1.4;color:#4a6a75;margin:0 auto 16px;max-width:380px;">Unlock next level automation, control and oversight at scale with existing legacy and modern multi-vendor instruments</p>
                   <div style="display:inline-block;padding:10px 24px;background:#DA5E26;border-radius:8px;font-size:15px;font-weight:700;color:white;cursor:pointer;text-transform:uppercase;letter-spacing:1px;">Tap to Learn More</div>
@@ -537,12 +572,29 @@
       subtitle: 'Cleanroom Gateway Built for GxP Requirements',
       body: `
         <div style="display:flex;gap:60px;align-items:center;">
-          <div style="flex:1;font-size:23px;line-height:1.7;">
-            <p style="margin:0 0 14px;"><strong>Purpose-Built for Cleanrooms</strong> — Cleanable, portable, and fully compliant with cleanroom material standards.</p>
-            <p style="margin:0 0 14px;"><strong>Universal Connectivity</strong> — Ethernet, Serial, and USB ports connect both legacy instruments and newer models.</p>
-            <p style="margin:0 0 14px;"><strong>Continuous Data Protection</strong> — Battery backup and local storage ensure uninterrupted data capture during power outages and network failures.</p>
-            <p style="margin:0 0 14px;"><strong>Private Network Architecture</strong> — Creates a private network for instruments, eliminating threat surfaces on open networks, which also simplifies instrument connectivity when network configurations are altered.</p>
-            <p style="margin:0;"><strong>Malware Hardened</strong> — Read-only file system prevents malicious software installation.</p>
+          <div style="flex:1;">
+            <table style="width:100%;border-collapse:collapse;font-size:21px;">
+              <tr style="background:rgba(67,108,121,0.06);">
+                <td style="padding:12px 16px;font-weight:700;color:#30444D;vertical-align:top;white-space:nowrap;border-bottom:1px solid rgba(67,108,121,0.1);">Purpose-Built for Cleanrooms</td>
+                <td style="padding:12px 16px;line-height:1.5;color:#4a6a75;border-bottom:1px solid rgba(67,108,121,0.1);">Cleanable, portable, and fully compliant with cleanroom material standards.</td>
+              </tr>
+              <tr>
+                <td style="padding:12px 16px;font-weight:700;color:#30444D;vertical-align:top;white-space:nowrap;border-bottom:1px solid rgba(67,108,121,0.1);">Universal Connectivity</td>
+                <td style="padding:12px 16px;line-height:1.5;color:#4a6a75;border-bottom:1px solid rgba(67,108,121,0.1);">Ethernet, Serial, and USB ports connect both legacy instruments and newer models.</td>
+              </tr>
+              <tr style="background:rgba(67,108,121,0.06);">
+                <td style="padding:12px 16px;font-weight:700;color:#30444D;vertical-align:top;white-space:nowrap;border-bottom:1px solid rgba(67,108,121,0.1);">Continuous Data Protection</td>
+                <td style="padding:12px 16px;line-height:1.5;color:#4a6a75;border-bottom:1px solid rgba(67,108,121,0.1);">Battery backup and local storage ensure uninterrupted data capture during power outages and network failures.</td>
+              </tr>
+              <tr>
+                <td style="padding:12px 16px;font-weight:700;color:#30444D;vertical-align:top;white-space:nowrap;border-bottom:1px solid rgba(67,108,121,0.1);">Private Network Architecture</td>
+                <td style="padding:12px 16px;line-height:1.5;color:#4a6a75;border-bottom:1px solid rgba(67,108,121,0.1);">Creates a private network for instruments, eliminating threat surfaces on open networks, which also simplifies instrument connectivity when network configurations are altered.</td>
+              </tr>
+              <tr style="background:rgba(67,108,121,0.06);">
+                <td style="padding:12px 16px;font-weight:700;color:#30444D;vertical-align:top;white-space:nowrap;">Malware Hardened</td>
+                <td style="padding:12px 16px;line-height:1.5;color:#4a6a75;">Read-only file system prevents malicious software installation.</td>
+              </tr>
+            </table>
           </div>
           <div style="flex-shrink:0;width:38%;">
             <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1757081556/edgepuck-hero_t4aaxo.jpg" alt="Edge Puck" style="width:100%;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.15);">
@@ -589,6 +641,7 @@
               <li style="padding:8px 0 8px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Integrate instrument results and audit data directly into LabWare</li>
               <li style="padding:8px 0 8px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Enable realtime dataflow with comprehensive compliance support and data integrity protection</li>
               <li style="padding:8px 0 8px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Unlock scaleable automation across multi-vendor and multi-type instrumentation</li>
+              <li style="padding:8px 0 8px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Initiate samples remotely on your laptop within LabWare</li>
             </ul>
           </div>
           <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-left:40px;">
@@ -665,6 +718,11 @@
     }
   }
 
+  function rewindVideo() {
+    const video = document.getElementById('localVideo');
+    video.currentTime = Math.max(0, video.currentTime - 10);
+  }
+
   document.getElementById('localVideo').addEventListener('ended', function() {
     const container = document.getElementById('videoContainer');
     container.classList.remove('playing');
@@ -698,7 +756,6 @@
       subtitle: 'Capabilities',
       items: [
         { bold: 'Streamline Paperless Data Capture:', text: 'Automatically capture instrument data files with full metadata tracking, eliminating manual transcription errors and USB transfer chaos.' },
-        { bold: 'Validate Once, Deploy Everywhere:', text: 'Present as a standard storage device to ANY connected instrument without instrument-by-instrument integration projects.' },
         { bold: 'Maintain Complete Chain of Custody:', text: 'Track every file from instrument to cloud with comprehensive audit trails (file name, version, checksum, timestamp, device ID).' },
         { bold: 'Buffer Data During Network Outages:', text: 'Store data locally during interruptions, then auto-sync when connectivity returns for zero data loss.' },
         { bold: 'Search and Retrieve Files Instantly:', text: 'Access files across all instruments and sites from one centralized interface.' },
@@ -728,10 +785,15 @@
         <h2 style="font-size:47px;font-weight:900;color:#30444D;margin:0 0 4px;">${data.title}</h2>
         <p style="font-size:32px;font-weight:700;color:#446c7a;margin:0 0 24px;">${data.subtitle}</p>
       </div>
-      <div style="display:flex;flex-direction:column;gap:18px;">
-        ${data.items.map(item => `
-          <p style="font-size:22px;line-height:1.6;color:#4a6a75;margin:0;"><strong style="color:#30444D;">${item.bold}</strong> ${item.text}</p>
-        `).join('')}
+      <div style="display:flex;flex-direction:column;gap:0;">
+        <table style="width:100%;border-collapse:collapse;">
+          ${data.items.map((item, i) => `
+            <tr style="background:${i % 2 === 0 ? 'rgba(67,108,121,0.06)' : 'transparent'};">
+              <td style="padding:14px 20px;font-size:22px;font-weight:700;color:#30444D;vertical-align:top;white-space:nowrap;border-bottom:1px solid rgba(67,108,121,0.1);">${item.bold}</td>
+              <td style="padding:14px 20px;font-size:22px;line-height:1.5;color:#4a6a75;border-bottom:1px solid rgba(67,108,121,0.1);">${item.text}</td>
+            </tr>
+          `).join('')}
+        </table>
       </div>
     `;
     const overlay = document.getElementById('subModalOverlay');
