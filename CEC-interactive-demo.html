@@ -157,13 +157,10 @@
     transform: translate(-50%, -50%) scale(1.08);
   }
   .video-container.playing .pause-btn {
-    display: block;
+    display: none;
   }
   .video-container.playing.paused .pause-btn {
     display: none;
-  }
-  .video-container.playing:hover .pause-btn {
-    opacity: 1;
   }
   .rewind-btn {
     position: absolute;
@@ -188,6 +185,25 @@
   .video-container.playing.paused .rewind-btn {
     display: block;
     opacity: 1;
+  }
+  .expand-btn {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    z-index: 3;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+    display: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .expand-btn:hover {
+    opacity: 1;
+  }
+  .video-container.playing .expand-btn {
+    display: block;
   }
   .video-label-below {
     font-family: 'Lato', sans-serif;
@@ -269,13 +285,13 @@
   }
 
   .modal-panel {
-    width: 92vw;
-    height: 88vh;
+    width: 88vw;
+    height: 82vh;
     border-radius: 28px;
     background: #f0f5f7;
     border: 1px solid rgba(67,108,121,0.2);
     box-shadow: 0 24px 80px rgba(0,0,0,0.4);
-    padding: 48px 64px;
+    padding: 36px 48px;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -350,12 +366,12 @@
 
   .modal-title {
     font-weight: 900;
-    font-size: 47px;
+    font-size: 38px;
     color: var(--text-dark);
     margin-bottom: 0;
   }
   .modal-subtitle {
-    font-size: 32px;
+    font-size: 26px;
     color: #446c7a;
     font-weight: 700;
     letter-spacing: 0;
@@ -443,6 +459,15 @@
             <text x="30" y="50" text-anchor="middle" fill="white" font-size="11" font-weight="900" font-family="Lato">10s</text>
           </svg>
         </div>
+        <div class="expand-btn" onclick="event.stopPropagation(); expandVideo()">
+          <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="40" height="40" rx="6" fill="rgba(0,0,0,0.4)" />
+            <path d="M12,6 L6,6 L6,12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M32,6 L38,6 L38,12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12,38 L6,38 L6,32" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M32,38 L38,38 L38,32" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
       </div>
       <div class="video-label-below">Tap to Watch the 70-Second Demo</div>
     </div>
@@ -480,6 +505,16 @@
   </div>
 </div>
 
+<!-- Video Expand Modal -->
+<div id="videoModalOverlay" onclick="closeVideoModal()" style="position:fixed;inset:0;z-index:2000;background:rgba(5,34,57,0.95);backdrop-filter:blur(24px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.35s ease;">
+  <div onclick="event.stopPropagation()" style="width:92vw;height:88vh;border-radius:28px;background:#111;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <button onclick="closeVideoModal()" style="position:absolute;top:24px;right:24px;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.15);border:none;color:white;font-size:24px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;">✕</button>
+    <video id="expandedVideo" style="width:100%;height:100%;object-fit:contain;">
+      <source src="https://res.cloudinary.com/dqiggfeuq/video/upload/v1777493088/CEC_Video-Demo-April-2026_rmbe7a.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
+
 <!-- Sub Modal for Data Connector / Connector Plus -->
 <div id="subModalOverlay" onclick="closeSubModal()" style="position:fixed;inset:0;z-index:2000;background:rgba(5,34,57,0.95);backdrop-filter:blur(24px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.35s ease;">
   <div onclick="event.stopPropagation()" style="width:88vw;max-height:85vh;border-radius:28px;background:#f0f5f7;padding:48px 64px;position:relative;overflow-y:auto;transform:scale(0.92);transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);" id="subModalPanel">
@@ -505,33 +540,33 @@
       title: 'Connected Plant™',
       subtitle: 'Support Data Integrity and Compliance with Paperless Workflows',
       body: `
-        <table style="width:100%;border-collapse:collapse;margin-bottom:28px;">
+        <table style="width:100%;border-collapse:collapse;margin-bottom:16px;font-size:16px;">
           <thead>
             <tr>
-              <th style="text-align:left;padding:12px 16px;background:#c0392b;color:white;border-radius:8px 0 0 0;font-size:18px;width:50%;">Manual Workflows</th>
-              <th style="text-align:left;padding:12px 16px;background:#27ae60;color:white;font-size:18px;width:50%;border-radius:0 8px 0 0;">The Phizzle Way</th>
+              <th style="text-align:left;padding:8px 12px;background:#c0392b;color:white;border-radius:8px 0 0 0;font-size:15px;width:50%;">Manual Workflows</th>
+              <th style="text-align:left;padding:8px 12px;background:#27ae60;color:white;font-size:15px;width:50%;border-radius:0 8px 0 0;">The Phizzle Way</th>
             </tr>
           </thead>
           <tbody>
             <tr style="background:rgba(67,108,121,0.08);">
-              <td style="padding:12px 16px;border-bottom:1px solid rgba(67,108,121,0.15);">Paper records, USB flash drives, and manual transcription</td>
-              <td style="padding:12px 16px;border-bottom:1px solid rgba(67,108,121,0.15);">→ Automated capture directly from instruments</td>
+              <td style="padding:8px 12px;border-bottom:1px solid rgba(67,108,121,0.15);">Paper records, USB flash drives, and manual transcription</td>
+              <td style="padding:8px 12px;border-bottom:1px solid rgba(67,108,121,0.15);">→ Automated capture directly from instruments</td>
             </tr>
             <tr>
-              <td style="padding:12px 16px;border-bottom:1px solid rgba(67,108,121,0.15);">Disconnected instruments and systems</td>
-              <td style="padding:12px 16px;border-bottom:1px solid rgba(67,108,121,0.15);">→ Bi-directional integration with LIMS, QMS, and MES</td>
+              <td style="padding:8px 12px;border-bottom:1px solid rgba(67,108,121,0.15);">Disconnected instruments and systems</td>
+              <td style="padding:8px 12px;border-bottom:1px solid rgba(67,108,121,0.15);">→ Bi-directional integration with LIMS, QMS, and MES</td>
             </tr>
             <tr style="background:rgba(67,108,121,0.08);">
-              <td style="padding:12px 16px;border-bottom:1px solid rgba(67,108,121,0.15);">Fragmented audit trails</td>
-              <td style="padding:12px 16px;border-bottom:1px solid rgba(67,108,121,0.15);">→ Hands-free event tracking stored in a unified, searchable audit log</td>
+              <td style="padding:8px 12px;border-bottom:1px solid rgba(67,108,121,0.15);">Fragmented audit trails</td>
+              <td style="padding:8px 12px;border-bottom:1px solid rgba(67,108,121,0.15);">→ Hands-free event tracking stored in a unified, searchable audit log</td>
             </tr>
             <tr>
-              <td style="padding:12px 16px;border-bottom:1px solid rgba(67,108,121,0.15);">Error-prone data handoffs</td>
-              <td style="padding:12px 16px;border-bottom:1px solid rgba(67,108,121,0.15);">→ Supports chain of custody from instrument to final destination + 21 CFR Part 11-compliant audit logs and e-signatures</td>
+              <td style="padding:8px 12px;border-bottom:1px solid rgba(67,108,121,0.15);">Error-prone data handoffs</td>
+              <td style="padding:8px 12px;border-bottom:1px solid rgba(67,108,121,0.15);">→ Supports chain of custody from instrument to final destination + 21 CFR Part 11-compliant audit logs and e-signatures</td>
             </tr>
             <tr style="background:rgba(67,108,121,0.08);">
-              <td style="padding:12px 16px;">Delayed QA review and batch release</td>
-              <td style="padding:12px 16px;">→ Real-time data flow and exception flagging that notifies operators immediately</td>
+              <td style="padding:8px 12px;">Delayed QA review and batch release</td>
+              <td style="padding:8px 12px;">→ Real-time data flow and exception flagging that notifies operators immediately</td>
             </tr>
           </tbody>
         </table>
@@ -543,23 +578,23 @@
       subtitle: 'Choose the Integration Level That Fits Your Needs',
       body: `
         <div>
-          <p style="font-size:21px;line-height:1.5;margin:8px 0 16px;text-align:center;">We offer two modules that fit with your existing infrastructure and match where you are in your digitization journey.</p>
+          <p style="font-size:18px;line-height:1.5;margin:8px 0 16px;text-align:center;">We offer two modules that fit with your existing infrastructure and match where you are in your digitization journey.</p>
           <div style="display:flex;gap:40px;justify-content:center;flex:1;">
             <div style="flex:1;max-width:38%;cursor:pointer;" onclick="openSubModal('dataConnector')">
               <div style="text-align:center;background:#e8edef;border-radius:16px;padding:20px;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-                  <h3 style="font-size:30px;font-weight:700;color:#30444D;margin:0;">Data Connector</h3>
-                  <p style="font-size:20px;color:#446c7a;font-weight:700;margin:-4px 0 12px;">Compliant File Capture</p>
-                  <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1775662908/videos-feature_yjz496_bes52p.png" alt="Data Connector" style="width:80%;border-radius:12px;margin:0 auto 12px;display:block;">
-                  <p style="font-size:18px;line-height:1.4;color:#4a6a75;margin:0 auto 16px;max-width:380px;">Securely capture data from multi-vendor and type instruments without one-off connectors or putting strain on IT resources</p>
+                  <h3 style="font-size:26px;font-weight:700;color:#30444D;margin:0;">Data Connector</h3>
+                  <p style="font-size:17px;color:#446c7a;font-weight:700;margin:-4px 0 10px;">Compliant File Capture</p>
+                  <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1775662908/videos-feature_yjz496_bes52p.png" alt="Data Connector" style="width:70%;border-radius:12px;margin:0 auto 10px;display:block;">
+                  <p style="font-size:15px;line-height:1.4;color:#4a6a75;margin:0 auto 12px;max-width:380px;">Securely capture data from multi-vendor and type instruments without one-off connectors or putting strain on IT resources</p>
                   <div style="display:inline-block;padding:10px 24px;background:#DA5E26;border-radius:8px;font-size:15px;font-weight:700;color:white;cursor:pointer;text-transform:uppercase;letter-spacing:1px;">Tap to Learn More</div>
               </div>
             </div>
             <div style="flex:1;max-width:38%;cursor:pointer;" onclick="openSubModal('connectorPlus')">
               <div style="text-align:center;background:#e8edef;border-radius:16px;padding:20px;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-                  <h3 style="font-size:30px;font-weight:700;color:#30444D;margin:0;">Connector Plus</h3>
-                  <p style="font-size:20px;color:#446c7a;font-weight:700;margin:-4px 0 12px;">End-to-End Instrument Automation</p>
-                  <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1775071485/copy_of_istock-2167549227_1_offhww_8e5d3a.jpg" alt="Connector Plus" style="width:80%;border-radius:12px;margin:0 auto 12px;display:block;">
-                  <p style="font-size:18px;line-height:1.4;color:#4a6a75;margin:0 auto 16px;max-width:380px;">Unlock next level automation, control and oversight at scale with existing legacy and modern multi-vendor instruments</p>
+                  <h3 style="font-size:26px;font-weight:700;color:#30444D;margin:0;">Connector Plus</h3>
+                  <p style="font-size:17px;color:#446c7a;font-weight:700;margin:-4px 0 10px;">End-to-End Instrument Automation</p>
+                  <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1775071485/copy_of_istock-2167549227_1_offhww_8e5d3a.jpg" alt="Connector Plus" style="width:70%;border-radius:12px;margin:0 auto 10px;display:block;">
+                  <p style="font-size:15px;line-height:1.4;color:#4a6a75;margin:0 auto 12px;max-width:380px;">Unlock next level automation, control and oversight at scale with existing legacy and modern multi-vendor instruments</p>
                   <div style="display:inline-block;padding:10px 24px;background:#DA5E26;border-radius:8px;font-size:15px;font-weight:700;color:white;cursor:pointer;text-transform:uppercase;letter-spacing:1px;">Tap to Learn More</div>
               </div>
             </div>
@@ -573,26 +608,26 @@
       body: `
         <div style="display:flex;gap:60px;align-items:center;">
           <div style="flex:1;">
-            <table style="width:100%;border-collapse:collapse;font-size:21px;">
+            <table style="width:100%;border-collapse:collapse;font-size:16px;">
               <tr style="background:rgba(67,108,121,0.06);">
-                <td style="padding:12px 16px;font-weight:700;color:#30444D;vertical-align:top;white-space:nowrap;border-bottom:1px solid rgba(67,108,121,0.1);">Purpose-Built for Cleanrooms</td>
-                <td style="padding:12px 16px;line-height:1.5;color:#4a6a75;border-bottom:1px solid rgba(67,108,121,0.1);">Cleanable, portable, and fully compliant with cleanroom material standards.</td>
+                <td style="padding:8px 12px;font-weight:700;color:#30444D;vertical-align:top;white-space:nowrap;border-bottom:1px solid rgba(67,108,121,0.1);">Purpose-Built for Cleanrooms</td>
+                <td style="padding:8px 12px;line-height:1.5;color:#4a6a75;border-bottom:1px solid rgba(67,108,121,0.1);">Cleanable, portable, and fully compliant with cleanroom material standards.</td>
               </tr>
               <tr>
-                <td style="padding:12px 16px;font-weight:700;color:#30444D;vertical-align:top;white-space:nowrap;border-bottom:1px solid rgba(67,108,121,0.1);">Universal Connectivity</td>
-                <td style="padding:12px 16px;line-height:1.5;color:#4a6a75;border-bottom:1px solid rgba(67,108,121,0.1);">Ethernet, Serial, and USB ports connect both legacy instruments and newer models.</td>
+                <td style="padding:8px 12px;font-weight:700;color:#30444D;vertical-align:top;white-space:nowrap;border-bottom:1px solid rgba(67,108,121,0.1);">Universal Connectivity</td>
+                <td style="padding:8px 12px;line-height:1.5;color:#4a6a75;border-bottom:1px solid rgba(67,108,121,0.1);">Ethernet, Serial, and USB ports connect both legacy instruments and newer models.</td>
               </tr>
               <tr style="background:rgba(67,108,121,0.06);">
-                <td style="padding:12px 16px;font-weight:700;color:#30444D;vertical-align:top;white-space:nowrap;border-bottom:1px solid rgba(67,108,121,0.1);">Continuous Data Protection</td>
-                <td style="padding:12px 16px;line-height:1.5;color:#4a6a75;border-bottom:1px solid rgba(67,108,121,0.1);">Battery backup and local storage ensure uninterrupted data capture during power outages and network failures.</td>
+                <td style="padding:8px 12px;font-weight:700;color:#30444D;vertical-align:top;white-space:nowrap;border-bottom:1px solid rgba(67,108,121,0.1);">Continuous Data Protection</td>
+                <td style="padding:8px 12px;line-height:1.5;color:#4a6a75;border-bottom:1px solid rgba(67,108,121,0.1);">Battery backup and local storage ensure uninterrupted data capture during power outages and network failures.</td>
               </tr>
               <tr>
-                <td style="padding:12px 16px;font-weight:700;color:#30444D;vertical-align:top;white-space:nowrap;border-bottom:1px solid rgba(67,108,121,0.1);">Private Network Architecture</td>
-                <td style="padding:12px 16px;line-height:1.5;color:#4a6a75;border-bottom:1px solid rgba(67,108,121,0.1);">Creates a private network for instruments, eliminating threat surfaces on open networks, which also simplifies instrument connectivity when network configurations are altered.</td>
+                <td style="padding:8px 12px;font-weight:700;color:#30444D;vertical-align:top;white-space:nowrap;border-bottom:1px solid rgba(67,108,121,0.1);">Private Network Architecture</td>
+                <td style="padding:8px 12px;line-height:1.5;color:#4a6a75;border-bottom:1px solid rgba(67,108,121,0.1);">Creates a private network for instruments, eliminating threat surfaces on open networks, which also simplifies instrument connectivity when network configurations are altered.</td>
               </tr>
               <tr style="background:rgba(67,108,121,0.06);">
-                <td style="padding:12px 16px;font-weight:700;color:#30444D;vertical-align:top;white-space:nowrap;">Malware Hardened</td>
-                <td style="padding:12px 16px;line-height:1.5;color:#4a6a75;">Read-only file system prevents malicious software installation.</td>
+                <td style="padding:8px 12px;font-weight:700;color:#30444D;vertical-align:top;white-space:nowrap;">Malware Hardened</td>
+                <td style="padding:8px 12px;line-height:1.5;color:#4a6a75;">Read-only file system prevents malicious software installation.</td>
               </tr>
             </table>
           </div>
@@ -607,25 +642,33 @@
       subtitle: 'Broad Compatibility Across the Lab',
       body: `
         <div style="display:flex;gap:40px;align-items:flex-start;">
-          <div style="flex:1;font-size:23px;line-height:1.4;">
+          <div style="flex:1;font-size:16px;line-height:1.4;">
             <h3 style="margin-top:0;margin-bottom:12px;">Instrument Types</h3>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 24px;">
-              <p style="margin:0;padding:8px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Air Particle Counters</p>
-              <p style="margin:0;padding:8px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Melting Point Systems</p>
-              <p style="margin:0;padding:8px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Balances</p>
-              <p style="margin:0;padding:8px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Microbial Air Samplers</p>
-              <p style="margin:0;padding:8px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Cell Counters</p>
-              <p style="margin:0;padding:8px 0;border-bottom:1px solid rgba(67,108,121,0.12);">pH Meters</p>
-              <p style="margin:0;padding:8px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Chemistry Analyzers</p>
-              <p style="margin:0;padding:8px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Refractometers</p>
-              <p style="margin:0;padding:8px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Hot-Plate Stirrers</p>
-              <p style="margin:0;padding:8px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Spectrophotometers</p>
-              <p style="margin:0;padding:8px 0;">Zeta Potential Analyzers</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px 20px;">
+              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Air Particle Counters</p>
+              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Balances</p>
+              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Cell Counters</p>
+              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Chemistry Analyzers</p>
+              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Diffractometers</p>
+              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Diffusion Furnaces</p>
+              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Digital Slide Scanners</p>
+              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Drop Shape Analyzers</p>
+              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Hot-Plate Stirrers</p>
+              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Melting Point Systems</p>
+              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Microbial Air Samplers</p>
+              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Microscopes</p>
+              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">pH Meters</p>
+              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Plasma Etchers</p>
+              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Rapid Thermal Processors</p>
+              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Refractometers</p>
+              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Spectrometers</p>
+              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Spectrophotometers</p>
+              <p style="margin:0;padding:6px 0;">Zeta Potential Analyzers</p>
             </div>
           </div>
           <div style="flex-shrink:0;width:38%;">
             <h3 style="margin-top:0;margin-bottom:12px;">Manufacturers</h3>
-            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1776456424/Instrument_Connector_Logos_ohxwae.jpg" alt="Supported Manufacturers" style="width:100%;border-radius:12px;">
+            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1777843990/Instrument_Connector_Logos_wyggmw.svg" alt="Supported Manufacturers" style="width:100%;border-radius:12px;">
           </div>
         </div>
       `
@@ -639,12 +682,12 @@
             <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1777497595/Screenshot_2026-04-29_at_2.19.17_PM_izolfg.png" alt="" style="width:100%;border-radius:12px;display:block;">
           </div>
           <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding-left:40px;">
-            <p style="margin:0 0 28px;font-size:38px;line-height:1.6;">The LabWare + Phizzle Partnership will allow labs, cleanrooms and production facilities to:</p>
-            <ul style="list-style:none;padding:0;margin:0;font-size:36px;line-height:1.8;">
-              <li style="padding:8px 0 8px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Integrate instrument results and audit data directly into LabWare</li>
-              <li style="padding:8px 0 8px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Enable realtime dataflow with comprehensive compliance support and data integrity protection</li>
-              <li style="padding:8px 0 8px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Unlock scaleable automation across multi-vendor and multi-type instrumentation</li>
-              <li style="padding:8px 0 8px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Initiate samples remotely on your laptop within LabWare</li>
+            <p style="margin:0 0 16px;font-size:18px;line-height:1.5;font-weight:700;">The LabWare + Phizzle Partnership will allow labs, cleanrooms and production facilities to:</p>
+            <ul style="list-style:none;padding:0;margin:0;font-size:14px;line-height:1.6;">
+              <li style="padding:6px 0 6px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Integrate instrument results and audit data directly into LabWare</li>
+              <li style="padding:6px 0 6px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Enable realtime dataflow with comprehensive compliance support and data integrity protection</li>
+              <li style="padding:6px 0 6px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Unlock scaleable automation across multi-vendor and multi-type instrumentation</li>
+              <li style="padding:6px 0 6px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Initiate samples remotely on your laptop within LabWare</li>
             </ul>
           </div>
         </div>
@@ -703,6 +746,7 @@
       // Start playing
       container.classList.add('playing');
       container.classList.remove('paused');
+      video.controls = false;
       video.currentTime = 0;
       video.play();
     } else if (video.paused) {
@@ -719,6 +763,31 @@
   function rewindVideo() {
     const video = document.getElementById('localVideo');
     video.currentTime = Math.max(0, video.currentTime - 10);
+  }
+
+  function expandVideo() {
+    const video = document.getElementById('localVideo');
+    const expandedVideo = document.getElementById('expandedVideo');
+    const overlay = document.getElementById('videoModalOverlay');
+    
+    expandedVideo.currentTime = video.currentTime;
+    overlay.style.opacity = '1';
+    overlay.style.pointerEvents = 'all';
+    expandedVideo.play();
+    video.pause();
+  }
+
+  function closeVideoModal() {
+    const video = document.getElementById('localVideo');
+    const expandedVideo = document.getElementById('expandedVideo');
+    const overlay = document.getElementById('videoModalOverlay');
+    
+    video.currentTime = expandedVideo.currentTime;
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none';
+    expandedVideo.pause();
+    video.play();
+    document.getElementById('videoContainer').classList.remove('paused');
   }
 
   document.getElementById('localVideo').addEventListener('ended', function() {
@@ -780,15 +849,15 @@
     const content = document.getElementById('subModalContent');
     content.innerHTML = `
       <div style="margin-bottom:0;">
-        <h2 style="font-size:47px;font-weight:900;color:#30444D;margin:0 0 4px;">${data.title}</h2>
-        <p style="font-size:32px;font-weight:700;color:#446c7a;margin:0 0 24px;">${data.subtitle}</p>
+        <h2 style="font-size:38px;font-weight:900;color:#30444D;margin:0 0 4px;">${data.title}</h2>
+        <p style="font-size:26px;font-weight:700;color:#446c7a;margin:0 0 16px;">${data.subtitle}</p>
       </div>
       <div style="display:flex;flex-direction:column;gap:0;">
         <table style="width:100%;border-collapse:collapse;">
           ${data.items.map((item, i) => `
             <tr style="background:${i % 2 === 0 ? 'rgba(67,108,121,0.06)' : 'transparent'};">
-              <td style="padding:14px 20px;font-size:22px;font-weight:700;color:#30444D;vertical-align:top;white-space:nowrap;border-bottom:1px solid rgba(67,108,121,0.1);">${item.bold}</td>
-              <td style="padding:14px 20px;font-size:22px;line-height:1.5;color:#4a6a75;border-bottom:1px solid rgba(67,108,121,0.1);">${item.text}</td>
+              <td style="padding:10px 16px;font-size:16px;font-weight:700;color:#30444D;vertical-align:top;white-space:nowrap;border-bottom:1px solid rgba(67,108,121,0.1);">${item.bold}</td>
+              <td style="padding:10px 16px;font-size:16px;line-height:1.5;color:#4a6a75;border-bottom:1px solid rgba(67,108,121,0.1);">${item.text}</td>
             </tr>
           `).join('')}
         </table>
