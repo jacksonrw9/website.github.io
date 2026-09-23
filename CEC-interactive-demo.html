@@ -57,6 +57,7 @@
     align-items: center;
     justify-content: flex-start;
     flex-shrink: 0;
+    padding-top: 18px;
   }
   .logo-area img {
     height: 100px;
@@ -433,7 +434,7 @@
       <div class="video-container" id="videoContainer" onclick="toggleVideo()">
         <img class="video-thumbnail" src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1757081556/edgepuck-hero_t4aaxo.jpg" alt="Video thumbnail">
         <video id="localVideo" class="local-video" preload="metadata">
-          <source src="https://res.cloudinary.com/dqiggfeuq/video/upload/v1777493088/CEC_Video-Demo-April-2026_rmbe7a.mp4" type="video/mp4">
+          <source src="https://res.cloudinary.com/dqiggfeuq/video/upload/v1790202945/Connector_Plus_Demo_Marketing_1_ruuwom.mp4" type="video/mp4">
         </video>
         <div class="play-btn" id="playBtn">
           <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -469,7 +470,7 @@
           </svg>
         </div>
       </div>
-      <div class="video-label-below">Tap to Watch the 70-Second Demo</div>
+      <div class="video-label-below">Tap to Watch the 90-Second Demo</div>
     </div>
   </div>
 
@@ -498,7 +499,7 @@
 
     <div class="widget-block anim-in anim-d6">
       <div class="widget-card" onclick="openModal(4)">
-        <div class="widget-title">Connecting Instruments to LabWare</div>
+        <div class="widget-title">Natively Connecting Instruments to LabWare</div>
       </div>
     </div>
     </div>
@@ -510,7 +511,7 @@
   <div onclick="event.stopPropagation()" style="width:92vw;height:88vh;border-radius:28px;background:#111;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
     <button onclick="closeVideoModal()" style="position:absolute;top:24px;right:24px;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.15);border:none;color:white;font-size:24px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;">✕</button>
     <video id="expandedVideo" style="width:100%;height:100%;object-fit:contain;">
-      <source src="https://res.cloudinary.com/dqiggfeuq/video/upload/v1777493088/CEC_Video-Demo-April-2026_rmbe7a.mp4" type="video/mp4">
+      <source src="https://res.cloudinary.com/dqiggfeuq/video/upload/v1790202945/Connector_Plus_Demo_Marketing_1_ruuwom.mp4" type="video/mp4">
     </video>
   </div>
 </div>
@@ -562,7 +563,7 @@
             </tr>
             <tr>
               <td style="padding:8px 12px;border-bottom:1px solid rgba(67,108,121,0.15);">Error-prone data handoffs</td>
-              <td style="padding:8px 12px;border-bottom:1px solid rgba(67,108,121,0.15);">→ Supports chain of custody from instrument to final destination + 21 CFR Part 11-compliant audit logs and e-signatures</td>
+              <td style="padding:8px 12px;border-bottom:1px solid rgba(67,108,121,0.15);">→ Supports chain of custody from instrument to final destination including 21 CFR Part 11-compliant audit logs and e-signatures</td>
             </tr>
             <tr style="background:rgba(67,108,121,0.08);">
               <td style="padding:8px 12px;">Delayed QA review and batch release</td>
@@ -675,20 +676,22 @@
       `
     },
     {
-      title: 'Connecting Instruments to LabWare',
-      subtitle: 'Feed Lab Data Directly to Your Dashboard',
+      title: 'Natively Connecting Instruments to LabWare',
+      subtitle: 'Close Data Integrity and Compliance Gaps While Streamlining Quality Workflows',
       body: `
         <div style="display:flex;margin:auto 0;">
           <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-right:40px;">
             <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1777497595/Screenshot_2026-04-29_at_2.19.17_PM_izolfg.png" alt="" style="width:100%;border-radius:12px;display:block;">
           </div>
           <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding-left:40px;">
-            <p style="margin:0 0 16px;font-size:18px;line-height:1.5;font-weight:700;">The LabWare + Phizzle Partnership will allow labs, cleanrooms and production facilities to:</p>
+            <p style="margin:0 0 16px;font-size:22px;line-height:1.5;font-weight:700;">The LabWare + Phizzle Partnership allows labs, cleanrooms, and production facilities to:</p>
             <ul style="list-style:none;padding:0;margin:0;font-size:14px;line-height:1.6;">
-              <li style="padding:6px 0 6px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Integrate instrument results and audit data directly into LabWare</li>
-              <li style="padding:6px 0 6px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Enable realtime dataflow with comprehensive compliance support and data integrity protection</li>
-              <li style="padding:6px 0 6px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Unlock scaleable automation across multi-vendor and multi-type instrumentation</li>
-              <li style="padding:6px 0 6px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Initiate samples remotely on your laptop within LabWare</li>
+              <li style="padding:6px 0 6px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Link sample plans directly to the associated instruments</li>
+              <li style="padding:6px 0 6px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Automate the capture of sample results with instrument-generated metadata</li>
+              <li style="padding:6px 0 6px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Transfer data into LabWare sample tables</li>
+              <li style="padding:6px 0 6px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Verify lineage and chain of custody</li>
+              <li style="padding:6px 0 6px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Connect every instrument using one simple, standardized process</li>
+              <li style="padding:6px 0 6px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Eliminate per-device maintenance, requalification, and patching</li>
             </ul>
           </div>
         </div>
@@ -823,20 +826,19 @@
       title: 'Data Connector',
       subtitle: 'Capabilities',
       items: [
-        { bold: 'Streamline Paperless Data Capture:', text: 'Automatically capture instrument data files with full metadata tracking, eliminating manual transcription errors and USB transfer chaos.' },
+        { bold: 'Streamline Paperless Data Capture:', text: 'Automatically capture instrument data files with full metadata tracking, eliminating manual transcription errors and USB transfers.' },
         { bold: 'Maintain Complete Chain of Custody:', text: 'Track every file from instrument to cloud with comprehensive audit trails (file name, version, checksum, timestamp, device ID).' },
         { bold: 'Buffer Data During Network Outages:', text: 'Store data locally during interruptions, then auto-sync when connectivity returns for zero data loss.' },
         { bold: 'Search and Retrieve Files Instantly:', text: 'Access files across all instruments and sites from one centralized interface.' },
-        { bold: 'Enable Bi-Directional File Access:', text: 'Allow workstations to view original data without creating uncontrolled copies that break compliance.' },
-        { bold: 'Support Multi-Cloud Storage:', text: 'Direct each instrument\'s data to the correct destination automatically with rules-based routing for Azure, AWS S3, and more.' }
+        { bold: 'Enable Bi-Directional File Access:', text: 'Allow workstations to view original data without creating uncontrolled copies that break compliance.' }
       ]
     },
     connectorPlus: {
       title: 'Connector Plus',
       subtitle: 'Capabilities',
       items: [
-        { bold: 'Automate Data Flow:', text: 'Enables hands-free data collection, format standardization, and direct synchronization with LIMS, ELNs, MES, or cloud servers.' },
-        { bold: 'Second-by-Second Heartbeat Monitoring:', text: 'Capture all audit events from instruments down to the second they happen, even if the network is down.' },
+        { bold: 'Automate Data Flow:', text: 'Automatically capture and transfer results and instrument generated metadata to LIMS, ELNs, or DBMS.' },
+        { bold: 'Continuous Monitoring:', text: 'Capture all audit events via MQTT even during network outages.' },
         { bold: 'Lock Out Screens During Samples:', text: 'Eliminate accidental sample tampering.' },
         { bold: 'Remotely Initiate Samples:', text: 'Reduce cleanroom entries and screen-based sampling errors.' },
         { bold: 'Monitor Real-Time Instrument Data:', text: 'Get the whole picture of continuous samples, not just the average and alerts.' },
