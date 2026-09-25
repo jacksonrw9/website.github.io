@@ -8,14 +8,6 @@
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-  :root {
-    --bg-card: #2E3A47;
-    --bg-card-hover: #253139;
-    --text-dark: #2E3A47;
-    --text-body: #4a6a75;
-    --text-white: #ffffff;
-  }
-
   html, body {
     width: 100%; height: 100%;
     font-family: 'Lato', sans-serif;
@@ -24,75 +16,40 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    color: var(--text-dark);
     overflow: hidden;
     -webkit-user-select: none;
     user-select: none;
     cursor: default;
   }
 
-  /* === LAYOUT === */
+  /* === LAYOUT (designed at 1920x1080, scaled by JS) === */
   .dashboard {
     width: 100%; height: 100%;
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr;
-    padding: 40px 30px 40px 30px;
-    gap: 0;
-  }
-
-  /* === LEFT COLUMN === */
-  .left-column {
-    grid-column: 1;
-    grid-row: 1;
-    display: flex;
-    flex-direction: column;
-    padding-right: 40px;
-    min-height: 0;
+    grid-template-columns: 5fr 2fr;
+    grid-template-rows: auto 1fr;
+    column-gap: 60px;
+    padding: 40px 30px;
   }
 
   /* === LOGO === */
   .logo-area {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-shrink: 0;
+    grid-column: 1 / -1;
+    grid-row: 1;
     padding-top: 18px;
   }
-  .logo-area img {
-    height: 100px;
-    width: auto;
-  }
+  .logo-area img { height: 100px; width: auto; }
 
-  /* === RIGHT COLUMN === */
-  .right-column {
-    grid-column: 2;
-    grid-row: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    min-height: 0;
-  }
-  .right-column h2 {
-    font-size: 52px;
-    font-weight: 900;
-    color: var(--text-dark);
-    text-align: center;
-    padding: 16px 0;
-    flex-shrink: 0;
-  }
-
-  /* === VIDEO SECTION === */
+  /* === VIDEO === */
   .video-area {
+    grid-column: 1;
+    grid-row: 2;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
     min-height: 0;
-    flex: 1;
   }
   .video-container {
     width: 100%;
-    max-height: 100%;
     aspect-ratio: 16 / 9;
     border-radius: 16px;
     overflow: hidden;
@@ -103,307 +60,63 @@
     cursor: pointer;
   }
   .local-video {
-    width: 100%; height: 100%; border: none;
-    object-fit: cover;
-    object-position: center;
-    display: block;
     position: absolute;
     inset: 0;
-  }
-  .play-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100px;
-    height: 100px;
-    cursor: pointer;
-    z-index: 3;
-    filter: drop-shadow(0 4px 16px rgba(0,0,0,0.3));
-    transition: transform 0.25s ease;
-  }
-  .play-btn:hover {
-    transform: translate(-50%, -50%) scale(1.08);
-  }
-  .video-container.playing .play-btn,
-  .video-container.playing .video-thumbnail {
-    display: none;
-  }
-  .video-container.playing.paused .play-btn {
+    width: 100%; height: 100%;
+    object-fit: cover;
     display: block;
   }
   .video-thumbnail {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     object-fit: cover;
     z-index: 1;
   }
-  .pause-btn {
+  .play-btn {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 100px;
-    height: 100px;
-    cursor: pointer;
+    width: 110px; height: 110px;
     z-index: 3;
     filter: drop-shadow(0 4px 16px rgba(0,0,0,0.3));
-    transition: transform 0.25s ease, opacity 0.3s ease;
-    display: none;
-    opacity: 0;
+    transition: transform 0.25s ease;
   }
-  .pause-btn:hover {
-    transform: translate(-50%, -50%) scale(1.08);
-  }
-  .video-container.playing .pause-btn {
-    display: none;
-  }
-  .video-container.playing.paused .pause-btn {
-    display: none;
-  }
-  .rewind-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(calc(-50% - 110px), -50%);
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-    z-index: 3;
-    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
-    transition: transform 0.25s ease, opacity 0.3s ease;
-    display: none;
-    opacity: 0;
-  }
-  .rewind-btn:hover {
-    transform: translate(calc(-50% - 110px), -50%) scale(1.1);
-  }
-  .video-container.playing .rewind-btn {
-    display: none;
-  }
-  .video-container.playing.paused .rewind-btn {
-    display: block;
-    opacity: 1;
-  }
-  .expand-btn {
-    position: absolute;
-    bottom: 16px;
-    right: 16px;
-    width: 44px;
-    height: 44px;
-    cursor: pointer;
-    z-index: 3;
-    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
-    display: none;
-    opacity: 0.7;
-    transition: opacity 0.2s;
-  }
-  .expand-btn:hover {
-    opacity: 1;
-  }
-  .video-container.playing .expand-btn {
-    display: block;
-  }
-  .video-label-below {
-    font-family: 'Lato', sans-serif;
-    font-size: 52px;
+  .play-btn:hover { transform: translate(-50%, -50%) scale(1.08); }
+  .video-container.playing .play-btn,
+  .video-container.playing .video-thumbnail { display: none; }
+  .video-container.playing.paused .play-btn { display: block; }
+
+  /* === QR CODE === */
+  .qr-caption {
+    font-size: 44px;
     font-weight: 900;
-    color: var(--text-dark);
-    padding: 16px 0 0 0;
+    line-height: 1.2;
+    color: #2E3A47;
     text-align: center;
+    margin-top: 28px;
+    max-width: 480px;
   }
-
-  /* === WIDGETS AREA === */
-  .widgets-area {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    gap: 20px;
-    min-height: 0;
-    flex: 1;
-  }
-
-  .widget-block {
+  .qr-area {
+    grid-column: 2;
+    grid-row: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 0;
-    flex: 1;
-  }
-
-  .widget-card {
-    border-radius: 16px;
-    background: var(--bg-card);
-    padding: 18px 32px;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    text-align: center;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-    -webkit-tap-highlight-color: transparent;
+    min-height: 0;
+  }
+  .qr-area img {
     width: 100%;
-    height: 85%;
-  }
-  .widget-card:hover {
-    background: var(--bg-card-hover);
-  }
-  .widget-card:active {
-    transform: scale(0.97);
-  }
-  .widget-title {
-    font-weight: 700;
-    font-size: 30px;
-    color: var(--text-white);
-    letter-spacing: 0.3px;
-  }
-  .widget-desc {
-    font-size: 16px;
-    color: var(--text-body);
-    line-height: 1.5;
-    padding: 0 8px;
-    text-align: center;
+    max-width: 480px;
+    height: auto;
+    display: block;
+    border: 6px solid #0D1B2A;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
   }
 
-  /* === FULLSCREEN MODAL === */
-  .modal-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 1000;
-    background: rgba(5,34,57,0.92);
-    backdrop-filter: blur(24px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.35s ease;
-  }
-  .modal-overlay.active {
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  .modal-panel {
-    width: 88vw;
-    height: 82vh;
-    border-radius: 28px;
-    background: #f0f5f7;
-    border: 1px solid rgba(67,108,121,0.2);
-    box-shadow: 0 24px 80px rgba(0,0,0,0.4);
-    padding: 36px 48px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    transform: scale(0.92);
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    overflow-y: auto;
-  }
-  .modal-overlay.active .modal-panel {
-    transform: scale(1);
-  }
-
-  .modal-close {
-    position: absolute;
-    top: 24px; right: 24px;
-    width: 48px; height: 48px;
-    border-radius: 50%;
-    background: var(--bg-card);
-    border: none;
-    color: white;
-    font-size: 24px;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s;
-    -webkit-tap-highlight-color: transparent;
-    z-index: 2;
-  }
-  .modal-close:hover {
-    background: var(--bg-card-hover);
-  }
-
-  .modal-nav {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 56px; height: 56px;
-    border-radius: 50%;
-    background: var(--bg-card);
-    border: none;
-    color: white;
-    font-size: 28px;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s;
-    -webkit-tap-highlight-color: transparent;
-    z-index: 1001;
-  }
-  .modal-nav:hover {
-    background: var(--bg-card-hover);
-  }
-  .modal-nav.prev { left: 16px; }
-  .modal-nav.next { right: 16px; }
-
-  .modal-indicator {
-    position: fixed;
-    bottom: 24px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    z-index: 1001;
-  }
-  .modal-dot {
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.4);
-    transition: all 0.3s ease;
-  }
-  .modal-dot.active {
-    background: white;
-    box-shadow: 0 0 8px rgba(255,255,255,0.5);
-  }
-
-  .modal-title {
-    font-weight: 900;
-    font-size: 38px;
-    color: var(--text-dark);
-    margin-bottom: 8px;
-  }
-  .modal-subtitle {
-    font-size: 26px;
-    color: #446c7a;
-    font-weight: 700;
-    letter-spacing: 0;
-    margin-bottom: 0;
-  }
-  .modal-body {
-    font-size: 26px;
-    line-height: 1.8;
-    color: var(--text-body);
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .modal-body h3 {
-    font-size: 26px;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin: 28px 0 12px;
-  }
-  .modal-body h3:first-child { margin-top: 0; }
-  .modal-body ul {
-    list-style: disc;
-    padding: 0 0 0 24px; margin: 10px 0;
-  }
-  .modal-body ul li {
-    padding: 6px 0;
-    font-size: 21px;
-  }
-
-  /* === ANIMATIONS === */
+  /* === ENTRANCE === */
   @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
@@ -414,401 +127,78 @@
   }
   .anim-d1 { animation-delay: 0.1s; }
   .anim-d2 { animation-delay: 0.2s; }
-  .anim-d3 { animation-delay: 0.3s; }
-  .anim-d4 { animation-delay: 0.4s; }
-  .anim-d5 { animation-delay: 0.5s; }
-  .anim-d6 { animation-delay: 0.6s; }
+  .anim-d3 { animation-delay: 0.35s; }
+  @media (prefers-reduced-motion: reduce) {
+    .anim-in { animation: none; opacity: 1; }
+  }
 </style>
 </head>
 <body>
 
 <div class="dashboard">
-  <div class="left-column">
-    <!-- Logo -->
-    <div class="logo-area anim-in anim-d1">
-      <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1790268391/Phizzle-Primary_Logo-large_pm2l6d.png" alt="Phizzle">
-    </div>
+  <div class="logo-area anim-in anim-d1">
+    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1790268391/Phizzle-Primary_Logo-large_pm2l6d.png" alt="Phizzle">
+  </div>
 
-    <!-- Video -->
-    <div class="video-area anim-in anim-d2">
-      <div class="video-container" id="videoContainer" onclick="toggleVideo()">
-        <img class="video-thumbnail" src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1757081556/edgepuck-hero_t4aaxo.jpg" alt="Video thumbnail">
-        <video id="localVideo" class="local-video" preload="metadata">
-          <source src="https://res.cloudinary.com/dqiggfeuq/video/upload/v1790202945/Connector_Plus_Demo_Marketing_1_ruuwom.mp4" type="video/mp4">
-        </video>
-        <div class="play-btn" id="playBtn">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="48" fill="white" />
-            <circle cx="50" cy="50" r="42" fill="#00A86B" />
-            <polygon points="40,28 74,50 40,72" fill="white" />
-          </svg>
-        </div>
-        <div class="pause-btn" id="pauseBtn">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="48" fill="white" />
-            <circle cx="50" cy="50" r="42" fill="#00A86B" />
-            <rect x="34" y="28" width="12" height="44" rx="3" fill="white" />
-            <rect x="54" y="28" width="12" height="44" rx="3" fill="white" />
-          </svg>
-        </div>
-        <div class="rewind-btn" onclick="event.stopPropagation(); rewindVideo()">
-          <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="30" cy="30" r="28" fill="white" />
-            <circle cx="30" cy="30" r="24" fill="#00A86B" />
-            <polygon points="28,20 16,30 28,40" fill="white" />
-            <polygon points="40,20 28,30 40,40" fill="white" />
-            <text x="30" y="50" text-anchor="middle" fill="white" font-size="11" font-weight="900" font-family="Lato">10s</text>
-          </svg>
-        </div>
-        <div class="expand-btn" onclick="event.stopPropagation(); expandVideo()">
-          <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="2" width="40" height="40" rx="6" fill="rgba(0,0,0,0.4)" />
-            <path d="M12,6 L6,6 L6,12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M32,6 L38,6 L38,12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M12,38 L6,38 L6,32" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M32,38 L38,38 L38,32" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
+  <div class="video-area anim-in anim-d2">
+    <div class="video-container" id="videoContainer" onclick="toggleVideo()">
+      <img class="video-thumbnail" src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1757081556/edgepuck-hero_t4aaxo.jpg" alt="">
+      <video id="localVideo" class="local-video" preload="metadata" playsinline loop>
+        <source src="https://res.cloudinary.com/dqiggfeuq/video/upload/v1790355286/Connector_Plus_Demo_Marketing_2_mlbor3.mp4" type="video/mp4">
+      </video>
+      <div class="play-btn">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="white" />
+          <circle cx="50" cy="50" r="42" fill="#00A86B" />
+          <polygon points="40,28 74,50 40,72" fill="white" />
+        </svg>
       </div>
-      <div class="video-label-below">Tap to Watch the 90-Second Demo</div>
     </div>
   </div>
 
-  <!-- Right Column -->
-  <div class="right-column">
-    <h2>Tap to Learn More</h2>
-
-    <div class="widgets-area">
-    <div class="widget-block anim-in anim-d3">
-      <div class="widget-card" onclick="openModal(0)">
-        <div class="widget-title">Connected Plant™ Platform</div>
-      </div>
-    </div>
-
-    <div class="widget-block anim-in anim-d4">
-      <div class="widget-card" onclick="openModal(2)">
-        <div class="widget-title">Edge Puck™</div>
-      </div>
-    </div>
-
-    <div class="widget-block anim-in anim-d5">
-      <div class="widget-card" onclick="openModal(3)">
-        <div class="widget-title">Supported Instruments</div>
-      </div>
-    </div>
-
-    <div class="widget-block anim-in anim-d6">
-      <div class="widget-card" onclick="openModal(4)">
-        <div class="widget-title">Native LabWare Integration</div>
-      </div>
-    </div>
-    </div>
+  <div class="qr-area anim-in anim-d3">
+    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1790355616/phizzle-get-in-touch-qr_tvuqpz.png" alt="Scan to get in touch with Phizzle">
+    <div class="qr-caption">Scan For More Information</div>
   </div>
-</div>
-
-<!-- Video Expand Modal -->
-<div id="videoModalOverlay" onclick="closeVideoModal()" style="position:fixed;inset:0;z-index:2000;background:rgba(5,34,57,0.95);backdrop-filter:blur(24px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.35s ease;">
-  <div onclick="event.stopPropagation()" style="width:92vw;height:88vh;border-radius:28px;background:#111;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-    <button onclick="closeVideoModal()" style="position:absolute;top:24px;right:24px;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.15);border:none;color:white;font-size:24px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;">✕</button>
-    <video id="expandedVideo" style="width:100%;height:100%;object-fit:contain;">
-      <source src="https://res.cloudinary.com/dqiggfeuq/video/upload/v1790202945/Connector_Plus_Demo_Marketing_1_ruuwom.mp4" type="video/mp4">
-    </video>
-  </div>
-</div>
-
-<!-- Sub Modal for Data Connector / Connector Plus -->
-<div id="subModalOverlay" onclick="closeSubModal()" style="position:fixed;inset:0;z-index:2000;background:rgba(5,34,57,0.95);backdrop-filter:blur(24px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.35s ease;">
-  <div onclick="event.stopPropagation()" style="width:88vw;max-height:85vh;border-radius:28px;background:#f0f5f7;padding:48px 64px;position:relative;overflow-y:auto;transform:scale(0.92);transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);" id="subModalPanel">
-    <button onclick="closeSubModal()" style="position:absolute;top:24px;right:24px;width:48px;height:48px;border-radius:50%;background:#436C79;border:none;color:white;font-size:24px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;">✕</button>
-    <div id="subModalContent"></div>
-  </div>
-</div>
-
-<!-- Fullscreen Modal -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
-  <button class="modal-nav prev" onclick="event.stopPropagation(); navModal(-1)">‹</button>
-  <button class="modal-nav next" onclick="event.stopPropagation(); navModal(1)">›</button>
-  <div class="modal-panel" onclick="event.stopPropagation()">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <div id="modalContent"></div>
-  </div>
-  <div class="modal-indicator" id="modalDots"></div>
 </div>
 
 <script>
-  const slides = [
-    {
-      title: 'Connected Plant™',
-      subtitle: 'Support Data Integrity and Compliance with Paperless Workflows',
-      body: `
-        <table style="width:100%;border-collapse:collapse;margin-bottom:16px;font-size:18px;">
-          <thead>
-            <tr>
-              <th style="text-align:left;padding:8px 12px;background:#c0392b;color:white;border-radius:8px 0 0 0;font-size:15px;width:50%;">Manual Workflows</th>
-              <th style="text-align:left;padding:8px 12px;background:#27ae60;color:white;font-size:15px;width:50%;border-radius:0 8px 0 0;">The Phizzle Way</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="background:rgba(67,108,121,0.08);">
-              <td style="padding:8px 12px;border-bottom:1px solid rgba(67,108,121,0.15);">Paper records, USB flash drives, and manual transcription</td>
-              <td style="padding:8px 12px;border-bottom:1px solid rgba(67,108,121,0.15);">→ Automated capture directly from instruments</td>
-            </tr>
-            <tr>
-              <td style="padding:8px 12px;border-bottom:1px solid rgba(67,108,121,0.15);">Disconnected instruments and systems</td>
-              <td style="padding:8px 12px;border-bottom:1px solid rgba(67,108,121,0.15);">→ Bi-directional integration with LIMS, QMS, and MES</td>
-            </tr>
-            <tr style="background:rgba(67,108,121,0.08);">
-              <td style="padding:8px 12px;border-bottom:1px solid rgba(67,108,121,0.15);">Fragmented audit trails</td>
-              <td style="padding:8px 12px;border-bottom:1px solid rgba(67,108,121,0.15);">→ Hands-free event tracking stored in a unified, searchable audit log</td>
-            </tr>
-            <tr>
-              <td style="padding:8px 12px;border-bottom:1px solid rgba(67,108,121,0.15);">Error-prone data handoffs</td>
-              <td style="padding:8px 12px;border-bottom:1px solid rgba(67,108,121,0.15);">→ Supports chain of custody from instrument to final destination including 21 CFR Part 11-compliant audit logs and e-signatures</td>
-            </tr>
-            <tr style="background:rgba(67,108,121,0.08);">
-              <td style="padding:8px 12px;">Delayed QA review and batch release</td>
-              <td style="padding:8px 12px;">→ Real-time data flow and exception flagging that notifies operators immediately</td>
-            </tr>
-          </tbody>
-        </table>
-        <p style="text-align:center;font-size:20px;font-weight:700;color:#30444D;margin-top:24px;">Tap the arrow on the right side of screen to learn about our different integration levels →</p>
-      `
-    },
-    {
-      title: 'Connected Plant™',
-      subtitle: 'Choose the Integration Level That Fits Your Needs',
-      body: `
-        <div>
-          <div style="display:flex;gap:40px;justify-content:center;flex:1;">
-            <div style="flex:1;max-width:38%;cursor:pointer;" onclick="openSubModal('dataConnector')">
-              <div style="text-align:center;background:#e8edef;border-radius:16px;padding:20px;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-                  <h3 style="font-size:26px;font-weight:700;color:#30444D;margin:0;">Data Connector</h3>
-                  <p style="font-size:17px;color:#446c7a;font-weight:700;margin:-4px 0 10px;">Compliant File Capture</p>
-                  <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1775662908/videos-feature_yjz496_bes52p.png" alt="Data Connector" style="width:70%;border-radius:12px;margin:0 auto 10px;display:block;">
-                  <p style="font-size:15px;line-height:1.4;color:#4a6a75;margin:0 auto 12px;max-width:380px;">Securely capture data from multi-vendor and type instruments without one-off connectors or putting strain on IT resources</p>
-                  <div style="display:inline-block;padding:10px 24px;background:#DA5E26;border-radius:8px;font-size:15px;font-weight:700;color:white;cursor:pointer;text-transform:uppercase;letter-spacing:1px;">Tap to Learn More</div>
-              </div>
-            </div>
-            <div style="flex:1;max-width:38%;cursor:pointer;" onclick="openSubModal('connectorPlus')">
-              <div style="text-align:center;background:#e8edef;border-radius:16px;padding:20px;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-                  <h3 style="font-size:26px;font-weight:700;color:#30444D;margin:0;">Connector Plus</h3>
-                  <p style="font-size:17px;color:#446c7a;font-weight:700;margin:-4px 0 10px;">End-to-End Instrument Automation</p>
-                  <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1775071485/copy_of_istock-2167549227_1_offhww_8e5d3a.jpg" alt="Connector Plus" style="width:70%;border-radius:12px;margin:0 auto 10px;display:block;">
-                  <p style="font-size:15px;line-height:1.4;color:#4a6a75;margin:0 auto 12px;max-width:380px;">Unlock next level automation, control and oversight at scale with existing legacy and modern multi-vendor instruments</p>
-                  <div style="display:inline-block;padding:10px 24px;background:#DA5E26;border-radius:8px;font-size:15px;font-weight:700;color:white;cursor:pointer;text-transform:uppercase;letter-spacing:1px;">Tap to Learn More</div>
-              </div>
-            </div>
-          </div>
-          <p style="font-size:18px;line-height:1.5;margin:16px 0 0;text-align:center;">We offer two modules that fit with your existing infrastructure and match where you are in your digitization journey.</p>
-        </div>
-      `
-    },
-    {
-      title: 'Edge Puck™',
-      subtitle: 'Cleanroom Gateway Built for GxP Requirements',
-      body: `
-        <div style="display:flex;gap:60px;align-items:center;">
-          <div style="flex:1;">
-            <table style="width:100%;border-collapse:collapse;font-size:18px;">
-              <tr style="background:rgba(67,108,121,0.06);">
-                <td style="padding:8px 12px;font-weight:700;color:#30444D;vertical-align:top;white-space:nowrap;border-bottom:1px solid rgba(67,108,121,0.1);">Purpose-Built for Cleanrooms</td>
-                <td style="padding:8px 12px;line-height:1.5;color:#4a6a75;border-bottom:1px solid rgba(67,108,121,0.1);">Cleanable, portable, and fully compliant with cleanroom material standards.</td>
-              </tr>
-              <tr>
-                <td style="padding:8px 12px;font-weight:700;color:#30444D;vertical-align:top;white-space:nowrap;border-bottom:1px solid rgba(67,108,121,0.1);">Universal Connectivity</td>
-                <td style="padding:8px 12px;line-height:1.5;color:#4a6a75;border-bottom:1px solid rgba(67,108,121,0.1);">Ethernet, Serial, and USB ports connect both legacy instruments and newer models.</td>
-              </tr>
-              <tr style="background:rgba(67,108,121,0.06);">
-                <td style="padding:8px 12px;font-weight:700;color:#30444D;vertical-align:top;white-space:nowrap;border-bottom:1px solid rgba(67,108,121,0.1);">Continuous Data Protection</td>
-                <td style="padding:8px 12px;line-height:1.5;color:#4a6a75;border-bottom:1px solid rgba(67,108,121,0.1);">Battery backup and local storage ensure uninterrupted data capture during power outages and network failures.</td>
-              </tr>
-              <tr>
-                <td style="padding:8px 12px;font-weight:700;color:#30444D;vertical-align:top;white-space:nowrap;border-bottom:1px solid rgba(67,108,121,0.1);">Private Network Architecture</td>
-                <td style="padding:8px 12px;line-height:1.5;color:#4a6a75;border-bottom:1px solid rgba(67,108,121,0.1);">Creates a private network for instruments, eliminating threat surfaces on open networks, which also simplifies instrument connectivity when network configurations are altered.</td>
-              </tr>
-              <tr style="background:rgba(67,108,121,0.06);">
-                <td style="padding:8px 12px;font-weight:700;color:#30444D;vertical-align:top;white-space:nowrap;">Malware Hardened</td>
-                <td style="padding:8px 12px;line-height:1.5;color:#4a6a75;">Read-only operating system prevents malicious software installation.</td>
-              </tr>
-            </table>
-          </div>
-          <div style="flex-shrink:0;width:38%;">
-            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1757081556/edgepuck-hero_t4aaxo.jpg" alt="Edge Puck" style="width:100%;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.15);">
-          </div>
-        </div>
-      `
-    },
-    {
-      title: 'Supported Lab and Analytical Instruments',
-      subtitle: 'Broad Compatibility Across the Lab',
-      body: `
-        <div style="display:flex;gap:40px;align-items:flex-start;">
-          <div style="flex:1;font-size:18px;line-height:1.4;">
-            <h3 style="margin-top:0;margin-bottom:12px;">Instrument Types</h3>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px 20px;">
-              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Air Particle Counters</p>
-              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Balances</p>
-              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Cell Counters</p>
-              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Chemistry Analyzers</p>
-              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Diffractometers</p>
-              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Diffusion Furnaces</p>
-              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Digital Slide Scanners</p>
-              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Drop Shape Analyzers</p>
-              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Hot-Plate Stirrers</p>
-              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Melting Point Systems</p>
-              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Microbial Air Samplers</p>
-              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Microscopes</p>
-              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">pH Meters</p>
-              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Plasma Etchers</p>
-              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Rapid Thermal Processors</p>
-              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Refractometers</p>
-              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Spectrometers</p>
-              <p style="margin:0;padding:6px 0;border-bottom:1px solid rgba(67,108,121,0.12);">Spectrophotometers</p>
-              <p style="margin:0;padding:6px 0;">Zeta Potential Analyzers</p>
-              <p style="margin:0;padding:6px 0;font-style:italic;">and many more</p>
-            </div>
-          </div>
-          <div style="flex-shrink:0;width:38%;">
-            <h3 style="margin-top:0;margin-bottom:12px;">Manufacturers</h3>
-            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1777843990/Instrument_Connector_Logos_wyggmw.svg" alt="Supported Manufacturers" style="width:100%;border-radius:12px;">
-          </div>
-        </div>
-      `
-    },
-    {
-      title: 'Integrate Instruments with Native LabWare Sampling Workflows',
-      subtitle: 'Close Data Integrity and Compliance Gaps While Streamlining Quality Workflows',
-      body: `
-        <div style="display:flex;margin:auto 0;">
-          <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding-right:40px;">
-            <p style="margin:0 0 16px;font-size:22px;line-height:1.5;font-weight:700;">The LabWare + Phizzle Partnership allows labs, cleanrooms, and production facilities to:</p>
-            <ul style="list-style:none;padding:0;margin:0;font-size:14px;line-height:1.6;">
-              <li style="padding:6px 0 6px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Link sample plans directly to the associated instruments</li>
-              <li style="padding:6px 0 6px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Automate the capture of sample results with instrument-generated metadata</li>
-              <li style="padding:6px 0 6px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Transfer data into LabWare sample tables</li>
-              <li style="padding:6px 0 6px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Verify lineage and chain of custody</li>
-              <li style="padding:6px 0 6px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Connect every instrument using one simple, standardized process</li>
-              <li style="padding:6px 0 6px 24px;position:relative;"><span style="position:absolute;left:0;">•</span> Eliminate per-device maintenance, requalification, and patching</li>
-            </ul>
-          </div>
-          <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-left:40px;">
-            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1790262839/Lab_tech_on_laptop_with_Labware_UI_2_ebmkdu.png" alt="" style="width:70%;border-radius:12px;display:block;">
-          </div>
-        </div>
-      `
-    }
-  ];
+  const container = document.getElementById('videoContainer');
+  const video = document.getElementById('localVideo');
 
-  let currentSlide = 0;
-
-  function renderModal() {
-    const data = slides[currentSlide];
-    document.getElementById('modalContent').style.cssText = 'display:flex;flex-direction:column;flex:1;min-height:0;';
-    document.getElementById('modalContent').innerHTML = `
-      <div class="modal-title">${data.title}</div>
-      <div class="modal-subtitle">${data.subtitle}</div>
-      <div class="modal-body">${data.body}</div>
-    `;
-    const dots = document.getElementById('modalDots');
-    dots.innerHTML = slides.map((_, i) =>
-      `<div class="modal-dot ${i === currentSlide ? 'active' : ''}"></div>`
-    ).join('');
-    document.querySelector('.modal-nav.prev').style.display = currentSlide === 0 ? 'none' : 'flex';
-    document.querySelector('.modal-nav.next').style.display = currentSlide === slides.length - 1 ? 'none' : 'flex';
-  }
-
-  function openModal(index) {
-    currentSlide = index;
-    renderModal();
-    document.getElementById('modalOverlay').classList.add('active');
-  }
-
-  function closeModal(e) {
-    if (e && e.target !== document.getElementById('modalOverlay') && e.type === 'click') return;
-    document.getElementById('modalOverlay').classList.remove('active');
-  }
-
-  function navModal(dir) {
-    currentSlide = (currentSlide + dir + slides.length) % slides.length;
-    renderModal();
-  }
-
-  document.addEventListener('keydown', (e) => {
-    if (!document.getElementById('modalOverlay').classList.contains('active')) return;
-    if (e.key === 'Escape') closeModal();
-    if (e.key === 'ArrowLeft') navModal(-1);
-    if (e.key === 'ArrowRight') navModal(1);
-  });
-
+  // First tap starts the video with sound; it then loops continuously.
+  // Tapping again pauses; tapping once more resumes.
   function toggleVideo() {
-    const container = document.getElementById('videoContainer');
-    const video = document.getElementById('localVideo');
-    const playBtn = document.getElementById('playBtn');
-    const pauseBtn = document.getElementById('pauseBtn');
-
     if (!container.classList.contains('playing')) {
-      // Start playing
       container.classList.add('playing');
       container.classList.remove('paused');
-      video.controls = false;
       video.currentTime = 0;
       video.play();
-    } else if (video.paused) {
-      // Resume
+    } else if (container.classList.contains('paused')) {
       container.classList.remove('paused');
       video.play();
     } else {
-      // Pause
       container.classList.add('paused');
       video.pause();
     }
   }
 
-  function rewindVideo() {
-    const video = document.getElementById('localVideo');
-    video.currentTime = Math.max(0, video.currentTime - 10);
+  // Resume if the browser pauses it on its own (e.g. screen sleep),
+  // but never override a pause someone chose.
+  function shouldBePlaying() {
+    return container.classList.contains('playing') && !container.classList.contains('paused');
   }
-
-  function expandVideo() {
-    const video = document.getElementById('localVideo');
-    const expandedVideo = document.getElementById('expandedVideo');
-    const overlay = document.getElementById('videoModalOverlay');
-    
-    expandedVideo.currentTime = video.currentTime;
-    overlay.style.opacity = '1';
-    overlay.style.pointerEvents = 'all';
-    expandedVideo.play();
-    video.pause();
-  }
-
-  function closeVideoModal() {
-    const video = document.getElementById('localVideo');
-    const expandedVideo = document.getElementById('expandedVideo');
-    const overlay = document.getElementById('videoModalOverlay');
-    
-    video.currentTime = expandedVideo.currentTime;
-    overlay.style.opacity = '0';
-    overlay.style.pointerEvents = 'none';
-    expandedVideo.pause();
-    video.play();
-    document.getElementById('videoContainer').classList.remove('paused');
-  }
-
-  document.getElementById('localVideo').addEventListener('ended', function() {
-    const container = document.getElementById('videoContainer');
-    container.classList.remove('playing');
-    container.classList.remove('paused');
-    this.currentTime = 0;
+  video.addEventListener('pause', () => {
+    setTimeout(() => { if (shouldBePlaying() && video.paused) video.play().catch(() => {}); }, 300);
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && shouldBePlaying()) video.play().catch(() => {});
   });
 
-  // Scale dashboard to fit any screen size
-  // Designed at 1920x1080 - scales proportionally
+  // Scale dashboard to fit any screen (designed at 1920x1080)
   function scaleDashboard() {
-    const baseWidth = 1920;
-    const baseHeight = 1080;
-    const scaleX = window.innerWidth / baseWidth;
-    const scaleY = window.innerHeight / baseHeight;
-    const scale = Math.min(scaleX, scaleY);
+    const baseWidth = 1920, baseHeight = 1080;
+    const scale = Math.min(window.innerWidth / baseWidth, window.innerHeight / baseHeight);
     const dash = document.querySelector('.dashboard');
     dash.style.width = baseWidth + 'px';
     dash.style.height = baseHeight + 'px';
@@ -820,64 +210,6 @@
   }
   scaleDashboard();
   window.addEventListener('resize', scaleDashboard);
-
-  const subModalData = {
-    dataConnector: {
-      title: 'Data Connector',
-      subtitle: 'Capabilities',
-      items: [
-        { bold: 'Streamline Paperless Data Capture:', text: 'Automatically capture instrument data files with full metadata tracking, eliminating manual transcription errors and USB transfers.' },
-        { bold: 'Maintain Complete Chain of Custody:', text: 'Track every file from instrument to cloud with comprehensive audit trails (file name, version, checksum, timestamp, device ID).' },
-        { bold: 'Buffer Data During Network Outages:', text: 'Store data locally during interruptions, then auto-sync when connectivity returns for zero data loss.' },
-        { bold: 'Search and Retrieve Files Instantly:', text: 'Access files across all instruments and sites from one centralized interface.' },
-        { bold: 'Enable Bi-Directional File Access:', text: 'Allow workstations to view original data without creating uncontrolled copies that break compliance.' }
-      ]
-    },
-    connectorPlus: {
-      title: 'Connector Plus',
-      subtitle: 'Capabilities',
-      items: [
-        { bold: 'Automate Data Flow:', text: 'Automatically capture and transfer results and instrument generated metadata to LIMS, ELNs, or DBMS.' },
-        { bold: 'Continuous Monitoring:', text: 'Capture all audit events via MQTT even during network outages.' },
-        { bold: 'Lock Out Screens During Samples:', text: 'Eliminate accidental sample tampering.' },
-        { bold: 'Remotely Initiate Samples:', text: 'Reduce cleanroom entries and screen-based sampling errors.' },
-        { bold: 'Monitor Real-Time Instrument Data:', text: 'Get the whole picture of continuous samples, not just the average and alerts.' },
-        { bold: 'Enable Review-By-Exception Workflows:', text: 'Flag out-of-specification samples and notify operators immediately.' }
-      ]
-    }
-  };
-
-  function openSubModal(key) {
-    const data = subModalData[key];
-    const content = document.getElementById('subModalContent');
-    content.innerHTML = `
-      <div style="margin-bottom:0;">
-        <h2 style="font-size:38px;font-weight:900;color:#30444D;margin:0 0 4px;">${data.title}</h2>
-        <p style="font-size:26px;font-weight:700;color:#446c7a;margin:0 0 16px;">${data.subtitle}</p>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:0;">
-        <table style="width:100%;border-collapse:collapse;">
-          ${data.items.map((item, i) => `
-            <tr style="background:${i % 2 === 0 ? 'rgba(67,108,121,0.06)' : 'transparent'};">
-              <td style="padding:10px 16px;font-size:16px;font-weight:700;color:#30444D;vertical-align:top;white-space:nowrap;border-bottom:1px solid rgba(67,108,121,0.1);">${item.bold}</td>
-              <td style="padding:10px 16px;font-size:16px;line-height:1.5;color:#4a6a75;border-bottom:1px solid rgba(67,108,121,0.1);">${item.text}</td>
-            </tr>
-          `).join('')}
-        </table>
-      </div>
-    `;
-    const overlay = document.getElementById('subModalOverlay');
-    overlay.style.opacity = '1';
-    overlay.style.pointerEvents = 'all';
-    document.getElementById('subModalPanel').style.transform = 'scale(1)';
-  }
-
-  function closeSubModal() {
-    const overlay = document.getElementById('subModalOverlay');
-    overlay.style.opacity = '0';
-    overlay.style.pointerEvents = 'none';
-    document.getElementById('subModalPanel').style.transform = 'scale(0.92)';
-  }
 </script>
 </body>
 </html>
