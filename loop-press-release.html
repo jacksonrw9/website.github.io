@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LabWare Loop</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F2F6FB}
+a{color:#1565B0}a:hover{color:#0F4C86}
+input,select{font:inherit}
+</style>
+
+<style>html{scroll-behavior:smooth}
+/* Solid loop behind the request form, showing on its left */
+.hero-section > *{position:relative;z-index:1}
+.hero-section > .hero-loop{position:absolute;z-index:0;top:235px;right:-150px;width:760px;height:760px;border-radius:50%;background:#2E82D0;-webkit-mask:radial-gradient(farthest-side, transparent calc(100% - 55px), #000 calc(100% - 54px));mask:radial-gradient(farthest-side, transparent calc(100% - 55px), #000 calc(100% - 54px));pointer-events:none}
+/* When the form drops below the text (tablets and phones), the loop would sit behind the text: hide it */
+@media (max-width: 1120px){.hero-section > .hero-loop{display:none}}
+/* Footer logos: a little smaller on phones so both fit side by side */
+@media (max-width: 480px){.footer-logo-lw{height:28px !important}.footer-logo-phz{height:24px !important}}
+/* Request form: messages under each box, red outline on the box with the problem */
+#request .field-error{display:none;margin:0;color:#B42318;font-size:13px;font-weight:400}
+#request .field-error.show{display:block}
+#request .input-error{border-color:#B42318 !important;box-shadow:0 0 0 3px rgba(180,35,24,0.10)}
+#request .input-error:focus{outline:2px solid #B42318;outline-offset:0}
+#request fieldset.input-error{box-shadow:none}
+#request fieldset.input-error label{border-color:#B42318 !important}
+#request .form-error{display:none;margin:0;padding:12px 14px;background:#FEF3F2;border:1px solid #FDA29B;border-radius:4px;color:#B42318;font-size:14px;line-height:1.5}
+#request .form-error.show{display:block}
+#request .form-error a{color:#B42318}
+#request .form-success{display:none;padding:16px;background:#ECFDF3;border:1px solid #A6F4C5;border-radius:4px;color:#05603A;font-size:15px;line-height:1.5;outline:none}
+#request .form-success.show{display:block}
+#request .privacy-note{margin:-4px 0 0;font-size:12.5px;line-height:1.5;color:#56657A}
+#request .hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+#request button[disabled]{opacity:0.7;cursor:default}
+</style>
+</head>
+<body>
+
+<div style="font-family: 'Inter', system-ui, sans-serif; color: #0F1E33; background: #F2F6FB; min-height: 100vh">
+
+<header style="border-bottom: 1px solid #D6E0EC; background: #FFFFFF">
+<div style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: flex-start">
+<img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1792962257/LabWare-Loop_logo_cd41q9.png" alt="LabWare Loop, powered by Phizzle" style="height: 58px; width: auto; display: block">
+</div>
+</header>
+
+<div style="position: relative; overflow: hidden; background: linear-gradient(135deg, #0A2547 0%, #0E3D73 55%, #1561A8 100%)">
+<section class="hero-section" style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 96px; position: relative; display: flex; flex-wrap: wrap; gap: 40px 56px; align-items: flex-start">
+<div class="hero-loop" aria-hidden="true"></div>
+<h1 style="flex: 1 1 100%; margin: 0; color: #FFFFFF; font-size: clamp(2rem, 3.4vw, 2.75rem); line-height: 1.12; font-weight: 600; letter-spacing: -0.02em">Instrument data connected directly to LabWare sampling plans and results tables</h1>
+<div style="flex: 999 1 520px; min-width: 0; padding-right: clamp(0px, calc(8vw - 24px), 48px); box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px">
+<span style="padding: 12px 18px; background: #84B544; color: #0A2547; border: 1px solid #9BC862; font-size: 16px; font-weight: 600; box-shadow: 0 6px 18px rgba(132, 181, 68, 0.28); border-radius: 4px">Now available by request for LabWare Advance-Release customers</span>
+<span style="font-size: 15px; color: #D2E0F0">Commercial availability early 2027</span>
+</div>
+<p style="margin: 0; font-size: 1.1875rem; line-height: 1.55; color: #F4F8FD; max-width: 600px">LabWare Loop automatically captures and transfers legacy and modern instrument data to LabWare sample results tables with a verified chain of custody.</p>
+<ul style="margin: 0; padding: 0 0 0 20px; display: flex; flex-direction: column; gap: 10px; font-size: 1.0625rem; line-height: 1.5; color: #E6EEF8; max-width: 600px">
+<li><strong style="font-weight: 600; color: #FFFFFF">Removes</strong> manual transcription and USB transfers from GxP sampling workflows</li>
+<li><strong style="font-weight: 600; color: #FFFFFF">Supports</strong> 21 CFR Part 11, EU Annex 11, and ALCOA+ data integrity principles</li>
+<li><strong style="font-weight: 600; color: #FFFFFF">Works</strong> with modern and legacy instruments and workstation setups, requiring no firmware changes or requalification</li>
+<li><strong style="font-weight: 600; color: #FFFFFF">Reduces</strong> instrument integration complexity and overhead by standardizing onboarding, data flow, and maintenance for every instrument</li>
+<li><strong style="font-weight: 600; color: #FFFFFF">Keeps</strong> instruments air-gapped, so IT has no new network endpoints to patch</li>
+</ul>
+</div>
+
+<form id="request" method="post" action="/.netlify/functions/lead-relay" novalidate data-hsforms-ignore="true" style="color: #0F1E33; box-shadow: 0 24px 48px rgba(5, 20, 45, 0.35); flex: 1 1 440px; min-width: 0; background: #FFFFFF; border: 0; border-radius: 8px; padding: 28px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 1.375rem; font-weight: 600">Request a demo or one-sheeter</h2>
+<input type="hidden" name="formType" value="labware">
+<div class="hp-field" aria-hidden="true"><label for="f-website">Leave this empty</label><input type="text" id="f-website" name="website" tabindex="-1" autocomplete="off"></div>
+<fieldset id="f-intent" style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 10px">
+<legend style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0">Request type (required)</legend>
+<label style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 14px; border: 1px solid #C3CFDD; border-radius: 4px; font-size: 15px; cursor: pointer"><input type="radio" name="intent" value="demo" required="required" style="accent-color: #1565B0; width: 18px; height: 18px; margin: 0">Schedule a technical demo</label>
+<label style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 14px; border: 1px solid #C3CFDD; border-radius: 4px; font-size: 15px; cursor: pointer"><input type="radio" name="intent" value="one-sheeter" style="accent-color: #1565B0; width: 18px; height: 18px; margin: 0">Receive the one-sheeter</label>
+<p class="field-error" id="f-intent-error" role="alert">Please choose a demo or the one-sheeter.</p>
+</fieldset>
+<div style="display: flex; flex-wrap: wrap; gap: 14px">
+<label for="f-first" style="flex: 1 1 140px; min-width: 0; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500"><span>First name<span style="color: #B42318" aria-hidden="true"> *</span></span><input id="f-first" name="firstName" type="text" required="required" autocomplete="given-name" style="min-height: 44px; padding: 0 12px; border: 1px solid #C3CFDD; border-radius: 4px; background: #FFFFFF; font-weight: 400; box-sizing: border-box"></label>
+<label for="f-last" style="flex: 1 1 140px; min-width: 0; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500"><span>Last name<span style="color: #B42318" aria-hidden="true"> *</span></span><input id="f-last" name="lastName" type="text" required="required" autocomplete="family-name" style="min-height: 44px; padding: 0 12px; border: 1px solid #C3CFDD; border-radius: 4px; background: #FFFFFF; font-weight: 400; box-sizing: border-box"></label>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 14px">
+<label for="f-email" style="flex: 1 1 140px; min-width: 0; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500"><span>Work email<span style="color: #B42318" aria-hidden="true"> *</span></span><input id="f-email" name="email" type="email" required="required" autocomplete="email" style="min-height: 44px; padding: 0 12px; border: 1px solid #C3CFDD; border-radius: 4px; background: #FFFFFF; font-weight: 400; box-sizing: border-box"><span class="field-error" id="f-email-work" role="alert">Please use your work email.</span></label>
+<label for="f-role" style="flex: 1 1 140px; min-width: 0; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500"><span>Job title <span style="font-weight: 400; color: #56657A">(optional)</span></span><input id="f-role" name="jobtitle" type="text" autocomplete="organization-title" style="min-height: 44px; padding: 0 12px; border: 1px solid #C3CFDD; border-radius: 4px; background: #FFFFFF; font-weight: 400; box-sizing: border-box"></label>
+</div>
+<label for="f-lw" style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500"><span>Current LabWare customer?<span style="color: #B42318" aria-hidden="true"> *</span></span><select id="f-lw" name="labwareCustomer" required="required" style="min-height: 44px; padding: 0 10px; border: 1px solid #C3CFDD; border-radius: 4px; background: #FFFFFF; font-weight: 400"><option value="">Select one</option><option>Yes</option><option>No</option></select></label>
+<button type="submit" style="min-height: 48px; border: 0; border-radius: 4px; background: #1565B0; color: #FFFFFF; font-size: 16px; font-weight: 500; cursor: pointer">Send request</button>
+<p class="form-error" id="f-error" role="alert"></p>
+<p class="privacy-note">We store and use your information to respond to your request. See our <a href="https://phizzle.com/privacy-policy.html" target="_blank" rel="noopener">privacy policy</a>.</p>
+<div class="form-success" id="f-success" role="status" tabindex="-1"></div>
+</form>
+</section>
+</div>
+<section style="max-width: 1200px; margin: 0 auto; padding: 112px 24px 0">
+<div style="display: flex; flex-wrap: wrap; gap: 40px 80px; align-items: center">
+<div style="flex: 3 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<h2 style="margin: 0; color: #0F1E33; font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1.2; font-weight: 600; letter-spacing: -0.01em">Closing the gap between your instruments and LabWare</h2>
+<div style="display: flex; flex-direction: column; gap: 16px; font-size: 1.125rem; line-height: 1.6; color: #3F4E63">
+<p style="margin: 0">Operations creates the sampling plan, LabWare manages it, and instruments produce the data. Nothing connects the three, even though GxP environments require proof that the right instrument produced each result, the data arrived intact, and it reached the correct sample tables.</p>
+<p style="margin: 0">LabWare Loop, powered by Phizzle, closes the gap: instruments connect directly to your LabWare sampling workflows, removing manual transfers for your lab and giving QA traceable data with full context, from sampling plan to instrument to results table.</p>
+</div>
+</div>
+<div style="flex: 2 1 360px; min-width: 0">
+<svg viewBox="0 0 960 640" role="img" aria-labelledby="islands-title islands-desc" xmlns="http://www.w3.org/2000/svg" style="display: block; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 12px 32px rgba(15, 30, 51, 0.14); background: #E9F1FA; font-family: 'Inter', system-ui, sans-serif">
+<title id="islands-title">Three disconnected islands, connected by LabWare Loop</title>
+<desc id="islands-desc">Operations with the sampling plan, LabWare with the sample results tables, and the lab's legacy and modern instruments sit on three separate islands with no bridges between them. The LabWare Loop ring in the middle connects all three.</desc>
+<!-- Water -->
+<g fill="none" stroke="#C9DBEF" stroke-width="4" stroke-linecap="round">
+<path d="M430 60 q22 -12 44 0 t44 0"/>
+<path d="M40 360 q22 -12 44 0 t44 0"/>
+<path d="M800 380 q22 -12 44 0 t44 0"/>
+<path d="M70 560 q22 -12 44 0 t44 0"/>
+<path d="M790 580 q22 -12 44 0 t44 0"/>
+<path d="M230 420 q22 -12 44 0 t44 0"/>
+<path d="M640 430 q22 -12 44 0 t44 0"/>
+</g>
+<!-- LabWare Loop connections (drawn under the islands and the ring) -->
+<g stroke="#2E82D0" stroke-width="7" stroke-linecap="round">
+<line x1="480" y1="300" x2="250" y2="200"/>
+<line x1="480" y1="300" x2="710" y2="200"/>
+<line x1="480" y1="300" x2="480" y2="470"/>
+</g>
+<!-- Island: Operations -->
+<g>
+<ellipse cx="220" cy="190" rx="196" ry="80" fill="#0E3D73"/>
+<ellipse cx="220" cy="168" rx="196" ry="80" fill="#FFFFFF" stroke="#C3D3E6" stroke-width="2"/>
+<g transform="translate(14 0)">
+<g transform="translate(66 132) scale(1.5)" fill="none" stroke="#1565B0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<rect x="4" y="6" width="34" height="42" rx="4"/>
+<rect x="13" y="1" width="16" height="9" rx="2" fill="#FFFFFF"/>
+<path d="M11 22 l4 4 l7 -8"/><line x1="26" y1="23" x2="32" y2="23"/>
+<path d="M11 36 l4 4 l7 -8"/><line x1="26" y1="37" x2="32" y2="37"/>
+</g>
+<text x="148" y="164" font-size="36" font-weight="600" fill="#0F1E33">Operations</text>
+<text x="148" y="200" font-size="24" fill="#56657A">Sampling plan</text>
+</g>
+</g>
+<!-- Island: LabWare -->
+<g>
+<ellipse cx="740" cy="190" rx="196" ry="80" fill="#0E3D73"/>
+<ellipse cx="740" cy="168" rx="196" ry="80" fill="#FFFFFF" stroke="#C3D3E6" stroke-width="2"/>
+<g transform="translate(41 0)">
+<g transform="translate(578 134) scale(1.5)" fill="none" stroke="#1565B0" stroke-width="3" stroke-linejoin="round">
+<rect x="2" y="2" width="42" height="42" rx="4"/>
+<line x1="2" y1="16" x2="44" y2="16"/><line x1="2" y1="30" x2="44" y2="30"/>
+<line x1="17" y1="2" x2="17" y2="44"/>
+</g>
+<text x="660" y="164" font-size="36" font-weight="600" fill="#0F1E33">LabWare</text>
+<text x="660" y="200" font-size="24" fill="#56657A">Results tables</text>
+</g>
+</g>
+<!-- Island: Instruments -->
+<g>
+<ellipse cx="480" cy="532" rx="206" ry="80" fill="#0E3D73"/>
+<ellipse cx="480" cy="510" rx="206" ry="80" fill="#FFFFFF" stroke="#C3D3E6" stroke-width="2"/>
+<g transform="translate(5 0)">
+<g transform="translate(318 474) scale(1.5)" fill="none" stroke="#1565B0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<path d="M15 3 h16 M18 3 v14 l-13 22 a4 4 0 0 0 3.5 6 h29 a4 4 0 0 0 3.5 -6 l-13 -22 v-14"/>
+<path d="M10 30 h26"/>
+</g>
+<text x="400" y="506" font-size="36" font-weight="600" fill="#0F1E33">Instruments</text>
+<text x="400" y="542" font-size="24" fill="#56657A">Legacy and modern</text>
+</g>
+</g>
+<!-- LabWare Loop ring in the middle -->
+<circle cx="480" cy="296" r="70" fill="#E9F1FA"/>
+<circle cx="480" cy="296" r="56" fill="none" stroke="#2E82D0" stroke-width="26"/>
+</svg>
+</div>
+</div>
+</section>
+
+<div style="position: relative; margin-top: 112px; background: linear-gradient(135deg, #0A2547 0%, #0E3D73 55%, #1561A8 100%)">
+<div aria-hidden="true" style="position: absolute; inset: 0; overflow: hidden; pointer-events: none">
+<div style="position: absolute; left: -200px; bottom: -260px; width: 620px; height: 620px; border-radius: 50%; background: #4AA0E0; -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 72px), #000 calc(100% - 71px)); mask: radial-gradient(farthest-side, transparent calc(100% - 72px), #000 calc(100% - 71px)); box-sizing: border-box"></div>
+</div>
+<section style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; position: relative; display: flex; flex-wrap: wrap; gap: 48px 72px; align-items: center">
+<div class="sheet-preview" style="flex: 0 0 440px; width: 440px; max-width: 100%; position: relative; overflow: hidden; border-radius: 4px; box-shadow: 0 32px 64px rgba(3, 14, 32, 0.45); background: #FFFFFF"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/pg_1,w_1320/v1792961926/LabWare-Loop_jcaei3.png" width="440" height="569" loading="lazy" alt="Preview of the LabWare Loop one-sheeter" style="width: 100%; height: auto; display: block"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/pg_1,w_1320/v1792961926/LabWare-Loop_jcaei3.png" width="440" height="569" loading="lazy" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block; filter: blur(3px); clip-path: inset(44.5% 0 0 0); transform: scale(1.02)"></div>
+<div style="flex: 999 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 24px; align-items: flex-start">
+<h2 style="margin: 0; color: #FFFFFF; font-size: clamp(1.75rem, 3vw, 2.5rem); line-height: 1.15; font-weight: 600; letter-spacing: -0.015em">Request the <span style="white-space: nowrap">one-sheeter</span></h2>
+<p style="margin: 0 0 -8px; font-size: 1.125rem; font-weight: 500; color: #E6EEF8">Inside, you’ll see:</p>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px; font-size: 1.125rem; line-height: 1.5; color: #E6EEF8">
+<li style="display: flex; gap: 12px; align-items: flex-start"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7CC4F5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 22px; margin-top: 2px"><path d="M20 6 9 17l-5-5"></path></svg><span>The simple four-step workflow that automates result transfer to LabWare</span></li>
+<li style="display: flex; gap: 12px; align-items: flex-start"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7CC4F5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 22px; margin-top: 2px"><path d="M20 6 9 17l-5-5"></path></svg><span>The operational impact for lab technicians, QA, and IT</span></li>
+<li style="display: flex; gap: 12px; align-items: flex-start"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7CC4F5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 22px; margin-top: 2px"><path d="M20 6 9 17l-5-5"></path></svg><span>How Phizzle’s hardware-software solution enables the integration of multi-vendor legacy and modern instruments with LabWare</span></li>
+</ul>
+<a href="#request" data-pick="one-sheeter" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; background: #FFFFFF; color: #0E3D73; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 4px">Get the one-sheeter</a>
+</div>
+</section>
+</div>
+
+<footer>
+<div style="max-width: 1200px; margin: 0 auto; padding: 48px 24px; display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; justify-content: space-between; font-size: 14px; color: #56657A">
+<p style="margin: 0; display: flex; flex-wrap: wrap; gap: 6px 20px; color: #56657A">
+<span>© 2026 Phizzle. All rights reserved.</span>
+<a href="https://phizzle.com/privacy-policy.html" target="_blank" rel="noopener" style="color: #56657A">Privacy Policy</a>
+</p>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: center; gap: 16px">
+<a href="https://www.labware.com" target="_blank" rel="noopener" style="display: block"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1775663750/LABWARE_logo_blueGradient_2020_72dpi_v7odtb.png" alt="LabWare" class="footer-logo-lw" style="height: 40px; width: auto; display: block"></a>
+<span style="color: #6B7A8F; font-size: 18px" aria-hidden="true">×</span>
+<a href="https://phizzle.com" target="_blank" rel="noopener" style="display: block"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1790268391/Phizzle-Primary_Logo-large_pm2l6d.png" alt="Phizzle" class="footer-logo-phz" style="height: 34px; width: auto; display: block"></a>
+</div>
+</div>
+</div>
+</footer>
+
+</div>
+
+<!-- Copy of every request on phizzle.com's own hosting (Netlify Forms). Never shown; Netlify reads
+     it when the site deploys. Kept at the end of the page so its field names don't clash with the real form's. -->
+<form name="labware-fallback" data-netlify="true" netlify-honeypot="bot-field" hidden aria-hidden="true">
+<input type="hidden" name="form-name" value="labware-fallback">
+<input name="bot-field"><input name="request_type"><input name="labware_customer"><input name="firstname"><input name="lastname"><input name="email"><input name="jobtitle"><input name="page"><input name="submission_id">
+</form>
+
+<script>
+// ================= LabWare Loop request: lead capture =================
+// Same safety net as the other Phizzle forms. Every request is saved to the backup Google Sheet and
+// to Netlify Forms first, then sent straight to HubSpot. If the visitor's network blocks HubSpot or
+// Google, phizzle.com's relay sends it on instead. The thank-you only shows once the request is
+// safely captured. The team gets an alert email for every request (the one-sheeter is sent by hand).
+var HUBSPOT_PORTAL_ID = '8070371';
+// HubSpot "LabWare Loop" form ID. Until it's filled in, requests still reach the backup Sheet,
+// Netlify Forms and the alert email, marked "NOT in HubSpot".
+var LABWARE_FORM_ID = '';
+var LABWARE_FORM_NAME = 'LabWare Loop';
+var SALES_EMAIL = 'sales@phizzle.com';
+var BACKUP_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfLG4keTbK34yn_DIKp8uD4hLb34dcjYQXczEptqzNLSg0GDw/formResponse';
+var BACKUP_FORM_FIELDS = {
+  form: 'entry.516863202',
+  hubspot: 'entry.1581862950',
+  firstname: 'entry.1323290399',
+  lastname: 'entry.953833378',
+  email: 'entry.2060112685',
+  jobtitle: 'entry.1516065853',
+  message: 'entry.1502109527',
+  page: 'entry.1260589540',
+  id: 'entry.392642089'
+};
+var RELAY_URL = '/.netlify/functions/lead-relay';
+var REQUEST_TYPES = { 'demo': 'Technical demo', 'one-sheeter': 'One-sheeter' };
+
+// The backup Sheet has no columns for these, so they go into its Message column as "Label: value" lines
+function labwareSummary(v) {
+  return [['Request', v.labware_loop_request], ['LabWare customer', v.labware_customer]]
+    .filter(function (r) { return r[1]; }).map(function (r) { return r[0] + ': ' + r[1]; }).join('\n');
+}
+
+function newSubmissionId() { return Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10); }
+function getHubspotCookie() {
+  var match = document.cookie.match(/(?:^|;\s*)hubspotutk=([^;]+)/);
+  return match ? decodeURIComponent(match[1]) : undefined;
+}
+function fetchWithTimeout(url, options, ms) {
+  var controller = new AbortController();
+  var timer = setTimeout(function () { controller.abort(); }, ms || 15000);
+  return fetch(url, Object.assign({}, options, { signal: controller.signal }))
+    .finally(function () { clearTimeout(timer); });
+}
+
+// Backup Google Form (feeds the backup Sheet). Google doesn't let the page read the reply,
+// so this returns true when the request was sent without a network error.
+function saveToBackup(values, timeoutMs) {
+  var body = new URLSearchParams();
+  Object.keys(BACKUP_FORM_FIELDS).forEach(function (key) {
+    if (values[key] !== undefined && values[key] !== '') body.append(BACKUP_FORM_FIELDS[key], String(values[key]).slice(0, 5000));
+  });
+  return fetchWithTimeout(BACKUP_FORM_URL, {
+    method: 'POST', mode: 'no-cors', keepalive: true,
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body.toString()
+  }, timeoutMs || 15000).then(function () { return true; }, function (error) {
+    console.error('Backup save failed:', error); return false;
+  });
+}
+
+// Netlify Forms copy on phizzle.com (doesn't depend on Google or HubSpot)
+function saveToNetlifyForms(id, f) {
+  var body = new URLSearchParams({ 'form-name': 'labware-fallback' });
+  [['request_type', f.labware_loop_request], ['labware_customer', f.labware_customer], ['firstname', f.firstname],
+   ['lastname', f.lastname], ['email', f.email], ['jobtitle', f.jobtitle]]
+    .forEach(function (p) { body.append(p[0], String(p[1] || '').slice(0, 5000)); });
+  body.append('page', window.location.href);
+  body.append('submission_id', id);
+  return fetchWithTimeout('/', {
+    method: 'POST', keepalive: true,
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body.toString()
+  }, 15000).then(function (response) { return response.ok; }, function (error) {
+    console.error('Netlify Forms save failed:', error); return false;
+  });
+}
+
+// Straight to HubSpot. Resolves to { ok, detail } with HubSpot's actual answer.
+function sendToHubSpot(fields) {
+  if (!LABWARE_FORM_ID) return Promise.resolve({ ok: false, detail: 'no HubSpot form set up yet' });
+  var context = { pageUri: window.location.href, pageName: document.title };
+  var hutk = getHubspotCookie();
+  if (hutk) context.hutk = hutk;
+  return fetchWithTimeout(
+    'https://api.hsforms.com/submissions/v3/integration/submit/' + HUBSPOT_PORTAL_ID + '/' + LABWARE_FORM_ID,
+    { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ fields: fields, context: context }) },
+    15000
+  ).then(function (response) {
+    return response.json().catch(function () { return {}; }).then(function (data) {
+      if (response.ok) return { ok: true, detail: 'accepted' };
+      var reasons = (data.errors || []).map(function (err) { return err.message; }).join(' | ');
+      return { ok: false, detail: 'rejected (' + response.status + '): ' + (reasons || data.message || 'no details') };
+    });
+  }, function (error) {
+    return { ok: false, detail: 'could not reach HubSpot: ' + error };
+  });
+}
+
+// Last resort when this network blocks HubSpot or Google: phizzle.com forwards it
+function sendToRelay(payload) {
+  return fetchWithTimeout(RELAY_URL, {
+    method: 'POST', keepalive: true,
+    headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
+  }, 20000).then(function (response) { return response.ok ? response.json() : null; })
+    .catch(function (error) { console.error('Relay failed:', error); return null; });
+}
+
+function submitLabwareRequest(fields) {
+  var id = newSubmissionId();
+  var f = {};
+  fields.forEach(function (x) { f[x.name] = x.value; });
+  var backupValues = { form: LABWARE_FORM_NAME, firstname: f.firstname, lastname: f.lastname, email: f.email,
+    jobtitle: f.jobtitle, message: labwareSummary(f), page: window.location.href, id: id };
+  var backupSaved, netlifySaved, hubspot;
+
+  // 1. Two copies first, at the same time: the backup Sheet (marked "pending" until HubSpot answers) and Netlify Forms
+  return Promise.all([
+    saveToBackup(Object.assign({}, backupValues, { hubspot: 'pending' }), 6000),
+    saveToNetlifyForms(id, f)
+  ]).then(function (saves) {
+    backupSaved = saves[0];
+    netlifySaved = saves[1];
+    // 2. HubSpot
+    return sendToHubSpot(fields);
+  }).then(function (result) {
+    hubspot = result;
+    if (!hubspot.ok) console.error('HubSpot did not accept the LabWare Loop request:', hubspot.detail);
+    // 2b. HubSpot or Google blocked on this network: send through phizzle.com instead
+    var unreachable = !hubspot.ok && /could not reach HubSpot/.test(hubspot.detail);
+    if (!backupSaved || unreachable) {
+      return sendToRelay({
+        id: id, formId: LABWARE_FORM_ID || 'labware-loop', form: LABWARE_FORM_NAME, fields: fields,
+        page: window.location.href, pageName: document.title, hutk: getHubspotCookie(),
+        hubspotAlreadyAccepted: hubspot.ok, needBackup: !backupSaved
+      }).then(function (relay) { if (relay && unreachable && relay.hubspot) hubspot = relay.hubspot; });
+    }
+  }).then(function () {
+    // 3. HubSpot's answer, matched to the pending backup row. The alert script then emails the team
+    //    (or resends to HubSpot after 5 minutes if this never arrives).
+    saveToBackup({ id: id, form: LABWARE_FORM_NAME + ' (result)', hubspot: hubspot.ok ? 'accepted' : hubspot.detail, page: window.location.href });
+    // Received = HubSpot confirmed it, or Netlify saved it and HubSpot wasn't refusing the details themselves
+    var refused = !hubspot.ok && /rejected \(4\d\d\)/.test(hubspot.detail);
+    var received = hubspot.ok || (netlifySaved && !refused);
+    if (received && typeof window.gtag === 'function') {
+      window.gtag('event', 'form_submit', { form_id: 'labware-loop', form_name: LABWARE_FORM_NAME,
+        request_type: f.labware_loop_request, hubspot_accepted: hubspot.ok });
+    }
+    return received;
+  });
+}
+
+// ================= Work email only =================
+// Same list as the other Phizzle forms. Consumer email services are blocked with any country ending.
+var PERSONAL_EMAIL_PROVIDERS = ['gmail', 'googlemail', 'yahoo', 'ymail', 'rocketmail', 'hotmail', 'outlook',
+  'live', 'msn', 'aol', 'icloud', 'protonmail', 'gmx', 'yandex', 'zohomail', 'tutanota', 'qq', '163', '126'];
+// Internet providers are listed by their consumer domain only, so AT&T, Verizon, Comcast employees can use their work email
+var PERSONAL_EMAIL_DOMAINS = ['me.com', 'mac.com', 'aim.com', 'mail.com', 'mail.ru', 'proton.me', 'pm.me', 'hey.com',
+  'fastmail.com', 'att.net', 'sbcglobal.net', 'bellsouth.net', 'verizon.net', 'comcast.net', 'cox.net', 'charter.net',
+  'earthlink.net', 'juno.com', 'naver.com', 'uol.com.br', 'bol.com.br', 'terra.com.br', 'ig.com.br'];
+var PERSONAL_EMAIL_PATTERN = new RegExp(
+  '@(?:(?:' + PERSONAL_EMAIL_PROVIDERS.join('|') + ')\\.[a-z]{2,3}(?:\\.[a-z]{2})?|' +
+  PERSONAL_EMAIL_DOMAINS.map(function (d) { return d.replace(/\./g, '\\.'); }).join('|') + ')$', 'i');
+function isPersonalEmail(value) { return PERSONAL_EMAIL_PATTERN.test(String(value || '').trim()); }
+
+(function () {
+  var form = document.getElementById('request');
+  var email = document.getElementById('f-email');
+  var intentBox = document.getElementById('f-intent');
+  var errorBox = document.getElementById('f-error');
+  var successBox = document.getElementById('f-success');
+  var button = form.querySelector('button[type="submit"]');
+  var REQUIRED = [
+    { id: 'f-first', text: 'First name is required.' },
+    { id: 'f-last', text: 'Last name is required.' },
+    { id: 'f-email', text: 'Work email is required.' },
+    { id: 'f-lw', text: 'Please select Yes or No.' }
+  ];
+
+  function intentValue() {
+    var r = form.querySelector('input[name=intent]:checked');
+    return r ? r.value : '';
+  }
+  function setIntentError(on) {
+    intentBox.classList.toggle('input-error', on);
+    document.getElementById('f-intent-error').classList.toggle('show', on);
+  }
+
+  // Shows "Please use your work email." under the field; true when the email is OK
+  function checkWorkEmail() {
+    var personal = isPersonalEmail(email.value);
+    document.getElementById('f-email-work').classList.toggle('show', personal);
+    if (personal) email.classList.add('input-error');
+    else if (!form.querySelector('.required-error[data-for="f-email"]')) email.classList.remove('input-error');
+    return !personal;
+  }
+  email.addEventListener('input', checkWorkEmail);
+  email.addEventListener('change', checkWorkEmail);
+  checkWorkEmail();
+
+  function clearFieldError(el) {
+    var msg = form.querySelector('.required-error[data-for="' + el.id + '"]');
+    if (msg) msg.remove();
+    if (!(el === email && isPersonalEmail(el.value))) el.classList.remove('input-error');
+  }
+  function showFieldError(el, text) {
+    clearFieldError(el);
+    el.classList.add('input-error');
+    var msg = document.createElement('span');
+    msg.className = 'field-error show required-error';
+    msg.setAttribute('role', 'alert');
+    msg.dataset.for = el.id;
+    msg.textContent = text;
+    // After the work-email message for the email box, otherwise right after the box
+    var after = el.nextElementSibling && el.nextElementSibling.id === 'f-email-work' ? el.nextElementSibling : el;
+    after.insertAdjacentElement('afterend', msg);
+  }
+
+  // Every box with a problem gets a red outline and a message under it; scrolls to the first one
+  function checkFields() {
+    var first = null;
+    if (!intentValue()) { setIntentError(true); first = form.querySelector('input[name=intent]'); }
+    REQUIRED.forEach(function (field) {
+      var el = document.getElementById(field.id);
+      clearFieldError(el);
+      if (!el.value.trim()) showFieldError(el, field.text);
+      else if (el === email && !el.validity.valid) showFieldError(el, 'Please enter a valid email address.');
+      else return;
+      if (!first) first = el;
+    });
+    if (!checkWorkEmail() && !first) first = email;
+    if (first) {
+      first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      first.focus({ preventScroll: true });
+      return false;
+    }
+    return true;
+  }
+
+  ['input', 'change'].forEach(function (type) {
+    form.addEventListener(type, function (e) {
+      var el = e.target;
+      if (el.name === 'intent') { setIntentError(false); return; }
+      if (el.id && form.querySelector('.required-error[data-for="' + el.id + '"]') && String(el.value).trim()) clearFieldError(el);
+    });
+  });
+
+  // "Get the one-sheeter" button further down the page picks that option
+  document.querySelectorAll('[data-pick]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var r = form.querySelector('input[name=intent][value="' + a.dataset.pick + '"]');
+      if (r) { r.checked = true; setIntentError(false); }
+    });
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    errorBox.classList.remove('show');
+    if (!checkFields()) return;
+
+    var intent = intentValue();
+    var value = function (id) { return document.getElementById(id).value.trim(); };
+    var thanks = intent === 'one-sheeter'
+      ? 'Thanks! We\'ve got your request, and we\'ll email you the one-sheeter shortly.'
+      : 'Thanks! We\'ve got your request, and our team will reach out to schedule your demo.';
+    function showThanks() {
+      Array.prototype.forEach.call(form.children, function (child) {
+        if (child.tagName !== 'H2' && child !== successBox) child.style.display = 'none';
+      });
+      successBox.textContent = thanks;
+      successBox.classList.add('show');
+      successBox.focus({ preventScroll: true });
+      successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // Spam trap filled in (people never see it): act as if it worked, send nothing
+    if (value('f-website')) { showThanks(); return; }
+
+    button.textContent = 'Sending...';
+    button.disabled = true;
+
+    var fields = [
+      { name: 'firstname', value: value('f-first') },
+      { name: 'lastname', value: value('f-last') },
+      { name: 'email', value: value('f-email') },
+      { name: 'labware_loop_request', value: REQUEST_TYPES[intent] },
+      { name: 'labware_customer', value: value('f-lw') }
+    ];
+    if (value('f-role')) fields.push({ name: 'jobtitle', value: value('f-role') });
+
+    var failText = 'Sorry, we couldn\'t confirm your request went through. Please try again, or email us at ' +
+      '<a href="mailto:' + SALES_EMAIL + '">' + SALES_EMAIL + '</a>.';
+    submitLabwareRequest(fields).then(function (received) {
+      if (received) { showThanks(); return; }
+      // Not confirmed: say so honestly and keep what they typed (the team still gets an alert email)
+      errorBox.innerHTML = failText;
+      errorBox.classList.add('show');
+      button.textContent = 'Send request';
+      button.disabled = false;
+    }).catch(function (error) {
+      console.error('Error:', error);
+      errorBox.innerHTML = failText;
+      errorBox.classList.add('show');
+      button.textContent = 'Send request';
+      button.disabled = false;
+    });
+  });
+})();
+</script>
+</body>
+</html>
